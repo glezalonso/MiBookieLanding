@@ -42,7 +42,7 @@ const SectionLeaguesBySport = ({ sport }) => {
             </tbody>
 
         </Table>
-          : <Alert></Alert>
+          : <Alert variant='warning'> there is no leagues to show!</Alert>
         }
         </>
   )

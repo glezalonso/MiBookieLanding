@@ -14,7 +14,7 @@ const Seasons = () => {
   const { data: season, isLoading, isError } = useGetSeason(id)
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load sports')
+  if (isError) return toast.error('Failed to load season')
 
   return (
         <>

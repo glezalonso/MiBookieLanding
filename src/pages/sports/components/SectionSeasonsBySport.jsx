@@ -10,7 +10,7 @@ const SectionSeasonsBySport = ({ sport }) => {
   const { data: seasons, isLoading, isError } = useGetSeasons()
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load matches')
+  if (isError) return toast.error('Failed to load seasons')
 
   const seasonsBySport = seasons?.filter(season => season?.sport?._id === sport?._id)
 

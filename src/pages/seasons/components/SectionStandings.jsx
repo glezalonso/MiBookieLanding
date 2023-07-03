@@ -2,6 +2,11 @@ import React from 'react'
 import { Alert, Table } from 'react-bootstrap'
 
 const SectionStandings = ({ season }) => {
+  // counter
+  let i = 1
+
+  // SoccerID
+  const ID_SOCCER = '648f71dea4ba8860dfe3830f'
   const sort = season?.standings?.sort((a, b) => {
     return b.wins - a.wins
   })
@@ -13,6 +18,7 @@ const SectionStandings = ({ season }) => {
       <Table responsive variant='dark' style={{ fontSize: '15px' }} >
         <thead>
             <tr>
+              <th>Rank</th>
               <th>
                 Team
               </th>
@@ -25,19 +31,23 @@ const SectionStandings = ({ season }) => {
              <th>
               draws
              </th>
-             <th>
-              points
-             </th>
+             {season?.sport?._id === ID_SOCCER
+               ? <th>points</th>
+               : null}
             </tr>
         </thead>
         <tbody>
           {sort.map(stands => (
             <tr key={stands?.team?._id}>
+              <td>{i++}</td>
               <td>{stands.team?.name}</td>
               <td>{stands?.wins}</td>
               <td>{stands?.loses}</td>
               <td>{stands.draws}</td>
-              <td>{season?.sport?._id === '648f71dea4ba8860dfe3830f' ? stands?.wins * 3 + stands?.draws : null }</td>
+              {season?.sport?._id === ID_SOCCER
+                ? <td>{season?.sport?._id === ID_SOCCER ? stands?.wins * 3 + stands?.draws : null }</td>
+                : null}
+
             </tr>
           ))}
         </tbody>

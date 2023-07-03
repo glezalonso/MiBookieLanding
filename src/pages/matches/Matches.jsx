@@ -12,7 +12,7 @@ const Matches = () => {
   const { data: match, isLoading, isError } = useGetMatch(id)
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load sports')
+  if (isError) return toast.error('Failed to load matches')
 
   return (
         <>
