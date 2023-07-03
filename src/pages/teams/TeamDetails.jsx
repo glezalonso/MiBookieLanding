@@ -22,23 +22,23 @@ const TeamDetails = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
         <Row className='m-2 p-2 mx-auto'>
-            <Col md={10} className='border rounded mx-auto p-2'>
+            <Col md={10} className='border rounded mx-auto p-2 fs-4'>
                 <CardTeam team={team} />
             </Col>
         </Row>
         <Row className='m-2 p-2 mx-auto'>
-            <Col md={12} className='border rounded mx-auto p-2'>
+            <Col md={12} className='border rounded mx-auto p-2 fs-4'>
                 <h5 className="h7">Stats</h5>
                 <SectionStats />
 
             </Col>
         </Row>
         <Row className='m-2 p-2 mx-auto'>
-            <Col md={6} className='border rounded mx-auto p-2'>
+            <Col md={6} className='border rounded mx-auto p-2 fs-4'>
                 <h5 className="h7">Matches</h5>
                 <SectionMatches team={team} />
             </Col>
-            <Col md={6} className='border rounded mx-auto p-2'>
+            <Col md={6} className='border rounded mx-auto p-2 fs-4'>
                 <h5 className="h7">Roster</h5>
                 <SectionRoster team={team} />
             </Col>

@@ -26,7 +26,7 @@ const SectionSeasonsBySport = ({ sport }) => {
         </div>
           {seasonsByFilter?.length > 0
             ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
-          <Table responsive variant='dark' style={{ fontSize: '15px' }} >
+          <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
             <thead>
               <tr>
                 <th>

@@ -21,12 +21,12 @@ const Rounds = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
         <Row className='m-2 p-2 mx-auto'>
-          <Col md={10} className='border rounded mx-auto p-2' >
+          <Col md={10} className='border rounded mx-auto p-2 fs-4' >
             <CardRound round={round} />
           </Col>
         </Row>
-          <Row className='m-2 p-2 mx-auto'>
-          <Col md={12} className='border rounded mx-auto p-2' >
+          <Row className='m-2 p-2 fs-4 mx-auto'>
+          <Col md={12} className='border rounded mx-auto p-2 fs-4' >
              <h5 className="h7"> Matches</h5>
              <SectionMatches round={round} />
           </Col>

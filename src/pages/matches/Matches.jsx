@@ -20,7 +20,7 @@ const Matches = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
         <Row className='m-2 p-2 mx-auto'>
-          <Col className='border rounded mx-auto p-2' >
+          <Col className='border rounded mx-auto p-2 fs-4' >
             <CardMatch match={match} />
           </Col>
         </Row>

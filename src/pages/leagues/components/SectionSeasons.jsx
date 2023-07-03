@@ -17,7 +17,7 @@ const SectionSeasons = ({ league }) => {
         <>
         {seasonByLeague?.length > 0
           ? <div className='my-scrollbar table-scroll-y p-1'>
-            <Table responsive variant='dark' size='sm' style={{ fontSize: '15px' }} >
+            <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
             <thead>
                 <tr>
                     <th>Season</th>

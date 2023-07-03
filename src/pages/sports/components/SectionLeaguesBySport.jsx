@@ -24,7 +24,7 @@ const SectionLeaguesBySport = ({ sport }) => {
         <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {leaguesFilter?.length > 0
-          ? <Table responsive variant="dark" style={{ fontSize: '13px' }} hover>
+          ? <Table responsive variant="dark table-sm" style={{ fontSize: '13px' }} hover>
             <thead>
                 <tr>
                   <th>

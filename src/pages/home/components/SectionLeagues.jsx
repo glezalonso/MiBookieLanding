@@ -23,7 +23,7 @@ const SectionLeagues = () => {
         <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
         </div>
 
-        <Table responsive variant="dark" style={{ fontSize: '13px' }} hover>
+        <Table responsive variant="dark table-sm" style={{ fontSize: '13px' }} hover>
             <tbody>
             {leaguesByFilter?.map(league => (
                 <tr key={league?._id}>

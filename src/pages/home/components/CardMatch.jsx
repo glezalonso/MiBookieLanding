@@ -29,14 +29,14 @@ const CardMatch = ({ match }) => {
 
   return (
         <>
-         <div className="my-3" key={match?._id}>
+         <div className="my-3" >
               <Card >
               <Card.Header>
-              <Card.Title>{match?.away?.name} @ {match?.local?.name} <Link to={`../matches/${match?._id}`} className='btn btn-dark btn-sm'>Details</Link></Card.Title>
-               <Card.Subtitle className='m-1'>Date: {match?.date?.split('T').reverse().join(' ')}</Card.Subtitle>
-               <Card.Subtitle className='m-1'>Stadium: {match?.local?.stadium}</Card.Subtitle>
-                <Card.Subtitle className='m-1'>{match?.season?.season}</Card.Subtitle>
-                <Button className='d-flex ronded m-1 btn btn-dark btn-sm' onClick={() => setShow(!show)}>{show ? <>Close comments</> : <>Show comments</>}</Button>
+              <Card.Title style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} @ {match?.local?.name} <Link to={`../matches/${match?._id}`} className='btn btn-dark btn-sm m-1' style={{ fontSize: '12px' }}>Details</Link></Card.Title>
+               <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>Date: {match?.date?.split('T').reverse().join(' ')}</Card.Subtitle>
+               <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>Stadium: {match?.local?.stadium}</Card.Subtitle>
+                <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>{match?.season?.season}</Card.Subtitle>
+                <Button className='d-flex ronded m-1 btn btn-dark btn-sm ' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Close comments</> : <>Show comments</>}</Button>
               </Card.Header>
               <div style={show ? { maxHeight: '200px', overflow: 'auto' } : { display: 'none' } }>
                   {match?.comments?.length > 0
@@ -44,22 +44,22 @@ const CardMatch = ({ match }) => {
                     {match?.comments?.map(comment => (
                       (comment?.username === username)
                         ? <div className="d-flex flex-row justify-content-end m-1 " key={comment?._id}>
-                            <div className="p-2 ms-5 border rounded text-end " >
-                                <strong className='text-dark'>{comment?.username}:</strong>
+                            <div className="p-2 ms-5 border rounded text-end " style={{ margin: '1px', fontSize: '12px' }} >
+                                <strong className='text-dark' style={{ marginRight: '2px', fontSize: '12px' }} >{comment?.username}:</strong>
                                 {comment?.comment} <XCircleFill color='red' onClick={() => handleRemove(comment?.comment, comment?._id, match?._id)} />
                             </div></div>
                         : <div className="d-flex flex-row justify-content-start m-1" key={comment?._id}>
-                            <div className="p-2 border rounded bg-dark text-light " ><strong>{comment?.username}:  </strong>{comment?.comment}</div></div>
+                            <div className="p-2 border rounded bg-dark text-light "style={{ margin: '1px', fontSize: '12px' }} ><strong style={{ marginRight: '2px', fontSize: '12px' }}>{comment?.username}:  </strong>{comment?.comment}</div></div>
                     ))}
                  </Card.Body>
                     : <Alert variant='warning'>there is no comments to show!</Alert>}
                  </div>
               <Card.Footer>
 
-                <div className='mx-auto p-2 w-100'>
+                <div className='mx-auto p-1 w-100'>
                 <Form onSubmit={e => handleSubmit(e, match?._id)}>
-                <FormControl as="textarea" rows={1} name='comment' placeholder='Enter your comment' disabled={isDisable} value={comment} onChange={ e => setComment(e.target.value)}/>
-                <Button type='submit' className='btn btn-warning btn-sm m-1'>Comment</Button>
+                <FormControl as="textarea" rows={1} name='comment' style={{ fontSize: '12px' }} placeholder='Enter your comment' disabled={isDisable} value={comment} onChange={ e => setComment(e.target.value)}/>
+                <Button type='submit' style={{ fontSize: '12px' }} className='btn btn-warning btn-sm m-1'>Comment</Button>
                 </Form>
                 </div>
               </Card.Footer>

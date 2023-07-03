@@ -12,11 +12,11 @@ const Home = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
         <Row className='m-2 p-2 mx-auto'>
-        <Col md={9} className='border rounded mx-auto p-2' >
+        <Col md={9} className='border rounded mx-auto p-2 fs-4' >
         <h5 className="h7">Today Matches</h5>
         <SectionMatches />
         </Col>
-        <Col md={3} className='border rounded mx-auto p-2'>
+        <Col md={3} className='border rounded mx-auto p-2 fs-4' >
         <h5 className="h7">All Leagues</h5>
           <SectionLeagues />
         </Col>

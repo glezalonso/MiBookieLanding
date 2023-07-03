@@ -21,16 +21,16 @@ const Leagues = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid>
           <Row className='m-2 p-2 mx-auto '>
-            <Col className='border rounded mx-auto p-2'>
+            <Col className='border rounded mx-auto p-2 fs-4'>
               <SectionLeague league={league} />
             </Col>
           </Row>
           <Row className='m-2 p-2 mx-auto'>
-            <Col md={4} className='border rounded mx-auto p-3'>
+            <Col md={4} className='border rounded mx-auto p-3 fs-4'>
             <h5 className="h7">Seasons avalible</h5>
             <SectionSeasons league={league} />
             </Col>
-            <Col md={8} className='border rounded mx-auto p-3' >
+            <Col md={8} className='border rounded mx-auto p-3 fs-4' >
             <h5 className="h7">Next matches</h5>
             <SectionMatches league={league} />
             </Col>
