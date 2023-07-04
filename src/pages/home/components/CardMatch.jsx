@@ -32,8 +32,9 @@ const CardMatch = ({ match }) => {
          <div className="my-3" >
               <Card >
               <Card.Header>
-              <Card.Title className='fs-6 text-end'>{match?.status ? <span className='text-success'>Open!</span> : <span className='text-danger'>Finished!</span>}</Card.Title>
-              <Card.Title style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} {match?.score?.map(score => score?.away)} @ {match?.local?.name} {match?.score?.map(score => score?.local)}<Link to={`../matches/${match?._id}`} className='btn btn-dark btn-sm m-1' style={{ fontSize: '12px' }}>Details</Link></Card.Title>
+              <div className='d-flex justify-content-end fs-6'>{match?.status ? <span className='text-success '>Open!</span> : <span className='text-danger'>Finished!</span>}</div>
+              <Card.Title style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} {match?.score?.map(score => score?.away)} @ {match?.local?.name} {match?.score?.map(score => score?.local)}
+              <Link to={`../matches/${match?._id}`} className='btn btn-dark btn-sm m-1' style={{ fontSize: '12px' }}>Details</Link></Card.Title>
                <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>Date: {match?.date?.split('T').reverse().join(' ')}</Card.Subtitle>
                <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>Stadium: {match?.local?.stadium}</Card.Subtitle>
                 <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>{match?.season?.season}</Card.Subtitle>
