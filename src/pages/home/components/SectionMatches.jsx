@@ -20,7 +20,7 @@ const SectionMatches = () => {
 
   const matchFilter = matchesToday?.filter(match => {
     if (!filter) return match
-    return match?.local?.name?.toLowerCase().includes(filter.toLowerCase()) || match?.local?.name?.toLowerCase().includes(filter.toLowerCase())
+    return match?.local?.name?.toLowerCase().includes(filter.toLowerCase()) || match?.away?.name?.toLowerCase().includes(filter.toLowerCase())
   })
 
   return (

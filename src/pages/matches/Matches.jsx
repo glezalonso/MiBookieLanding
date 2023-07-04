@@ -5,6 +5,7 @@ import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
 import { Container, Row, Col } from 'react-bootstrap'
 import CardMatch from '../home/components/CardMatch'
+import SectionLineUps from './components/SectionLineUps'
 import { useGetMatch } from '../../features/matches.features'
 
 const Matches = () => {
@@ -24,9 +25,8 @@ const Matches = () => {
             <CardMatch match={match} />
           </Col>
         </Row>
-        <Row>
-          <Col>
-          </Col>
+        <Row className='m-2 p-2 mx-auto'>
+            <SectionLineUps match={match} />
         </Row>
        </Container>
         </>
