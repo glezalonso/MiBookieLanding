@@ -14,7 +14,11 @@ const SectionRounds = ({ season }) => {
 
   const roundsBySeason = rounds?.filter(round => round?.season?._id === season?._id)
 
-  const filterRounds = roundsBySeason?.filter(round => {
+  const sort = roundsBySeason?.sort((a, b) => {
+    return b.roundNumber - a.roundNumber
+  })
+
+  const filterRounds = sort?.filter(round => {
     if (!filter) return round
     return round?.round?.toLowerCase().includes(filter.toLowerCase())
   })

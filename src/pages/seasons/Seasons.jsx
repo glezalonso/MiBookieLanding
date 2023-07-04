@@ -22,7 +22,7 @@ const Seasons = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
         <Row className='m-2 p-2 mx-auto'>
-          <Col md={10} className='border rounded mx-auto p-2 fs-4' >
+          <Col md={10} className='border rounded mx-auto p-2 ' >
            <CardSeason season={season} />
           </Col>
         </Row>

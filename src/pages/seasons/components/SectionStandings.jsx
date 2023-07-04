@@ -8,7 +8,11 @@ const SectionStandings = ({ season }) => {
   // SoccerID
   const ID_SOCCER = '648f71dea4ba8860dfe3830f'
   const sort = season?.standings?.sort((a, b) => {
-    return b.wins - a.wins
+    if (b.wins !== a.wins) {
+      return b.wins - a.wins
+    } else {
+      return b.draws - a.draws
+    }
   })
 
   return (
