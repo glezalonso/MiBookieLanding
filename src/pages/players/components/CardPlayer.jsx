@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 const CardPlayer = ({ player }) => {
   return (
         <>
+        <section>
         <Card>
             <Card.Header>
                 <Card.Img src={player?.poster} alt={`image ${player?.fullName}`}/>
@@ -16,6 +17,7 @@ const CardPlayer = ({ player }) => {
                 </Card.Body>
             </Card.Header>
         </Card>
+        </section>
         </>
   )
 }

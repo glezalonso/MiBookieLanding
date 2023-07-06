@@ -21,12 +21,15 @@ const SectionPlayerBySport = ({ sport }) => {
 
   return (
         <>
+        <section >
+        <h5 className="h7">{sport?.sport} players</h5>
+
          <div className='m-2 p-2'>
         <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {playersByFilter.length > 0
           ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
-        <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
+        <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover >
           <thead>
             <tr>
             <th>
@@ -53,8 +56,8 @@ const SectionPlayerBySport = ({ sport }) => {
           </tbody>
           </Table>
           </div>
-          : <Alert variant='warning'>There is no players to show!</Alert>}
-
+          : <Alert variant='warning'>There are no players to show!</Alert>}
+          </section>
         </>
   )
 }

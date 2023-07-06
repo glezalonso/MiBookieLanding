@@ -28,17 +28,14 @@ const PlayerDetails = () => {
             </Row>
             <Row className='m-2 p-2 mx-auto'>
                 <Col md={12} className='border rounded mx-auto p-2 fs-4'>
-                <h5 className="h7">Stats</h5>
                     <SectionStats />
                 </Col>
             </Row>
             <Row className='m-2 p-2 mx-auto'>
                 <Col md={6} className='border rounded mx-auto p-2 fs-4'>
-                <h5 className="h7">Matches</h5>
                 <SectionMatches player={player} />
                 </Col>
                 <Col md={6} className='border rounded mx-auto p-2 fs-4'>
-                <h5 className="h7">Standings</h5>
                 <SectionStandings player={player} />
                 </Col>
             </Row>

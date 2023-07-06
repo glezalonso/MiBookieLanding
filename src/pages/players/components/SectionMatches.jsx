@@ -21,6 +21,9 @@ const SectionMatches = ({ player }) => {
 
   return (
         <>
+        <section>
+        <h5 className="h7">Matches</h5>
+
            <div className='m-2 p-2'>
         <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
         </div>
@@ -53,7 +56,8 @@ const SectionMatches = ({ player }) => {
             </tbody>
           </Table>
           </div>
-          : <Alert variant='warning'>There is no matches to show!</Alert>}
+          : <Alert variant='warning'>There are no matches to show!</Alert>}
+           </section>
         </>
 
   )

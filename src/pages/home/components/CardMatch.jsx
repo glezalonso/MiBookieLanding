@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Form, FormControl, Button, Alert } from 'react-bootstrap'
-import { XCircleFill } from 'react-bootstrap-icons'
+import { XCircleFill, ChatDotsFill } from 'react-bootstrap-icons'
 import { useAddComment, useRemoveComment } from '../../../features/matches.features'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
@@ -29,16 +29,16 @@ const CardMatch = ({ match }) => {
 
   return (
         <>
-         <div className="my-3" >
+         <section className="my-3" >
               <Card >
-              <Card.Header>
-              <div className='d-flex justify-content-end fs-6'>{match?.status ? <span className='text-success '>Open!</span> : <span className='text-danger'>Finished!</span>}</div>
-              <Card.Title style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} {match?.score?.map(score => score?.away)} @ {match?.local?.name} {match?.score?.map(score => score?.local)}
-              <Link to={`../matches/${match?._id}`} className=' btn btn-dark btn-sm m-1' style={{ fontSize: '12px' }}>Details</Link></Card.Title>
-               <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>Date: {match?.date?.split('T').reverse().join(' ')}</Card.Subtitle>
-                <Card.Subtitle style={{ marginTop: '5px', fontSize: '15px' }}>{match?.season?.season}</Card.Subtitle>
+              <Card.Header style={{ background: '#EEEEEE' }}>
+              <div className='d-flex flex-row justify-content-end '>{match?.status ? <span className=' bg-success text-light rounded p-1 '>Open!</span> : <span className='bg-danger text-light rounded p-1'>Finished!</span>}</div>
+              <h1 style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} {match?.score?.map(score => score?.away)} @ {match?.local?.name} {match?.score?.map(score => score?.local)}
+              <Link to={`../matches/${match?._id}`} className='btn btn-dark btn-sm  mx-1' style={{ fontSize: '12px' }}> Details</Link>
+              </h1>
+               <p style={{ fontSize: '13px' }}>Date: {match?.date?.split('T').reverse().join(' ')} <span><strong>{match?.season?.season}</strong></span></p>
                 {match?.status
-                  ? <Button className='d-flex ronded m-1 btn btn-dark btn-sm ' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Close comments</> : <>Show comments</>}</Button>
+                  ? <Button className='btn btn-dark btn-sm text-light d-flex align-items-center' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Close comments</> : <><ChatDotsFill className='mx-1'/>  {match?.comments?.length}  comments</>}</Button>
                   : null
                }
               </Card.Header>
@@ -56,19 +56,19 @@ const CardMatch = ({ match }) => {
                             <div className="p-2 border rounded bg-dark text-light "style={{ margin: '1px', fontSize: '12px' }} ><strong style={{ marginRight: '2px', fontSize: '12px' }}>{comment?.username}:  </strong>{comment?.comment}</div></div>
                     ))}
                  </Card.Body>
-                    : <Alert variant='warning'>there is no comments to show!</Alert>}
+                    : <Alert variant='warning mx-3 m-1'>there are no comments to show!</Alert>}
                  </div>
               <Card.Footer style={ !match?.status ? { display: 'none' } : { display: 'contents' } }>
 
                 <div className='mx-auto p-1 w-100'>
                 <Form onSubmit={e => handleSubmit(e, match?._id)}>
                 <FormControl as="textarea" rows={1} name='comment' style={{ fontSize: '12px' }} placeholder='Enter your comment' disabled={isDisable} value={comment} onChange={ e => setComment(e.target.value)}/>
-                <Button type='submit' style={{ fontSize: '12px' }} className='btn btn-warning btn-sm m-1'>Comment</Button>
+                <div className="float-end mt-1"><Button type='submit' style={{ fontSize: '12px' }} className='btn btn-warning btn-sm m-1'>Comment</Button></div>
                 </Form>
                 </div>
               </Card.Footer>
             </Card>
-            </div>
+            </section>
         </>
   )
 }

@@ -3,6 +3,7 @@ import { Card } from 'react-bootstrap'
 const CardSeason = ({ season }) => {
   return (
         <>
+        <section>
         <Card>
             <Card.Body>
                 <Card.Title>{season?.season}</Card.Title>
@@ -12,6 +13,7 @@ const CardSeason = ({ season }) => {
                 <Card.Text>Status: {season?.status ? <span className='text-success'>Current</span> : <span className='text-danger'>Closed</span>}</Card.Text>
             </Card.Body>
         </Card>
+        </section>
         </>
   )
 }

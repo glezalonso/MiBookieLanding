@@ -14,20 +14,23 @@ const SectionMatches = ({ team }) => {
 
   const matchesByPlayer = matches?.filter(match => match?.status === true && (match?.away?._id === team?._id || match?.local?._id === team?._id))
 
-  const MatchesByFilter = matchesByPlayer?.filter(matches => {
+  const matchesByFilter = matchesByPlayer?.filter(matches => {
     if (!filter) return matches
     return matches?.away?.name?.toLowerCase().includes(filter.toLowerCase()) || matches?.local?.name?.toLowerCase().includes(filter.toLowerCase())
   })
 
   return (
         <>
+        <section >
+        <h5 className="h7">Matches</h5>
+
            <div className='m-2 p-2'>
         <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
         </div>
 
-        {MatchesByFilter?.length > 0
+        {matchesByFilter?.length > 0
           ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
-          <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
+          <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} >
             <thead>
                 <tr>
 
@@ -39,7 +42,7 @@ const SectionMatches = ({ team }) => {
                 </tr>
             </thead>
             <tbody >
-              {MatchesByFilter?.map(match => (
+              {matchesByFilter?.map(match => (
                 <tr key={match?._id}>
 
                     <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../rounds/${match?.round?._id}`}>{match?.round?.round}</Link></td>
@@ -51,9 +54,11 @@ const SectionMatches = ({ team }) => {
                 </tr>
               ))}
             </tbody>
+            <caption>Total matches: {matchesByFilter?.length}</caption>
           </Table>
           </div>
-          : <Alert variant='warning'>There is no matches to show!</Alert>}
+          : <Alert variant='warning'>There are no matches to show!</Alert>}
+          </section>
         </>
 
   )

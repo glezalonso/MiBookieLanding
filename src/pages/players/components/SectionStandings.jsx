@@ -19,6 +19,9 @@ const SectionStandings = ({ player }) => {
 
   return (
     <>
+    <section>
+    <h5 className="h7">Standings</h5>
+
     {sort?.length > 0
       ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
       <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
@@ -58,7 +61,8 @@ const SectionStandings = ({ player }) => {
         </tbody>
       </Table>
       </div>
-      : <Alert variant='warning'>There is no standings to show</Alert>}
+      : <Alert variant='warning'>There are no standings to show</Alert>}
+       </section>
     </>
   )
 }

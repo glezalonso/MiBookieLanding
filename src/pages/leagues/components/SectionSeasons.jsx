@@ -15,6 +15,9 @@ const SectionSeasons = ({ league }) => {
 
   return (
         <>
+        <section>
+        <h5 className="h7">Seasons available</h5>
+
         {seasonByLeague?.length > 0
           ? <div className='my-scrollbar table-scroll-y p-1'>
             <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
@@ -34,7 +37,8 @@ const SectionSeasons = ({ league }) => {
             </tbody>
           </Table>
           </div>
-          : <Alert variant='warning'>there is no seasons to show!</Alert>}
+          : <Alert variant='warning'>there are no seasons to show!</Alert>}
+           </section>
         </>
   )
 }

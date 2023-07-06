@@ -28,11 +28,9 @@ const Seasons = () => {
         </Row>
         <Row className='m-2 p-2 mx-auto'>
           <Col md={6} className='border rounded mx-auto p-2 fs-4' >
-          <h5 className="h7"> Rounds</h5>
           <SectionRounds season={season} />
           </Col>
           <Col md={6} className='border rounded mx-auto p-2 fs-4' >
-          <h5 className="h7"> Standings</h5>
           <SectionStandings season={season} />
           </Col>
         </Row>

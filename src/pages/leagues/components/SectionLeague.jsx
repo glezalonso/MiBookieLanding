@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap'
 const SectionLeague = ({ league }) => {
   return (
         <>
+        <section>
         <Card >
             <Card.Header>
                 <Card.Title>{league?.league}</Card.Title>
@@ -13,7 +14,7 @@ const SectionLeague = ({ league }) => {
                 <Card.Text>Sport: {league?.sport?.sport}</Card.Text>
             </Card.Body>
         </Card>
-
+        </section>
         </>
   )
 }

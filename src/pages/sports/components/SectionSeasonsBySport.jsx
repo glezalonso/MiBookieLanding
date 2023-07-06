@@ -21,12 +21,14 @@ const SectionSeasonsBySport = ({ sport }) => {
 
   return (
         <>
+        <section >
+        <h5 className="h7">{sport?.sport} seasons</h5>
         <div className='m-2 p-3'>
         <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
         </div>
           {seasonsByFilter?.length > 0
             ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
-          <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
+          <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover>
             <thead>
               <tr>
                 <th>
@@ -53,8 +55,8 @@ const SectionSeasonsBySport = ({ sport }) => {
 
           </Table>
           </div>
-            : <Alert variant='warning'>Thres is no seasons to show!</Alert>}
-
+            : <Alert variant='warning'>Thres are no seasons to show!</Alert>}
+          </section>
         </>
   )
 }

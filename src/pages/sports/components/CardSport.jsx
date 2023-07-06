@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap'
 const CardSport = ({ sport }) => {
   return (
         <>
+        <section>
         <Card>
           <Card.Header>
             <Card.Img src={sport?.poster} alt={`image ${sport.sport}`} />
@@ -11,6 +12,7 @@ const CardSport = ({ sport }) => {
           <Card.Subtitle>Description: {sport?.description}</Card.Subtitle>
           </Card.Header>
         </Card>
+        </section>
         </>
   )
 }

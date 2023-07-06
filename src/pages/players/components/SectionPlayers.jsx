@@ -18,6 +18,9 @@ const SectionPlayers = () => {
   })
   return (
         <>
+        <section>
+        <h5 className="h7">All Players</h5>
+
         <div className='m-2 p-2'>
         <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
         </div>
@@ -66,8 +69,8 @@ const SectionPlayers = () => {
                 </tbody>
             </Table>
             </div>
-          : <Alert variant='warning'>There is no players to show!</Alert>}
-
+          : <Alert variant='warning'>There are no players to show!</Alert>}
+          </section>
         </>
   )
 }

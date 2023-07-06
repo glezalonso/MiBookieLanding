@@ -30,21 +30,17 @@ const Sports = () => {
         </Row>
         <Row className='m-2 p-2 mx-auto'>
           <Col md={4} className='border rounded mx-auto p-2 fs-4' >
-          <h5 className="h7">{sport?.sport} Leagues</h5>
          <SectionLeaguesBySport sport={sport} />
           </Col>
           <Col md={8} className='border rounded mx-auto p-2 fs-4'>
-          <h5 className="h7">{sport?.sport} Matches</h5>
           <SectionNextMatches sport={sport} />
           </Col>
         </Row>
         <Row className='m-2 p-2 mx-auto'>
         <Col md={4} className='border rounded mx-auto p-2 fs-4'>
-        <h5 className="h7">{sport?.sport} Seasons</h5>
         <SectionSeasonsBySport sport={sport} />
         </Col >
         <Col md={8} className='border rounded mx-auto p-2 fs-4'>
-        <h5 className="h7">{sport?.sport} Players</h5>
         <SectionPlayersBySport sport={sport} />
         </Col>
         </Row>

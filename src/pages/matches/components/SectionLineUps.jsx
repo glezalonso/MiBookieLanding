@@ -5,6 +5,7 @@ const SectionLineUps = ({ match }) => {
   return (
     <>
     <Col md={5} className='border rounded mx-auto p-3 fs-4'>
+      <section>
     <h5 className="h7">Away Lineup</h5>
     { match?.lineup?.length > 0
 
@@ -25,9 +26,11 @@ const SectionLineUps = ({ match }) => {
           )))}
     </tbody>
       </Table>
-      : <Alert variant='warning'>There is no lineups to show!</Alert>}
+      : <Alert variant='warning'>There are no lineups to show!</Alert>}
+      </section>
     </Col>
     <Col md={5} className='border rounded mx-auto p-3 fs-4'>
+      <section>
     <h5 className="h7">Local Lineup</h5>
     { match?.lineup?.length > 0
 
@@ -48,7 +51,8 @@ const SectionLineUps = ({ match }) => {
           )))}
     </tbody>
       </Table>
-      : <Alert variant='warning'>There is no lineups to show!</Alert>}
+      : <Alert variant='warning'>There are no lineups to show!</Alert>}
+      </section>
     </Col>
     </>
   )
