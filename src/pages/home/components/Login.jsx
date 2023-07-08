@@ -43,7 +43,10 @@ const Login = ({ show, handleClose, handleRegister }) => {
         </Button>
     </Form>
     </Modal.Body>
-    <Modal.Footer>Are you not a member? <Link onClick={() => handleRegister()}>Create account </Link></Modal.Footer>
+    <Modal.Footer>
+    <div className='d-flex flex-row justify-content-start text-start mx-auto'><div className='text-start'><Link to={'../generate'}>Forget my password</Link></div></div>
+    <div className='d-flex flex-row justify-content-end mx-auto'><div className='text-end'>Are you not a member? <Link onClick={() => handleRegister()}>Create account </Link></div></div>
+    </Modal.Footer>
    </Modal>
     </>
   )

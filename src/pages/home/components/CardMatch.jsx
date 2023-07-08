@@ -31,14 +31,14 @@ const CardMatch = ({ match }) => {
         <>
          <section className="my-3" >
               <Card >
-              <Card.Header style={{ background: '#EEEEEE' }}>
+              <Card.Header className='bg-dark text-light'>
               <div className='d-flex flex-row justify-content-end '>{match?.status ? <span className=' bg-success text-light rounded p-1 '>Open!</span> : <span className='bg-danger text-light rounded p-1'>Finished!</span>}</div>
               <h1 style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} {match?.score?.map(score => score?.away)} @ {match?.local?.name} {match?.score?.map(score => score?.local)}
-              <Link to={`../matches/${match?._id}`} className='btn btn-dark btn-sm  mx-1' style={{ fontSize: '12px' }}> Details</Link>
+              <Link to={`../matches/${match?._id}`} className='btn btn-secondary btn-sm  mx-1' style={{ fontSize: '12px' }}> Details</Link>
               </h1>
                <p style={{ fontSize: '13px' }}>Date: {match?.date?.split('T').reverse().join(' ')} <span><strong>{match?.season?.season}</strong></span></p>
                 {match?.status
-                  ? <Button className='btn btn-dark btn-sm text-light d-flex align-items-center' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Close comments</> : <><ChatDotsFill className='mx-1'/>  {match?.comments?.length}  comments</>}</Button>
+                  ? <Button className='btn btn-secondary btn-sm text-light d-flex align-items-center' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Close comments</> : <><ChatDotsFill className='mx-1'/>  {match?.comments?.length}  comments</>}</Button>
                   : null
                }
               </Card.Header>

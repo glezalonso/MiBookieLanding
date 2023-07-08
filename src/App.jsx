@@ -11,6 +11,9 @@ import PlayerDetails from './pages/players/PlayersDetails'
 import Teams from './pages/teams/Teams'
 import TeamDetails from './pages/teams/TeamDetails'
 import News from './pages/news/News'
+import GenerateCode from './pages/home/components/GenerateCode'
+import VerifyCode from './pages/home/components/VerifyCode'
+import ResetPassword from './pages/home/components/ResetPassword'
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
 
@@ -27,6 +30,9 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/news'element={<News />} />
+      <Route path='/generate' element={<GenerateCode />} />
+      <Route path='/verify' element={<VerifyCode />} />
+      <Route path='/reset' element={<ResetPassword />} />
       <Route path='/players' element={<Players />} />
       <Route path='/players/:id' element={<PlayerDetails />} />
       <Route path='/teams' element={<Teams />} />

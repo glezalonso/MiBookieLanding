@@ -20,3 +20,21 @@ export const validateLogin = (values) => {
   if (values.password.length < 8) return toast.error('the password mast hace at least 8 characters')
   if (values.password.includes(' ')) return toast.error(' the password must not have includes spaces')
 }
+export const validateEmail = (values) => {
+  if (!values.email) return toast.error('Email is required')
+}
+
+export const validateOTP = (values) => {
+  if (!values.OTP) return toast.error('OTP is required')
+  if (values.OTP.length === 6) return toast.error('OTP must have 6 characters')
+}
+
+export const validateResetPassword = (values) => {
+  if (!values.password) return toast.error('Password is required')
+  if (!values.confirmPassword) return toast.error('Password is required')
+  if (values.password.length < 8) return toast.error('Password must contain at least 8 characters')
+  if (values.confirmPassword.length < 8) return toast.error('confirm password must contain at least 8 characters')
+  if (values.password.includes(' ')) return toast.error('Password must not include spaces')
+  if (values.confirmPassword.includes(' '))toast.error('Password must not include spaces')
+  if (values.password !== values.confirmPassword) toast.error('Passwods must be equals')
+}
