@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/home/Home'
 import Matches from './pages/matches/Matches'
@@ -10,8 +10,15 @@ import Players from './pages/players/Players'
 import PlayerDetails from './pages/players/PlayersDetails'
 import Teams from './pages/teams/Teams'
 import TeamDetails from './pages/teams/TeamDetails'
-
+import { useAuthStore } from './store/authorization'
+import decode from 'jwt-decode'
 const App = () => {
+  const token = useAuthStore(state => state.auth)
+  const logOut = useAuthStore(state => state.logOut)
+
+  useEffect(() => {
+    if (token && Date.now() >= decode(token).exp * 1000) return logOut()
+  }, [])
   return (
     <>
     <BrowserRouter>
