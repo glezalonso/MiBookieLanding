@@ -10,8 +10,10 @@ import Players from './pages/players/Players'
 import PlayerDetails from './pages/players/PlayersDetails'
 import Teams from './pages/teams/Teams'
 import TeamDetails from './pages/teams/TeamDetails'
+import News from './pages/news/News'
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
+
 const App = () => {
   const token = useAuthStore(state => state.auth)
   const logOut = useAuthStore(state => state.logOut)
@@ -24,6 +26,7 @@ const App = () => {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<Home />} />
+      <Route path='/news'element={<News />} />
       <Route path='/players' element={<Players />} />
       <Route path='/players/:id' element={<PlayerDetails />} />
       <Route path='/teams' element={<Teams />} />
