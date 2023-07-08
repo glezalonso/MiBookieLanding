@@ -35,7 +35,7 @@ const VerifyCode = () => {
         <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Code</Form.Label>
-          <Form.Control {...formik.getFieldProps('OTP')} type="number" name='OTP' id='OTP' placeholder="Enter code" />
+          <Form.Control {...formik.getFieldProps('OTP')} type="text" name='OTP' id='OTP' placeholder="Enter code" />
         </Form.Group>
         <Link className='btn btn-dark' to={'../'}>Close</Link>
         <Button variant="warning" type="submit">
