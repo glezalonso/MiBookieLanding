@@ -17,13 +17,13 @@ const CardMatch = ({ match }) => {
 
   const handleSubmit = (e, match) => {
     e.preventDefault()
-    if (!username) return toast.error('You must be log in')
+    if (!username) return toast.error('Debes iniciar sesión para comentar')
     addComment.mutate({ id: match, body: { comment, username } })
     setComment('')
   }
 
   const handleRemove = (comment, commentId, matchId) => {
-    const sure = confirm('Want to delete?')
+    const sure = confirm('Quieres borrar el comentario?')
     if (sure) return removeComment.mutate({ id: matchId, body: { comment, commentId, username } })
   }
 
@@ -37,12 +37,9 @@ const CardMatch = ({ match }) => {
               <Link to={`../matches/${match?._id}`} className='btn btn-secondary btn-sm  mx-1' style={{ fontSize: '12px' }}> Detalles</Link>
               </h1>
                <p style={{ fontSize: '13px' }}>Date: {match?.date?.split('T').reverse().join(' ')} <span><strong>{match?.season?.season}</strong></span></p>
-                {match?.status
-                  ? <Button className='btn btn-secondary btn-sm text-light d-flex align-items-center' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Cerrar comentarios</> : <><ChatDotsFill className='mx-1'/>  {match?.comments?.length}  comentarios</>}</Button>
-                  : null
-               }
+                  <Button className='btn btn-secondary btn-sm text-light d-flex align-items-center' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Cerrar comentarios</> : <><ChatDotsFill className='mx-1'/>  {match?.comments?.length}  comentarios</>}</Button>
               </Card.Header>
-              <div style={ match?.status && show ? { maxHeight: '200px', overflow: 'auto' } : { display: 'none' } }>
+              <div style={ show ? { maxHeight: '200px', overflow: 'auto' } : { display: 'none' } }>
                   {match?.comments?.length > 0
                     ? <Card.Body >
                     {match?.comments?.map(comment => (
@@ -58,7 +55,7 @@ const CardMatch = ({ match }) => {
                  </Card.Body>
                     : <Alert variant='warning mx-3 m-1'>No hay comentarios para mostrar!</Alert>}
                  </div>
-              <Card.Footer style={ !match?.status ? { display: 'none' } : { display: 'contents' } }>
+              <Card.Footer>
 
                 <div className='mx-auto p-1 w-100'>
                 <Form onSubmit={e => handleSubmit(e, match?._id)}>
