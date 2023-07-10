@@ -26,17 +26,17 @@ const GenerateCode = () => {
          <Toaster position="top-center" reverseOrder={false} />
       <Modal show={true}>
       <Modal.Header className='bg-dark text-white' >
-        <Modal.Title>Recovery</Modal.Title>
+        <Modal.Title>Recuperar contraseña</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
-          <Form.Control {...formik.getFieldProps('email')} type="email" name='email' id='email' placeholder="Enter email" />
+          <Form.Control {...formik.getFieldProps('email')} type="email" name='email' id='email' placeholder="Ingresa tu email" />
         </Form.Group>
-        <Link className='btn btn-dark' to={'../'}>Close</Link>
+        <Link className='btn btn-dark' to={'../'}>Cerrar</Link>
         <Button variant="warning" type="submit">
-        Recovery
+        Recuperar
         </Button>
     </Form>
     </Modal.Body>

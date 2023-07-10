@@ -10,7 +10,7 @@ const SectionLeagues = () => {
   const { data: leagues, isLoading, isError } = useGetLeagues()
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load Leagues')
+  if (isError) return toast.error('Hubo un error al cargar las ligas')
 
   const leaguesByFilter = leagues?.filter(league => {
     if (!filter) return league
@@ -20,9 +20,9 @@ const SectionLeagues = () => {
   return (
         <>
         <section>
-        <h5 className="h7">All Leagues</h5>
+        <h5 className="h7">Todas las ligas </h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Liga...' onChange={e => setFilter(e.target.value)}/>
         </div>
 
         <Table responsive variant="dark table-sm table-borderless" style={{ fontSize: '13px' }} hover>

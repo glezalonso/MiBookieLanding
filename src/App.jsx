@@ -14,6 +14,7 @@ import News from './pages/news/News'
 import GenerateCode from './pages/home/components/GenerateCode'
 import VerifyCode from './pages/home/components/VerifyCode'
 import ResetPassword from './pages/home/components/ResetPassword'
+
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
 

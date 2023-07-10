@@ -26,26 +26,26 @@ const Login = ({ show, handleClose, handleRegister }) => {
         <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className='bg-dark text-white' >
-        <Modal.Title>Log in</Modal.Title>
+        <Modal.Title>Iniciar Sesión</Modal.Title>
         </Modal.Header>
         <Modal.Body>
        <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Username</Form.Label>
-          <Form.Control {...formik.getFieldProps('username')} type="username" name='username' id='username' placeholder="Enter username" />
+          <Form.Label>Usuario: </Form.Label>
+          <Form.Control {...formik.getFieldProps('username')} type="username" name='username' id='username' placeholder="Ingresa tu usuario" />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
-          <Form.Control {...formik.getFieldProps('password')} type="password" name='password' id='password' placeholder="Password" />
+          <Form.Label>Contraseña: </Form.Label>
+          <Form.Control {...formik.getFieldProps('password')} type="password" name='password' id='password' placeholder="Ingresa tu contraseña" />
         </Form.Group>
         <Button variant="warning" type="submit">
-        Log in
+       Iniciar Sesión
         </Button>
     </Form>
     </Modal.Body>
     <Modal.Footer>
-    <div className='d-flex flex-row justify-content-start text-start mx-auto'><div className='text-start'><Link to={'../generate'}>Forget my password</Link></div></div>
-    <div className='d-flex flex-row justify-content-end mx-auto'><div className='text-end'>Are you not a member? <Link onClick={() => handleRegister()}>Create account </Link></div></div>
+    <div className='d-flex flex-row justify-content-start text-start mx-auto'><div className='text-start'><Link to={'../generate'}>Olvidaste tu contraseña?</Link></div></div>
+    <div className='d-flex flex-row justify-content-end mx-auto'><div className='text-end'>No eres miembro? <Link onClick={() => handleRegister()}>Crea un cuenta </Link></div></div>
     </Modal.Footer>
    </Modal>
     </>

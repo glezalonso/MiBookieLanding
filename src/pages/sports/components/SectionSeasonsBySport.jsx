@@ -19,12 +19,14 @@ const SectionSeasonsBySport = ({ sport }) => {
     return season?.season?.toLowerCase().includes(filter.toLowerCase())
   })
 
+  seasonsByFilter.sort((a, b) => b.status - a.status)
+
   return (
         <>
         <section >
-        <h5 className="h7">{sport?.sport} seasons</h5>
+        <h5 className="h7">Temporadas de {sport?.sport} </h5>
         <div className='m-2 p-3'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Temporada...' onChange={e => setFilter(e.target.value)}/>
         </div>
           {seasonsByFilter?.length > 0
             ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
@@ -32,13 +34,13 @@ const SectionSeasonsBySport = ({ sport }) => {
             <thead>
               <tr>
                 <th>
-                  Season
+                 Tempoarada
                 </th>
                 <th>
-                  League
+                 Liga
                 </th>
                 <th>
-                  Status
+                 Estatus
                 </th>
               </tr>
             </thead>
@@ -47,7 +49,7 @@ const SectionSeasonsBySport = ({ sport }) => {
                 <tr key={season?._id} >
                 <td><Link to={`../seasons/${season?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{season?.season}</Link></td>
                 <td><Link to={`../leagues/${season?.league?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{season?.league?.league}</Link></td>
-                <td>{(season?.status) ? <span className='text-success'>Open</span> : <span className='text-danger'>Close</span>}</td>
+                <td>{(season?.status) ? <span className='text-success'>Abierta</span> : <span className='text-danger'>Cerrada</span>}</td>
                 </tr>
               ))}
 
@@ -55,7 +57,7 @@ const SectionSeasonsBySport = ({ sport }) => {
 
           </Table>
           </div>
-            : <Alert variant='warning'>Thres are no seasons to show!</Alert>}
+            : <Alert variant='warning'>No hay temporadas para mostrar!</Alert>}
           </section>
         </>
   )

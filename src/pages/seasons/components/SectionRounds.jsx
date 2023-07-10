@@ -22,12 +22,15 @@ const SectionRounds = ({ season }) => {
     if (!filter) return round
     return round?.round?.toLowerCase().includes(filter.toLowerCase())
   })
+
+  filterRounds.sort((a, b) => b.roundNumber - a.roundNumber)
+
   return (
         <>
         <section >
-        <h5 className="h7"> Rounds</h5>
+        <h5 className="h7"> Rondas</h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Ronda...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {filterRounds?.length > 0
           ? <div style={{ maxHeight: '500px', overflow: 'auto' }}>
@@ -35,13 +38,13 @@ const SectionRounds = ({ season }) => {
           <thead>
             <tr>
               <th>
-                Round
+                Ronda
               </th>
               <th>
-                Number Round
+               Numero de ronda
               </th>
               <th>
-                status
+               Estatus
               </th>
             </tr>
             </thead>
@@ -50,14 +53,14 @@ const SectionRounds = ({ season }) => {
                 <tr key={round?._id}>
                   <td><Link to={`../rounds/${round?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{round?.round}</Link></td>
                   <td>{round?.roundNumber}</td>
-                  <td>{round?.status ? <span className='text-success'>Open</span> : <span className='text-danger'>Closed</span>}</td>
+                  <td>{round?.status ? <span className='text-success'>Abierta</span> : <span className='text-danger'>Cerrada</span>}</td>
                 </tr>
               ))}
             </tbody>
 
         </Table>
         </div>
-          : <Alert variant='warning'>There are no rounds to show!</Alert>}
+          : <Alert variant='warning'>No hay rondas para mostrar!</Alert>}
           </section>
         </>
   )

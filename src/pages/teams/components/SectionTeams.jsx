@@ -20,9 +20,9 @@ const SectionTeams = () => {
   return (
         <>
         <section>
-        <h5 className="h7">All teams</h5>
+        <h5 className="h7">Todos los equipos</h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Nombre del equipo, deporte...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {filterTeams.length > 0
           ? <div style={{ maxHeight: '500px', overflow: 'auto' }}>
@@ -30,16 +30,13 @@ const SectionTeams = () => {
             <thead>
                 <tr>
                     <th>
-                        Team
+                        Equipo
                     </th>
                     <th>
-                        Stadium
+                        Estadio
                     </th>
                     <th>
-                        Sport
-                    </th>
-                    <th>
-                        Status
+                        Deporte
                     </th>
                 </tr>
             </thead>
@@ -49,15 +46,12 @@ const SectionTeams = () => {
                     <td><Link to={`../teams/${team?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{team?.name}</Link></td>
                     <td>{team?.stadium}</td>
                     <td><Link to={`../sports/${team?.sport?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{team?.sport?.sport}</Link></td>
-                    <td>
-                    {team?.status ? <span className='text-success'>Active</span> : <span className='text-danger'>Inactive</span>}
-                    </td>
                     </tr>
                 ))}
             </tbody>
           </Table>
           </div>
-          : <Alert variant='warning'>There are no teams to show!</Alert>}
+          : <Alert variant='warning'>No hay equipos para mostrar!</Alert>}
           </section>
         </>
   )

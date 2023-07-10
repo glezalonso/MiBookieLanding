@@ -5,8 +5,8 @@ const SectionStats = () => {
   return (
         <>
         <section>
-        <h5 className="h7">Stats</h5>
-        <Alert className='info'>Developing</Alert>
+        <h5 className="h7">Estadísticas</h5>
+        <Alert className='info'>En desarrollo</Alert>
         </section>
 
         </>

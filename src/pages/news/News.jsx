@@ -16,6 +16,7 @@ const News = () => {
     if (!filter) return content
     return content?.sport?.sport?.toLowerCase().includes(filter.toLowerCase()) || content?.title?.toLowerCase().includes(filter.toLowerCase())
   })
+
   return (
         <>
          <NavBar />
@@ -23,15 +24,15 @@ const News = () => {
         <Container fluid >
         <Row className='my-2 p-2 mx-auto'>
         <Col md={9} className='border rounded mx-auto fs-4' >
-        <h5 className="h7">News</h5>
+        <h5 className="h7">Noticias</h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Search by sport or team...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Deporte, equipo...' onChange={e => setFilter(e.target.value)}/>
         </div>
             {filterNews?.length > 0
               ? filterNews?.map(content => (
                <CardNew key={content?._id} content={content} />
               ))
-              : <Alert variant='warning'>There are no news to show!</Alert>}
+              : <Alert variant='warning'>No hay noticias para mostrar!</Alert>}
         </Col>
         </Row>
         </Container>

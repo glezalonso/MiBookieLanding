@@ -15,7 +15,7 @@ const TeamDetails = () => {
   const { data: team, isLoading, isError } = useGetTeam(id)
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load teams!')
+  if (isError) return toast.error('Hubo un error al cargar los equipos!')
   return (
     <>
       <NavBar />
@@ -28,7 +28,6 @@ const TeamDetails = () => {
         </Row>
         <Row className="m-2 p-2 mx-auto">
           <Col md={12} className="border rounded mx-auto p-2 fs-4">
-            <h5 className="h7">Stats</h5>
             <SectionStats />
           </Col>
         </Row>

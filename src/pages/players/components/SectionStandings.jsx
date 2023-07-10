@@ -10,36 +10,43 @@ const SectionStandings = ({ player }) => {
 
   // SoccerID
   const ID_SOCCER = '648f71dea4ba8860dfe3830f'
+  const ID_BASEBALL = '648f7211a4ba8860dfe38319'
 
   const seasonsByPlayer = season?.filter(season => season?.sport?._id === player?.sport?._id && season?.status === true)
 
   const sort = seasonsByPlayer?.map(season => season?.standings?.sort((a, b) => {
-    return b.wins - a.wins && b.draws - a.draws
+    if (b.wins !== a.wins) {
+      return b.wins - a.wins
+    } else {
+      return b.draws - a.draws
+    }
   }))
 
   return (
     <>
     <section>
-    <h5 className="h7">Standings</h5>
+    <h5 className="h7">Posiciones</h5>
 
     {sort?.length > 0
       ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
       <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
         <thead>
             <tr>
-            <th>Rank</th>
+            <th>No.</th>
               <th>
-                Team
+               Equipo
               </th>
              <th>
-               wins
+               Ganados
              </th>
              <th>
-              loses
+             Perdidos
              </th>
-             <th>
-              draws
-             </th>
+             {player?.sport?._id !== ID_BASEBALL
+               ? <th>
+                Empatados
+               </th>
+               : null}
              {player?.sport?._id === ID_SOCCER
                ? <th>points</th>
                : null}
@@ -52,7 +59,9 @@ const SectionStandings = ({ player }) => {
               <td>{stands.team?.name}</td>
               <td>{stands?.wins}</td>
               <td>{stands?.loses}</td>
-              <td>{stands.draws}</td>
+              {player?.sport?._id !== ID_BASEBALL
+                ? <td>{stands?.draws}</td>
+                : null}
               {player?.sport?._id === ID_SOCCER
                 ? <td>{player?.sport?._id === ID_SOCCER ? stands?.wins * 3 + stands?.draws : null }</td>
                 : null}
@@ -61,7 +70,7 @@ const SectionStandings = ({ player }) => {
         </tbody>
       </Table>
       </div>
-      : <Alert variant='warning'>There are no standings to show</Alert>}
+      : <Alert variant='warning'>No hay posiciones para mostrar!</Alert>}
        </section>
     </>
   )

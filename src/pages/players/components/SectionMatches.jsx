@@ -22,10 +22,10 @@ const SectionMatches = ({ player }) => {
   return (
         <>
         <section>
-        <h5 className="h7">Matches</h5>
+        <h5 className="h7">Próximos partidos</h5>
 
            <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Equipos...' onChange={e => setFilter(e.target.value)}/>
         </div>
 
         {MatchesByFilter?.length > 0
@@ -34,11 +34,10 @@ const SectionMatches = ({ player }) => {
             <thead>
                 <tr>
 
-                    <th>Round</th>
-                    <th>Date</th>
+                    <th>Ronda</th>
+                    <th>Fecha</th>
                     <th>Local</th>
-                    <th>Away</th>
-                    <th>Score</th>
+                    <th>Visita</th>
                 </tr>
             </thead>
             <tbody >
@@ -49,14 +48,13 @@ const SectionMatches = ({ player }) => {
                     <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../matches/${match?._id}`}>{match?.date.split('T', 3).join(' ')}</Link></td>
                     <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../teams/${match?.local?._id}`}>{match?.local?.name}</Link></td>
                     <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../teams/${match?.away?._id}`}>{match?.away?.name}</Link></td>
-                    <td>{match?.score?.map(score => score?.local)} - {match?.score?.map(score => score?.away)}</td>
 
                 </tr>
               ))}
             </tbody>
           </Table>
           </div>
-          : <Alert variant='warning'>There are no matches to show!</Alert>}
+          : <Alert variant='warning'>No hay partidos para mostrar!</Alert>}
            </section>
         </>
 

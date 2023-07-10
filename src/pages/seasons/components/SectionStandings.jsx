@@ -18,28 +18,30 @@ const SectionStandings = ({ season }) => {
   return (
     <>
      <section >
-     <h5 className="h7"> Standings</h5>
+     <h5 className="h7">Posiciones</h5>
 
     {sort?.length > 0
       ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
       <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover >
         <thead>
             <tr>
-              <th>Rank</th>
               <th>
-                Team
+              No.
+                </th>
+              <th>
+                Equipo
               </th>
              <th>
-               wins
+              Ganados
              </th>
              <th>
-              loses
+            Perdidos
              </th>
              <th>
-              draws
+              Empatados
              </th>
              {season?.sport?._id === ID_SOCCER
-               ? <th>points</th>
+               ? <th>Puntos</th>
                : null}
             </tr>
         </thead>
@@ -60,7 +62,7 @@ const SectionStandings = ({ season }) => {
         </tbody>
       </Table>
       </div>
-      : <Alert variant='warning'>There are no standings to show</Alert>}
+      : <Alert variant='warning'>No hay posiciones para mostrar!</Alert>}
        </section>
     </>
   )

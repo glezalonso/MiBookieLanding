@@ -19,10 +19,10 @@ const SectionPlayers = () => {
   return (
         <>
         <section>
-        <h5 className="h7">All Players</h5>
+        <h5 className="h7">Todos los jugadores</h5>
 
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' id='filter' placeholder='Nombre, deporte, equipo...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {filterPlayers.length > 0
           ? <div style={{ maxHeight: '500px', overflow: 'auto' }}>
@@ -30,19 +30,16 @@ const SectionPlayers = () => {
                 <thead>
                     <tr>
                         <th>
-                            Fullname
+                           Nombre
                         </th>
                         <th>
-                            Position
+                           Posición
                         </th>
                         <th>
-                            sport
+                            Deporte
                         </th>
                         <th>
-                            team
-                        </th>
-                        <th>
-                            Status
+                           Equipo
                         </th>
                     </tr>
                 </thead>
@@ -59,17 +56,14 @@ const SectionPlayers = () => {
                                 <Link to={`../sports/${player?.sport?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{player?.sport?.sport}</Link>
                             </td>
                             <td>
-                                {player?.team ? <Link to={`../teams/${player?.team?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{player?.team?.name}</Link> : <span className='text-danger'>Unasigned</span>}
-                            </td>
-                            <td>
-                                {player?.status ? <span className='text-success'>Active</span> : <span className='text-danger'>Inactive</span>}
+                                {player?.team ? <Link to={`../teams/${player?.team?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{player?.team?.name}</Link> : <span className='text-danger'>Sin asignar</span>}
                             </td>
                         </tr>
                     ))}
                 </tbody>
             </Table>
             </div>
-          : <Alert variant='warning'>There are no players to show!</Alert>}
+          : <Alert variant='warning'>No hay jugadores para mostrar!</Alert>}
           </section>
         </>
   )

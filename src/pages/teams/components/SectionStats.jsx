@@ -4,8 +4,12 @@ import { Alert } from 'react-bootstrap'
 const SectionStats = () => {
   return (
         <>
-        <Alert className='info'>Developing</Alert>
+        <section>
+        <h5 className="h7">Estadísticas</h5>
+        <Alert className='info'>En desarrollo</Alert>
+        </section>
         </>
+
   )
 }
 export default SectionStats

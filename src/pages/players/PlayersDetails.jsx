@@ -15,7 +15,7 @@ const PlayerDetails = () => {
   const { data: player, isLoading, isError } = useGetPlayer(id)
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load players!')
+  if (isError) return toast.error('Hubo un error al cargar los jugadores!')
   return (
         <>
          <NavBar />

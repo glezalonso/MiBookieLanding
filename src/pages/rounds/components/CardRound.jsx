@@ -8,9 +8,9 @@ const CardRound = ({ round }) => {
         <Card>
             <Card.Body>
                 <Card.Title>{round?.round}</Card.Title>
-                <Card.Text>Season: {round?.season?.season}</Card.Text>
-                <Card.Text>League: {round?.league?.league}</Card.Text>
-                <Card.Text>Sport: {round?.sport?.sport}</Card.Text>
+                <Card.Text>Temporada: {round?.season?.season}</Card.Text>
+                <Card.Text>Liga: {round?.league?.league}</Card.Text>
+                <Card.Text>Deporte: {round?.sport?.sport}</Card.Text>
             </Card.Body>
         </Card>
         </section>

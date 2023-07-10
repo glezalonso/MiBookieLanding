@@ -8,14 +8,14 @@ const CardNew = ({ content }) => {
         <Card>
             <Card.Header className='bg-dark text-light'>
                 <Card.Title>{content?.title}</Card.Title>
-                 <Card.Subtitle>{content?.sport?.sport}</Card.Subtitle>
+                 <Card.Subtitle>Deporte: {content?.sport?.sport}</Card.Subtitle>
             </Card.Header>
             <Card.Body>
-                <Card.Text>{content?.date?.split('T', 3).reverse().join(' ')}</Card.Text>
+                <Card.Text>Fecha: {content?.date?.split('T', 3).reverse().join(' ')}</Card.Text>
                 <Card.Text>{content?.content}</Card.Text>
             </Card.Body>
             <Card.Footer>
-                <Card.Text>Posted by: {content?.author}</Card.Text>
+                <Card.Text>Escrito por: {content?.author}</Card.Text>
             </Card.Footer>
         </Card>
         </section>

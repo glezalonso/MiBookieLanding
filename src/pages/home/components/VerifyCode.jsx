@@ -29,17 +29,17 @@ const VerifyCode = () => {
          <Toaster position="top-center" reverseOrder={false} />
         <Modal show={true}>
       <Modal.Header className='bg-dark text-white' >
-        <Modal.Title>Verify code</Modal.Title>
+        <Modal.Title>Verificar código</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Code</Form.Label>
-          <Form.Control {...formik.getFieldProps('OTP')} type="number" name='OTP' id='OTP' placeholder="Enter code" />
+          <Form.Label>Código</Form.Label>
+          <Form.Control {...formik.getFieldProps('OTP')} type="number" name='OTP' id='OTP' placeholder="Ingresa tu código" />
         </Form.Group>
-        <Link className='btn btn-dark' to={'../'}>Close</Link>
+        <Link className='btn btn-dark' to={'../'}>Cerrar</Link>
         <Button variant="warning" type="submit">
-       Verify
+      Verificar
         </Button>
     </Form>
     </Modal.Body>

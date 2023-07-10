@@ -22,10 +22,10 @@ const SectionMatches = ({ round }) => {
   return (
         <>
         <section >
-        <h5 className="h7"> Matches</h5>
+        <h5 className="h7">Partidos</h5>
 
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Equipos...' onChange={e => setFilter(e.target.value)}/>
         </div>
 
         {matchesByFilter?.length > 0
@@ -34,11 +34,11 @@ const SectionMatches = ({ round }) => {
             <thead>
                 <tr>
 
-                    <th>Round</th>
-                    <th>Date</th>
+                    <th>Ronda</th>
+                    <th>Fecha</th>
                     <th>Local</th>
-                    <th>Away</th>
-                    <th>Score</th>
+                    <th>Visita</th>
+                    <th>Marcador</th>
                 </tr>
             </thead>
             <tbody >
@@ -54,10 +54,10 @@ const SectionMatches = ({ round }) => {
                 </tr>
               ))}
             </tbody>
-            <caption>Total matches: {matchesByFilter?.length}</caption>
+            <caption>Total de partidos: {matchesByFilter?.length}</caption>
           </Table>
           </div>
-          : <Alert variant='warning'>There are no matches to show!</Alert>}
+          : <Alert variant='warning'>No hay partidos para mostrar!</Alert>}
           </section>
         </>
 

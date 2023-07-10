@@ -13,7 +13,7 @@ const Rounds = () => {
   const { data: round, isLoading, isError } = useGetRound(id)
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load rounds')
+  if (isError) return toast.error('Hubo un error al cargar las rondas')
 
   return (
         <>

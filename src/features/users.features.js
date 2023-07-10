@@ -12,11 +12,11 @@ export const useLogin = () => {
   const mutationLogin = useMutation({
     mutationFn: loginBookie,
     onSuccess: (data) => {
-      toast.success('Logged in successfully! ')
+      toast.success('Inicio de sesión exitoso ')
       auth(data.token)
       profile(data.username)
     },
-    onError: data => toast.error(`Failed to log in! ${data.response.data.error}`)
+    onError: data => toast.error(`Error al iniciar sesión! ${data.response.data.error}`)
   })
   return mutationLogin
 }
@@ -28,7 +28,7 @@ export const useRegister = () => {
   const mutationRegister = useMutation({
     mutationFn: registerBookie,
     onSuccess: (data) => {
-      toast.success('Welcome to Mi Bookie')
+      toast.success('Bienvenido a Mi Bookie')
       auth(data.token)
       profile(data.username)
     },
@@ -45,12 +45,12 @@ export const useGenerateCode = () => {
     mutationFn: generateOTP,
     onSuccess: data => {
       setEmail(data.data)
-      toast.success('Email sended!')
+      toast.success('Se ha enviado un email de recuperación!')
       setTimeout(() => {
         navigate('../verify')
       }, 3000)
     },
-    onError: () => toast.error('Email not valid!')
+    onError: () => toast.error('Error al enviar el email de recuperación!')
   })
   return mutationGenerateOTP
 }
@@ -62,13 +62,13 @@ export const useVerifyCode = () => {
   const mutationVerifyOTP = useMutation({
     mutationFn: verifyOTP,
     onSuccess: (data) => {
-      toast.success('Code Correct!!')
+      toast.success('Código correcto!')
       setOTP(data.data)
       setTimeout(() => {
         navigate('../reset')
       }, 3000)
     },
-    onError: () => toast.error('Incorrect code!')
+    onError: () => toast.error('Código incorrecto!')
   })
   return mutationVerifyOTP
 }
@@ -80,13 +80,13 @@ export const useResetPassword = () => {
   const resetPass = useMutation({
     mutationFn: resetPassword,
     onSuccess: () => {
-      toast.success('Reseted successfully')
+      toast.success('Contraseña restablecida')
       empty()
       setTimeout(() => {
         navigate('../')
       }, 3000)
     },
-    onError: () => toast.error('Failed to reset password!')
+    onError: () => toast.error('Error al restablecer contraseña!')
   })
   return resetPass
 }

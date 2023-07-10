@@ -17,7 +17,7 @@ export const useAddComment = () => {
   const mutationAdd = useMutation({
     mutationFn: addComment,
     onSuccess: () => {
-      toast.success('comment added succesfully')
+      toast.success('Comentario agregado')
       queryClient.invalidateQueries({ queryKey: ['matches'] })
     }
   })
@@ -29,7 +29,7 @@ export const useRemoveComment = (id) => {
   const mutationRemove = useMutation({
     mutationFn: removeComment,
     onSuccess: () => {
-      toast.success('comment removed succesfully')
+      toast.success('Comentario eliminado')
       queryClient.invalidateQueries({ queryKey: ['matches'] })
     }
   })

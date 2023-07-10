@@ -10,13 +10,15 @@ import SectionLeaguesBySport from './components/SectionLeaguesBySport'
 import SectionNextMatches from './components/SectionNextMatches'
 import SectionPlayersBySport from './components/SectionPlayersBySport'
 import SectionSeasonsBySport from './components/SectionSeasonsBySport'
+import SectionPlayersTennis from './components/SectionPlayersTennis'
 
 const Sports = () => {
   const { id } = useParams()
   const { data: sport, isLoading, isError } = useGetSport(id)
+  const ID_TENNIS = '648f71eea4ba8860dfe38314'
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load sports')
+  if (isError) return toast.error('Hubo un error al cargar los deportes!')
 
   return (
         <>
@@ -37,11 +39,14 @@ const Sports = () => {
           </Col>
         </Row>
         <Row className='m-2 p-2 mx-auto'>
-        <Col md={4} className='border rounded mx-auto p-2 fs-4'>
+        <Col md={6} className='border rounded mx-auto p-2 fs-4'>
         <SectionSeasonsBySport sport={sport} />
         </Col >
-        <Col md={8} className='border rounded mx-auto p-2 fs-4'>
-        <SectionPlayersBySport sport={sport} />
+        <Col md={6} className='border rounded mx-auto p-2 fs-4'>
+          {sport?._id === ID_TENNIS
+            ? <SectionPlayersTennis sport={sport} />
+            : <SectionPlayersBySport sport={sport} />
+           }
         </Col>
         </Row>
        </Container>

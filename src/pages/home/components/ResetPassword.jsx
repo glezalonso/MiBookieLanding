@@ -31,21 +31,21 @@ const ResetPassword = () => {
          <Toaster position="top-center" reverseOrder={false} />
         <Modal show={true}>
       <Modal.Header className='bg-dark text-white' >
-        <Modal.Title>Reset password</Modal.Title>
+        <Modal.Title>Nueva contraseña</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
         <Form.Group>
-            <Form.Label className='mt-1' htmlFor="password">Password</Form.Label>
-            <Form.Control {...formik.getFieldProps('password')} type="password" name="password" id="password" placeholder='Password'/>
+            <Form.Label className='mt-1' htmlFor="password">Nueva contraseña</Form.Label>
+            <Form.Control {...formik.getFieldProps('password')} type="password" name="password" id="password" placeholder='Ingresa nueva contraseña'/>
         </Form.Group>
         <Form.Group>
-            <Form.Label className='mt-1' htmlFor="confirmPassword">Confirm Password</Form.Label>
-            <Form.Control {...formik.getFieldProps('confirmPassword')} type="password" name="confirmPassword" id="confirmPassword" placeholder='Confirm password'/>
+            <Form.Label className='mt-1' htmlFor="confirmPassword">Confirmar contraseña</Form.Label>
+            <Form.Control {...formik.getFieldProps('confirmPassword')} type="password" name="confirmPassword" id="confirmPassword" placeholder='Confirma nueva contraseña'/>
             </Form.Group>
-        <Link className='btn btn-dark' to={'../'}>Close</Link>
+        <Link className='btn btn-dark' to={'../'}>Cerrar</Link>
         <Button variant="warning" type="submit">
-       Reset
+       Recuperar
         </Button>
     </Form>
     </Modal.Body>

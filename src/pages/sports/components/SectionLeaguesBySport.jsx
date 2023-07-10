@@ -10,7 +10,7 @@ const SectionLeaguesBySport = ({ sport }) => {
   const { data: leagues, isLoading, isError } = useGetLeagues()
 
   if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load Leagues')
+  if (isError) return toast.error('Hubo un error al cargar las ligas!')
 
   const leaguesBySport = leagues?.filter(league => league?.sport._id === sport?._id)
 
@@ -21,19 +21,19 @@ const SectionLeaguesBySport = ({ sport }) => {
   return (
         <>
         <section >
-        <h5 className="h7">{sport?.sport} leagues</h5>
+        <h5 className="h7"> Ligas de {sport?.sport}</h5>
          <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Liga...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {leaguesFilter?.length > 0
           ? <Table responsive variant="dark table-sm table-borderless" style={{ fontSize: '13px' }} hover>
             <thead>
                 <tr>
                   <th>
-                    League
+                    Liga
                   </th>
                   <th>
-                    Description
+                   Descripción
                   </th>
                 </tr>
             </thead>
@@ -44,7 +44,7 @@ const SectionLeaguesBySport = ({ sport }) => {
             </tbody>
 
         </Table>
-          : <Alert variant='warning'> there are no leagues to show!</Alert>
+          : <Alert variant='warning'>No hay ligas para mostrar!</Alert>
         }
          </section>
         </>

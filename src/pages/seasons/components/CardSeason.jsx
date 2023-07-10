@@ -7,10 +7,10 @@ const CardSeason = ({ season }) => {
         <Card>
             <Card.Body>
                 <Card.Title>{season?.season}</Card.Title>
-                <Card.Text>Description: {season?.description}</Card.Text>
-                <Card.Text>Sport: {season?.sport?.sport}</Card.Text>
-                <Card.Text>League: {season?.league?.league}</Card.Text>
-                <Card.Text>Status: {season?.status ? <span className='text-success'>Current</span> : <span className='text-danger'>Closed</span>}</Card.Text>
+                <Card.Text>Descripción: {season?.description}</Card.Text>
+                <Card.Text>Deporte: {season?.sport?.sport}</Card.Text>
+                <Card.Text>Liga: {season?.league?.league}</Card.Text>
+                <Card.Text>Estatus: {season?.status ? <span className='text-success'>Abierta</span> : <span className='text-danger'>Cerrada</span>}</Card.Text>
             </Card.Body>
         </Card>
         </section>

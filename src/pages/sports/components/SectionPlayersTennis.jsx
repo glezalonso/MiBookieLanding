@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
-import { useGetPlayers } from '../../../features/players.features'
 import { Link } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 import { Table, FormControl, Alert } from 'react-bootstrap'
+import { useGetTeams } from '../../../features/teams.features'
 
-const SectionPlayerBySport = ({ sport }) => {
+const SectionPlayersTennis = ({ sport }) => {
   const [filter, setFilter] = useState('')
-  const { data: players, isLoading, isError } = useGetPlayers()
+  const { data: players, isLoading, isError } = useGetTeams()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load players')
@@ -16,7 +16,7 @@ const SectionPlayerBySport = ({ sport }) => {
 
   const playersByFilter = playerBySport?.filter(player => {
     if (!filter) return player
-    return player?.fullName?.toLowerCase().includes(filter.toLowerCase())
+    return player?.name?.toLowerCase().includes(filter.toLowerCase())
   })
 
   return (
@@ -34,16 +34,12 @@ const SectionPlayerBySport = ({ sport }) => {
             <th>
              Nombre
             </th>
-            <th>
-             Posición
-            </th>
             </tr>
           </thead>
           <tbody>
             {playersByFilter.map(player => (
               <tr key={player?._id}>
-              <td><Link to={`../players/${player?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{player?.fullName}</Link></td>
-              <td>{player?.position}</td>
+              <td><Link to={`../players/${player?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{player?.name}</Link></td>
               </tr>
 
             ))}
@@ -56,4 +52,4 @@ const SectionPlayerBySport = ({ sport }) => {
         </>
   )
 }
-export default SectionPlayerBySport
+export default SectionPlayersTennis

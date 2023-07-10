@@ -9,7 +9,7 @@ const CardSport = ({ sport }) => {
           <Card.Header>
             <Card.Img src={sport?.poster} alt={`image ${sport.sport}`} />
           <Card.Title>{sport?.sport}</Card.Title>
-          <Card.Subtitle>Description: {sport?.description}</Card.Subtitle>
+          <Card.Subtitle>Descripción: {sport?.description}</Card.Subtitle>
           </Card.Header>
         </Card>
         </section>

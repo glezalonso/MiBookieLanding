@@ -12,17 +12,17 @@ const SectionRoster = ({ team }) => {
   return (
         <>
         <section >
-        <h5 className="h7">Roster</h5>
+        <h5 className="h7">Plantilla</h5>
          <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Filter...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Nombre del jugador...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {playerFilter.length > 0
           ? <div style={{ maxHeight: '500px', overflow: 'auto' }}>
         <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} >
             <thead>
                 <tr>
-                <th>Player</th>
-                <th>Position</th>
+                <th>Jugador</th>
+                <th>Posición</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,7 +36,7 @@ const SectionRoster = ({ team }) => {
 
         </Table>
         </div>
-          : <Alert variant='warning'>There are no players to show!</Alert>}
+          : <Alert variant='warning'>No hay jugadores para mostrar!</Alert>}
            </section>
         </>
 
