@@ -29,7 +29,7 @@ const CardMatch = ({ match }) => {
 
   return (
         <>
-              <Card className='my-2'>
+              <Card className='my-2' border='dark'>
               <Card.Header className='bg-dark text-light'>
               <div className='d-flex flex-row justify-content-end '>{match?.status ? <span className=' bg-success text-light rounded p-1 '>Abierto!</span> : <span className='bg-danger text-light rounded p-1'>Terminado!</span>}</div>
               <h1 style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} {match?.score?.map(score => score?.away)} @ {match?.local?.name} {match?.score?.map(score => score?.local)}

@@ -7,7 +7,7 @@ const SectionLineUps = ({ match }) => {
 
   return (
     <>
-    <Col md={5} className='bg-dark text-white rounded mx-auto p-3 fs-4'>
+    <Col md={5} className='bg-dark text-white rounded mx-auto my-1 p-3 fs-4'>
       <section>
     <h5 className="h7">Alineación visitante</h5>
     { match?.lineup?.length > 0
@@ -33,7 +33,7 @@ const SectionLineUps = ({ match }) => {
       : <Alert variant='warning'>No hay alineacióin para mostrar!</Alert>}
       </section>
     </Col>
-    <Col md={5} className='bg-dark text-white rounded mx-auto p-3 fs-4'>
+    <Col md={5} className='bg-dark text-white rounded mx-auto my-1 p-3 fs-4'>
       <section>
     <h5 className="h7">Alineación local</h5>
     { match?.lineup?.length > 0
