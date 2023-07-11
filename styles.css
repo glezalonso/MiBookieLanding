@@ -17,4 +17,7 @@ section{
 #body {
  font-size: 13px;
 }
+tr:hover{
+    cursor: pointer;
 
+}
