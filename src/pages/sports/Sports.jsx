@@ -31,18 +31,18 @@ const Sports = () => {
           </Col>
         </Row>
         <Row className='my-2 mx-auto'>
-          <Col md={4} className='bg-dark text-white border rounded mx-auto my-1 fs-6' >
+          <Col md={4} className='bg-dark text-white rounded mx-auto my-1 fs-6' >
          <SectionLeaguesBySport sport={sport} />
           </Col>
-          <Col md={8} className='bg-dark text-white border rounded mx-auto my-1 fs-6'>
+          <Col md={7} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
           <SectionNextMatches sport={sport} />
           </Col>
         </Row>
         <Row className='my-2 mx-auto'>
-        <Col md={6} className='bg-dark text-white border rounded mx-auto my-1 fs-6'>
+        <Col md={6} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
         <SectionSeasonsBySport sport={sport} />
         </Col >
-        <Col md={6} className='bg-dark text-white border rounded mx-auto my-1 fs-6'>
+        <Col md={6} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
           {sport?._id === ID_TENNIS
             ? <SectionPlayersTennis sport={sport} />
             : <SectionPlayersBySport sport={sport} />

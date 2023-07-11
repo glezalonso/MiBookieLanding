@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 const SectionLineUps = ({ match }) => {
   const navigate = useNavigate()
+  const ID_TENNIS = '648f71eea4ba8860dfe38314'
+  if (match?.sport?._id === ID_TENNIS) return null
 
   return (
     <>
@@ -59,6 +61,7 @@ const SectionLineUps = ({ match }) => {
       : <Alert variant='warning'>No hay alineacióin para mostrar!</Alert>}
       </section>
     </Col>
+
     </>
   )
 }

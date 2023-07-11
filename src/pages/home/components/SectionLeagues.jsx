@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { Table, FormControl } from 'react-bootstrap'
 import { useGetLeagues } from '../../../features/leagues.features'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 
 const SectionLeagues = () => {
   const [filter, setFilter] = useState('')
   const { data: leagues, isLoading, isError } = useGetLeagues()
+  const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Hubo un error al cargar las ligas')
@@ -33,8 +34,8 @@ const SectionLeagues = () => {
           </thead>
             <tbody>
             {leaguesByFilter?.map(league => (
-                <tr key={league?._id}>
-                   <td> <Link style={{ fontSize: '13px' }} className='btn btn-dark btn btn-sm w-100 text-start' to={`../leagues/${league?._id}`} >{league?.league}</Link></td>
+                <tr key={league?._id} onClick={() => navigate(`../leagues/${league?._id}`)}>
+                   <td>{league?.league}</td>
                 </tr>
             ))}
             </tbody>
