@@ -34,19 +34,19 @@ const Register = ({ handleClose, show }) => {
         <Modal.Body>
          <Form onSubmit={formik.handleSubmit} >
          <Form.Group className="mb-3" >
-        <Form.Label>Nombre completo: </Form.Label>
+        <Form.Label className='text-dark'>Nombre completo: </Form.Label>
         <Form.Control {...formik.getFieldProps('fullName')} type="text" name='fullName' placeholder="Ingresa tu nombre completo" />
       </Form.Group>
         <Form.Group className="mb-3" >
-        <Form.Label>Email </Form.Label>
+        <Form.Label className='text-dark'>Email </Form.Label>
         <Form.Control {...formik.getFieldProps('email')} type="email" name='email' placeholder="Ingresa tu email" />
       </Form.Group>
       <Form.Group className="mb-3" >
-        <Form.Label>Usuario: </Form.Label>
+        <Form.Label className='text-dark'>Usuario: </Form.Label>
         <Form.Control {...formik.getFieldProps('username')} type="text" name='username' placeholder="Crea tu usuario" />
       </Form.Group>
       <Form.Group className="mb-3">
-        <Form.Label>Contraseña: </Form.Label>
+        <Form.Label className='text-dark'>Contraseña: </Form.Label>
         <Form.Control {...formik.getFieldProps('password')} type="password" name='password' placeholder="crea una contraseña" />
       </Form.Group>
       <Button variant="warning" type="submit">

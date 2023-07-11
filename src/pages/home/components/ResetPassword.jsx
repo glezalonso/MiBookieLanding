@@ -36,11 +36,11 @@ const ResetPassword = () => {
         <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
         <Form.Group>
-            <Form.Label className='mt-1' htmlFor="password">Nueva contraseña</Form.Label>
+            <Form.Label className='mt-1 text-dark' htmlFor="password">Nueva contraseña</Form.Label>
             <Form.Control {...formik.getFieldProps('password')} type="password" name="password" id="password" placeholder='Ingresa nueva contraseña'/>
         </Form.Group>
         <Form.Group>
-            <Form.Label className='mt-1' htmlFor="confirmPassword">Confirmar contraseña</Form.Label>
+            <Form.Label className='mt-1 text-dark' htmlFor="confirmPassword">Confirmar contraseña</Form.Label>
             <Form.Control {...formik.getFieldProps('confirmPassword')} type="password" name="confirmPassword" id="confirmPassword" placeholder='Confirma nueva contraseña'/>
             </Form.Group>
         <Link className='btn btn-dark' to={'../'}>Cerrar</Link>

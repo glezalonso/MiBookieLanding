@@ -34,7 +34,7 @@ const VerifyCode = () => {
         <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Código</Form.Label>
+          <Form.Label className='text-dark'>Código</Form.Label>
           <Form.Control {...formik.getFieldProps('OTP')} type="number" name='OTP' id='OTP' placeholder="Ingresa tu código" />
         </Form.Group>
         <Link className='btn btn-dark' to={'../'}>Cerrar</Link>
