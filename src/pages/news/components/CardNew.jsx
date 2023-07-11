@@ -14,7 +14,7 @@ const CardNew = ({ content }) => {
             <Card.Body>
                 <Card.Text>{content?.content}</Card.Text>
             </Card.Body>
-            <Card.Footer>
+            <Card.Footer className='text-end'>
                 <Card.Text>Escrito por: <strong>{content?.author} </strong><Clock /> {content?.date?.split('T', 3).reverse().join(' ')}</Card.Text>
             </Card.Footer>
         </Card>
