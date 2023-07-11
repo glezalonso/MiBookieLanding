@@ -21,7 +21,7 @@ const Matches = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
         <Row className='m-2 mx-auto'>
-          <Col md={11} className='rounded mx-auto fs-4' >
+          <Col md={11} className='rounded mx-auto my-1 fs-4' >
             <CardMatch match={match} />
           </Col>
         </Row>

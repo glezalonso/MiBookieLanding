@@ -22,20 +22,20 @@ const PlayerDetails = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
             <Row className='my-2 mx-auto'>
-                <Col md={10} className=' rounded mx-auto fs-4'>
+                <Col md={10} className=' rounded mx-auto my-1 fs-6'>
                     <CardPlayer player={player} />
                 </Col>
             </Row>
             <Row className='m-2 mx-auto'>
-                <Col md={11} className='bg-dark text-white rounded mx-auto fs-6'>
+                <Col md={11} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
                     <SectionStats />
                 </Col>
             </Row>
             <Row className='m-2 mx-auto'>
-                <Col md={5} className='bg-dark text-white rounded mx-auto fs-6'>
+                <Col md={5} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
                 <SectionMatches player={player} />
                 </Col>
-                <Col md={6} className='bg-dark text-white rounded mx-auto fs-4'>
+                <Col md={6} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
                 <SectionStandings player={player} />
                 </Col>
             </Row>

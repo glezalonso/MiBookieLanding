@@ -11,7 +11,7 @@ const Players = () => {
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
         <Row className='m-2 mx-auto'>
-            <Col md={12} className='border rounded mx-auto fs-4'>
+            <Col md={12} className='border rounded mx-auto my-1 fs-4'>
             <SectionPlayers />
             </Col>
         </Row>

@@ -21,21 +21,21 @@ const TeamDetails = () => {
       <NavBar />
       <Toaster position="top-center" reverseOrder={false} />
       <Container fluid>
-        <Row className="m-2 mx-auto">
+        <Row className="my-2 mx-auto">
           <Col md={10} className=" rounded mx-auto fs-4">
             <CardTeam team={team} />
           </Col>
         </Row>
-        <Row className="m-2 mx-auto">
+        <Row className="my-2 mx-auto">
           <Col md={11} className="bg-dark text-white rounded mx-auto fs-4">
             <SectionStats />
           </Col>
         </Row>
-        <Row className="m-2 mx-auto">
-          <Col md={6} className="bg-dark text-white rounded mx-auto fs-4">
+        <Row className="my-2 mx-auto">
+          <Col md={6} className="bg-dark text-white rounded mx-auto my-1 fs-4">
             <SectionMatches team={team} />
           </Col>
-          <Col md={5} className="bg-dark text-white rounded mx-auto fs-4">
+          <Col md={5} className="bg-dark text-white rounded mx-auto my-1 fs-4">
             <SectionRoster team={team} />
           </Col>
         </Row>
