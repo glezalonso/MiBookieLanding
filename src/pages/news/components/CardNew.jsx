@@ -6,7 +6,7 @@ const CardNew = ({ content }) => {
   return (
         <>
         <section>
-        <Card>
+        <Card border='dark'>
             <Card.Header className='bg-dark text-light'>
                 <Card.Title>{content?.title}</Card.Title>
                  <Card.Subtitle>Deporte: {content?.sport?.sport}</Card.Subtitle>
