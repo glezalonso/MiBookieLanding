@@ -20,20 +20,28 @@ const SectionLeagues = () => {
   return (
         <>
         <section>
-        <h5 className="h7">Todas las ligas </h5>
+        <h5 className="h7">Ligas </h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Liga...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' placeholder='Busca tu liga...' onChange={e => setFilter(e.target.value)}/>
         </div>
-
-        <Table responsive variant="dark table-sm table-borderless" style={{ fontSize: '13px' }} hover>
+        <div className='table-responsive rounded'>
+        <Table variant="dark table-sm table-borderless" style={{ fontSize: '13px' }} hover>
+          <thead className='border-bottom '>
+            <tr>
+              <th>
+                Liga
+              </th>
+            </tr>
+          </thead>
             <tbody>
             {leaguesByFilter?.map(league => (
                 <tr key={league?._id}>
-                   <td> <Link className='btn btn-dark btn btn-sm w-100 text-start' to={`../leagues/${league?._id}`} >{league?.league}</Link></td>
+                   <td> <Link style={{ fontSize: '13px' }} className='btn btn-dark btn btn-sm w-100 text-start' to={`../leagues/${league?._id}`} >{league?.league}</Link></td>
                 </tr>
             ))}
             </tbody>
         </Table>
+        </div>
         </section>
         </>
   )

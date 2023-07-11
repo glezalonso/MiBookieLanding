@@ -28,7 +28,7 @@ const SectionMatches = () => {
         <section>
         <h5 className="h7">Partidos de hoy ({matchesToday?.length})</h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Busca tu equipo...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl name='filter' style={{ fontSize: '13px' }} placeholder='Busca tu equipo...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {(matchFilter?.length > 0)
           ? matchFilter?.map(match => (
