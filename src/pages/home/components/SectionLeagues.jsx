@@ -26,7 +26,7 @@ const SectionLeagues = () => {
         <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Liga...' onChange={e => setFilter(e.target.value)}/>
         </div>
         <div className='table-responsive rounded '>
-        <Table variant="dark table-sm table-borderless" style={{ fontSize: '13px' }} hover>
+        <Table variant="dark table-sm table-borderless" style={{ fontSize: '14px' }} hover>
           <thead className='border-bottom'>
             <tr>
               <th>Liga</th>

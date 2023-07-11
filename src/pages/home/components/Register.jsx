@@ -47,7 +47,7 @@ const Register = ({ handleClose, show }) => {
       </Form.Group>
       <Form.Group className="mb-3">
         <Form.Label className='text-dark'>Contraseña: </Form.Label>
-        <Form.Control style={{ fontSize: '13px' }} {...formik.getFieldProps('password')} type="password" name='password' placeholder="crea una contraseña" />
+        <Form.Control style={{ fontSize: '13px' }} {...formik.getFieldProps('password')} type="password" name='password' placeholder="Crea una contraseña" />
       </Form.Group>
       <Button variant="warning" type="submit">
       Registrar
