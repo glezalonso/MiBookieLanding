@@ -31,7 +31,7 @@ const GenerateCode = () => {
         <Modal.Body>
         <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
+          <Form.Label className='text-dark'>Email</Form.Label>
           <Form.Control {...formik.getFieldProps('email')} type="email" name='email' id='email' placeholder="Ingresa tu email" />
         </Form.Group>
         <Link className='btn btn-dark' to={'../'}>Cerrar</Link>
