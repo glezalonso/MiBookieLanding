@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 import { Table, FormControl, Alert } from 'react-bootstrap'
@@ -8,6 +8,7 @@ import { useGetTeams } from '../../../features/teams.features'
 const SectionPlayersTennis = ({ sport }) => {
   const [filter, setFilter] = useState('')
   const { data: players, isLoading, isError } = useGetTeams()
+  const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load players')
@@ -24,12 +25,12 @@ const SectionPlayersTennis = ({ sport }) => {
         <section >
         <h5 className="h7">Jugadores de {sport?.sport}</h5>
          <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Nombre del jugador...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Nombre del jugador...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {playersByFilter.length > 0
           ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
         <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover >
-          <thead>
+          <thead className='border-bottom'>
             <tr>
             <th>
              Nombre
@@ -38,8 +39,8 @@ const SectionPlayersTennis = ({ sport }) => {
           </thead>
           <tbody>
             {playersByFilter.map(player => (
-              <tr key={player?._id}>
-              <td><Link to={`../players/${player?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{player?.name}</Link></td>
+              <tr key={player?._id} onClick={() => navigate(`../teams/${player?._id}`)}>
+              <td>{player?.name}</td>
               </tr>
 
             ))}

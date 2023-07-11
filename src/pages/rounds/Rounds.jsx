@@ -20,13 +20,13 @@ const Rounds = () => {
         <NavBar />
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
-        <Row className='m-2 p-2 mx-auto'>
-          <Col md={10} className='border rounded mx-auto p-2 fs-4' >
+        <Row className='my-2  mx-auto'>
+          <Col md={10} className='rounded mx-auto  fs-4' >
             <CardRound round={round} />
           </Col>
         </Row>
-          <Row className='m-2 p-2 fs-4 mx-auto'>
-          <Col md={12} className='border rounded mx-auto p-2 fs-4' >
+          <Row className='my-2 mx-auto'>
+          <Col md={11} className='bg-dark text-light rounded mx-auto  fs-4' >
              <SectionMatches round={round} />
           </Col>
         </Row>

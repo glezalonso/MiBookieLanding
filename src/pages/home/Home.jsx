@@ -10,12 +10,12 @@ const Home = () => {
         <>
         <NavBar />
         <Toaster position="top-center" reverseOrder={false} />
-        <Container fluid className='' >
+        <Container fluid >
         <Row className='my-2 mx-auto'>
-        <Col md={8} className='bg-dark rounded mx-auto m-1 fs-4' >
+        <Col md={8} className=' rounded mx-auto fs-4' >
         <SectionMatches />
         </Col>
-        <Col md={3} className='bg-dark rounded mx-auto m-1 fs-4' >
+        <Col md={3} className='bg-dark text-light rounded my-1 mx-auto fs-4' >
         <SectionLeagues />
         </Col>
         </Row>

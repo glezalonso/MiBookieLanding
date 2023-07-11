@@ -20,17 +20,15 @@ const SectionLeagues = () => {
   return (
         <>
         <section>
-        <h5 className="h7">Ligas </h5>
+        <h5 className="h7">Ligas</h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Busca tu liga...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Liga...' onChange={e => setFilter(e.target.value)}/>
         </div>
-        <div className='table-responsive rounded'>
+        <div className='table-responsive rounded '>
         <Table variant="dark table-sm table-borderless" style={{ fontSize: '13px' }} hover>
-          <thead className='border-bottom '>
+          <thead className='border-bottom'>
             <tr>
-              <th>
-                Liga
-              </th>
+              <th>Liga</th>
             </tr>
           </thead>
             <tbody>

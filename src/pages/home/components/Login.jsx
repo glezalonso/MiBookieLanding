@@ -31,11 +31,11 @@ const Login = ({ show, handleClose, handleRegister }) => {
         <Modal.Body>
        <Form onSubmit={formik.handleSubmit}>
         <Form.Group className="mb-3">
-          <Form.Label className='text-dark'>Usuario: </Form.Label>
+          <Form.Label>Usuario: </Form.Label>
           <Form.Control {...formik.getFieldProps('username')} type="username" name='username' id='username' placeholder="Ingresa tu usuario" />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label className='text-dark'>Contraseña: </Form.Label>
+          <Form.Label>Contraseña: </Form.Label>
           <Form.Control {...formik.getFieldProps('password')} type="password" name='password' id='password' placeholder="Ingresa tu contraseña" />
         </Form.Group>
         <Button variant="warning" type="submit">

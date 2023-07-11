@@ -10,8 +10,8 @@ const Players = () => {
           <NavBar />
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
-        <Row className='m-2 p-2 mx-auto'>
-            <Col md={12} className='border rounded mx-auto p-4 fs-4'>
+        <Row className='m-2 mx-auto'>
+            <Col md={12} className='border rounded mx-auto fs-4'>
             <SectionPlayers />
             </Col>
         </Row>

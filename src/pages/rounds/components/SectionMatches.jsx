@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Alert, Table, FormControl } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import { useGetMatches } from '../../../features/matches.features'
@@ -8,6 +8,7 @@ import { useGetMatches } from '../../../features/matches.features'
 const SectionMatches = ({ round }) => {
   const [filter, setFilter] = useState('')
   const { data: matches, isLoading, isError } = useGetMatches()
+  const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load matches')
@@ -25,16 +26,14 @@ const SectionMatches = ({ round }) => {
         <h5 className="h7">Partidos</h5>
 
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Equipos...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Equipos...' onChange={e => setFilter(e.target.value)}/>
         </div>
 
         {matchesByFilter?.length > 0
           ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
-          <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
-            <thead>
+          <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} >
+            <thead className='border-bottom'>
                 <tr>
-
-                    <th>Ronda</th>
                     <th>Fecha</th>
                     <th>Local</th>
                     <th>Visita</th>
@@ -43,18 +42,15 @@ const SectionMatches = ({ round }) => {
             </thead>
             <tbody >
               {matchesByFilter?.map(match => (
-                <tr key={match?._id}>
-
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../rounds/${match?.round?._id}`}>{match?.round?.round}</Link></td>
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../matches/${match?._id}`}>{match?.date.split('T', 3).join(' ')}</Link></td>
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../teams/${match?.local?._id}`}>{match?.local?.name}</Link></td>
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../teams/${match?.away?._id}`}>{match?.away?.name}</Link></td>
+                <tr key={match?._id} onClick={() => navigate(`../matches/${match?._id}`)}>
+                    <td>{match?.date.split('T', 3).reverse().join(' ')}</td>
+                    <td>{match?.local?.name}</td>
+                    <td>{match?.away?.name}</td>
                     <td>{match?.score?.map(score => score?.local)} - {match?.score?.map(score => score?.away)}</td>
-
                 </tr>
               ))}
             </tbody>
-            <caption>Total de partidos: {matchesByFilter?.length}</caption>
+            <caption className='text-light'>Total de partidos: {matchesByFilter?.length}</caption>
           </Table>
           </div>
           : <Alert variant='warning'>No hay partidos para mostrar!</Alert>}

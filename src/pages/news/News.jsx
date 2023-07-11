@@ -22,8 +22,8 @@ const News = () => {
          <NavBar />
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
-        <Row className='my-2 p-2 mx-auto'>
-        <Col md={9} className='border rounded mx-auto fs-4' >
+        <Row className='my-2 mx-auto'>
+        <Col md={10} className=' rounded mx-auto fs-4' >
         <h5 className="h7">Noticias</h5>
         <div className='m-2 p-2'>
         <FormControl name='filter' placeholder='Deporte, equipo...' onChange={e => setFilter(e.target.value)}/>

@@ -4,8 +4,7 @@ import { Card } from 'react-bootstrap'
 const CardRound = ({ round }) => {
   return (
         <>
-        <section>
-        <Card>
+        <Card className='bg-dark text-light'>
             <Card.Body>
                 <Card.Title>{round?.round}</Card.Title>
                 <Card.Text>Temporada: {round?.season?.season}</Card.Text>
@@ -13,7 +12,6 @@ const CardRound = ({ round }) => {
                 <Card.Text>Deporte: {round?.sport?.sport}</Card.Text>
             </Card.Body>
         </Card>
-        </section>
         </>
   )
 }

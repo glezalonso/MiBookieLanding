@@ -25,7 +25,7 @@ const SectionMatches = () => {
 
   return (
         <>
-        <section>
+
         <h5 className="h7">Partidos de hoy ({matchesToday?.length})</h5>
         <div className='m-2 p-2'>
         <FormControl name='filter' style={{ fontSize: '13px' }} placeholder='Busca tu equipo...' onChange={e => setFilter(e.target.value)}/>
@@ -35,7 +35,7 @@ const SectionMatches = () => {
              <CardMatch key={match?._id} match={match} />
           ))
           : <Alert variant='warning'>No hay partidos para mostrar!</Alert>}
-          </section>
+
         </>
   )
 }

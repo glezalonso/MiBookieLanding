@@ -20,12 +20,12 @@ const Matches = () => {
         <NavBar />
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
-        <Row className='m-2 p-2 mx-auto'>
-          <Col className='border rounded mx-auto p-2 fs-4' >
+        <Row className='m-2 mx-auto'>
+          <Col md={11} className='rounded mx-auto fs-4' >
             <CardMatch match={match} />
           </Col>
         </Row>
-        <Row className='m-2 p-2 mx-auto'>
+        <Row className='m-2 mx-auto'>
             <SectionLineUps match={match} />
         </Row>
        </Container>

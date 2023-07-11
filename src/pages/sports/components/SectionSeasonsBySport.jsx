@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useGetSeasons } from '../../../features/seasons.features'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import { Alert, Table, FormControl } from 'react-bootstrap'
@@ -8,6 +8,7 @@ import { Alert, Table, FormControl } from 'react-bootstrap'
 const SectionSeasonsBySport = ({ sport }) => {
   const [filter, setFilter] = useState('')
   const { data: seasons, isLoading, isError } = useGetSeasons()
+  const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load seasons')
@@ -25,13 +26,13 @@ const SectionSeasonsBySport = ({ sport }) => {
         <>
         <section >
         <h5 className="h7">Temporadas de {sport?.sport} </h5>
-        <div className='m-2 p-3'>
-        <FormControl name='filter' placeholder='Temporada...' onChange={e => setFilter(e.target.value)}/>
+        <div className='m-2 p-2'>
+        <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Temporada...' onChange={e => setFilter(e.target.value)}/>
         </div>
           {seasonsByFilter?.length > 0
             ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
           <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover>
-            <thead>
+            <thead className='border-bottom'>
               <tr>
                 <th>
                  Tempoarada
@@ -46,9 +47,9 @@ const SectionSeasonsBySport = ({ sport }) => {
             </thead>
             <tbody>
               {seasonsByFilter?.map(season => (
-                <tr key={season?._id} >
-                <td><Link to={`../seasons/${season?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{season?.season}</Link></td>
-                <td><Link to={`../leagues/${season?.league?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{season?.league?.league}</Link></td>
+                <tr key={season?._id} onClick={() => navigate(`../seasons/${season?._id}`)} >
+                <td>{season?.season}</td>
+                <td>{season?.league?.league}</td>
                 <td>{(season?.status) ? <span className='text-success'>Abierta</span> : <span className='text-danger'>Cerrada</span>}</td>
                 </tr>
               ))}

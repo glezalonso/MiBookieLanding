@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useGetMatches } from '../../../features/matches.features'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import { Alert, Table, FormControl } from 'react-bootstrap'
@@ -8,6 +8,7 @@ import { Alert, Table, FormControl } from 'react-bootstrap'
 const SectionNextMatches = ({ sport }) => {
   const [filter, setFilter] = useState('')
   const { data: matches, isLoading, isError } = useGetMatches()
+  const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load matches')
@@ -24,13 +25,13 @@ const SectionNextMatches = ({ sport }) => {
         <section >
         <h5 className="h7">Próximos partidos de {sport?.sport}  ({filterMatch?.length})</h5>
         <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Equipos...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Equipos...' onChange={e => setFilter(e.target.value)}/>
         </div>
 
         {filterMatch?.length > 0
           ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
           <Table responsive variant='dark tabla-sm table-borderless' style={{ fontSize: '13px' }} hover>
-            <thead>
+            <thead className='border-bottom'>
                 <tr>
 
                     <th>Ronda</th>
@@ -41,12 +42,12 @@ const SectionNextMatches = ({ sport }) => {
             </thead>
             <tbody >
               {filterMatch?.map(match => (
-                <tr key={match?._id}>
+                <tr key={match?._id} onClick={ () => navigate(`../matches/${match?._id}`)}>
 
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../rounds/${match?.round?._id}`}>{match?.round?.round}</Link></td>
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../matches/${match?._id}`}>{match?.date.split('T', 3).join(' ')}</Link></td>
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../teams/${match?.local?._id}`}>{match?.local?.name}</Link></td>
-                    <td><Link className='btn btn-dark btn-sm w-100 text-start' to={`../teams/${match?.away?._id}`}>{match?.away?.name}</Link></td>
+                    <td>{match?.round?.round}</td>
+                    <td>{match?.date.split('T', 3).join(' ')}</td>
+                    <td>{match?.local?.name}</td>
+                    <td>{match?.away?.name}</td>
 
                 </tr>
               ))}

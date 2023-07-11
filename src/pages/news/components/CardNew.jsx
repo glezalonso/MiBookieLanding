@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import { Clock } from 'react-bootstrap-icons'
 
 const CardNew = ({ content }) => {
   return (
@@ -11,11 +12,10 @@ const CardNew = ({ content }) => {
                  <Card.Subtitle>Deporte: {content?.sport?.sport}</Card.Subtitle>
             </Card.Header>
             <Card.Body>
-                <Card.Text>Fecha: {content?.date?.split('T', 3).reverse().join(' ')}</Card.Text>
                 <Card.Text>{content?.content}</Card.Text>
             </Card.Body>
             <Card.Footer>
-                <Card.Text>Escrito por: {content?.author}</Card.Text>
+                <Card.Text>Escrito por: <strong>{content?.author} </strong><Clock /> {content?.date?.split('T', 3).reverse().join(' ')}</Card.Text>
             </Card.Footer>
         </Card>
         </section>

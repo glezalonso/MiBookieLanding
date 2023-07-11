@@ -37,14 +37,14 @@ function NavBar () {
       <Navbar.Brand >Mi Bookie</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="me-auto">
+        <Nav style={{ fontSize: '13px' }} className="me-auto">
           <Link to={'../'} className='nav-link'>Inicio</Link>
           <Link to={'../players'} className='nav-link'>Jugadores</Link>
           <Link to={'../teams'} className='nav-link'>Equipos</Link>
           <Link to={'../news'} className='nav-link'>Noticias</Link>
           <NavDropdown title="Deportes" id="basic-nav-dropdown">
             {sports?.map(sport => (
-              <Link to={`../sports/${sport?._id}`} key={sport?._id} className='dropdown-item'>{sport?.sport}</Link>
+              <Link style={{ fontSize: '13px' }} to={`../sports/${sport?._id}`} key={sport?._id} className='dropdown-item'>{sport?.sport}</Link>
 
             ))}
 
@@ -52,11 +52,11 @@ function NavBar () {
 
         </Nav>
         {(username)
-          ? <Navbar.Text>
+          ? <Navbar.Text style={{ fontSize: '13px' }}>
             Signed in as: <Link>{username}</Link>
-           <Button className='btn btn-warning mx-1 my-1' onClick={() => handleLogOut()}>Cerrar Sesión</Button>
-          </Navbar.Text>
-          : <Button className='btn btn-warning mx-1 my-1' onClick={() => handleShow()} >Iniciar Sesión</Button>}
+           <Button style={{ fontSize: '13px' }} className='btn btn-warning mx-1 my-1' onClick={() => handleLogOut()}>Cerrar Sesión</Button>
+          </Navbar.Text >
+          : <Button style={{ fontSize: '13px' }} className='btn btn-warning mx-1 my-1' onClick={() => handleShow()} >Iniciar Sesión</Button>}
       </Navbar.Collapse>
     </Container>
   </Navbar>

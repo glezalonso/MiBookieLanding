@@ -25,24 +25,24 @@ const Sports = () => {
         <NavBar />
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
-        <Row className='m-2 p-2 mx-auto'>
-          <Col md={10} className='border rounded mx-auto p-2' >
+        <Row className='my-2 mx-auto'>
+          <Col md={10} className='rounded mx-auto' >
             <CardSport sport={sport} />
           </Col>
         </Row>
-        <Row className='m-2 p-2 mx-auto'>
-          <Col md={4} className='border rounded mx-auto p-2 fs-4' >
+        <Row className='my-2 mx-auto'>
+          <Col md={4} className='bg-dark text-white border rounded mx-auto fs-6' >
          <SectionLeaguesBySport sport={sport} />
           </Col>
-          <Col md={8} className='border rounded mx-auto p-2 fs-4'>
+          <Col md={8} className='bg-dark text-white border rounded mx-auto fs-6'>
           <SectionNextMatches sport={sport} />
           </Col>
         </Row>
-        <Row className='m-2 p-2 mx-auto'>
-        <Col md={6} className='border rounded mx-auto p-2 fs-4'>
+        <Row className='my-2 mx-auto'>
+        <Col md={6} className='bg-dark text-white border rounded mx-auto fs-6'>
         <SectionSeasonsBySport sport={sport} />
         </Col >
-        <Col md={6} className='border rounded mx-auto p-2 fs-4'>
+        <Col md={6} className='bg-dark text-white border rounded mx-auto fs-6'>
           {sport?._id === ID_TENNIS
             ? <SectionPlayersTennis sport={sport} />
             : <SectionPlayersBySport sport={sport} />

@@ -21,16 +21,16 @@ const Seasons = () => {
         <NavBar />
         <Toaster position="top-center" reverseOrder={false} />
         <Container fluid >
-        <Row className='m-2 p-2 mx-auto'>
-          <Col md={10} className='border rounded mx-auto p-2 ' >
+        <Row className='m-2  mx-auto'>
+          <Col md={10} className='rounded mx-auto  ' >
            <CardSeason season={season} />
           </Col>
         </Row>
-        <Row className='m-2 p-2 mx-auto'>
-          <Col md={6} className='border rounded mx-auto p-2 fs-4' >
+        <Row className='m-2 mx-auto'>
+          <Col md={5} className='bg-dark text-light rounded mx-auto fs-4' >
           <SectionRounds season={season} />
           </Col>
-          <Col md={6} className='border rounded mx-auto p-2 fs-4' >
+          <Col md={6} className='bg-dark text-light rounded mx-auto fs-4' >
           <SectionStandings season={season} />
           </Col>
         </Row>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Table, FormControl, Alert } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const SectionRoster = ({ team }) => {
   const [filter, setFilter] = useState('')
+  const navigate = useNavigate()
 
   const playerFilter = team?.players.filter(player => {
     if (!filter) return player
@@ -14,12 +15,12 @@ const SectionRoster = ({ team }) => {
         <section >
         <h5 className="h7">Plantilla</h5>
          <div className='m-2 p-2'>
-        <FormControl name='filter' placeholder='Nombre del jugador...' onChange={e => setFilter(e.target.value)}/>
+        <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Nombre del jugador...' onChange={e => setFilter(e.target.value)}/>
         </div>
         {playerFilter.length > 0
           ? <div style={{ maxHeight: '500px', overflow: 'auto' }}>
-        <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} >
-            <thead>
+        <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover >
+            <thead className='border-bottom'>
                 <tr>
                 <th>Jugador</th>
                 <th>Posición</th>
@@ -27,8 +28,8 @@ const SectionRoster = ({ team }) => {
             </thead>
             <tbody>
                 {playerFilter?.map(player => (
-                    <tr key={player?.playerId?._id}>
-                    <td><Link to={`../players/${player?.playerId?._id}`} className='btn btn-dark btn-sm w-100 text-start' >{player?.playerId?.fullName}</Link></td>
+                    <tr key={player?.playerId?._id} onClick={() => navigate(`../players/${player?.playerId?._id}`)}>
+                    <td>{player?.playerId?.fullName}</td>
                     <td>{player?.playerId?.position}</td>
                     </tr>
                 ))}

@@ -3,10 +3,11 @@ import { useGetSeasons } from '../../../features/seasons.features'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import { Table, Alert } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const SectionSeasons = ({ league }) => {
   const { data: seasons, isLoading, isError } = useGetSeasons()
+  const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Hubo un error al cargar las temporadas!')
@@ -21,8 +22,8 @@ const SectionSeasons = ({ league }) => {
 
         {seasonByLeague?.length > 0
           ? <div className='my-scrollbar table-scroll-y p-1'>
-            <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
-            <thead>
+            <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} >
+            <thead className='border-bottom'>
                 <tr>
                     <th>Temporada</th>
                     <th>Estatus</th>
@@ -30,9 +31,9 @@ const SectionSeasons = ({ league }) => {
             </thead>
             <tbody>
                 {seasonByLeague?.map(season => (
-                    <tr key={season?._id}>
-                      <td><Link to={`../seasons/${season?._id}`} className='btn btn-dark btn-sm w-100 text-start'>{season?.season}</Link></td>
-                      <td>{(season?.status) ? <span className='text-success'>Abierta!</span> : <span className='text-danger'>Cerrada!</span>}</td>
+                    <tr key={season?._id} onClick={() => navigate(`../seasons/${season?._id}`)}>
+                      <td>{season?.season}</td>
+                      <td>{(season?.status) ? <span className='text-success'>Abierta</span> : <span className='text-danger'>Cerrada</span>}</td>
                     </tr>
                 ))}
             </tbody>

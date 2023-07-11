@@ -1,9 +1,11 @@
 import React from 'react'
 import { Alert, Table } from 'react-bootstrap'
 import { useGetSeasons } from '../../../features/seasons.features'
+import { useNavigate } from 'react-router-dom'
 
 const SectionStandings = ({ player }) => {
   const { data: season } = useGetSeasons()
+  const navigate = useNavigate()
 
   // counter
   let i = 1
@@ -28,8 +30,8 @@ const SectionStandings = ({ player }) => {
     <h5 className="h7">Posiciones</h5>
 
     {sort?.length > 0
-      ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
-      <Table responsive variant='dark table-sm' style={{ fontSize: '13px' }} >
+      ? <div className='table-resposive' style={{ maxHeight: '400px', overflow: 'auto' }}>
+      <Table variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover>
         <thead>
             <tr>
             <th>No.</th>
@@ -54,7 +56,7 @@ const SectionStandings = ({ player }) => {
         </thead>
         <tbody>
           {sort.map(stands => stands.map(stands => (
-            <tr key={stands?.team?._id}>
+            <tr key={stands?.team?._id} onClick={() => navigate(`../teams/${stands?.team?._id}`)}>
               <td>{i++}</td>
               <td>{stands.team?.name}</td>
               <td>{stands?.wins}</td>

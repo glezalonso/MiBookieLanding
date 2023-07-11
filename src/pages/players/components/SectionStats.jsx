@@ -6,7 +6,7 @@ const SectionStats = () => {
         <>
         <section>
         <h5 className="h7">Estadísticas</h5>
-        <Alert className='info'>En desarrollo</Alert>
+        <Alert variant='warning'>En desarrollo</Alert>
         </section>
 
         </>
