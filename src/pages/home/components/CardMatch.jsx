@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Form, FormControl, Button, Alert } from 'react-bootstrap'
-import { XCircleFill, ChatDotsFill } from 'react-bootstrap-icons'
+import { TrashFill, ChatDotsFill } from 'react-bootstrap-icons'
 import { useAddComment, useRemoveComment } from '../../../features/matches.features'
 import { Link } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
@@ -30,7 +30,7 @@ const CardMatch = ({ match }) => {
   return (
         <>
          <section className="my-3" >
-              <Card >
+              <Card bg='dark' >
               <Card.Header className='bg-dark text-light'>
               <div className='d-flex flex-row justify-content-end '>{match?.status ? <span className=' bg-success text-light rounded p-1 '>Abierto!</span> : <span className='bg-danger text-light rounded p-1'>Terminado!</span>}</div>
               <h1 style={{ margin: '1px', fontSize: '18px' }}>{match?.away?.name} {match?.score?.map(score => score?.away)} @ {match?.local?.name} {match?.score?.map(score => score?.local)}
@@ -39,7 +39,7 @@ const CardMatch = ({ match }) => {
                <p style={{ fontSize: '13px' }}>Date: {match?.date?.split('T').reverse().join(' ')} <span><strong>{match?.season?.season}</strong></span></p>
                   <Button className='btn btn-secondary btn-sm text-light d-flex align-items-center' style={{ fontSize: '12px' }} onClick={() => setShow(!show)}>{show ? <>Cerrar comentarios</> : <><ChatDotsFill className='mx-1'/>  {match?.comments?.length}  comentarios</>}</Button>
               </Card.Header>
-              <div style={ show ? { maxHeight: '200px', overflow: 'auto' } : { display: 'none' } }>
+              <div style={ show ? { maxHeight: '200px', overflow: 'auto', background: 'white' } : { display: 'none' } }>
                   {match?.comments?.length > 0
                     ? <Card.Body >
                     {match?.comments?.map(comment => (
@@ -47,15 +47,15 @@ const CardMatch = ({ match }) => {
                         ? <div className="d-flex flex-row justify-content-end m-1 " key={comment?._id}>
                             <div className="p-2 ms-5 border rounded text-end " style={{ margin: '1px', fontSize: '12px' }} >
                                 <strong className='text-dark' style={{ marginRight: '2px', fontSize: '12px' }} >{comment?.username}:</strong>
-                                {comment?.comment} <XCircleFill color='red' onClick={() => handleRemove(comment?.comment, comment?._id, match?._id)} />
+                                {comment?.comment} <TrashFill color='dark' onClick={() => handleRemove(comment?.comment, comment?._id, match?._id)} />
                             </div></div>
                         : <div className="d-flex flex-row justify-content-start m-1" key={comment?._id}>
                             <div className="p-2 border rounded bg-dark text-light "style={{ margin: '1px', fontSize: '12px' }} ><strong style={{ marginRight: '2px', fontSize: '12px' }}>{comment?.username}:  </strong>{comment?.comment}</div></div>
                     ))}
                  </Card.Body>
-                    : <Alert variant='warning mx-3 m-1'>No hay comentarios para mostrar!</Alert>}
+                    : <Alert variant='warning mx-3 m-1 '>No hay comentarios para mostrar!</Alert>}
                  </div>
-              <Card.Footer>
+              <Card.Footer className='bg-dark'>
 
                 <div className='mx-auto p-1 w-100'>
                 <Form onSubmit={e => handleSubmit(e, match?._id)}>
