@@ -3,19 +3,17 @@ import { Alert, Table, FormControl } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
-import { useGetMatches } from '../../../features/matches.features'
+import { useGetMatchesByRound } from '../../../features/matches.features'
 
 const SectionMatches = ({ round }) => {
   const [filter, setFilter] = useState('')
-  const { data: matches, isLoading, isError } = useGetMatches()
+  const { data: matches, isLoading, isError } = useGetMatchesByRound(round?._id)
   const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load matches')
 
-  const matchesByPlayer = matches?.filter(match => match?.round?._id === round?._id)
-
-  const matchesByFilter = matchesByPlayer?.filter(matches => {
+  const matchesByFilter = matches?.filter(matches => {
     if (!filter) return matches
     return matches?.away?.name?.toLowerCase().includes(filter.toLowerCase()) || matches?.local?.name?.toLowerCase().includes(filter.toLowerCase())
   })

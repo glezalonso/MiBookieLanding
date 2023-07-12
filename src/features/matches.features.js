@@ -1,13 +1,9 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getMatch, getMatches, addComment, removeComment, getMatchesToday } from '../services/matches.services'
+import { getMatch, getMatches, addComment, removeComment, getMatchesToday, getMatchesByLeague, getMatchesByRound, getMatchesBySeason, getMatchesClosed, getMatchesOpen, getMatchesByTeam } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
 
 export const useGetMatches = () => {
   const { data, isLoading, isError } = useQuery({ queryKey: ['matches'], queryFn: getMatches })
-  return { data, isLoading, isError }
-}
-export const useGetMatchesToday = (date) => {
-  const { data, isLoading, isError } = useQuery({ queryKey: ['matchestoday', date], queryFn: () => getMatchesToday(date) })
   return { data, isLoading, isError }
 }
 
@@ -38,4 +34,33 @@ export const useRemoveComment = (id) => {
     }
   })
   return mutationRemove
+}
+
+export const useGetMatchesToday = (date) => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matchestoday', date], queryFn: () => getMatchesToday(date) })
+  return { data, isLoading, isError }
+}
+export const useGetMatchesByTeam = (team) => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matches', team], queryFn: () => getMatchesByTeam(team) })
+  return { data, isLoading, isError }
+}
+export const useGetMatchesByLeague = (league) => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matches', league], queryFn: () => getMatchesByLeague(league) })
+  return { data, isLoading, isError }
+}
+export const useGetMatchesByRound = (round) => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matches', round], queryFn: () => getMatchesByRound(round) })
+  return { data, isLoading, isError }
+}
+export const useGetMatchesBySeason = (season) => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matches', season], queryFn: () => getMatchesBySeason(season) })
+  return { data, isLoading, isError }
+}
+export const useGetMatchesOpen = () => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matches'], queryFn: getMatchesOpen })
+  return { data, isLoading, isError }
+}
+export const useGetMatchesClosed = () => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matches'], queryFn: getMatchesClosed })
+  return { data, isLoading, isError }
 }

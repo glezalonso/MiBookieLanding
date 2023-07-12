@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useGetPlayers } from '../../../features/players.features'
+import { useGetPlayerBySport } from '../../../features/players.features'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
@@ -7,15 +7,13 @@ import { Table, FormControl, Alert } from 'react-bootstrap'
 
 const SectionPlayerBySport = ({ sport }) => {
   const [filter, setFilter] = useState('')
-  const { data: players, isLoading, isError } = useGetPlayers()
+  const { data: players, isLoading, isError } = useGetPlayerBySport(sport?._id)
   const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load players')
 
-  const playerBySport = players?.filter(player => player?.sport?._id === sport?._id)
-
-  const playersByFilter = playerBySport?.filter(player => {
+  const playersByFilter = players?.filter(player => {
     if (!filter) return player
     return player?.fullName?.toLowerCase().includes(filter.toLowerCase())
   })

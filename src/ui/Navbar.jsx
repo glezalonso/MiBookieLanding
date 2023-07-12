@@ -39,8 +39,8 @@ function NavBar () {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav style={{ fontSize: '13px' }} className="me-auto">
           <Link to={'../'} className='nav-link'>Inicio</Link>
-          <Link to={'../players'} className='nav-link'>Jugadores</Link>
-          <Link to={'../teams'} className='nav-link'>Equipos</Link>
+          {/* <Link to={'../players'} className='nav-link'>Jugadores</Link>
+          <Link to={'../teams'} className='nav-link'>Equipos</Link> */}
           <Link to={'../news'} className='nav-link'>Noticias</Link>
           <NavDropdown title="Deportes" id="basic-nav-dropdown">
             {sports?.map(sport => (

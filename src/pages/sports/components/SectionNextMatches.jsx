@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useGetMatches } from '../../../features/matches.features'
+import { useGetMatchesOpen } from '../../../features/matches.features'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
@@ -7,15 +7,15 @@ import { Alert, Table, FormControl } from 'react-bootstrap'
 
 const SectionNextMatches = ({ sport }) => {
   const [filter, setFilter] = useState('')
-  const { data: matches, isLoading, isError } = useGetMatches()
+  const { data: matches, isLoading, isError } = useGetMatchesOpen()
   const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load matches')
 
-  const matchesByLeague = matches?.filter(match => match?.sport?._id === sport?._id && match?.status === true)
+  const matchesByLSport = matches?.filter(match => match?.sport?._id === sport?._id)
 
-  const filterMatch = matchesByLeague?.filter(matches => {
+  const filterMatch = matchesByLSport?.filter(matches => {
     if (!filter) return matches
     return matches?.away?.name?.toLowerCase().includes(filter.toLowerCase()) || matches?.local?.name?.toLowerCase().includes(filter.toLowerCase())
   })

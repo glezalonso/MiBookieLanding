@@ -6,9 +6,9 @@ import Leagues from './pages/leagues/Leagues'
 import Sports from './pages/sports/Sports'
 import Rounds from './pages/rounds/Rounds'
 import Seasons from './pages/seasons/Seasons'
-import Players from './pages/players/Players'
+// import Players from './pages/players/Players'
 import PlayerDetails from './pages/players/PlayersDetails'
-import Teams from './pages/teams/Teams'
+// import Teams from './pages/teams/Teams'
 import TeamDetails from './pages/teams/TeamDetails'
 import News from './pages/news/News'
 import GenerateCode from './pages/home/components/GenerateCode'
@@ -34,9 +34,9 @@ const App = () => {
       <Route path='/generate' element={<GenerateCode />} />
       <Route path='/verify' element={<VerifyCode />} />
       <Route path='/reset' element={<ResetPassword />} />
-      <Route path='/players' element={<Players />} />
+      {/* <Route path='/players' element={<Players />} /> */}
       <Route path='/players/:id' element={<PlayerDetails />} />
-      <Route path='/teams' element={<Teams />} />
+      {/* <Route path='/teams' element={<Teams />} /> */}
       <Route path='/teams/:id' element={<TeamDetails />} />
       <Route path='/sports/:id' element={<Sports />} />
       <Route path='/leagues/:id' element={<Leagues />} />

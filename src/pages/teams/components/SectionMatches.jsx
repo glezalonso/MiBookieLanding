@@ -3,17 +3,17 @@ import { Alert, Table, FormControl } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
-import { useGetMatches } from '../../../features/matches.features'
+import { useGetMatchesByTeam } from '../../../features/matches.features'
 
 const SectionMatches = ({ team }) => {
   const [filter, setFilter] = useState('')
-  const { data: matches, isLoading, isError } = useGetMatches()
+  const { data: matches, isLoading, isError } = useGetMatchesByTeam(team?._id)
   const navigate = useNavigate()
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Failed to load matches')
 
-  const matchesByPlayer = matches?.filter(match => match?.status === true && (match?.away?._id === team?._id || match?.local?._id === team?._id))
+  const matchesByPlayer = matches?.filter(match => match?.status === true)
 
   const matchesByFilter = matchesByPlayer?.filter(matches => {
     if (!filter) return matches

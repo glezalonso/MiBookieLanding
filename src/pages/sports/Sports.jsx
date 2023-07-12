@@ -11,6 +11,7 @@ import SectionNextMatches from './components/SectionNextMatches'
 import SectionPlayersBySport from './components/SectionPlayersBySport'
 import SectionSeasonsBySport from './components/SectionSeasonsBySport'
 import SectionPlayersTennis from './components/SectionPlayersTennis'
+import SectionTeams from './components/SectionTeams'
 
 const Sports = () => {
   const { id } = useParams()
@@ -39,10 +40,13 @@ const Sports = () => {
           </Col>
         </Row>
         <Row className='my-2 mx-auto'>
-        <Col md={6} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
+        <Col md={4} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
         <SectionSeasonsBySport sport={sport} />
         </Col >
-        <Col md={6} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
+         <Col style={sport?._id === ID_TENNIS ? { display: 'none' } : null } md={3} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
+          <SectionTeams style={sport?._id === ID_TENNIS ? { display: 'none' } : null } sport={sport} />
+          </Col>
+        <Col md={3} className='bg-dark text-white rounded mx-auto my-1 fs-6'>
           {sport?._id === ID_TENNIS
             ? <SectionPlayersTennis sport={sport} />
             : <SectionPlayersBySport sport={sport} />
