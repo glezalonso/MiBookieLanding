@@ -1,9 +1,13 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { getMatch, getMatches, addComment, removeComment } from '../services/matches.services'
+import { getMatch, getMatches, addComment, removeComment, getMatchesToday } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
 
 export const useGetMatches = () => {
   const { data, isLoading, isError } = useQuery({ queryKey: ['matches'], queryFn: getMatches })
+  return { data, isLoading, isError }
+}
+export const useGetMatchesToday = () => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matchestoday'], queryFn: getMatchesToday })
   return { data, isLoading, isError }
 }
 
@@ -18,7 +22,7 @@ export const useAddComment = () => {
     mutationFn: addComment,
     onSuccess: () => {
       toast.success('Comentario agregado')
-      queryClient.invalidateQueries({ queryKey: ['matches'] })
+      queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
     }
   })
   return mutationAdd
@@ -30,7 +34,7 @@ export const useRemoveComment = (id) => {
     mutationFn: removeComment,
     onSuccess: () => {
       toast.success('Comentario eliminado')
-      queryClient.invalidateQueries({ queryKey: ['matches'] })
+      queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
     }
   })
   return mutationRemove
