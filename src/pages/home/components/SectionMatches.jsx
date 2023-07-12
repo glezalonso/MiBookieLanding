@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { Alert, FormControl } from 'react-bootstrap'
 import { useGetMatchesToday } from '../../../features/matches.features'
+import formatedDate from '../../../utils/formatedDate'
 import Loading from '../../../ui/Loading'
 import CardMatch from './CardMatch'
 
 const SectionMatches = () => {
   const [filter, setFilter] = useState('')
+  const date = formatedDate()
 
-  const { data: matches, isLoading, isError } = useGetMatchesToday()
+  const { data: matches, isLoading, isError } = useGetMatchesToday(date)
 
   if (isLoading) return <Loading />
   if (isError) return toast.error('Hubo un error al cargar los partidos!')

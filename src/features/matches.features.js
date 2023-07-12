@@ -6,8 +6,8 @@ export const useGetMatches = () => {
   const { data, isLoading, isError } = useQuery({ queryKey: ['matches'], queryFn: getMatches })
   return { data, isLoading, isError }
 }
-export const useGetMatchesToday = () => {
-  const { data, isLoading, isError } = useQuery({ queryKey: ['matchestoday'], queryFn: getMatchesToday })
+export const useGetMatchesToday = (date) => {
+  const { data, isLoading, isError } = useQuery({ queryKey: ['matchestoday', date], queryFn: () => getMatchesToday(date) })
   return { data, isLoading, isError }
 }
 

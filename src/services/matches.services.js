@@ -4,8 +4,8 @@ export const getMatches = async () => {
   const { data } = await axios.get('/api/matches')
   return data
 }
-export const getMatchesToday = async () => {
-  const { data } = await axios.get('/api/matches/matchestoday')
+export const getMatchesToday = async (date) => {
+  const { data } = await axios.put('/api/matches/matchestoday', { date })
   return data
 }
 
