@@ -32,7 +32,7 @@ const SectionPlayers = () => {
                 <div className="m-2 p-2">
                     <FormControl
                         style={{ fontSize: '13px' }}
-                        name="filter"
+                        name="player"
                         placeholder="Nombre, deporte, equipo..."
                         onChange={(e) => setFilter(e.target.value)}
                     />

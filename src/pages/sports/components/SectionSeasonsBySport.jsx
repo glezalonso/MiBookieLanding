@@ -32,7 +32,7 @@ const SectionSeasonsBySport = ({ sport }) => {
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         style={{ fontSize: '14px' }}
-                        name="filter"
+                        name="sport"
                         placeholder="Temporada..."
                         onChange={(e) => setFilter(e.target.value)}
                     />

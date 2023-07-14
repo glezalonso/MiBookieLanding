@@ -31,7 +31,7 @@ const SectionMatches = () => {
                 <h5>Partidos de hoy ({matches?.length})</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
-                        name="filter"
+                        name="team"
                         style={{ fontSize: '14px' }}
                         placeholder="Equipo..."
                         onChange={(e) => setFilter(e.target.value)}

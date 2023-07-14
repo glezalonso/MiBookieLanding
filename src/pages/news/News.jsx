@@ -29,7 +29,7 @@ const News = () => {
                         <h5 className="h7">Noticias</h5>
                         <div className="m-2 p-2">
                             <FormControl
-                                name="filter"
+                                name="new"
                                 placeholder="Deporte, equipo..."
                                 onChange={(e) => setFilter(e.target.value)}
                             />

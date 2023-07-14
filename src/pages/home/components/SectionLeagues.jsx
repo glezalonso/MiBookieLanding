@@ -25,7 +25,7 @@ const SectionLeagues = () => {
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         style={{ fontSize: '14px' }}
-                        name="filter"
+                        name="league"
                         placeholder="Liga..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
