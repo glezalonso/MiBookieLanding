@@ -7,35 +7,47 @@ import Loading from '../../../ui/Loading'
 import CardMatch from './CardMatch'
 
 const SectionMatches = () => {
-  const [filter, setFilter] = useState('')
-  const date = formatedDate()
+    const [filter, setFilter] = useState('')
+    const date = formatedDate()
 
-  const { data: matches, isLoading, isError } = useGetMatchesToday(date)
+    const { data: matches, isLoading, isError } = useGetMatchesToday(date)
 
-  if (isLoading) return <Loading />
-  if (isError) return toast.error('Hubo un error al cargar los partidos!')
+    if (isLoading) return <Loading />
+    if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
-  matches.sort((a, b) => b.status - a.status)
+    matches?.sort((a, b) => b.status - a.status)
 
-  const matchFilter = matches?.filter(match => {
-    if (!filter) return match
-    return match?.local?.name?.toLowerCase().includes(filter.toLowerCase()) || match?.away?.name?.toLowerCase().includes(filter.toLowerCase())
-  })
+    const matchFilter = matches?.filter((match) => {
+        if (!filter) return match
+        return (
+            match?.local?.name?.toLowerCase().includes(filter.toLowerCase()) ||
+            match?.away?.name?.toLowerCase().includes(filter.toLowerCase())
+        )
+    })
 
-  return (
+    return (
         <>
-
-        <h5 className="h7">Partidos de hoy ({matches?.length})</h5>
-        <div className='m-2 p-2'>
-        <FormControl name='filter' style={{ fontSize: '13px' }} placeholder='Busca tu equipo...' onChange={e => setFilter(e.target.value)}/>
-        </div>
-        {(matchFilter?.length > 0)
-          ? matchFilter?.map(match => (
-             <CardMatch key={match?._id} match={match} />
-          ))
-          : <Alert variant='warning'>No hay partidos para mostrar!</Alert>}
-
+            <section>
+                <h5>Partidos de hoy ({matches?.length})</h5>
+                <div className="my-2 mx-auto p-1">
+                    <FormControl
+                        name="filter"
+                        style={{ fontSize: '14px' }}
+                        placeholder="Equipo..."
+                        onChange={(e) => setFilter(e.target.value)}
+                    />
+                </div>
+                {matchFilter?.length > 0 ? (
+                    matchFilter?.map((match) => (
+                        <CardMatch key={match?._id} match={match} />
+                    ))
+                ) : (
+                    <Alert variant="warning">
+                        No hay partidos para mostrar!
+                    </Alert>
+                )}
+            </section>
         </>
-  )
+    )
 }
 export default SectionMatches

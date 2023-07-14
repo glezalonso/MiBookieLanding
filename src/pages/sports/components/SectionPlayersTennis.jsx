@@ -1,54 +1,68 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 import { Table, FormControl, Alert } from 'react-bootstrap'
 import { useGetTeamsBySport } from '../../../features/teams.features'
 
 const SectionPlayersTennis = ({ sport }) => {
-  const [filter, setFilter] = useState('')
-  const { data: players, isLoading, isError } = useGetTeamsBySport(sport?._id)
-  const navigate = useNavigate()
+    const [filter, setFilter] = useState('')
+    const { data: players, isError } = useGetTeamsBySport(sport?._id)
+    const navigate = useNavigate()
 
-  if (isLoading) return <Loading />
-  if (isError) return toast.error('Failed to load players')
+    if (isError) return toast.error('Failed to load players')
 
-  const playersByFilter = players?.filter(player => {
-    if (!filter) return player
-    return player?.name?.toLowerCase().includes(filter.toLowerCase())
-  })
+    const playersByFilter = players?.filter((player) => {
+        if (!filter) return player
+        return player?.name?.toLowerCase().includes(filter.toLowerCase())
+    })
 
-  return (
+    return (
         <>
-        <section >
-        <h5 className="h7">Jugadores de {sport?.sport}</h5>
-         <div className='m-2 p-2'>
-        <FormControl style={{ fontSize: '13px' }} name='filter' placeholder='Nombre del jugador...' onChange={e => setFilter(e.target.value)}/>
-        </div>
-        {playersByFilter.length > 0
-          ? <div style={{ maxHeight: '400px', overflow: 'auto' }}>
-        <Table responsive variant='dark table-sm table-borderless' style={{ fontSize: '13px' }} hover >
-          <thead className='border-bottom'>
-            <tr>
-            <th>
-             Nombre
-            </th>
-            </tr>
-          </thead>
-          <tbody>
-            {playersByFilter.map(player => (
-              <tr key={player?._id} onClick={() => navigate(`../teams/${player?._id}`)}>
-              <td>{player?.name}</td>
-              </tr>
-
-            ))}
-
-          </tbody>
-          </Table>
-          </div>
-          : <Alert variant='warning'>No hay jugadores para mostrar!</Alert>}
-          </section>
+            <section>
+                <h5>Jugadores de {sport?.sport}</h5>
+                <div className="my-2 mx-auto p-1">
+                    <FormControl
+                        style={{ fontSize: '14px' }}
+                        name="filter"
+                        placeholder="Nombre del jugador..."
+                        onChange={(e) => setFilter(e.target.value)}
+                    />
+                </div>
+                {playersByFilter?.length > 0 ? (
+                    <div className="bg-dark rounded section-tables">
+                        <Table
+                            responsive
+                            borderless
+                            hover
+                            size="sm"
+                            variant="dark"
+                        >
+                            <thead className="border-bottom">
+                                <tr>
+                                    <th>Nombre</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {playersByFilter.map((player) => (
+                                    <tr
+                                        key={player?._id}
+                                        onClick={() =>
+                                            navigate(`../teams/${player?._id}`)
+                                        }
+                                    >
+                                        <td>{player?.name}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </div>
+                ) : (
+                    <Alert variant="warning">
+                        No hay jugadores para mostrar!
+                    </Alert>
+                )}
+            </section>
         </>
-  )
+    )
 }
 export default SectionPlayersTennis

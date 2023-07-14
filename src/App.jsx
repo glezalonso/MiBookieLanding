@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NavBar from './ui/Navbar'
+import { Toaster } from 'react-hot-toast'
 import Home from './pages/home/Home'
 import Matches from './pages/matches/Matches'
 import Leagues from './pages/leagues/Leagues'
@@ -19,35 +21,37 @@ import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
 
 const App = () => {
-  const token = useAuthStore(state => state.auth)
-  const logOut = useAuthStore(state => state.logOut)
+    const token = useAuthStore((state) => state.auth)
+    const logOut = useAuthStore((state) => state.logOut)
 
-  useEffect(() => {
-    if (token && Date.now() >= decode(token).exp * 1000) return logOut()
-  }, [])
-  return (
-    <>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/news'element={<News />} />
-      <Route path='/generate' element={<GenerateCode />} />
-      <Route path='/verify' element={<VerifyCode />} />
-      <Route path='/reset' element={<ResetPassword />} />
-      {/* <Route path='/players' element={<Players />} /> */}
-      <Route path='/players/:id' element={<PlayerDetails />} />
-      {/* <Route path='/teams' element={<Teams />} /> */}
-      <Route path='/teams/:id' element={<TeamDetails />} />
-      <Route path='/sports/:id' element={<Sports />} />
-      <Route path='/leagues/:id' element={<Leagues />} />
-      <Route path='/seasons/:id' element={<Seasons />} />
-      <Route path='/rounds/:id' element={<Rounds />} />
-      <Route path='/matches/:id' element={<Matches />} />
-    </Routes>
-    </BrowserRouter>
-
-    </>
-  )
+    useEffect(() => {
+        if (token && Date.now() >= decode(token).exp * 1000) return logOut()
+    }, [])
+    return (
+        <>
+            <BrowserRouter>
+                <Toaster position="top-center" reverseOrder={false} />
+                <NavBar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/news" element={<News />} />
+                    <Route path="/generate" element={<GenerateCode />} />
+                    <Route path="/verify" element={<VerifyCode />} />
+                    <Route path="/reset" element={<ResetPassword />} />
+                    {/* <Route path='/players' element={<Players />} /> */}
+                    <Route path="/players/:id" element={<PlayerDetails />} />
+                    {/* <Route path='/teams' element={<Teams />} /> */}
+                    <Route path="/teams/:id" element={<TeamDetails />} />
+                    <Route path="/sports/:id" element={<Sports />} />
+                    <Route path="/leagues/:id" element={<Leagues />} />
+                    <Route path="/seasons/:id" element={<Seasons />} />
+                    <Route path="/rounds/:id" element={<Rounds />} />
+                    <Route path="/matches/:id" element={<Matches />} />
+                    <Route path="*" element={<h1>Página no encontrada</h1>} />
+                </Routes>
+            </BrowserRouter>
+        </>
+    )
 }
 
 export default App
