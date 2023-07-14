@@ -51,7 +51,7 @@ const CardMatch = ({ match }) => {
                                 className="border-bottom"
                             >
                                 <tr>
-                                    <td className="fs-6">
+                                    <td>
                                         <img
                                             src={match?.away?.poster}
                                             style={{
