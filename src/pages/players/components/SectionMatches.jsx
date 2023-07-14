@@ -3,15 +3,18 @@ import { Alert, Table, FormControl } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { useGetMatchesByTeam } from '../../../features/matches.features'
+import Loading from '../../../ui/Loading'
 
 const SectionMatches = ({ player }) => {
     const [filter, setFilter] = useState('')
     const {
         data: matches,
-
+        isLoading,
         isError,
     } = useGetMatchesByTeam(player?.team?._id)
     const navigate = useNavigate()
+
+    if (isLoading) return <Loading />
 
     if (isError) return toast.error('Failed to load matches')
 

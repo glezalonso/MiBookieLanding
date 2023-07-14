@@ -3,13 +3,16 @@ import { useGetMatchesOpen } from '../../../features/matches.features'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { Alert, Table, FormControl } from 'react-bootstrap'
+import Loading from '../../../ui/Loading'
 
 const SectionNextMatches = ({ sport }) => {
     const [filter, setFilter] = useState('')
-    const { data: matches, isError } = useGetMatchesOpen()
+    const { data: matches, isLoading, isError } = useGetMatchesOpen()
     const navigate = useNavigate()
 
-    if (isError) return toast.error('Failed to load matches')
+    if (isLoading) return <Loading />
+
+    if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
     const matchesBySport = matches?.filter(
         (match) => match?.sport?._id === sport?._id

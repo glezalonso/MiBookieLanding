@@ -3,13 +3,16 @@ import { useGetSeasons } from '../../../features/seasons.features'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { Alert, Table, FormControl } from 'react-bootstrap'
+import Loading from '../../../ui/Loading'
 
 const SectionSeasonsBySport = ({ sport }) => {
     const [filter, setFilter] = useState('')
-    const { data: seasons, isError } = useGetSeasons()
+    const { data: seasons, isLoading, isError } = useGetSeasons()
     const navigate = useNavigate()
 
-    if (isError) return toast.error('Failed to load seasons')
+    if (isLoading) return <Loading />
+
+    if (isError) return toast.error('Hubo un error al cargar las temporadas!')
 
     const seasonsBySport = seasons?.filter(
         (season) => season?.sport?._id === sport?._id

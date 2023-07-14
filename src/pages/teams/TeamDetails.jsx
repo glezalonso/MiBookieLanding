@@ -11,9 +11,9 @@ import SectionRoster from './components/SectionRoster'
 
 const TeamDetails = () => {
     const { id } = useParams()
-    console.log(id)
+
     const { data: team, isLoading, isError } = useGetTeam(id)
-    console.log(team)
+
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los equipos!')
     return (

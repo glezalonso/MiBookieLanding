@@ -37,12 +37,6 @@ export const getMatchesByRound = async (round) => {
     return data
 }
 
-export const getMatchesBySeason = async (season) => {
-    const { data } = await axios.post('/api/matches/matchesbyseason', {
-        season,
-    })
-    return data
-}
 export const getMatchesOpen = async () => {
     const { data } = await axios.post('/api/matches/matchesopen')
     return data

@@ -3,10 +3,13 @@ import { useGetSeasons } from '../../../features/seasons.features'
 import { toast } from 'react-hot-toast'
 import { Table, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import Loading from '../../../ui/Loading'
 
 const SectionSeasons = ({ league }) => {
-    const { data: seasons, isError } = useGetSeasons()
+    const { data: seasons, isLoading, isError } = useGetSeasons()
     const navigate = useNavigate()
+
+    if (isLoading) return <Loading />
 
     if (isError) return toast.error('Hubo un error al cargar las temporadas!')
 

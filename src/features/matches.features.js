@@ -7,7 +7,6 @@ import {
     getMatchesToday,
     getMatchesByLeague,
     getMatchesByRound,
-    getMatchesBySeason,
     getMatchesClosed,
     getMatchesOpen,
     getMatchesByTeam,
@@ -82,13 +81,7 @@ export const useGetMatchesByRound = (round) => {
     })
     return { data, isLoading, isError }
 }
-export const useGetMatchesBySeason = (season) => {
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', season],
-        queryFn: () => getMatchesBySeason(season),
-    })
-    return { data, isLoading, isError }
-}
+
 export const useGetMatchesOpen = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['matches'],

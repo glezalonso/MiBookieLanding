@@ -2,9 +2,11 @@ import React from 'react'
 import { Alert, Table } from 'react-bootstrap'
 import { useGetSeasons } from '../../../features/seasons.features'
 import { useNavigate } from 'react-router-dom'
+import Loading from '../../../ui/Loading'
+import { toast } from 'react-hot-toast'
 
 const SectionStandings = ({ player }) => {
-    const { data: season } = useGetSeasons()
+    const { data: season, isLoading, isError } = useGetSeasons()
     const navigate = useNavigate()
 
     // counter
@@ -13,6 +15,9 @@ const SectionStandings = ({ player }) => {
     // SoccerID
     const ID_SOCCER = '648f71dea4ba8860dfe3830f'
     const ID_BASEBALL = '648f7211a4ba8860dfe38319'
+
+    if (isLoading) return <Loading />
+    if (isError) return toast.error('Hubo un error al cargar las posiciones!')
 
     const seasonsByPlayer = season?.filter(
         (season) =>

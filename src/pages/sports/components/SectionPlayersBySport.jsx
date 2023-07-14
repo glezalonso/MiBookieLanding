@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import { useGetPlayerBySport } from '../../../features/players.features'
 import { useNavigate } from 'react-router-dom'
-
+import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 import { Table, FormControl, Alert } from 'react-bootstrap'
 
 const SectionPlayerBySport = ({ sport }) => {
     const [filter, setFilter] = useState('')
-    const { data: players, isError } = useGetPlayerBySport(sport?._id)
+    const {
+        data: players,
+        isLoading,
+        isError,
+    } = useGetPlayerBySport(sport?._id)
     const navigate = useNavigate()
 
-    if (isError) return toast.error('Failed to load players')
+    if (isLoading) return <Loading />
+
+    if (isError) return toast.error('Hubo un error al cargar los jugadores')
 
     const playersByFilter = players?.filter((player) => {
         if (!filter) return player

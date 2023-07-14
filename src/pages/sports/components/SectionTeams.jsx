@@ -3,13 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { Table, FormControl, Alert } from 'react-bootstrap'
 import { useGetTeamsBySport } from '../../../features/teams.features'
+import Loading from '../../../ui/Loading'
 
 const SectionTeams = ({ sport }) => {
     const [filter, setFilter] = useState('')
-    const { data: teams, isError } = useGetTeamsBySport(sport?._id)
+    const { data: teams, isLoading, isError } = useGetTeamsBySport(sport?._id)
     const navigate = useNavigate()
 
-    if (isError) return toast.error('Failed to load players')
+    if (isLoading) return <Loading />
+
+    if (isError) return toast.error('Hubo un error al cargar los jugadores!')
 
     const playersByFilter = teams?.filter((teams) => {
         if (!filter) return teams

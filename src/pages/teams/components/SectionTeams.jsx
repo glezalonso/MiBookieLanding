@@ -11,7 +11,7 @@ const SectionTeams = () => {
     const navigate = useNavigate()
 
     if (isLoading) return <Loading />
-    if (isError) return toast.error('Failed to load teams!')
+    if (isError) return toast.error('Hubo un error al cargar los equipos!')
 
     const filterTeams = teams?.filter((teams) => {
         if (!filter) return teams

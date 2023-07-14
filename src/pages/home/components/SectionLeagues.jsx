@@ -3,12 +3,14 @@ import { Table, FormControl, Alert } from 'react-bootstrap'
 import { useGetLeagues } from '../../../features/leagues.features'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
+import Loading from '../../../ui/Loading'
 
 const SectionLeagues = () => {
     const [filter, setFilter] = useState('')
-    const { data: leagues, isError } = useGetLeagues()
+    const { data: leagues, isLoading, isError } = useGetLeagues()
     const navigate = useNavigate()
 
+    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las ligas')
 
     const leaguesByFilter = leagues?.filter((league) => {
