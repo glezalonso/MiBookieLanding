@@ -41,7 +41,7 @@ const CardMatch = ({ match }) => {
                 <Card.Header className="bg-dark text-light ">
                     <div className="table-responsive bg-dark rounded ">
                         <span>
-                            <strong>{match?.season?.season}</strong>
+                            <strong>{match?.league?.league}</strong>
                         </span>
                         <Table variant="dark table-borderless">
                             <tbody
