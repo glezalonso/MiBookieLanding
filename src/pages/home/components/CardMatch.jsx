@@ -52,6 +52,14 @@ const CardMatch = ({ match }) => {
                             >
                                 <tr>
                                     <td className="fs-6">
+                                        <img
+                                            src={match?.away?.poster}
+                                            style={{
+                                                height: '30px',
+                                                width: '30px',
+                                                borderRadius: '50%',
+                                            }}
+                                        />{' '}
                                         {match?.away?.name}
                                     </td>
                                     <td className="fs-6">
@@ -68,14 +76,22 @@ const CardMatch = ({ match }) => {
                                                 {match?.date?.split('T')[1]}
                                             </span>
                                         ) : (
-                                            <span className="bg-danger text-light rounded p-1">
+                                            <span className="badge bg-danger p-2">
                                                 Terminado
                                             </span>
                                         )}
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="fs-6">
+                                    <td>
+                                        <img
+                                            src={match?.local?.poster}
+                                            style={{
+                                                height: '30px',
+                                                width: '30px',
+                                                borderRadius: '50%',
+                                            }}
+                                        />{' '}
                                         {match?.local?.name}
                                     </td>
                                     <td className="fs-6">
