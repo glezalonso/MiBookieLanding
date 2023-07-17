@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useGetMatchesOpen } from '../../../features/matches.features'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import { Alert, Table, FormControl } from 'react-bootstrap'
+import { Alert, Table, FormControl, Badge } from 'react-bootstrap'
 import Loading from '../../../ui/Loading'
 
 const SectionNextMatches = ({ sport }) => {
@@ -30,7 +30,8 @@ const SectionNextMatches = ({ sport }) => {
         <>
             <section>
                 <h5>
-                    Próximos partidos de {sport?.sport} ({filterMatch?.length})
+                    Próximos partidos de {sport?.sport}{' '}
+                    <Badge bg="dark">{filterMatch?.length}</Badge>
                 </h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
