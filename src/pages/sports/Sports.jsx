@@ -46,15 +46,14 @@ const Sports = () => {
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link
-                                        variant="Warning"
-                                        eventKey="Proximos"
-                                    >
+                                    <Nav.Link eventKey="Proximos">
                                         Próximos partidos
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item>
-                                    <Nav.Link eventKey="Mas">Más</Nav.Link>
+                                    <Nav.Link eventKey="Mas">
+                                        Jugadores y equipos
+                                    </Nav.Link>
                                 </Nav.Item>
                             </Nav>
                         </Col>

@@ -28,3 +28,18 @@ tr:hover{
     font-size: 16px;
 
 }
+.nav-pills .nav-link,
+.show>.nav-pills .nav-link{
+   color: rgb(134, 128, 128);
+}
+.nav-pills .nav-link:hover {
+     color:white;
+}
+
+
+.nav-link.active,
+.show>.nav-pills .nav-link{
+    background:#ffc107 !important;
+    color: black;
+}
+
