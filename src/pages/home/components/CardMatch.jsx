@@ -62,14 +62,14 @@ const CardMatch = ({ match }) => {
                                         />{' '}
                                         {match?.away?.name}
                                     </td>
-                                    <td className="fs-6">
+                                    <td className="text-center">
                                         <strong>
                                             {match?.score?.map(
                                                 (score) => score?.away
                                             )}
                                         </strong>
                                     </td>
-                                    <td className="text-end fs-6">
+                                    <td className="text-end ">
                                         {match?.status ? (
                                             <span>
                                                 <Clock />{' '}
@@ -94,7 +94,7 @@ const CardMatch = ({ match }) => {
                                         />{' '}
                                         {match?.local?.name}
                                     </td>
-                                    <td className="fs-6">
+                                    <td className="text-center">
                                         <strong>
                                             {match?.score?.map(
                                                 (score) => score?.local
