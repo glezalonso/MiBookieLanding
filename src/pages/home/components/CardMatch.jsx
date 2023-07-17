@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { Card, Form, FormControl, Button, Alert, Table } from 'react-bootstrap'
+import {
+    Card,
+    Form,
+    FormControl,
+    Button,
+    Alert,
+    Table,
+    Badge,
+} from 'react-bootstrap'
 import { XCircleFill, ChatDotsFill, Clock } from 'react-bootstrap-icons'
 import {
     useAddComment,
@@ -76,9 +84,7 @@ const CardMatch = ({ match }) => {
                                                 {match?.date?.split('T')[1]}
                                             </span>
                                         ) : (
-                                            <span className="badge bg-danger p-2">
-                                                Terminado
-                                            </span>
+                                            <Badge bg="danger">Terminado</Badge>
                                         )}
                                     </td>
                                 </tr>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
-import { Alert, FormControl } from 'react-bootstrap'
+import { Alert, FormControl, Badge } from 'react-bootstrap'
 import { useGetMatchesToday } from '../../../features/matches.features'
 import formatedDate from '../../../utils/formatedDate'
 import Loading from '../../../ui/Loading'
@@ -28,7 +28,12 @@ const SectionMatches = () => {
     return (
         <>
             <section>
-                <h5>Partidos de hoy ({matches?.length})</h5>
+                <h5>
+                    Partidos de hoy
+                    <Badge bg="dark" className="mx-1">
+                        {matches?.length}
+                    </Badge>
+                </h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         name="team"
