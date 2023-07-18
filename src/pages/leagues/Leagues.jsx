@@ -35,7 +35,7 @@ const Leagues = () => {
                                 <Nav variant="pills nav-fill">
                                     <Nav.Item>
                                         <Nav.Link eventKey="temporadas">
-                                            temporadas disponibles
+                                            Temporadas disponibles
                                         </Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>
