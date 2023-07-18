@@ -37,7 +37,7 @@ function NavBar() {
                     <Navbar.Brand>Mi Bookie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav style={{ fontSize: '13px' }} className="me-auto">
+                        <Nav style={{ fontSize: '15px' }} className="me-auto">
                             <Link to={'../'} className="nav-link">
                                 Inicio
                             </Link>
@@ -52,7 +52,7 @@ function NavBar() {
                             >
                                 {sports?.map((sport) => (
                                     <Link
-                                        style={{ fontSize: '13px' }}
+                                        style={{ fontSize: '14px' }}
                                         to={`../sports/${sport?._id}`}
                                         key={sport?._id}
                                         className="dropdown-item"
@@ -63,10 +63,10 @@ function NavBar() {
                             </NavDropdown>
                         </Nav>
                         {username ? (
-                            <Navbar.Text style={{ fontSize: '13px' }}>
+                            <Navbar.Text style={{ fontSize: '14px' }}>
                                 Signed in as: <Link>{username}</Link>
                                 <Button
-                                    style={{ fontSize: '13px' }}
+                                    style={{ fontSize: '14px' }}
                                     className="btn btn-warning mx-1 my-1"
                                     onClick={() => handleLogOut()}
                                 >
@@ -75,7 +75,7 @@ function NavBar() {
                             </Navbar.Text>
                         ) : (
                             <Button
-                                style={{ fontSize: '13px' }}
+                                style={{ fontSize: '14px' }}
                                 className="btn btn-warning mx-1 my-1"
                                 onClick={() => handleShow()}
                             >

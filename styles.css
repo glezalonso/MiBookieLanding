@@ -36,10 +36,10 @@ tr:hover{
      color:white;
 }
 
-
 .nav-link.active,
 .show>.nav-pills .nav-link{
     background:#ffc107 !important;
+    padding: 8px;
     color: black;
 }
 

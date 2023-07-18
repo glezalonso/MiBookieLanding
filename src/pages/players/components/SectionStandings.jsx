@@ -66,6 +66,15 @@ const SectionStandings = ({ player }) => {
                                 {sort.map((stands) =>
                                     stands.map((stands) => (
                                         <tr
+                                            style={
+                                                player?.team?.name ===
+                                                stands.team?.name
+                                                    ? {
+                                                          fontWeight: 'bold',
+                                                          borderBottom: '13px',
+                                                      }
+                                                    : null
+                                            }
                                             key={stands?.team?._id}
                                             onClick={() =>
                                                 navigate(
@@ -74,7 +83,22 @@ const SectionStandings = ({ player }) => {
                                             }
                                         >
                                             <td>{i++}</td>
-                                            <td>{stands.team?.name}</td>
+                                            <td
+                                                style={
+                                                    player?.team?.name ===
+                                                    stands.team?.name
+                                                        ? {
+                                                              fontWeight:
+                                                                  'bold',
+                                                              background:
+                                                                  'white',
+                                                              color: 'black',
+                                                          }
+                                                        : null
+                                                }
+                                            >
+                                                {stands.team?.name}
+                                            </td>
                                             <td>{stands?.wins}</td>
                                             <td>{stands?.loses}</td>
                                             {player?.sport?._id !==

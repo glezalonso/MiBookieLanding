@@ -21,7 +21,7 @@ const SectionRounds = ({ season }) => {
         return round?.round?.toLowerCase().includes(filter.toLowerCase())
     })
 
-    filterRounds?.sort((a, b) => a.roundNumber - b.roundNumber)
+    filterRounds?.sort((a, b) => b.roundNumber - a.roundNumber)
 
     return (
         <>
@@ -47,7 +47,7 @@ const SectionRounds = ({ season }) => {
                             <thead className="border-bottom">
                                 <tr>
                                     <th>Ronda</th>
-                                    <th>Número de ronda</th>
+
                                     <th>Estatus</th>
                                 </tr>
                             </thead>
@@ -60,7 +60,7 @@ const SectionRounds = ({ season }) => {
                                         }
                                     >
                                         <td>{round?.round}</td>
-                                        <td>{round?.roundNumber}</td>
+
                                         <td>
                                             {round?.status ? (
                                                 <span className="text-success">

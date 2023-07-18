@@ -62,6 +62,7 @@ const CardMatch = ({ match }) => {
                                     <td>
                                         <img
                                             src={match?.away?.poster}
+                                            alt={match?.away?.name}
                                             style={{
                                                 height: '30px',
                                                 width: '30px',
@@ -92,6 +93,7 @@ const CardMatch = ({ match }) => {
                                     <td>
                                         <img
                                             src={match?.local?.poster}
+                                            alt={match?.local?.name}
                                             style={{
                                                 height: '30px',
                                                 width: '30px',
