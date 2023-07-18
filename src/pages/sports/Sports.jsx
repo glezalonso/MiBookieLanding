@@ -41,7 +41,7 @@ const Sports = () => {
                                 <Nav variant="pills nav-fill">
                                     <Nav.Item>
                                         <Nav.Link eventKey="ligas">
-                                            ligas
+                                            Ligas
                                         </Nav.Link>
                                     </Nav.Item>
                                     <Nav.Item>

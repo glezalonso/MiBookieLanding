@@ -13,7 +13,7 @@ const PlayerDetails = () => {
     const { id } = useParams()
     const [key, setKey] = useState('proximos')
     const { data: player, isLoading, isError } = useGetPlayer(id)
-    console.log(player?.team?.name)
+
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los jugadores!')
     return (

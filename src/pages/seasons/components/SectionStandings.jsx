@@ -9,6 +9,8 @@ const SectionStandings = ({ season }) => {
 
     // SoccerID
     const ID_SOCCER = '648f71dea4ba8860dfe3830f'
+    const ID_BASEBALL = '648f7211a4ba8860dfe38319'
+
     const sort = season?.standings?.sort((a, b) => {
         if (b.wins !== a.wins) {
             return b.wins - a.wins
@@ -37,7 +39,9 @@ const SectionStandings = ({ season }) => {
                                     <th>Equipo</th>
                                     <th>Ganados</th>
                                     <th>Perdidos</th>
-                                    <th>Empatados</th>
+                                    {season?.sport?._id !== ID_BASEBALL ? (
+                                        <th>Empatados</th>
+                                    ) : null}
                                     {season?.sport?._id === ID_SOCCER ? (
                                         <th>Puntos</th>
                                     ) : null}
@@ -57,7 +61,9 @@ const SectionStandings = ({ season }) => {
                                         <td>{stands.team?.name}</td>
                                         <td>{stands?.wins}</td>
                                         <td>{stands?.loses}</td>
-                                        <td>{stands.draws}</td>
+                                        {season?.sport?._id !== ID_BASEBALL ? (
+                                            <td>{stands?.draws}</td>
+                                        ) : null}
                                         {season?.sport?._id === ID_SOCCER ? (
                                             <td>
                                                 {season?.sport?._id ===
