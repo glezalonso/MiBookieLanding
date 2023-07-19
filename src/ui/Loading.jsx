@@ -7,7 +7,7 @@ const Loading = () => {
             <div className="d-flex justify-content-center my-5">
                 <Spinner
                     animation="border"
-                    variant="warning d-flex justify-content-center"
+                    variant="dark d-flex justify-content-center"
                 />
             </div>
         </>

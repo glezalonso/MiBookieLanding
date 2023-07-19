@@ -45,21 +45,19 @@ const CardMatch = ({ match }) => {
 
     return (
         <>
-            <Card className="bg-black my-2">
-                <Card.Header className="bg-dark text-light ">
-                    <div className="table-responsive bg-dark rounded ">
-                        <span>
-                            <strong>{match?.league?.league}</strong>
-                        </span>
-                        <Table variant="dark table-borderless">
-                            <tbody
-                                onClick={() =>
-                                    navigate(`../matches/${match?._id}`)
-                                }
-                                className="border-bottom"
-                            >
-                                <tr>
-                                    <td>
+            <Card bg="dark" className="shadow-lg  my-2">
+                <Card.Header className="border-bottom rounded ">
+                    <span>
+                        <strong>{match?.league?.league}</strong>
+                    </span>
+                    <Table responsive size="sm" borderless variant="dark">
+                        <tbody
+                            onClick={() => navigate(`../matches/${match?._id}`)}
+                            className="border-bottom"
+                        >
+                            <tr>
+                                <td>
+                                    <div className="d-flex align-items-center">
                                         <img
                                             src={match?.away?.poster}
                                             alt={match?.away?.name}
@@ -69,28 +67,34 @@ const CardMatch = ({ match }) => {
                                                 borderRadius: '50%',
                                             }}
                                         />{' '}
-                                        {match?.away?.name}
-                                    </td>
-                                    <td className="text-center">
-                                        <strong>
-                                            {match?.score?.map(
-                                                (score) => score?.away
-                                            )}
-                                        </strong>
-                                    </td>
-                                    <td className="text-end ">
-                                        {match?.status ? (
-                                            <span>
-                                                <Clock />{' '}
-                                                {match?.date?.split('T')[1]}
-                                            </span>
-                                        ) : (
-                                            <Badge bg="danger">Terminado</Badge>
+                                        <div className="ms-3">
+                                            <p className="fw-bold mb-1">
+                                                {match?.away?.name}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td className="text-center">
+                                    <strong>
+                                        {match?.score?.map(
+                                            (score) => score?.away
                                         )}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                    </strong>
+                                </td>
+                                <td className="text-end ">
+                                    {match?.status ? (
+                                        <span>
+                                            <Clock />{' '}
+                                            {match?.date?.split('T')[1]}
+                                        </span>
+                                    ) : (
+                                        <Badge bg="danger">Terminado</Badge>
+                                    )}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div className="d-flex align-items-center">
                                         <img
                                             src={match?.local?.poster}
                                             alt={match?.local?.name}
@@ -100,27 +104,36 @@ const CardMatch = ({ match }) => {
                                                 borderRadius: '50%',
                                             }}
                                         />{' '}
-                                        {match?.local?.name}
-                                    </td>
-                                    <td className="text-center">
-                                        <strong>
-                                            {match?.score?.map(
-                                                (score) => score?.local
-                                            )}
-                                        </strong>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                            </tbody>
-                        </Table>
-                    </div>
+                                        <div className="ms-3">
+                                            <p className="fw-bold mb-1">
+                                                {' '}
+                                                {match?.local?.name}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td className="text-center">
+                                    <strong>
+                                        {match?.score?.map(
+                                            (score) => score?.local
+                                        )}
+                                    </strong>
+                                </td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </Table>
+
                     <Button
                         className="btn btn-secondary btn-sm my-1"
                         style={{ fontSize: '12px' }}
                         onClick={() => setShow(!show)}
                     >
                         {show ? (
-                            <>Cerrar comentarios</>
+                            <>
+                                <ChatDotsFill className="mx-1" />{' '}
+                                {match?.comments?.length} Cerrar comentarios
+                            </>
                         ) : (
                             <>
                                 <ChatDotsFill className="mx-1" />{' '}
@@ -136,7 +149,7 @@ const CardMatch = ({ match }) => {
                             : { display: 'none' }
                     }
                 >
-                    <Card.Body style={{ background: '#111010' }}>
+                    <Card.Body style={{ background: 'rgb(58, 58, 58)' }}>
                         {match?.comments?.length > 0 ? (
                             match?.comments?.map((comment) =>
                                 comment?.username === username ? (
@@ -206,10 +219,7 @@ const CardMatch = ({ match }) => {
                     </Card.Body>
                 </div>
                 <div style={!show ? { display: 'none' } : null}>
-                    <Card.Footer
-                        style={{ background: '#111010' }}
-                        className="border-top"
-                    >
+                    <Card.Footer className="bg-dark rounded border-top">
                         <Form onSubmit={(e) => handleSubmit(e, match?._id)}>
                             <FormControl
                                 as="textarea"
@@ -221,13 +231,15 @@ const CardMatch = ({ match }) => {
                                 value={comment}
                                 onChange={(e) => setComment(e.target.value)}
                             />
-                            <Button
-                                type="submit"
-                                style={{ fontSize: '12px' }}
-                                className="d-flex btn btn-warning btn-sm m-1 align-items-end"
-                            >
-                                Comentar
-                            </Button>
+                            <div className="d-flex justify-content-end">
+                                <Button
+                                    type="submit"
+                                    style={{ fontSize: '12px' }}
+                                    className=" btn btn-warning btn-sm my-2 "
+                                >
+                                    Comentar
+                                </Button>
+                            </div>
                         </Form>
                     </Card.Footer>
                 </div>

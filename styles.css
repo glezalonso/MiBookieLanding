@@ -1,8 +1,7 @@
-.alert {
-    font-size: 13px;
-    
+#body {
+    font-family: sans-serif;
+    background-color:rgb(236, 236, 236)
 }
-
 section{
     padding:10px;
 }
@@ -28,18 +27,13 @@ tr:hover{
     font-size: 16px;
 
 }
-.nav-pills .nav-link,
-.show>.nav-pills .nav-link{
-   color: rgb(134, 128, 128);
-}
-.nav-pills .nav-link:hover {
-     color:white;
-}
 
-.nav-link.active,
-.show>.nav-pills .nav-link{
-    background:#ffc107 !important;
-    padding: 8px;
+.alert {
+    font-size: 13px;
+    
+}
+.nav-tabs .nav-link {
+    background-color:rgb(236, 236, 236);
     color: black;
+    
 }
-

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Tab, Nav } from 'react-bootstrap'
+import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
 import { useGetSport } from '../../features/sports.features'
 import CardSport from './components/CardSport'
 import SectionLeaguesBySport from './components/SectionLeaguesBySport'
@@ -25,67 +25,51 @@ const Sports = () => {
         <>
             <Container fluid>
                 <Row className="my-2 mx-auto">
-                    <Col md={10} className="rounded my-1 mx-auto">
+                    <Col xs={12} className="rounded my-1 mx-auto">
                         <CardSport sport={sport} />
                     </Col>
-
-                    <Tab.Container
-                        defaultActiveKey={key}
-                        activeKey={key}
-                        className="my-3 mx-auto"
-                        justify
-                        onSelect={(key) => setKey(key)}
-                    >
-                        <Row>
-                            <Col md={8} className=" my-1 mx-auto">
-                                <Nav variant="pills nav-fill">
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="ligas">
-                                            Ligas
-                                        </Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="temporada">
-                                            Temporadas
-                                        </Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="proximos">
-                                            Próximos partidos
-                                        </Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="mas">
-                                            Jugadores y equipos
-                                        </Nav.Link>
-                                    </Nav.Item>
-                                </Nav>
-                            </Col>
-                            <Col md={10} className="rounded my-1 mx-auto">
-                                <Tab.Content>
-                                    <Tab.Pane eventKey={'ligas'}>
-                                        {key === 'ligas' ? (
-                                            <SectionLeaguesBySport
-                                                sport={sport}
-                                            />
-                                        ) : null}
-                                    </Tab.Pane>
-                                    <Tab.Pane eventKey={'temporada'}>
-                                        {key === 'temporada' ? (
-                                            <SectionSeasonsBySport
-                                                sport={sport}
-                                            />
-                                        ) : null}
-                                    </Tab.Pane>
-                                    <Tab.Pane eventKey={'proximos'}>
-                                        {key === 'proximos' ? (
-                                            <SectionNextMatches sport={sport} />
-                                        ) : null}
-                                    </Tab.Pane>
-                                    <Tab.Pane eventKey={'mas'}>
-                                        {key === 'mas' ? (
-                                            <Row>
-                                                <Col
+                    <Row className="my-2 mx-auto">
+                        <Col xs={12} className="rounded my-1 mx-auto">
+                            <Tabs
+                                defaultActiveKey={key}
+                                activeKey={key}
+                                className="mb-3"
+                                justify
+                                onSelect={(key) => setKey(key)}
+                            >
+                                <Tab eventKey={'ligas'} title="Ligas">
+                                    {key === 'ligas' ? (
+                                        <SectionLeaguesBySport sport={sport} />
+                                    ) : null}
+                                </Tab>
+                                <Tab eventKey={'temporada'} title="Temporadas">
+                                    {key === 'temporada' ? (
+                                        <SectionSeasonsBySport sport={sport} />
+                                    ) : null}
+                                </Tab>
+                                <Tab
+                                    eventKey={'proximos'}
+                                    title="Próximos partidos"
+                                >
+                                    {key === 'proximos' ? (
+                                        <SectionNextMatches sport={sport} />
+                                    ) : null}
+                                </Tab>
+                                <Tab eventKey={'mas'} title="Más">
+                                    {key === 'mas' ? (
+                                        <Row>
+                                            <Col
+                                                style={
+                                                    sport?._id === ID_TENNIS
+                                                        ? {
+                                                              display: 'none',
+                                                          }
+                                                        : null
+                                                }
+                                                md={6}
+                                                className="mx-auto my-1 h-50"
+                                            >
+                                                <SectionTeams
                                                     style={
                                                         sport?._id === ID_TENNIS
                                                             ? {
@@ -94,44 +78,29 @@ const Sports = () => {
                                                               }
                                                             : null
                                                     }
-                                                    md={6}
-                                                    className="mx-auto my-1 h-50"
-                                                >
-                                                    <SectionTeams
-                                                        style={
-                                                            sport?._id ===
-                                                            ID_TENNIS
-                                                                ? {
-                                                                      display:
-                                                                          'none',
-                                                                  }
-                                                                : null
-                                                        }
+                                                    sport={sport}
+                                                />
+                                            </Col>
+                                            <Col
+                                                md={6}
+                                                className="mx-auto my-1 mh-50"
+                                            >
+                                                {sport?._id === ID_TENNIS ? (
+                                                    <SectionPlayersTennis
                                                         sport={sport}
                                                     />
-                                                </Col>
-                                                <Col
-                                                    md={6}
-                                                    className="mx-auto my-1 mh-50"
-                                                >
-                                                    {sport?._id ===
-                                                    ID_TENNIS ? (
-                                                        <SectionPlayersTennis
-                                                            sport={sport}
-                                                        />
-                                                    ) : (
-                                                        <SectionPlayersBySport
-                                                            sport={sport}
-                                                        />
-                                                    )}
-                                                </Col>
-                                            </Row>
-                                        ) : null}
-                                    </Tab.Pane>
-                                </Tab.Content>
-                            </Col>
-                        </Row>
-                    </Tab.Container>
+                                                ) : (
+                                                    <SectionPlayersBySport
+                                                        sport={sport}
+                                                    />
+                                                )}
+                                            </Col>
+                                        </Row>
+                                    ) : null}
+                                </Tab>
+                            </Tabs>
+                        </Col>
+                    </Row>
                 </Row>
             </Container>
         </>

@@ -32,7 +32,7 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar expand="lg" bg="dark" data-bs-theme="dark">
+            <Navbar expand="lg" bg="dark" sticky="top" data-bs-theme="dark">
                 <Container>
                     <Navbar.Brand>Mi Bookie</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

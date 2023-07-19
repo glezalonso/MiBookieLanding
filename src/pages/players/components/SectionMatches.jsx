@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast'
 import { useGetMatchesByTeam } from '../../../features/matches.features'
 import Loading from '../../../ui/Loading'
 
-const SectionMatches = ({ player }) => {
+const SectionMatches = ({ player, open }) => {
     const [filter, setFilter] = useState('')
     const {
         data: matches,
@@ -16,9 +16,9 @@ const SectionMatches = ({ player }) => {
 
     if (isLoading) return <Loading />
 
-    if (isError) return toast.error('Failed to load matches')
+    if (isError) return toast.error('Hubo un error al cargar los partidos')
 
-    const nextMatches = matches?.filter((match) => match?.status === true)
+    const nextMatches = matches?.filter((match) => match?.status === open)
 
     const MatchesByFilter = nextMatches?.filter((matches) => {
         if (!filter) return matches
@@ -56,6 +56,7 @@ const SectionMatches = ({ player }) => {
                                     <th>Fecha</th>
                                     <th>Local</th>
                                     <th>Visita</th>
+                                    {!open ? <th>Marcador</th> : null}
                                 </tr>
                             </thead>
                             <tbody>
@@ -74,6 +75,17 @@ const SectionMatches = ({ player }) => {
                                         </td>
                                         <td>{match?.local?.name}</td>
                                         <td>{match?.away?.name}</td>
+                                        {!open ? (
+                                            <td>
+                                                {match?.score?.map(
+                                                    (away) => away?.away
+                                                )}
+                                                -
+                                                {match?.score?.map(
+                                                    (local) => local?.local
+                                                )}
+                                            </td>
+                                        ) : null}
                                     </tr>
                                 ))}
                             </tbody>

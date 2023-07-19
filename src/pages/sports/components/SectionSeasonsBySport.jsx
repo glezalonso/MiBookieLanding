@@ -48,7 +48,7 @@ const SectionSeasonsBySport = ({ sport }) => {
                         >
                             <thead className="border-bottom">
                                 <tr>
-                                    <th>Tempoarada</th>
+                                    <th>Temporada</th>
                                     <th>Liga</th>
                                     <th>Estatus</th>
                                 </tr>

@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast'
 
 import { useGetMatchesByTeam } from '../../../features/matches.features'
 
-const SectionMatches = ({ team }) => {
+const SectionMatches = ({ team, open }) => {
     const [filter, setFilter] = useState('')
     const { data: matches, isLoading, isError } = useGetMatchesByTeam(team?._id)
     const navigate = useNavigate()
@@ -14,7 +14,7 @@ const SectionMatches = ({ team }) => {
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos')
 
-    const matchesByPlayer = matches?.filter((match) => match?.status === true)
+    const matchesByPlayer = matches?.filter((match) => match?.status === open)
 
     const matchesByFilter = matchesByPlayer?.filter((matches) => {
         if (!filter) return matches
@@ -53,6 +53,7 @@ const SectionMatches = ({ team }) => {
                                     <th>Fecha</th>
                                     <th>Local</th>
                                     <th>Visitante</th>
+                                    {!open ? <th>Marcador</th> : null}
                                 </tr>
                             </thead>
                             <tbody>
@@ -71,6 +72,15 @@ const SectionMatches = ({ team }) => {
                                         </td>
                                         <td>{match?.local?.name}</td>
                                         <td>{match?.away?.name}</td>
+                                        <td>
+                                            {match?.score?.map(
+                                                (away) => away?.away
+                                            )}
+                                            -
+                                            {match?.score?.map(
+                                                (local) => local?.local
+                                            )}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

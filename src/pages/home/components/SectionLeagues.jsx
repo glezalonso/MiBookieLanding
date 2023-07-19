@@ -33,15 +33,16 @@ const SectionLeagues = () => {
                 {leaguesByFilter?.length > 0 ? (
                     <div className="bg-dark rounded section-tables">
                         <Table
+                            align="center"
                             responsive
                             borderless
                             hover
                             size="sm"
                             variant="dark"
                         >
-                            <thead className="border-bottom">
+                            <thead className="border-bottom solid">
                                 <tr>
-                                    <th>Liga</th>
+                                    <th scope="col">Liga</th>
                                 </tr>
                             </thead>
                             <tbody>

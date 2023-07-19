@@ -4,7 +4,10 @@ import { useNavigate } from 'react-router-dom'
 
 const SectionLineUps = ({ match }) => {
     const navigate = useNavigate()
+    let i = 1
+    let j = 1
     const ID_TENNIS = '648f71eea4ba8860dfe38314'
+    const ID_BASEBALL = '648f7211a4ba8860dfe38319'
     if (match?.sport?._id === ID_TENNIS) return null
 
     return (
@@ -23,8 +26,13 @@ const SectionLineUps = ({ match }) => {
                             >
                                 <thead className="border-bottom">
                                     <tr>
+                                        {match?.sport?._id === ID_BASEBALL ? (
+                                            <th>Orden al bat</th>
+                                        ) : null}
                                         <th>Jugador</th>
-                                        <th>Posición</th>
+                                        {match?.sport?._id !== ID_BASEBALL ? (
+                                            <th>Posición</th>
+                                        ) : null}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,12 +46,23 @@ const SectionLineUps = ({ match }) => {
                                                     )
                                                 }
                                             >
+                                                {' '}
+                                                {match?.sport?._id ===
+                                                ID_BASEBALL ? (
+                                                    <td>{i++}</td>
+                                                ) : null}
                                                 <td>
                                                     {player?.playerId?.fullName}
                                                 </td>
-                                                <td>
-                                                    {player?.playerId?.position}
-                                                </td>
+                                                {match?.sport?._id !==
+                                                ID_BASEBALL ? (
+                                                    <td>
+                                                        {
+                                                            player?.playerId
+                                                                ?.position
+                                                        }
+                                                    </td>
+                                                ) : null}
                                             </tr>
                                         ))
                                     )}
@@ -71,8 +90,13 @@ const SectionLineUps = ({ match }) => {
                             >
                                 <thead className="border-bottom">
                                     <tr>
+                                        {match?.sport?._id === ID_BASEBALL ? (
+                                            <th>Orden al Bat</th>
+                                        ) : null}
                                         <th>Jugador</th>
-                                        <th>Posición</th>
+                                        {match?.sport?._id !== ID_BASEBALL ? (
+                                            <th>Posición</th>
+                                        ) : null}
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -86,12 +110,22 @@ const SectionLineUps = ({ match }) => {
                                                     )
                                                 }
                                             >
+                                                {match?.sport?._id ===
+                                                ID_BASEBALL ? (
+                                                    <td>{j++}</td>
+                                                ) : null}
                                                 <td>
                                                     {player?.playerId?.fullName}
                                                 </td>
-                                                <td>
-                                                    {player?.playerId?.position}
-                                                </td>
+                                                {match?.sport?._id !==
+                                                ID_BASEBALL ? (
+                                                    <td>
+                                                        {
+                                                            player?.playerId
+                                                                ?.position
+                                                        }
+                                                    </td>
+                                                ) : null}
                                             </tr>
                                         ))
                                     )}

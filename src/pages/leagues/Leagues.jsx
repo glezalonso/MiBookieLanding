@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useGetLeague } from '../../features/leagues.features'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Tab, Nav } from 'react-bootstrap'
+import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
 import SectionLeague from './components/SectionLeague'
 import SectionSeasons from './components/SectionSeasons'
 import SectionMatches from './components/SectionMatches'
@@ -19,48 +19,34 @@ const Leagues = () => {
         <>
             <Container fluid>
                 <Row className="my-2 mx-auto ">
-                    <Col md={10} className="mx-auto my-1">
+                    <Col xs={12} className="mx-auto my-1">
                         <SectionLeague league={league} />
                     </Col>
-
-                    <Tab.Container
-                        defaultActiveKey={key}
-                        activeKey={key}
-                        className="my-3 mx-auto"
-                        justify
-                        onSelect={(key) => setKey(key)}
-                    >
-                        <Row>
-                            <Col md={8} className=" my-1 mx-auto">
-                                <Nav variant="pills nav-fill">
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="temporadas">
-                                            Temporadas disponibles
-                                        </Nav.Link>
-                                    </Nav.Item>
-                                    <Nav.Item>
-                                        <Nav.Link eventKey="proximos">
-                                            Próximos partidos
-                                        </Nav.Link>
-                                    </Nav.Item>
-                                </Nav>
-                            </Col>
-                            <Col md={10} className="rounded my-1 mx-auto">
-                                <Tab.Content>
-                                    <Tab.Pane eventKey={'temporadas'}>
-                                        {key === 'temporadas' ? (
-                                            <SectionSeasons league={league} />
-                                        ) : null}
-                                    </Tab.Pane>
-                                    <Tab.Pane eventKey={'proximos'}>
-                                        {key === 'proximos' ? (
-                                            <SectionMatches league={league} />
-                                        ) : null}
-                                    </Tab.Pane>
-                                </Tab.Content>
-                            </Col>
-                        </Row>
-                    </Tab.Container>
+                    <Row className="my-2 mx-auto">
+                        <Col xs={12} className="rounded my-1 mx-auto">
+                            <Tabs
+                                defaultActiveKey={key}
+                                activeKey={key}
+                                className="mb-3"
+                                justify
+                                onSelect={(key) => setKey(key)}
+                            >
+                                <Tab eventKey={'temporadas'} title="Temporadas">
+                                    {key === 'temporadas' ? (
+                                        <SectionSeasons league={league} />
+                                    ) : null}
+                                </Tab>
+                                <Tab
+                                    eventKey={'proximos'}
+                                    title="Próximos Partidos"
+                                >
+                                    {key === 'proximos' ? (
+                                        <SectionMatches league={league} />
+                                    ) : null}
+                                </Tab>
+                            </Tabs>
+                        </Col>
+                    </Row>
                 </Row>
             </Container>
         </>
