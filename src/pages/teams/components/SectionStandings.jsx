@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 
-const SectionStandings = ({ player }) => {
+const SectionStandings = ({ team }) => {
     const { data: season, isLoading, isError } = useGetSeasons()
     const navigate = useNavigate()
 
@@ -21,7 +21,7 @@ const SectionStandings = ({ player }) => {
 
     const seasonsByPlayer = season?.filter(
         (season) =>
-            season?.sport?._id === player?.sport?._id && season?.status === true
+            season?.sport?._id === team?.sport?._id && season?.status === true
     )
 
     const sort = seasonsByPlayer?.map((season) =>
@@ -54,10 +54,10 @@ const SectionStandings = ({ player }) => {
                                     <th>Equipo</th>
                                     <th>Ganados</th>
                                     <th>Perdidos</th>
-                                    {player?.sport?._id !== ID_BASEBALL ? (
+                                    {team?.sport?._id !== ID_BASEBALL ? (
                                         <th>Empatados</th>
                                     ) : null}
-                                    {player?.sport?._id === ID_SOCCER ? (
+                                    {team?.sport?._id === ID_SOCCER ? (
                                         <th>Puntos</th>
                                     ) : null}
                                 </tr>
@@ -67,8 +67,7 @@ const SectionStandings = ({ player }) => {
                                     stands.map((stands) => (
                                         <tr
                                             style={
-                                                player?.team?.name ===
-                                                stands.team?.name
+                                                team?.name === stands.team?.name
                                                     ? {
                                                           fontWeight: 'bold',
                                                           borderBottom: '13px',
@@ -85,7 +84,7 @@ const SectionStandings = ({ player }) => {
                                             <td>{i++}</td>
                                             <td
                                                 style={
-                                                    player?.team?.name ===
+                                                    team?.name ===
                                                     stands.team?.name
                                                         ? {
                                                               fontWeight:
@@ -100,14 +99,13 @@ const SectionStandings = ({ player }) => {
                                             </td>
                                             <td>{stands?.wins}</td>
                                             <td>{stands?.loses}</td>
-                                            {player?.sport?._id !==
+                                            {team?.sport?._id !==
                                             ID_BASEBALL ? (
                                                 <td>{stands?.draws}</td>
                                             ) : null}
-                                            {player?.sport?._id ===
-                                            ID_SOCCER ? (
+                                            {team?.sport?._id === ID_SOCCER ? (
                                                 <td>
-                                                    {player?.sport?._id ===
+                                                    {team?.sport?._id ===
                                                     ID_SOCCER
                                                         ? stands?.wins * 3 +
                                                           stands?.draws

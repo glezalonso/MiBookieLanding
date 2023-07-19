@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast'
 import { useGetMatchesByTeam } from '../../../features/matches.features'
 import Loading from '../../../ui/Loading'
 
-const SectionMatches = ({ player, open }) => {
+const SectionMatches = ({ player, open, title }) => {
     const [filter, setFilter] = useState('')
     const {
         data: matches,
@@ -31,7 +31,7 @@ const SectionMatches = ({ player, open }) => {
     return (
         <>
             <section>
-                <h5>Próximos partidos</h5>
+                <h5>{title}</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         style={{ fontSize: '14px' }}

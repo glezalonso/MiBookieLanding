@@ -6,7 +6,7 @@ import { toast } from 'react-hot-toast'
 
 import { useGetMatchesByTeam } from '../../../features/matches.features'
 
-const SectionMatches = ({ team, open }) => {
+const SectionMatches = ({ team, open, title }) => {
     const [filter, setFilter] = useState('')
     const { data: matches, isLoading, isError } = useGetMatchesByTeam(team?._id)
     const navigate = useNavigate()
@@ -27,7 +27,7 @@ const SectionMatches = ({ team, open }) => {
     return (
         <>
             <section>
-                <h5>Próximos partidos</h5>
+                <h5>{title}</h5>
 
                 <div className="my-2 mx-auto p-1">
                     <FormControl

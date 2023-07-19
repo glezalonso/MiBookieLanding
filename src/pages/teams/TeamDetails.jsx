@@ -5,12 +5,13 @@ import { useParams } from 'react-router-dom'
 import Loading from '../../ui/Loading'
 import { useGetTeam } from '../../features/teams.features'
 import CardTeam from './components/CardTeam'
-
+import SectionStandings from './components/SectionStandings'
 import SectionMatches from './components/SectionMatches'
 import SectionRoster from './components/SectionRoster'
 
 const TeamDetails = () => {
     const { id } = useParams()
+    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
     const [key, setKey] = useState('plantilla')
     const { data: team, isLoading, isError } = useGetTeam(id)
 
@@ -33,6 +34,16 @@ const TeamDetails = () => {
                                 justify
                                 onSelect={(key) => setKey(key)}
                             >
+                                {team?.sport?._id === ID_FUTBOL ? null : (
+                                    <Tab
+                                        eventKey={'posiciones'}
+                                        title="Posiciones"
+                                    >
+                                        {key === 'posiciones' ? (
+                                            <SectionStandings team={team} />
+                                        ) : null}
+                                    </Tab>
+                                )}
                                 <Tab eventKey={'plantilla'} title="Plantilla">
                                     {key === 'plantilla' ? (
                                         <SectionRoster team={team} />
@@ -46,6 +57,7 @@ const TeamDetails = () => {
                                         <SectionMatches
                                             team={team}
                                             open={true}
+                                            title={'Próximos Partidos'}
                                         />
                                     ) : null}
                                 </Tab>
@@ -57,6 +69,7 @@ const TeamDetails = () => {
                                         <SectionMatches
                                             team={team}
                                             open={false}
+                                            title={'Últimos Partidos'}
                                         />
                                     ) : null}
                                 </Tab>
