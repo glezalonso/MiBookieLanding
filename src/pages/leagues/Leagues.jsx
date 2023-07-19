@@ -19,11 +19,11 @@ const Leagues = () => {
         <>
             <Container fluid>
                 <Row className="my-2 mx-auto ">
-                    <Col xs={12} className="mx-auto my-1">
+                    <Col xs={12} md={10} className="mx-auto my-1">
                         <SectionLeague league={league} />
                     </Col>
                     <Row className="my-2 mx-auto">
-                        <Col xs={12} className="rounded my-1 mx-auto">
+                        <Col xs={12} md={10} className="rounded my-1 mx-auto">
                             <Tabs
                                 defaultActiveKey={key}
                                 activeKey={key}

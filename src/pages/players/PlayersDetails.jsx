@@ -20,11 +20,11 @@ const PlayerDetails = () => {
         <>
             <Container fluid>
                 <Row className="my-2 mx-auto">
-                    <Col xs={12} className=" rounded mx-auto my-1 fs-6">
+                    <Col xs={12} md={10} className=" rounded mx-auto my-1 fs-6">
                         <CardPlayer player={player} />
                     </Col>
                     <Row className="my-2 mx-auto">
-                        <Col xs={12} className="rounded my-1 mx-auto">
+                        <Col xs={12} md={10} className="rounded my-1 mx-auto">
                             <Tabs
                                 defaultActiveKey={key}
                                 activeKey={key}

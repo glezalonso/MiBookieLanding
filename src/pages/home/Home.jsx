@@ -8,10 +8,10 @@ const Home = () => {
         <>
             <Container fuild>
                 <Row className="my-2">
-                    <Col sm={8} className="mx-auto">
+                    <Col xs={12} md={8} className="mx-auto">
                         <SectionMatches />
                     </Col>
-                    <Col sm={4} className="mx-auto">
+                    <Col xs={12} md={4} className="mx-auto">
                         <SectionLeagues />
                     </Col>
                 </Row>
