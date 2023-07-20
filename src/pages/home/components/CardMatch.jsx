@@ -67,7 +67,7 @@ const CardMatch = ({ match }) => {
                                                 borderRadius: '50%',
                                             }}
                                         />{' '}
-                                        <div className="ms-3">
+                                        <div className="ms-1">
                                             <p className="fw-bold mb-1">
                                                 {match?.away?.name}
                                             </p>
@@ -104,7 +104,7 @@ const CardMatch = ({ match }) => {
                                                 borderRadius: '50%',
                                             }}
                                         />{' '}
-                                        <div className="ms-3">
+                                        <div className="ms-1">
                                             <p className="fw-bold mb-1">
                                                 {' '}
                                                 {match?.local?.name}
