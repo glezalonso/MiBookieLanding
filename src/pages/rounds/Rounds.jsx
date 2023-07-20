@@ -24,7 +24,7 @@ const Rounds = () => {
                     </Col>
                 </Row>
                 <Row className="my-2 mx-auto">
-                    <Col xs={12} md={10} className=" mx-auto my-1  fs-4">
+                    <Col xs={12} md={10} className=" mx-auto my-1">
                         <SectionMatches round={round} />
                     </Col>
                 </Row>

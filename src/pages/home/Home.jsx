@@ -6,7 +6,7 @@ import SectionLeagues from './components/SectionLeagues'
 const Home = () => {
     return (
         <>
-            <Container fuild>
+            <Container>
                 <Row className="my-2">
                     <Col xs={12} md={8} className="mx-auto">
                         <SectionMatches />

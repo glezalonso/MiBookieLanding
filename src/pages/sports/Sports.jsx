@@ -67,7 +67,7 @@ const Sports = () => {
                                                         : null
                                                 }
                                                 md={6}
-                                                className="mx-auto my-1 h-50"
+                                                className="mx-auto my-1 min-vh-50 m-vh-100"
                                             >
                                                 <SectionTeams
                                                     style={

@@ -7,7 +7,6 @@ import {
     getMatchesToday,
     getMatchesByLeague,
     getMatchesByRound,
-    getMatchesClosed,
     getMatchesOpen,
     getMatchesByTeam,
 } from '../services/matches.services'
@@ -36,6 +35,7 @@ export const useAddComment = () => {
         onSuccess: () => {
             toast.success('Comentario agregado')
             queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
+            queryClient.invalidateQueries({ queryKey: ['match'] })
         },
     })
     return mutationAdd
@@ -86,13 +86,6 @@ export const useGetMatchesOpen = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['matches'],
         queryFn: getMatchesOpen,
-    })
-    return { data, isLoading, isError }
-}
-export const useGetMatchesClosed = () => {
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches'],
-        queryFn: getMatchesClosed,
     })
     return { data, isLoading, isError }
 }

@@ -71,7 +71,7 @@ const SectionLineUps = ({ match }) => {
                         </div>
                     ) : (
                         <Alert variant="warning">
-                            No hay alineacióin para mostrar!
+                            No hay alineación para mostrar!
                         </Alert>
                     )}
                 </section>
@@ -134,7 +134,7 @@ const SectionLineUps = ({ match }) => {
                         </div>
                     ) : (
                         <Alert variant="warning">
-                            No hay alineacióin para mostrar!
+                            No hay alineación para mostrar!
                         </Alert>
                     )}
                 </section>

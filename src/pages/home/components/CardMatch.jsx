@@ -125,7 +125,7 @@ const CardMatch = ({ match }) => {
                     </Table>
 
                     <Button
-                        className="btn btn-secondary btn-sm my-1"
+                        className="btn btn-dark btn-sm my-1"
                         style={{ fontSize: '12px' }}
                         onClick={() => setShow(!show)}
                     >
@@ -137,7 +137,7 @@ const CardMatch = ({ match }) => {
                         ) : (
                             <>
                                 <ChatDotsFill className="mx-1" />{' '}
-                                {match?.comments?.length} comentarios
+                                {match?.comments?.length} comentario(s)
                             </>
                         )}
                     </Button>

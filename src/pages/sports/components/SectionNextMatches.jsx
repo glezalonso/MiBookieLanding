@@ -43,7 +43,7 @@ const SectionNextMatches = ({ sport }) => {
                 </div>
 
                 {filterMatch?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables">
+                    <div className="bg-dark rounded section-tables  vh-50">
                         <Table
                             responsive
                             borderless
