@@ -57,7 +57,16 @@ function NavBar() {
                                         key={sport?._id}
                                         className="dropdown-item"
                                     >
-                                        {sport?.sport}
+                                        <img
+                                            width={'20px'}
+                                            height={'20px'}
+                                            className="mx-auto"
+                                            src={sport?.poster}
+                                            alt={sport?.sport}
+                                        />
+                                        <span className="mx-1">
+                                            {sport?.sport}
+                                        </span>
                                     </Link>
                                 ))}
                             </NavDropdown>
