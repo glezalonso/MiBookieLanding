@@ -19,7 +19,7 @@ export const useGetTeam = (id) => {
 
 export const useGetTeamsBySport = (sport) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['teams', sport],
+        queryKey: ['teamsbysport', sport],
         queryFn: () => getTeamsBySport(sport),
     })
     return { data, isLoading, isError }

@@ -19,7 +19,7 @@ const CardPlayer = ({ player }) => {
                             Equipo:{' '}
                             {player?.team ? (
                                 <Link
-                                    to={`../teams/${player?.sport?._id}`}
+                                    to={`../teams/${player?.team?._id}`}
                                     className="btn btn-warning btn-sm"
                                 >
                                     {player?.team?.name}
