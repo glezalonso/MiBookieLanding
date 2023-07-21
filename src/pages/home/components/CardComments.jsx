@@ -2,9 +2,21 @@ import React from 'react'
 import { Card, Alert } from 'react-bootstrap'
 import { XCircleFill } from 'react-bootstrap-icons'
 import { useAuthStore } from '../../../store/authorization'
+import { useRemoveComment } from '../../../features/matches.features'
 
-const CardComments = ({ match, handleRemove }) => {
+const CardComments = ({ match }) => {
     const username = useAuthStore((state) => state.profile)
+
+    const removeComment = useRemoveComment()
+
+    const handleRemove = (comment, commentId, matchId) => {
+        const sure = confirm('Quieres borrar el comentario?')
+        if (sure)
+            return removeComment.mutate({
+                id: matchId,
+                body: { comment, commentId, username },
+            })
+    }
     return (
         <>
             <Card.Body style={{ background: 'rgb(58, 58, 58)' }}>
@@ -12,13 +24,12 @@ const CardComments = ({ match, handleRemove }) => {
                     match?.comments?.map((comment) =>
                         comment?.username === username ? (
                             <div
-                                className="d-flex flex-row justify-content-end my-2 overflow-auto "
+                                className="d-flex flex-row justify-content-end my-1 overflow-auto "
                                 key={comment?._id}
                             >
                                 <div
                                     className="p-2 ms-5 bg-light  rounded text-end"
                                     style={{
-                                        margin: '1px',
                                         fontSize: '12px',
                                     }}
                                 >
@@ -46,7 +57,7 @@ const CardComments = ({ match, handleRemove }) => {
                             </div>
                         ) : (
                             <div
-                                className="d-flex flex-row justify-content-start my-3 overflow-auto"
+                                className="d-flex flex-row justify-content-start my-1 overflow-auto"
                                 key={comment?._id}
                             >
                                 <div

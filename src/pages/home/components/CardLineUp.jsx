@@ -5,7 +5,7 @@ const CardLineUp = ({ match }) => {
     const postion = 'Lanzador'
     return (
         <>
-            <div className="d-flex justify-content-center bg-light">
+            <div className="d-flex justify-content-center bg-light rounded-bottom">
                 <div className="mx-auto">
                     <Table
                         style={{ fontSize: '12px' }}

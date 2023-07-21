@@ -1,30 +1,21 @@
 import React, { useState } from 'react'
 import { Card, Button, Table, Badge } from 'react-bootstrap'
 import { ChatDotsFill, Clock, People } from 'react-bootstrap-icons'
-import { useRemoveComment } from '../../../features/matches.features'
+
 import { useNavigate } from 'react-router-dom'
-import { useAuthStore } from '../../../store/authorization'
 import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardFooter from './CardFooter'
+import CardStandingAway from './CardStandingAway'
+import CardStandingLocal from './CardStandingLocal'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
     const [showLineUp, setShowLineUp] = useState(false)
-    const username = useAuthStore((state) => state.profile)
+
+    const ID_BASEBALL = '648f7211a4ba8860dfe38319'
 
     const navigate = useNavigate()
-
-    const removeComment = useRemoveComment()
-
-    const handleRemove = (comment, commentId, matchId) => {
-        const sure = confirm('Quieres borrar el comentario?')
-        if (sure)
-            return removeComment.mutate({
-                id: matchId,
-                body: { comment, commentId, username },
-            })
-    }
 
     return (
         <>
@@ -53,6 +44,12 @@ const CardMatch = ({ match }) => {
                                         <div className="ms-1">
                                             <p className="fw-bold mb-1">
                                                 {match?.away?.name}
+                                                {match?.sport?._id ===
+                                                ID_BASEBALL ? (
+                                                    <CardStandingAway
+                                                        match={match}
+                                                    />
+                                                ) : null}
                                             </p>
                                         </div>
                                     </div>
@@ -89,8 +86,13 @@ const CardMatch = ({ match }) => {
                                         />{' '}
                                         <div className="ms-1">
                                             <p className="fw-bold mb-1">
-                                                {' '}
                                                 {match?.local?.name}
+                                                {match?.sport?._id ===
+                                                ID_BASEBALL ? (
+                                                    <CardStandingLocal
+                                                        match={match}
+                                                    />
+                                                ) : null}
                                             </p>
                                         </div>
                                     </div>
@@ -150,7 +152,7 @@ const CardMatch = ({ match }) => {
                             : { display: 'none' }
                     }
                 >
-                    <CardComments match={match} handleRemove={handleRemove} />
+                    <CardComments match={match} />
                 </div>
                 <div style={!showComments ? { display: 'none' } : null}>
                     <CardFooter match={match} />
