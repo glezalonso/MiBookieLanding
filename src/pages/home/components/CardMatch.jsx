@@ -1,38 +1,21 @@
 import React, { useState } from 'react'
-import {
-    Card,
-    Form,
-    FormControl,
-    Button,
-    Alert,
-    Table,
-    Badge,
-} from 'react-bootstrap'
-import { XCircleFill, ChatDotsFill, Clock } from 'react-bootstrap-icons'
-import {
-    useAddComment,
-    useRemoveComment,
-} from '../../../features/matches.features'
+import { Card, Button, Table, Badge } from 'react-bootstrap'
+import { ChatDotsFill, Clock, People } from 'react-bootstrap-icons'
+import { useRemoveComment } from '../../../features/matches.features'
 import { useNavigate } from 'react-router-dom'
-import { toast } from 'react-hot-toast'
 import { useAuthStore } from '../../../store/authorization'
+import CardLineUp from './CardLineUp'
+import CardComments from './CardComments'
+import CardFooter from './CardFooter'
 
 const CardMatch = ({ match }) => {
-    const [show, setShow] = useState(false)
+    const [showComments, setShowComments] = useState(false)
+    const [showLineUp, setShowLineUp] = useState(false)
     const username = useAuthStore((state) => state.profile)
-    const isDisable = useAuthStore((state) => state.isDisable)
+
     const navigate = useNavigate()
-    const addComment = useAddComment()
+
     const removeComment = useRemoveComment()
-
-    const [comment, setComment] = useState('')
-
-    const handleSubmit = (e, match) => {
-        e.preventDefault()
-        if (!username) return toast.error('Debes iniciar sesión para comentar')
-        addComment.mutate({ id: match, body: { comment, username } })
-        setComment('')
-    }
 
     const handleRemove = (comment, commentId, matchId) => {
         const sure = confirm('Quieres borrar el comentario?')
@@ -127,9 +110,9 @@ const CardMatch = ({ match }) => {
                     <Button
                         className="btn btn-dark btn-sm my-1"
                         style={{ fontSize: '12px' }}
-                        onClick={() => setShow(!show)}
+                        onClick={() => setShowComments(!showComments)}
                     >
-                        {show ? (
+                        {showComments ? (
                             <>
                                 <ChatDotsFill className="mx-1" />{' '}
                                 {match?.comments?.length} Cerrar comentarios
@@ -141,107 +124,36 @@ const CardMatch = ({ match }) => {
                             </>
                         )}
                     </Button>
+                    {match?.lineup?.length > 0 ? (
+                        <Button
+                            className="btn btn-dark btn-sm my-1"
+                            style={{ fontSize: '12px' }}
+                            onClick={() => setShowLineUp(!showLineUp)}
+                        >
+                            <People /> Alineación
+                        </Button>
+                    ) : null}
                 </Card.Header>
                 <div
                     style={
-                        show
+                        showLineUp
                             ? { maxHeight: '200px', overflow: 'auto' }
                             : { display: 'none' }
                     }
                 >
-                    <Card.Body style={{ background: 'rgb(58, 58, 58)' }}>
-                        {match?.comments?.length > 0 ? (
-                            match?.comments?.map((comment) =>
-                                comment?.username === username ? (
-                                    <div
-                                        className="d-flex flex-row justify-content-end my-2 overflow-auto "
-                                        key={comment?._id}
-                                    >
-                                        <div
-                                            className="p-2 ms-5 bg-light  rounded text-end"
-                                            style={{
-                                                margin: '1px',
-                                                fontSize: '12px',
-                                            }}
-                                        >
-                                            <strong
-                                                className="text-dark"
-                                                style={{
-                                                    marginRight: '2px',
-                                                    fontSize: '12px',
-                                                }}
-                                            >
-                                                {comment?.username}:
-                                            </strong>
-                                            {comment?.comment}{' '}
-                                            <XCircleFill
-                                                color="red"
-                                                onClick={() =>
-                                                    handleRemove(
-                                                        comment?.comment,
-                                                        comment?._id,
-                                                        match?._id
-                                                    )
-                                                }
-                                            />
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div
-                                        className="d-flex flex-row justify-content-start my-3 overflow-auto"
-                                        key={comment?._id}
-                                    >
-                                        <div
-                                            className="p-2 rounded bg-dark text-light "
-                                            style={{
-                                                margin: '1px',
-                                                fontSize: '12px',
-                                            }}
-                                        >
-                                            <strong
-                                                style={{
-                                                    marginRight: '2px',
-                                                    fontSize: '12px',
-                                                }}
-                                            >
-                                                {comment?.username}:{' '}
-                                            </strong>
-                                            {comment?.comment}
-                                        </div>
-                                    </div>
-                                )
-                            )
-                        ) : (
-                            <Alert variant="warning mx-3 ">
-                                No hay comentarios para mostrar!
-                            </Alert>
-                        )}
-                    </Card.Body>
+                    <CardLineUp match={match} />
                 </div>
-                <div style={!show ? { display: 'none' } : null}>
-                    <Card.Footer className="bg-dark rounded border-top">
-                        <Form onSubmit={(e) => handleSubmit(e, match?._id)}>
-                            <FormControl
-                                as="textarea"
-                                rows={2}
-                                name="comment"
-                                style={{ fontSize: '12px', marginTop: '8px' }}
-                                placeholder="Ingresa tu comentario"
-                                disabled={isDisable}
-                                value={comment}
-                                onChange={(e) => setComment(e.target.value)}
-                            />
-                            <div className="d-flex justify-content-end">
-                                <Button
-                                    type="submit"
-                                    style={{ fontSize: '12px' }}
-                                    className=" btn btn-warning btn-sm my-2 "
-                                >
-                                    Comentar
-                                </Button>
-                            </div>
-                        </Form>
-                    </Card.Footer>
+                <div
+                    style={
+                        showComments
+                            ? { maxHeight: '200px', overflow: 'auto' }
+                            : { display: 'none' }
+                    }
+                >
+                    <CardComments match={match} handleRemove={handleRemove} />
+                </div>
+                <div style={!showComments ? { display: 'none' } : null}>
+                    <CardFooter match={match} />
                 </div>
             </Card>
         </>

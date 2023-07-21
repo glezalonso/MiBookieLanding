@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
-
+import NavBar from '../../ui/Navbar'
 import { Container, Row, Col } from 'react-bootstrap'
 import CardMatch from '../home/components/CardMatch'
 import SectionLineUps from './components/SectionLineUps'
@@ -17,6 +17,8 @@ const Matches = () => {
 
     return (
         <>
+            <NavBar />
+
             <Container fluid>
                 <Row className="m-2 mx-auto">
                     <Col xs={12} md={10} className="rounded mx-auto my-1 fs-4">

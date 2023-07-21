@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetLeague } from '../../features/leagues.features'
 import { toast } from 'react-hot-toast'
+import NavBar from '../../ui/Navbar'
 import Loading from '../../ui/Loading'
 import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
 import SectionLeague from './components/SectionLeague'
@@ -21,6 +22,7 @@ const Leagues = () => {
     if (isError) return toast.error('Hubo un error al cargar la liga!')
     return (
         <>
+            <NavBar />
             <Container fluid>
                 <Row className="my-2 mx-auto ">
                     <Col xs={12} md={10} className="mx-auto my-1">

@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
-
+import NavBar from '../../ui/Navbar'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useGetRound } from '../../features/rounds.features'
 import CardRound from './components/CardRound'
@@ -17,6 +17,7 @@ const Rounds = () => {
 
     return (
         <>
+            <NavBar />
             <Container fluid>
                 <Row className="my-2  mx-auto">
                     <Col xs={12} md={10} className="rounded mx-auto my-1 ">

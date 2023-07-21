@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
-
+import NavBar from '../../ui/Navbar'
 import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
 import { useGetSeason } from '../../features/seasons.features'
 import CardSeason from './components/CardSeason'
@@ -19,6 +19,7 @@ const Seasons = () => {
 
     return (
         <>
+            <NavBar />
             <Container fluid>
                 <Row className="my-2  mx-auto">
                     <Col xs={12} md={10} className="rounded my-1 mx-auto  ">

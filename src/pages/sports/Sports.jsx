@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
 import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
 import { useGetSport } from '../../features/sports.features'
+import NavBar from '../../ui/Navbar'
 import CardSport from './components/CardSport'
 import SectionLeaguesBySport from './components/SectionLeaguesBySport'
 import SectionNextMatches from './components/SectionNextMatches'
@@ -23,6 +24,8 @@ const Sports = () => {
 
     return (
         <>
+            <NavBar />
+
             <Container fluid>
                 <Row className="my-2 mx-auto">
                     <Col xs={12} md={10} className="rounded my-1 mx-auto">

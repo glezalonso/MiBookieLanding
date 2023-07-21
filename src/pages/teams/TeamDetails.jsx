@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import Loading from '../../ui/Loading'
 import { useGetTeam } from '../../features/teams.features'
+import NavBar from '../../ui/Navbar'
 import CardTeam from './components/CardTeam'
 import SectionStandings from './components/SectionStandings'
 import SectionMatches from './components/SectionMatches'
@@ -19,6 +20,7 @@ const TeamDetails = () => {
     if (isError) return toast.error('Hubo un error al cargar los equipos!')
     return (
         <>
+            <NavBar />
             <Container fluid>
                 <Row className="my-2 mx-auto">
                     <Col xs={12} md={10} className=" rounded mx-auto">

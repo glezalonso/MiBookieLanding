@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import NavBar from './ui/Navbar'
 import { Toaster } from 'react-hot-toast'
 import Home from './pages/home/Home'
 import Matches from './pages/matches/Matches'
@@ -31,7 +30,7 @@ const App = () => {
         <>
             <BrowserRouter>
                 <Toaster position="top-center" reverseOrder={false} />
-                <NavBar />
+
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/news" element={<News />} />

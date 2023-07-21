@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
 import { toast } from 'react-hot-toast'
+import NavBar from '../../ui/Navbar'
 import CardPlayer from './components/CardPlayer'
 import { useGetPlayer } from '../../features/players.features'
 import { useParams } from 'react-router-dom'
@@ -18,6 +19,8 @@ const PlayerDetails = () => {
     if (isError) return toast.error('Hubo un error al cargar los jugadores!')
     return (
         <>
+            <NavBar />
+
             <Container fluid>
                 <Row className="my-2 mx-auto">
                     <Col xs={12} md={10} className=" rounded mx-auto my-1 fs-6">
