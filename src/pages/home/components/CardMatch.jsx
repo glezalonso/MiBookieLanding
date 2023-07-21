@@ -45,7 +45,7 @@ const CardMatch = ({ match }) => {
 
     return (
         <>
-            <Card bg="dark" className="shadow-lg  my-2">
+            <Card bg="dark" className="shadow-xl  my-2">
                 <Card.Header className="border-bottom rounded ">
                     <span>
                         <strong>{match?.league?.league}</strong>

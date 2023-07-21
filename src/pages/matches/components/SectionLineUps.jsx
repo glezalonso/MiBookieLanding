@@ -49,7 +49,17 @@ const SectionLineUps = ({ match }) => {
                                                 {' '}
                                                 {match?.sport?._id ===
                                                 ID_BASEBALL ? (
-                                                    <td>{i++}</td>
+                                                    <td>
+                                                        {player?.playerId
+                                                            ?.position ===
+                                                        'Lanzador' ? (
+                                                            <span>
+                                                                Lanzador
+                                                            </span>
+                                                        ) : (
+                                                            i++
+                                                        )}
+                                                    </td>
                                                 ) : null}
                                                 <td>
                                                     {player?.playerId?.fullName}
@@ -112,7 +122,17 @@ const SectionLineUps = ({ match }) => {
                                             >
                                                 {match?.sport?._id ===
                                                 ID_BASEBALL ? (
-                                                    <td>{j++}</td>
+                                                    <td>
+                                                        {player?.playerId
+                                                            ?.position ===
+                                                        'Lanzador' ? (
+                                                            <span>
+                                                                Lanzador
+                                                            </span>
+                                                        ) : (
+                                                            j++
+                                                        )}
+                                                    </td>
                                                 ) : null}
                                                 <td>
                                                     {player?.playerId?.fullName}

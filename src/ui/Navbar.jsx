@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Container, Navbar, NavDropdown, Nav, Button } from 'react-bootstrap'
+import { Container, Navbar, Nav, Button } from 'react-bootstrap'
+import { Newspaper } from 'react-bootstrap-icons'
 import Login from '../pages/home/components/Login'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
@@ -34,42 +35,35 @@ function NavBar() {
         <>
             <Navbar expand="lg" bg="dark" sticky="top" data-bs-theme="dark">
                 <Container>
-                    <Navbar.Brand>Mi Bookie</Navbar.Brand>
+                    <Navbar.Brand>
+                        <Link to={'/'} className="nav-link">
+                            Mi Bookie
+                        </Link>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav style={{ fontSize: '15px' }} className="me-auto">
-                            <Link to={'../'} className="nav-link">
-                                Inicio
-                            </Link>
-                            {/* <Link to={'../players'} className='nav-link'>Jugadores</Link>
-          <Link to={'../teams'} className='nav-link'>Equipos</Link> */}
+                        <Nav style={{ fontSize: '15px' }} className="ms-auto">
+                            {sports?.map((sport) => (
+                                <Link
+                                    style={{ fontSize: '14px' }}
+                                    to={`../sports/${sport?._id}`}
+                                    key={sport?._id}
+                                    className="nav-link"
+                                >
+                                    <img
+                                        width={'20px'}
+                                        height={'20px'}
+                                        className="mx-auto"
+                                        src={sport?.poster}
+                                        alt={sport?.sport}
+                                    />
+                                    <span className="mx-1">{sport?.sport}</span>
+                                </Link>
+                            ))}
                             <Link to={'../news'} className="nav-link">
-                                Noticias
+                                <Newspaper color="grey" />
+                                <span className="mx-1"> Noticias</span>
                             </Link>
-                            <NavDropdown
-                                title="Deportes"
-                                id="basic-nav-dropdown"
-                            >
-                                {sports?.map((sport) => (
-                                    <Link
-                                        style={{ fontSize: '14px' }}
-                                        to={`../sports/${sport?._id}`}
-                                        key={sport?._id}
-                                        className="dropdown-item"
-                                    >
-                                        <img
-                                            width={'20px'}
-                                            height={'20px'}
-                                            className="mx-auto"
-                                            src={sport?.poster}
-                                            alt={sport?.sport}
-                                        />
-                                        <span className="mx-1">
-                                            {sport?.sport}
-                                        </span>
-                                    </Link>
-                                ))}
-                            </NavDropdown>
                         </Nav>
                         {username ? (
                             <Navbar.Text style={{ fontSize: '14px' }}>
