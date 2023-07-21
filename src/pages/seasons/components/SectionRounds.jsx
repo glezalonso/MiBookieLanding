@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useGetRounds } from '../../../features/rounds.features'
+import { useGetRoundsByhSeason } from '../../../features/rounds.features'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import { FormControl, Alert, Table } from 'react-bootstrap'
@@ -7,16 +7,17 @@ import { useNavigate } from 'react-router-dom'
 
 const SectionRounds = ({ season }) => {
     const [filter, setFilter] = useState('')
-    const { data: rounds, isLoading, isError } = useGetRounds()
+    const {
+        data: rounds,
+        isLoading,
+        isError,
+    } = useGetRoundsByhSeason(season?._id)
     const navigate = useNavigate()
+
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las jornadas!')
 
-    const roundsBySeason = rounds?.filter(
-        (round) => round?.season?._id === season?._id
-    )
-
-    const filterRounds = roundsBySeason?.filter((round) => {
+    const filterRounds = rounds?.filter((round) => {
         if (!filter) return round
         return round?.round?.toLowerCase().includes(filter.toLowerCase())
     })

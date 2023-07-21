@@ -1,26 +1,20 @@
 import React, { useState } from 'react'
-import { useGetMatchesByLeague } from '../../../features/matches.features'
+
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { Alert, Table, FormControl, Badge } from 'react-bootstrap'
 import Loading from '../../../ui/Loading'
 
-const SectionMatches = ({ league }) => {
+const SectionMatches = ({ league, query }) => {
     const [filter, setFilter] = useState('')
-    const {
-        data: matches,
-        isLoading,
-        isError,
-    } = useGetMatchesByLeague(league?._id)
+    const { data: matches, isLoading, isError } = query(league?._id)
     const navigate = useNavigate()
 
     if (isLoading) return <Loading />
 
     if (isError) return toast.error('Hubo un error al cargar los partidos')
 
-    const nextMatches = matches?.filter((match) => match?.status === true)
-
-    const matchesByFilter = nextMatches?.filter((matches) => {
+    const matchesByFilter = matches?.filter((matches) => {
         if (!filter) return matches
         return (
             matches?.away?.name?.toLowerCase().includes(filter.toLowerCase()) ||
@@ -32,8 +26,7 @@ const SectionMatches = ({ league }) => {
         <>
             <section>
                 <h5>
-                    Próximos partidos{' '}
-                    <Badge bg="dark">{nextMatches?.length}</Badge>
+                    Próximos partidos <Badge bg="dark">{matches?.length}</Badge>
                 </h5>
 
                 <div className="my-2 mx-auto p-1">
@@ -60,6 +53,7 @@ const SectionMatches = ({ league }) => {
                                     <th>Fecha</th>
                                     <th>Local</th>
                                     <th>Visita</th>
+                                    <th>Marcador</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,6 +73,19 @@ const SectionMatches = ({ league }) => {
                                         </td>
                                         <td>{match?.local?.name}</td>
                                         <td>{match?.away?.name}</td>
+                                        <td>
+                                            <strong>
+                                                {match?.score?.map(
+                                                    (score) => score?.local
+                                                )}
+                                            </strong>
+                                            -
+                                            <strong>
+                                                {match?.score?.map(
+                                                    (score) => score?.away
+                                                )}
+                                            </strong>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

@@ -11,7 +11,7 @@ const Home = () => {
                     <Col xs={12} md={8} className="mx-auto">
                         <SectionMatches />
                     </Col>
-                    <Col xs={12} md={4} className="mx-auto">
+                    <Col md={4} className="mx-auto d-none d-md-block">
                         <SectionLeagues />
                     </Col>
                 </Row>

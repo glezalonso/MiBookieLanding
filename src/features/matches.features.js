@@ -5,10 +5,12 @@ import {
     addComment,
     removeComment,
     getMatchesToday,
-    getMatchesByLeague,
+    getMatchesOpenByLeague,
+    getMatchesClosedByLeague,
     getMatchesByRound,
     getMatchesOpen,
     getMatchesByTeam,
+    getNextMatchesBySport,
 } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
 
@@ -67,13 +69,22 @@ export const useGetMatchesByTeam = (team) => {
     })
     return { data, isLoading, isError }
 }
-export const useGetMatchesByLeague = (league) => {
+export const useGetMatchesOpenByLeague = (league) => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['matches', league],
-        queryFn: () => getMatchesByLeague(league),
+        queryFn: () => getMatchesOpenByLeague(league),
     })
     return { data, isLoading, isError }
 }
+
+export const useGetMatchesClosedByLeague = (league) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['matches', league],
+        queryFn: () => getMatchesClosedByLeague(league),
+    })
+    return { data, isLoading, isError }
+}
+
 export const useGetMatchesByRound = (round) => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['matches', round],
@@ -86,6 +97,14 @@ export const useGetMatchesOpen = () => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['matches'],
         queryFn: getMatchesOpen,
+    })
+    return { data, isLoading, isError }
+}
+
+export const useGetNextMatchesBySport = (sport) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['matchessport', sport],
+        queryFn: () => getNextMatchesBySport(sport),
     })
     return { data, isLoading, isError }
 }

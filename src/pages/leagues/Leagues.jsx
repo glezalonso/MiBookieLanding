@@ -7,6 +7,10 @@ import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
 import SectionLeague from './components/SectionLeague'
 import SectionSeasons from './components/SectionSeasons'
 import SectionMatches from './components/SectionMatches'
+import {
+    useGetMatchesOpenByLeague,
+    useGetMatchesClosedByLeague,
+} from '../../features/matches.features'
 
 const Leagues = () => {
     const { id } = useParams()
@@ -41,7 +45,21 @@ const Leagues = () => {
                                     title="Próximos Partidos"
                                 >
                                     {key === 'proximos' ? (
-                                        <SectionMatches league={league} />
+                                        <SectionMatches
+                                            league={league}
+                                            query={useGetMatchesOpenByLeague}
+                                        />
+                                    ) : null}
+                                </Tab>
+                                <Tab
+                                    eventKey={'ultimos'}
+                                    title="Últimos Partidos"
+                                >
+                                    {key === 'ultimos' ? (
+                                        <SectionMatches
+                                            league={league}
+                                            query={useGetMatchesClosedByLeague}
+                                        />
                                     ) : null}
                                 </Tab>
                             </Tabs>

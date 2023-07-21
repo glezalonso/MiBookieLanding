@@ -1,29 +1,29 @@
 import React from 'react'
-import { useGetSeasons } from '../../../features/seasons.features'
+import { useGetSeasonsByLeague } from '../../../features/seasons.features'
 import { toast } from 'react-hot-toast'
 import { Table, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 
 const SectionSeasons = ({ league }) => {
-    const { data: seasons, isLoading, isError } = useGetSeasons()
+    const {
+        data: seasons,
+        isLoading,
+        isError,
+    } = useGetSeasonsByLeague(league?._id)
     const navigate = useNavigate()
 
     if (isLoading) return <Loading />
 
     if (isError) return toast.error('Hubo un error al cargar las temporadas!')
 
-    const seasonByLeague = seasons?.filter(
-        (season) => season?.league?._id === league?._id
-    )
-
-    seasonByLeague?.sort((a, b) => b.status - a.status)
+    seasons?.sort((a, b) => b.status - a.status)
     return (
         <>
             <section>
                 <h5>Temporadas disponibles</h5>
 
-                {seasonByLeague?.length > 0 ? (
+                {seasons?.length > 0 ? (
                     <div className="bg-dark rounded section-tables">
                         <Table
                             responsive
@@ -39,7 +39,7 @@ const SectionSeasons = ({ league }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {seasonByLeague?.map((season) => (
+                                {seasons?.map((season) => (
                                     <tr
                                         key={season?._id}
                                         onClick={() =>

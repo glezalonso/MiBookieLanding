@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useGetLeagues } from '../../../features/leagues.features'
+import { useGetLeaguesBySport } from '../../../features/leagues.features'
 import { toast } from 'react-hot-toast'
 import { Table, FormControl, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
@@ -7,7 +7,11 @@ import Loading from '../../../ui/Loading'
 
 const SectionLeaguesBySport = ({ sport }) => {
     const [filter, setFilter] = useState('')
-    const { data: leagues, isLoading, isError } = useGetLeagues()
+    const {
+        data: leagues,
+        isLoading,
+        isError,
+    } = useGetLeaguesBySport(sport?._id)
     const navigate = useNavigate()
 
     if (isLoading) return <Loading />

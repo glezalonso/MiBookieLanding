@@ -25,8 +25,15 @@ export const getMatchesByTeam = async (team) => {
     return data
 }
 
-export const getMatchesByLeague = async (league) => {
-    const { data } = await axios.post('/api/matches/matchesbyleague', {
+export const getMatchesOpenByLeague = async (league) => {
+    const { data } = await axios.post('/api/matches/matchesopenbyleague', {
+        league,
+    })
+    return data
+}
+
+export const getMatchesClosedByLeague = async (league) => {
+    const { data } = await axios.post('/api/matches/matchesclosedbyleague', {
         league,
     })
     return data
@@ -43,5 +50,12 @@ export const getMatchesOpen = async () => {
 }
 export const getMatchesClosed = async () => {
     const { data } = await axios.post('/api/matches/matchesclosed')
+    return data
+}
+
+export const getNextMatchesBySport = async (sport) => {
+    const { data } = await axios.post('api/matches/nextmatchesbysport', {
+        sport,
+    })
     return data
 }
