@@ -30,7 +30,7 @@ const SectionMatches = () => {
             <section>
                 <h5>
                     Partidos de hoy
-                    <Badge bg="dark" className="mx-1">
+                    <Badge bg="dark" className="mx-2">
                         {matches?.length}
                     </Badge>
                 </h5>

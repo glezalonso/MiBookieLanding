@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Navbar, Nav, Button } from 'react-bootstrap'
-import { Newspaper } from 'react-bootstrap-icons'
+import { HouseDoor } from 'react-bootstrap-icons'
 import Login from '../pages/home/components/Login'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
@@ -43,6 +43,10 @@ function NavBar() {
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav style={{ fontSize: '15px' }} className="ms-auto">
+                            <Link to={'/'} className="nav-link">
+                                <HouseDoor color="grey" />
+                                <span className="mx-1"> Inicio</span>
+                            </Link>
                             {sports?.map((sport) => (
                                 <Link
                                     style={{ fontSize: '14px' }}
@@ -60,10 +64,6 @@ function NavBar() {
                                     <span className="mx-1">{sport?.sport}</span>
                                 </Link>
                             ))}
-                            <Link to={'../news'} className="nav-link">
-                                <Newspaper color="grey" />
-                                <span className="mx-1"> Noticias</span>
-                            </Link>
                         </Nav>
                         {username ? (
                             <Navbar.Text style={{ fontSize: '14px' }}>

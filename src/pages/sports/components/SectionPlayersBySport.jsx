@@ -26,7 +26,7 @@ const SectionPlayerBySport = ({ sport }) => {
     return (
         <>
             <section>
-                <h5>Jugadores de {sport?.sport}</h5>
+                <h5>Jugadores</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         style={{ fontSize: '14px' }}

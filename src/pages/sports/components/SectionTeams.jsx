@@ -22,7 +22,7 @@ const SectionTeams = ({ sport }) => {
     return (
         <>
             <section>
-                <h5>Equipos de {sport?.sport}</h5>
+                <h5>Equipos</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         style={{ fontSize: '14px' }}

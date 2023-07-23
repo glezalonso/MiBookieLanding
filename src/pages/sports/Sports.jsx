@@ -12,6 +12,7 @@ import SectionPlayersBySport from './components/SectionPlayersBySport'
 import SectionSeasonsBySport from './components/SectionSeasonsBySport'
 import SectionPlayersTennis from './components/SectionPlayersTennis'
 import SectionTeams from './components/SectionTeams'
+import SectionNewsBySport from './components/SectionNewsBySport'
 
 const Sports = () => {
     const { id } = useParams()
@@ -56,6 +57,11 @@ const Sports = () => {
                                 >
                                     {key === 'proximos' ? (
                                         <SectionNextMatches sport={sport} />
+                                    ) : null}
+                                </Tab>
+                                <Tab eventKey={'noticias'} title="Noticias">
+                                    {key === 'noticias' ? (
+                                        <SectionNewsBySport sport={sport} />
                                     ) : null}
                                 </Tab>
                                 <Tab eventKey={'mas'} title="Más">

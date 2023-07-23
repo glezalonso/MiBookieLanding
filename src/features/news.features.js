@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query'
-import { getNews } from '../services/news.services'
+import { getNewsBySport } from '../services/news.services'
 
-export const useGetNews = () => {
+export const useGetNewsbySport = (sport) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['news'],
-        queryFn: getNews,
+        queryKey: ['news', sport],
+        queryFn: () => getNewsBySport(sport),
     })
     return { data, isLoading, isError }
 }

@@ -11,7 +11,6 @@ import Seasons from './pages/seasons/Seasons'
 import PlayerDetails from './pages/players/PlayersDetails'
 // import Teams from './pages/teams/Teams'
 import TeamDetails from './pages/teams/TeamDetails'
-import News from './pages/news/News'
 import GenerateCode from './pages/home/components/GenerateCode'
 import VerifyCode from './pages/home/components/VerifyCode'
 import ResetPassword from './pages/home/components/ResetPassword'
@@ -33,7 +32,6 @@ const App = () => {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/news" element={<News />} />
                     <Route path="/generate" element={<GenerateCode />} />
                     <Route path="/verify" element={<VerifyCode />} />
                     <Route path="/reset" element={<ResetPassword />} />

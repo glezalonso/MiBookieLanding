@@ -28,7 +28,7 @@ const SectionSeasonsBySport = ({ sport }) => {
     return (
         <>
             <section>
-                <h5>Temporadas de {sport?.sport} </h5>
+                <h5>Temporadas</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         style={{ fontSize: '14px' }}

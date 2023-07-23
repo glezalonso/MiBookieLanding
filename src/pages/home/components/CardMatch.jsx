@@ -6,14 +6,10 @@ import { useNavigate } from 'react-router-dom'
 import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardFooter from './CardFooter'
-import CardStandingAway from './CardStandingAway'
-import CardStandingLocal from './CardStandingLocal'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
     const [showLineUp, setShowLineUp] = useState(false)
-
-    const ID_BASEBALL = '648f7211a4ba8860dfe38319'
 
     const navigate = useNavigate()
 
@@ -44,16 +40,11 @@ const CardMatch = ({ match }) => {
                                         <div className="ms-1">
                                             <p className="fw-bold mb-1">
                                                 {match?.away?.name}
-                                                {match?.sport?._id ===
-                                                ID_BASEBALL ? (
-                                                    <CardStandingAway
-                                                        match={match}
-                                                    />
-                                                ) : null}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
+
                                 <td className="text-center">
                                     <strong>
                                         {match?.score?.map(
@@ -87,16 +78,11 @@ const CardMatch = ({ match }) => {
                                         <div className="ms-1">
                                             <p className="fw-bold mb-1">
                                                 {match?.local?.name}
-                                                {match?.sport?._id ===
-                                                ID_BASEBALL ? (
-                                                    <CardStandingLocal
-                                                        match={match}
-                                                    />
-                                                ) : null}
                                             </p>
                                         </div>
                                     </div>
                                 </td>
+
                                 <td className="text-center">
                                     <strong>
                                         {match?.score?.map(
@@ -132,7 +118,7 @@ const CardMatch = ({ match }) => {
                             style={{ fontSize: '12px' }}
                             onClick={() => setShowLineUp(!showLineUp)}
                         >
-                            <People /> Alineación
+                            <People className="mx-1" /> Alineación
                         </Button>
                     ) : null}
                 </Card.Header>
@@ -154,6 +140,7 @@ const CardMatch = ({ match }) => {
                 >
                     <CardComments match={match} />
                 </div>
+
                 <div style={!showComments ? { display: 'none' } : null}>
                     <CardFooter match={match} />
                 </div>
