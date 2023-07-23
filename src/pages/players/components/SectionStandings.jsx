@@ -42,6 +42,7 @@ const SectionStandings = ({ player }) => {
                 {sort?.length > 0 ? (
                     <div className="bg-dark rounded section-tables">
                         <Table
+                            style={{ fontSize: '12px' }}
                             responsive
                             borderless
                             hover
@@ -66,15 +67,6 @@ const SectionStandings = ({ player }) => {
                                 {sort.map((stands) =>
                                     stands.map((stands) => (
                                         <tr
-                                            style={
-                                                player?.team?.name ===
-                                                stands.team?.name
-                                                    ? {
-                                                          fontWeight: 'bold',
-                                                          borderBottom: '13px',
-                                                      }
-                                                    : null
-                                            }
                                             key={stands?.team?._id}
                                             onClick={() =>
                                                 navigate(
@@ -91,12 +83,22 @@ const SectionStandings = ({ player }) => {
                                                               fontWeight:
                                                                   'bold',
 
-                                                              color: 'grey',
+                                                              background:
+                                                                  'grey',
                                                           }
                                                         : null
                                                 }
                                             >
-                                                {stands.team?.name}
+                                                <img
+                                                    style={{
+                                                        width: '15px',
+                                                        height: '15px',
+                                                        borderRadius: '50%',
+                                                    }}
+                                                    src={stands.team?.poster}
+                                                    alt={stands.team?.name}
+                                                />
+                                                <span>{stands.team?.name}</span>
                                             </td>
                                             <td>{stands?.wins}</td>
                                             <td>{stands?.loses}</td>

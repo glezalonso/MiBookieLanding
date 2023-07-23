@@ -5,7 +5,7 @@ const CardTeam = ({ team }) => {
     return (
         <>
             <section>
-                <Card>
+                <Card bg="dark text-white">
                     <Card.Header className="d-flex justify-content-center align-items-center">
                         <div className="d-flex justify-content-start">
                             <Card.Img
