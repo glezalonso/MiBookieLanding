@@ -28,7 +28,7 @@ const SectionNewsBySport = ({ sport }) => {
                 <div className="m-2 p-2">
                     <FormControl
                         name="new"
-                        placeholder="Deporte, equipo..."
+                        placeholder="Equipo..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>

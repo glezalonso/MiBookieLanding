@@ -44,7 +44,11 @@ function NavBar() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav style={{ fontSize: '15px' }} className="ms-auto">
                             <Link to={'/'} className="nav-link">
-                                <HouseDoor color="grey" />
+                                <HouseDoor
+                                    color="grey"
+                                    width={'20px'}
+                                    height={'20px'}
+                                />
                                 <span className="mx-1"> Inicio</span>
                             </Link>
                             {sports?.map((sport) => (
