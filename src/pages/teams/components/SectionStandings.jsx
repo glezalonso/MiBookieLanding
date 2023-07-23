@@ -12,9 +12,8 @@ const SectionStandings = ({ team }) => {
     // counter
     let i = 1
 
-    // SoccerID
+    const ID_AMERICANO = '648f71cda4ba8860dfe38309'
     const ID_SOCCER = '648f71dea4ba8860dfe3830f'
-    const ID_BASEBALL = '648f7211a4ba8860dfe38319'
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las posiciones!')
@@ -50,15 +49,16 @@ const SectionStandings = ({ team }) => {
                         >
                             <thead className="border-bottom">
                                 <tr>
-                                    <th>No.</th>
+                                    <th>Pos</th>
                                     <th>Equipo</th>
-                                    <th>Ganados</th>
-                                    <th>Perdidos</th>
-                                    {team?.sport?._id !== ID_BASEBALL ? (
-                                        <th>Empatados</th>
+                                    <th>Gan</th>
+                                    <th>Per</th>
+                                    {season?.sport?._id === ID_SOCCER ||
+                                    season?.sport?._id === ID_AMERICANO ? (
+                                        <th>Emp</th>
                                     ) : null}
                                     {team?.sport?._id === ID_SOCCER ? (
-                                        <th>Puntos</th>
+                                        <th>Pts</th>
                                     ) : null}
                                 </tr>
                             </thead>
@@ -88,12 +88,24 @@ const SectionStandings = ({ team }) => {
                                                         : null
                                                 }
                                             >
-                                                <span>{stands.team?.name}</span>
+                                                <img
+                                                    style={{
+                                                        height: '15px',
+                                                        width: '15px',
+                                                        borderRadius: '50%',
+                                                    }}
+                                                    src={stands.team?.poster}
+                                                    alt={stands.team?.name}
+                                                />
+                                                <span className="mx-1">
+                                                    {stands.team?.name}
+                                                </span>
                                             </td>
                                             <td>{stands?.wins}</td>
                                             <td>{stands?.loses}</td>
-                                            {team?.sport?._id !==
-                                            ID_BASEBALL ? (
+                                            {team?.sport?._id === ID_SOCCER ||
+                                            season?.sport?._id ===
+                                                ID_AMERICANO ? (
                                                 <td>{stands?.draws}</td>
                                             ) : null}
                                             {team?.sport?._id === ID_SOCCER ? (
