@@ -27,7 +27,6 @@ const SectionStandings = ({ season }) => {
                 {sort?.length > 0 ? (
                     <div className="bg-dark rounded section-tables">
                         <Table
-                            style={{ fontSize: '12px' }}
                             responsive
                             borderless
                             hover
@@ -60,15 +59,6 @@ const SectionStandings = ({ season }) => {
                                     >
                                         <td>{i++}</td>
                                         <td>
-                                            <img
-                                                style={{
-                                                    width: '15px',
-                                                    height: '15px',
-                                                    borderRadius: '50%',
-                                                }}
-                                                src={stands.team?.poster}
-                                                alt={stands.team?.name}
-                                            />
                                             <span>{stands.team?.name}</span>
                                         </td>
                                         <td>{stands?.wins}</td>
