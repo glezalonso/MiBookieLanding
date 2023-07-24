@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import { Card, Button, Table, Badge } from 'react-bootstrap'
-import { ChatDotsFill, Clock, People } from 'react-bootstrap-icons'
-
+import { ChatDotsFill, Clock, People, GraphUp } from 'react-bootstrap-icons'
 import { useNavigate } from 'react-router-dom'
 import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardFooter from './CardFooter'
+import CardConsensus from './CardConsensus'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
     const [showLineUp, setShowLineUp] = useState(false)
+    const [showConsensus, setShowConsensus] = useState(false)
 
     const navigate = useNavigate()
 
@@ -121,6 +122,15 @@ const CardMatch = ({ match }) => {
                             <People className="mx-1" /> Alineación
                         </Button>
                     ) : null}
+                    {match?.votes?.length > 0 ? (
+                        <Button
+                            className="btn btn-dark btn-sm my-1"
+                            style={{ fontSize: '12px' }}
+                            onClick={() => setShowConsensus(!showConsensus)}
+                        >
+                            <GraphUp className="mx-1" /> Votos
+                        </Button>
+                    ) : null}
                 </Card.Header>
                 <div
                     style={
@@ -139,6 +149,15 @@ const CardMatch = ({ match }) => {
                     }
                 >
                     <CardComments match={match} />
+                </div>
+                <div
+                    style={
+                        showConsensus
+                            ? { maxHeight: '200px', overflow: 'auto' }
+                            : { display: 'none' }
+                    }
+                >
+                    <CardConsensus match={match} />
                 </div>
 
                 <div style={!showComments ? { display: 'none' } : null}>

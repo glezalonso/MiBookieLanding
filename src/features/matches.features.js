@@ -11,6 +11,7 @@ import {
     getMatchesOpen,
     getMatchesByTeam,
     getNextMatchesBySport,
+    pickEm,
 } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
 
@@ -107,4 +108,18 @@ export const useGetNextMatchesBySport = (sport) => {
         queryFn: () => getNextMatchesBySport(sport),
     })
     return { data, isLoading, isError }
+}
+
+export const useAddPickEm = () => {
+    const queryClient = useQueryClient()
+    const mutationAddPickEm = useMutation({
+        mutationFn: pickEm,
+        onSuccess: () => {
+            toast.success('Voto agregado')
+            queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
+            queryClient.invalidateQueries({ queryKey: ['match'] })
+        },
+        onError: () => toast.error('Ya se ha colocado su voto'),
+    })
+    return mutationAddPickEm
 }

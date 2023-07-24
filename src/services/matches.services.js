@@ -59,3 +59,5 @@ export const getNextMatchesBySport = async (sport) => {
     })
     return data
 }
+
+export const pickEm = ({ body }) => axios.post(`/api/matches/pickem/`, body)
