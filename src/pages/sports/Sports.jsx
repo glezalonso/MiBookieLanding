@@ -38,7 +38,6 @@ const Sports = () => {
                                 defaultActiveKey={key}
                                 activeKey={key}
                                 className="mb-3"
-                                justify
                                 onSelect={(key) => setKey(key)}
                             >
                                 <Tab eventKey={'ligas'} title="Ligas">
@@ -51,6 +50,11 @@ const Sports = () => {
                                         <SectionSeasonsBySport sport={sport} />
                                     ) : null}
                                 </Tab>
+                                <Tab eventKey={'noticias'} title="Noticias">
+                                    {key === 'noticias' ? (
+                                        <SectionNewsBySport sport={sport} />
+                                    ) : null}
+                                </Tab>
                                 <Tab
                                     eventKey={'proximos'}
                                     title="Próximos partidos"
@@ -59,11 +63,7 @@ const Sports = () => {
                                         <SectionNextMatches sport={sport} />
                                     ) : null}
                                 </Tab>
-                                <Tab eventKey={'noticias'} title="Noticias">
-                                    {key === 'noticias' ? (
-                                        <SectionNewsBySport sport={sport} />
-                                    ) : null}
-                                </Tab>
+
                                 <Tab eventKey={'mas'} title="Más">
                                     {key === 'mas' ? (
                                         <Row>

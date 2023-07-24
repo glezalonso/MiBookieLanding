@@ -7,10 +7,14 @@ const CardSport = ({ sport }) => {
             <section>
                 <Card className="bg-dark text-light">
                     <Card.Header>
-                        <Card.Title>{sport?.sport}</Card.Title>
-                        <Card.Subtitle>
-                            Descripción: {sport?.description}
-                        </Card.Subtitle>
+                        <Card.Title className="my-1">
+                            <img
+                                style={{ width: '30px', height: '30px' }}
+                                src={sport?.poster}
+                                alt={sport?.sport}
+                            ></img>
+                            <span className="mx-1">{sport?.sport}</span>
+                        </Card.Title>
                     </Card.Header>
                 </Card>
             </section>
