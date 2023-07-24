@@ -17,8 +17,8 @@ const SectionSeasonsBySport = ({ sport }) => {
     if (isLoading) return <Loading />
 
     if (isError) return toast.error('Hubo un error al cargar las temporadas!')
-
-    const seasonsByFilter = seasons?.filter((season) => {
+    const seasonsOpen = seasons?.filter((seasons) => seasons?.status === true)
+    const seasonsByFilter = seasonsOpen?.filter((season) => {
         if (!filter) return season
         return season?.season?.toLowerCase().includes(filter.toLowerCase())
     })
@@ -50,7 +50,6 @@ const SectionSeasonsBySport = ({ sport }) => {
                                 <tr>
                                     <th>Temporada</th>
                                     <th>Liga</th>
-                                    <th>Estatus</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,17 +64,6 @@ const SectionSeasonsBySport = ({ sport }) => {
                                     >
                                         <td>{season?.season}</td>
                                         <td>{season?.league?.league}</td>
-                                        <td>
-                                            {season?.status ? (
-                                                <span className="text-success">
-                                                    Abierta
-                                                </span>
-                                            ) : (
-                                                <span className="text-danger">
-                                                    Cerrada
-                                                </span>
-                                            )}
-                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

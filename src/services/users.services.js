@@ -10,7 +10,7 @@ export const registerBookie = async (body) => {
     return data
 }
 
-export const generateOTP = (values) => axios.post('/api/generateOTP', values)
+export const generateOTP = (values) => axios.post('/api/generateotp', values)
 
 export const verifyOTP = (values) => axios.post('/api/verifyOTP', values)
 

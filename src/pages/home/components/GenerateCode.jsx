@@ -43,7 +43,7 @@ const GenerateCode = () => {
                         <Link className="btn btn-dark" to={'../'}>
                             Cerrar
                         </Link>
-                        <Button variant="warning" type="submit">
+                        <Button variant="warning mx-1" type="submit">
                             Recuperar
                         </Button>
                     </Form>

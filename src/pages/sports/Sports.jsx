@@ -58,18 +58,18 @@ const Sports = () => {
                             <Button
                                 size="sm"
                                 className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('proximos')}
+                            >
+                                Póximos Partidos
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
                                 onClick={() => setKey('noticias')}
                             >
                                 Noticias
                             </Button>
 
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-dark rounded "
-                                onClick={() => setKey('proximos')}
-                            >
-                                Póximos Partidos
-                            </Button>
                             <Button
                                 size="sm"
                                 className=" mx-auto btn-dark rounded"
