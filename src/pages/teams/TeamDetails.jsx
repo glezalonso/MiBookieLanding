@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
+import { Container, Row, Col, ButtonGroup, Button } from 'react-bootstrap'
 import { toast } from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import Loading from '../../ui/Loading'
@@ -23,61 +23,79 @@ const TeamDetails = () => {
             <NavBar />
             <Container fluid>
                 <Row className="my-2 mx-auto">
-                    <Col xs={12} md={10} className=" rounded mx-auto">
+                    <Col
+                        xs={12}
+                        md={10}
+                        className=" bg-dark rounded-top mx-auto"
+                    >
                         <CardTeam team={team} />
                     </Col>
 
-                    <Row className="my-2 mx-auto">
-                        <Col xs={12} md={10} className="rounded my-1 mx-auto">
-                            <Tabs
-                                defaultActiveKey={key}
-                                activeKey={key}
-                                className="mb-3"
-                                justify
-                                onSelect={(key) => setKey(key)}
+                    <Col
+                        xs={12}
+                        md={10}
+                        className="bg-dark rounded-bottom mx-auto justify-content-center "
+                    >
+                        <ButtonGroup className="d-flex  mx-auto my-2">
+                            {team?.sport?._id === ID_FUTBOL ? null : (
+                                <Button
+                                    size="sm"
+                                    className=" mx-auto  btn-dark rounded "
+                                    onClick={() => setKey('posiciones')}
+                                >
+                                    Posiciones
+                                </Button>
+                            )}
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('plantilla')}
                             >
-                                {team?.sport?._id === ID_FUTBOL ? null : (
-                                    <Tab
-                                        eventKey={'posiciones'}
-                                        title="Posiciones"
-                                    >
-                                        {key === 'posiciones' ? (
-                                            <SectionStandings team={team} />
-                                        ) : null}
-                                    </Tab>
-                                )}
-                                <Tab eventKey={'plantilla'} title="Plantilla">
-                                    {key === 'plantilla' ? (
-                                        <SectionRoster team={team} />
-                                    ) : null}
-                                </Tab>
-                                <Tab
-                                    eventKey={'proximos'}
-                                    title="Próximos Partidos"
-                                >
-                                    {key === 'proximos' ? (
-                                        <SectionMatches
-                                            team={team}
-                                            open={true}
-                                            title={'Próximos Partidos'}
-                                        />
-                                    ) : null}
-                                </Tab>
-                                <Tab
-                                    eventKey={'pasados'}
-                                    title="Últimos Partidos"
-                                >
-                                    {key === 'pasados' ? (
-                                        <SectionMatches
-                                            team={team}
-                                            open={false}
-                                            title={'Últimos Partidos'}
-                                        />
-                                    ) : null}
-                                </Tab>
-                            </Tabs>
-                        </Col>
-                    </Row>
+                                Plantilla
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('proximos')}
+                            >
+                                Próximos partidos
+                            </Button>
+
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('pasados')}
+                            >
+                                Últimos partidos
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                    <Col
+                        xs={12}
+                        md={10}
+                        className=" bg-light text-dark my-3 rounded  mx-auto"
+                    >
+                        {key === 'posiciones' ? (
+                            <SectionStandings team={team} />
+                        ) : null}
+                        {key === 'plantilla' ? (
+                            <SectionRoster team={team} />
+                        ) : null}
+                        {key === 'proximos' ? (
+                            <SectionMatches
+                                team={team}
+                                open={true}
+                                title={'Próximos Partidos'}
+                            />
+                        ) : null}
+                        {key === 'pasados' ? (
+                            <SectionMatches
+                                team={team}
+                                open={false}
+                                title={'Últimos Partidos'}
+                            />
+                        ) : null}
+                    </Col>
                 </Row>
             </Container>
         </>

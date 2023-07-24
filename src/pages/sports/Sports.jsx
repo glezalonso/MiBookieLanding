@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
+import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 import { useGetSport } from '../../features/sports.features'
 import NavBar from '../../ui/Navbar'
 import CardSport from './components/CardSport'
@@ -26,90 +26,114 @@ const Sports = () => {
     return (
         <>
             <NavBar />
-
             <Container fluid>
                 <Row className="my-2 mx-auto">
-                    <Col xs={12} md={10} className="rounded my-1 mx-auto">
+                    <Col
+                        xs={12}
+                        md={10}
+                        className=" bg-dark rounded-top  mx-auto"
+                    >
                         <CardSport sport={sport} />
                     </Col>
-                    <Row className="my-2 mx-auto">
-                        <Col xs={12} md={10} className="rounded my-1 mx-auto">
-                            <Tabs
-                                defaultActiveKey={key}
-                                activeKey={key}
-                                className="mb-3"
-                                onSelect={(key) => setKey(key)}
+                    <Col
+                        xs={12}
+                        md={10}
+                        className="bg-dark rounded-bottom mx-auto justify-content-center "
+                    >
+                        <ButtonGroup className="d-flex mx-auto my-2">
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('ligas')}
                             >
-                                <Tab eventKey={'ligas'} title="Ligas">
-                                    {key === 'ligas' ? (
-                                        <SectionLeaguesBySport sport={sport} />
-                                    ) : null}
-                                </Tab>
-                                <Tab eventKey={'temporada'} title="Temporadas">
-                                    {key === 'temporada' ? (
-                                        <SectionSeasonsBySport sport={sport} />
-                                    ) : null}
-                                </Tab>
-                                <Tab eventKey={'noticias'} title="Noticias">
-                                    {key === 'noticias' ? (
-                                        <SectionNewsBySport sport={sport} />
-                                    ) : null}
-                                </Tab>
-                                <Tab
-                                    eventKey={'proximos'}
-                                    title="Próximos partidos"
-                                >
-                                    {key === 'proximos' ? (
-                                        <SectionNextMatches sport={sport} />
-                                    ) : null}
-                                </Tab>
+                                Ligas
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('temporadas')}
+                            >
+                                Temporadas abiertas
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('noticias')}
+                            >
+                                Noticias
+                            </Button>
 
-                                <Tab eventKey={'mas'} title="Más">
-                                    {key === 'mas' ? (
-                                        <Row>
-                                            <Col
-                                                style={
-                                                    sport?._id === ID_TENNIS
-                                                        ? {
-                                                              display: 'none',
-                                                          }
-                                                        : null
-                                                }
-                                                md={6}
-                                                className="mx-auto my-1 min-vh-50 m-vh-100"
-                                            >
-                                                <SectionTeams
-                                                    style={
-                                                        sport?._id === ID_TENNIS
-                                                            ? {
-                                                                  display:
-                                                                      'none',
-                                                              }
-                                                            : null
-                                                    }
-                                                    sport={sport}
-                                                />
-                                            </Col>
-                                            <Col
-                                                md={6}
-                                                className="mx-auto my-1 mh-50"
-                                            >
-                                                {sport?._id === ID_TENNIS ? (
-                                                    <SectionPlayersTennis
-                                                        sport={sport}
-                                                    />
-                                                ) : (
-                                                    <SectionPlayersBySport
-                                                        sport={sport}
-                                                    />
-                                                )}
-                                            </Col>
-                                        </Row>
-                                    ) : null}
-                                </Tab>
-                            </Tabs>
-                        </Col>
-                    </Row>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('proximos')}
+                            >
+                                Póximos Partidos
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto btn-dark rounded"
+                                onClick={() => setKey('mas')}
+                            >
+                                Más
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                    <Col
+                        xs={12}
+                        md={10}
+                        className=" bg-light text-dark my-3 rounded  mx-auto"
+                    >
+                        {key === 'ligas' ? (
+                            <SectionLeaguesBySport sport={sport} />
+                        ) : null}
+
+                        {key === 'temporadas' ? (
+                            <SectionSeasonsBySport sport={sport} />
+                        ) : null}
+
+                        {key === 'noticias' ? (
+                            <SectionNewsBySport sport={sport} />
+                        ) : null}
+
+                        {key === 'proximos' ? (
+                            <SectionNextMatches sport={sport} />
+                        ) : null}
+
+                        {key === 'mas' ? (
+                            <Row>
+                                <Col
+                                    style={
+                                        sport?._id === ID_TENNIS
+                                            ? {
+                                                  display: 'none',
+                                              }
+                                            : null
+                                    }
+                                    md={6}
+                                    className="mx-auto my-1 min-vh-50 m-vh-100"
+                                >
+                                    <SectionTeams
+                                        style={
+                                            sport?._id === ID_TENNIS
+                                                ? {
+                                                      display: 'none',
+                                                  }
+                                                : null
+                                        }
+                                        sport={sport}
+                                    />
+                                </Col>
+                                <Col md={6} className="mx-auto my-1 mh-50">
+                                    {sport?._id === ID_TENNIS ? (
+                                        <SectionPlayersTennis sport={sport} />
+                                    ) : (
+                                        <SectionPlayersBySport sport={sport} />
+                                    )}
+                                </Col>
+                            </Row>
+                        ) : null}
+                    </Col>
                 </Row>
             </Container>
         </>

@@ -4,7 +4,7 @@ import { useGetLeague } from '../../features/leagues.features'
 import { toast } from 'react-hot-toast'
 import NavBar from '../../ui/Navbar'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Tab, Tabs } from 'react-bootstrap'
+import { Container, Row, Col, ButtonGroup, Button } from 'react-bootstrap'
 import SectionLeague from './components/SectionLeague'
 import SectionSeasons from './components/SectionSeasons'
 import SectionMatches from './components/SectionMatches'
@@ -25,48 +25,64 @@ const Leagues = () => {
             <NavBar />
             <Container fluid>
                 <Row className="my-2 mx-auto ">
-                    <Col xs={12} md={10} className="mx-auto my-1">
+                    <Col
+                        xs={12}
+                        md={10}
+                        className=" bg-dark mx-auto rounded-top"
+                    >
                         <SectionLeague league={league} />
                     </Col>
-                    <Row className="my-2 mx-auto">
-                        <Col xs={12} md={10} className="rounded my-1 mx-auto">
-                            <Tabs
-                                defaultActiveKey={key}
-                                activeKey={key}
-                                className="mb-3"
-                                justify
-                                onSelect={(key) => setKey(key)}
+
+                    <Col
+                        xs={12}
+                        md={10}
+                        className="bg-dark rounded-bottom mx-auto justify-content-center "
+                    >
+                        <ButtonGroup className="d-flex mx-auto my-2">
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('temporadas')}
                             >
-                                <Tab eventKey={'temporadas'} title="Temporadas">
-                                    {key === 'temporadas' ? (
-                                        <SectionSeasons league={league} />
-                                    ) : null}
-                                </Tab>
-                                <Tab
-                                    eventKey={'proximos'}
-                                    title="Próximos Partidos"
-                                >
-                                    {key === 'proximos' ? (
-                                        <SectionMatches
-                                            league={league}
-                                            query={useGetMatchesOpenByLeague}
-                                        />
-                                    ) : null}
-                                </Tab>
-                                <Tab
-                                    eventKey={'ultimos'}
-                                    title="Últimos Partidos"
-                                >
-                                    {key === 'ultimos' ? (
-                                        <SectionMatches
-                                            league={league}
-                                            query={useGetMatchesClosedByLeague}
-                                        />
-                                    ) : null}
-                                </Tab>
-                            </Tabs>
-                        </Col>
-                    </Row>
+                                Temporadas
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('proximos')}
+                            >
+                                Próximos partidos
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-dark rounded "
+                                onClick={() => setKey('ultimos')}
+                            >
+                                Últimos partidos
+                            </Button>
+                        </ButtonGroup>
+                    </Col>
+                    <Col
+                        xs={12}
+                        md={10}
+                        className=" bg-light text-dark my-3 rounded  mx-auto"
+                    >
+                        {key === 'temporadas' ? (
+                            <SectionSeasons league={league} />
+                        ) : null}
+                        {key === 'proximos' ? (
+                            <SectionMatches
+                                league={league}
+                                query={useGetMatchesOpenByLeague}
+                            />
+                        ) : null}
+                        {key === 'ultimos' ? (
+                            <SectionMatches
+                                league={league}
+                                query={useGetMatchesClosedByLeague}
+                            />
+                        ) : null}
+                    </Col>
                 </Row>
             </Container>
         </>
