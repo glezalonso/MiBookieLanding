@@ -17,6 +17,7 @@ const CardConsensus = ({ match }) => {
                         borderless
                         hover
                         size="sm"
+                        variant="light"
                     >
                         <thead>
                             <tr>
