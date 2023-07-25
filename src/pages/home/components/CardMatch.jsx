@@ -6,7 +6,7 @@ import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardFooter from './CardFooter'
 import LocalVotes from './LocalVotes'
-import AwayVotes from './awayVotes'
+import AwayVotes from './AwayVotes'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
