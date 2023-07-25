@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom'
 import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardFooter from './CardFooter'
-import CardConsensus from './CardConsensus'
+import LocalVotes from './LocalVotes'
+import AwayVotes from './awayVotes'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
@@ -45,6 +46,16 @@ const CardMatch = ({ match }) => {
                                         </div>
                                     </div>
                                 </td>
+                                <td
+                                    className="mx-auto fw-bold"
+                                    style={
+                                        !showConsensus
+                                            ? { display: 'none' }
+                                            : null
+                                    }
+                                >
+                                    <AwayVotes match={match} />
+                                </td>
 
                                 <td className="text-center">
                                     <strong>
@@ -82,6 +93,16 @@ const CardMatch = ({ match }) => {
                                             </p>
                                         </div>
                                     </div>
+                                </td>
+                                <td
+                                    className="mx-auto fw-bold"
+                                    style={
+                                        !showConsensus
+                                            ? { display: 'none' }
+                                            : null
+                                    }
+                                >
+                                    <LocalVotes match={match} />
                                 </td>
 
                                 <td className="text-center">
@@ -149,15 +170,6 @@ const CardMatch = ({ match }) => {
                     }
                 >
                     <CardComments match={match} />
-                </div>
-                <div
-                    style={
-                        showConsensus
-                            ? { maxHeight: '200px', overflow: 'auto' }
-                            : { display: 'none' }
-                    }
-                >
-                    <CardConsensus match={match} />
                 </div>
 
                 <div style={!showComments ? { display: 'none' } : null}>
