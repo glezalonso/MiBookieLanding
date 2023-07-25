@@ -52,7 +52,7 @@ const SectionContest = ({ match }) => {
                                     <Button
                                         variant="warning mx-4"
                                         onClick={() =>
-                                            handleVote('away', match?._id)
+                                            handleVote('local', match?._id)
                                         }
                                     >
                                         Votar
