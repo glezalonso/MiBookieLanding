@@ -19,10 +19,13 @@ const CardMatch = ({ match }) => {
         <>
             <Card bg="dark" className="shadow-xl my-2">
                 <Card.Header className=" border-secondary border-bottom rounded ">
-                    <span>
-                        <strong>{match?.league?.league}</strong>
+                    <span
+                        style={{ fontSize: '13px' }}
+                        className="text-secondary"
+                    >
+                        {match?.league?.league}
                     </span>
-                    <Table responsive size="sm" borderless variant="dark">
+                    <Table responsive size="sm" borderless variant="dark ">
                         <tbody
                             onClick={() => navigate(`../matches/${match?._id}`)}
                             className="border-bottom"
@@ -34,9 +37,8 @@ const CardMatch = ({ match }) => {
                                             src={match?.away?.poster}
                                             alt={match?.away?.name}
                                             style={{
-                                                height: '30px',
-                                                width: '30px',
-                                                borderRadius: '50%',
+                                                height: '28px',
+                                                width: '28px',
                                             }}
                                         />{' '}
                                         <div className="ms-1">
@@ -82,9 +84,8 @@ const CardMatch = ({ match }) => {
                                             src={match?.local?.poster}
                                             alt={match?.local?.name}
                                             style={{
-                                                height: '30px',
-                                                width: '30px',
-                                                borderRadius: '50%',
+                                                height: '28px',
+                                                width: '28px',
                                             }}
                                         />{' '}
                                         <div className="ms-1">
@@ -118,7 +119,7 @@ const CardMatch = ({ match }) => {
                     </Table>
 
                     <Button
-                        className="btn btn-dark btn-sm my-1"
+                        className="btn btn-dark btn-sm"
                         style={{ fontSize: '12px' }}
                         onClick={() => setShowComments(!showComments)}
                     >
@@ -136,7 +137,7 @@ const CardMatch = ({ match }) => {
                     </Button>
                     {match?.lineup?.length > 0 ? (
                         <Button
-                            className="btn btn-dark btn-sm my-1"
+                            className="btn btn-dark btn-sm "
                             style={{ fontSize: '12px' }}
                             onClick={() => setShowLineUp(!showLineUp)}
                         >
@@ -145,7 +146,7 @@ const CardMatch = ({ match }) => {
                     ) : null}
                     {match?.votes?.length > 0 ? (
                         <Button
-                            className="btn btn-dark btn-sm my-1"
+                            className="btn btn-dark btn-sm "
                             style={{ fontSize: '12px' }}
                             onClick={() => setShowConsensus(!showConsensus)}
                         >

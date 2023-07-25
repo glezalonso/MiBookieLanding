@@ -16,30 +16,30 @@ const SectionContest = ({ match }) => {
 
     return (
         <>
-            <div className="bg-dark text-light d-flex rounded justify-content-center p-3 vw-50 mx-auto gap-3">
-                <Table variant="dark" borderless>
+            <div className="bg-dark text-light d-flex rounded justify-content-center  vw-50 mx-auto ">
+                <Table variant="dark" borderless className="my-2">
                     <tbody>
                         <tr>
                             <td className="d-flex justify-content-end">
                                 <img
                                     style={{
-                                        width: '100px',
-                                        height: '100px',
+                                        width: '80px',
+                                        height: '80px',
                                     }}
                                     src={match?.away?.poster}
                                     alt={match.away?.name}
                                 />
                             </td>
                             <td>
-                                <div className="d-flex justify-content-center my-2 m-0">
+                                <div className="d-flex justify-content-center my-2 ">
                                     <At width={'50px'} height={'50px'} />
                                 </div>
                             </td>
                             <td className='d-flex className="justify-content-start"'>
                                 <img
                                     style={{
-                                        width: '100px',
-                                        height: '100px',
+                                        width: '80px',
+                                        height: '80px',
                                     }}
                                     src={match?.local?.poster}
                                     alt={match.local?.name}
@@ -50,6 +50,7 @@ const SectionContest = ({ match }) => {
                             <td>
                                 <div className="d-flex justify-content-end">
                                     <Button
+                                        size="sm"
                                         variant="warning mx-4"
                                         onClick={() =>
                                             handleVote('away', match?._id)
@@ -63,6 +64,7 @@ const SectionContest = ({ match }) => {
                             <td>
                                 <div className="d-flex justify-content-start">
                                     <Button
+                                        size="sm"
                                         variant="warning mx-4"
                                         onClick={() =>
                                             handleVote('local', match?._id)
