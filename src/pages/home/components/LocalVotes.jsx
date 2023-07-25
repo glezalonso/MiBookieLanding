@@ -12,9 +12,9 @@ const LocalVotes = ({ match }) => {
         <>
             <p className="my-1">
                 ({voteslocal?.length})
-                <span className="bg-dark text-secondary mx-1">{`${
+                <span className="bg-dark text-secondary mx-1">{`${Math.round(
                     (voteslocal?.length * 100) / total
-                } %`}</span>
+                )} %`}</span>
             </p>
         </>
     )
