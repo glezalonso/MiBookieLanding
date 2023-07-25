@@ -25,10 +25,9 @@ const CardMatch = ({ match }) => {
                     >
                         {match?.league?.league}
                     </span>
-                    <Table responsive size="sm" borderless variant="dark ">
+                    <Table responsive size="sm" borderless variant="dark my-2 ">
                         <tbody
                             onClick={() => navigate(`../matches/${match?._id}`)}
-                            className="border-bottom"
                         >
                             <tr>
                                 <td>
@@ -117,42 +116,43 @@ const CardMatch = ({ match }) => {
                             </tr>
                         </tbody>
                     </Table>
-
-                    <Button
-                        className="btn btn-dark btn-sm"
-                        style={{ fontSize: '12px' }}
-                        onClick={() => setShowComments(!showComments)}
-                    >
-                        {showComments ? (
-                            <>
-                                <ChatDotsFill className="mx-1" />{' '}
-                                {match?.comments?.length} Cerrar comentarios
-                            </>
-                        ) : (
-                            <>
-                                <ChatDotsFill className="mx-1" />{' '}
-                                {match?.comments?.length} comentario(s)
-                            </>
-                        )}
-                    </Button>
-                    {match?.lineup?.length > 0 ? (
+                    <div className="border-top  ">
                         <Button
-                            className="btn btn-dark btn-sm "
+                            className="btn btn-dark btn-sm my-1"
                             style={{ fontSize: '12px' }}
-                            onClick={() => setShowLineUp(!showLineUp)}
+                            onClick={() => setShowComments(!showComments)}
                         >
-                            <People className="mx-1" /> Alineación
+                            {showComments ? (
+                                <>
+                                    <ChatDotsFill className="mx-1" />{' '}
+                                    {match?.comments?.length} Cerrar comentarios
+                                </>
+                            ) : (
+                                <>
+                                    <ChatDotsFill className="mx-1" />{' '}
+                                    {match?.comments?.length} comentario(s)
+                                </>
+                            )}
                         </Button>
-                    ) : null}
-                    {match?.votes?.length > 0 ? (
-                        <Button
-                            className="btn btn-dark btn-sm "
-                            style={{ fontSize: '12px' }}
-                            onClick={() => setShowConsensus(!showConsensus)}
-                        >
-                            <GraphUp className="mx-1" /> Votos
-                        </Button>
-                    ) : null}
+                        {match?.lineup?.length > 0 ? (
+                            <Button
+                                className="btn btn-dark btn-sm my-1 "
+                                style={{ fontSize: '12px' }}
+                                onClick={() => setShowLineUp(!showLineUp)}
+                            >
+                                <People className="mx-1" /> Alineación
+                            </Button>
+                        ) : null}
+                        {match?.votes?.length > 0 ? (
+                            <Button
+                                className="btn btn-dark btn-sm my-1 "
+                                style={{ fontSize: '12px' }}
+                                onClick={() => setShowConsensus(!showConsensus)}
+                            >
+                                <GraphUp className="mx-1" /> Votos
+                            </Button>
+                        ) : null}
+                    </div>
                 </Card.Header>
                 <div
                     style={
