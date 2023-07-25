@@ -10,9 +10,12 @@ const AwayVotes = ({ match }) => {
 
     return (
         <>
-            <span className="bg-dark text-secondary mx-1">{`${
-                (votesaway?.length * 100) / total
-            } %`}</span>
+            <p>
+                ({votesaway?.length})
+                <span className="bg-dark text-secondary mx-1">{`${
+                    (votesaway?.length * 100) / total
+                } %`}</span>
+            </p>
         </>
     )
 }

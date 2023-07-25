@@ -10,9 +10,12 @@ const LocalVotes = ({ match }) => {
 
     return (
         <>
-            <span className="bg-dark text-secondary mx-1">{`${
-                (voteslocal?.length * 100) / total
-            } %`}</span>
+            <p>
+                ({voteslocal?.length})
+                <span className="bg-dark text-secondary mx-1">{`${
+                    (voteslocal?.length * 100) / total
+                } %`}</span>
+            </p>
         </>
     )
 }
