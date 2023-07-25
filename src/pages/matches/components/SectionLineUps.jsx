@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Col } from 'react-bootstrap'
+import { Alert, Col, Row } from 'react-bootstrap'
 import TableAway from './TableAway'
 import TableLocal from './TableLocal'
 
@@ -10,34 +10,36 @@ const SectionLineUps = ({ match }) => {
 
     return (
         <>
-            <Col md={5} className="mx-auto my-1">
-                <section>
-                    <h5>Alineación visitante</h5>
-                    {match?.lineup?.length > 0 ? (
-                        <div className="bg-dark rounded section-tables">
-                            <TableAway match={match} />
-                        </div>
-                    ) : (
-                        <Alert variant="warning">
-                            No hay alineación para mostrar!
-                        </Alert>
-                    )}
-                </section>
-            </Col>
-            <Col md={5} className="mx-auto my-1">
-                <section>
-                    <h5>Alineación local</h5>
-                    {match?.lineup?.length > 0 ? (
-                        <div className="bg-dark rounded section-tables">
-                            <TableLocal match={match} />
-                        </div>
-                    ) : (
-                        <Alert variant="warning">
-                            No hay alineación para mostrar!
-                        </Alert>
-                    )}
-                </section>
-            </Col>
+            <Row className="my-2 mx-auto">
+                <Col xs={12} md={7} className="mx-auto my-1 min-vh-50">
+                    <section>
+                        <h5>Alineación visitante</h5>
+                        {match?.lineup?.length > 0 ? (
+                            <div className="bg-dark rounded section-tables">
+                                <TableAway match={match} />
+                            </div>
+                        ) : (
+                            <Alert variant="warning">
+                                No hay alineación para mostrar!
+                            </Alert>
+                        )}
+                    </section>
+                </Col>
+                <Col xs={12} md={7} className="mx-auto my-1 min-vh-50">
+                    <section>
+                        <h5>Alineación local</h5>
+                        {match?.lineup?.length > 0 ? (
+                            <div className="bg-dark rounded section-tables">
+                                <TableLocal match={match} />
+                            </div>
+                        ) : (
+                            <Alert variant="warning">
+                                No hay alineación para mostrar!
+                            </Alert>
+                        )}
+                    </section>
+                </Col>
+            </Row>
         </>
     )
 }

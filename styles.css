@@ -7,6 +7,9 @@
     font-size: 14px;
    
 }
+section {
+    margin-top: 8px;
+}
 
 tr:hover{
     cursor: pointer;

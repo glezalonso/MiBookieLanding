@@ -22,16 +22,14 @@ const Matches = () => {
 
             <Container fluid>
                 <Row className="m-2 mx-auto">
-                    <Col xs={12} md={10} className="rounded mx-auto my-1 ">
+                    <Col xs={12} md={8} className="rounded mx-auto my-1 ">
                         <CardMatch match={match} />
                     </Col>
-                    <Col xs={12} md={10} className="rounded mx-auto my-1 ">
+                    <Col xs={12} md={5} className="rounded mx-auto my-1 ">
                         <SectionContest match={match} />
                     </Col>
                 </Row>
-                <Row className="m-2 mx-auto">
-                    <SectionLineUps match={match} />
-                </Row>
+                <SectionLineUps match={match} />
             </Container>
         </>
     )
