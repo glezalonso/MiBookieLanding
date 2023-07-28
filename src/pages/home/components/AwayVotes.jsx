@@ -15,7 +15,7 @@ const AwayVotes = ({ match }) => {
             <p className="my-1">
                 {match?.votes?.length > 0 ? (
                     <span>
-                        ( {votesaway?.length})
+                        ({votesaway?.length})
                         {` ${Math.round((votesaway?.length * 100) / total)} %`}
                     </span>
                 ) : (
