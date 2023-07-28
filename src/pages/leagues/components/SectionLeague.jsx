@@ -10,8 +10,7 @@ const SectionLeague = ({ league, setKey }) => {
                         <div className="d-flex justify-content-start">
                             <div>
                                 <Card.Img
-                                    width={50}
-                                    height={50}
+                                    style={{ width: '50px', height: '50px' }}
                                     src={league?.poster}
                                 />
                             </div>
