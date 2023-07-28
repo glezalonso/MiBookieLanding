@@ -11,10 +11,16 @@ const LocalVotes = ({ match }) => {
     return (
         <>
             <p className="my-1">
-                ({voteslocal?.length})
-                <span className="text-secondary mx-1">{`${Math.round(
-                    (voteslocal?.length * 100) / total
-                )} %`}</span>
+                {match?.votes?.length > 0 ? (
+                    <span>
+                        {voteslocal?.length}
+                        {`${Math.round((voteslocal?.length * 100) / total)} %`}
+                    </span>
+                ) : (
+                    <span className="text-danger text-center">
+                        No hay votos!
+                    </span>
+                )}
             </p>
         </>
     )
