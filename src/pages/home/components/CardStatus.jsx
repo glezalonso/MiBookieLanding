@@ -5,7 +5,10 @@ import { Badge } from 'react-bootstrap'
 const CardStatus = ({ match }) => {
     return (
         <>
-            <div className="d-flex align-items-center gap-1">
+            <div
+                style={{ fontSize: '14px' }}
+                className="d-flex align-items-center gap-1"
+            >
                 {match?.status ? (
                     <>
                         <Clock size={15} />

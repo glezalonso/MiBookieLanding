@@ -39,12 +39,20 @@ const CardMatch = ({ match }) => {
         <>
             <Card className="shadow-xl my-2">
                 <Card.Header className=" border-secondary border-bottom ">
-                    <span
-                        style={{ fontSize: '13px' }}
-                        className="text-secondary"
-                    >
-                        {match?.league?.league}
-                    </span>
+                    <div className="d-flex justify-content-between">
+                        <div className="d-flex justify-content-start">
+                            <span
+                                style={{ fontSize: '13px' }}
+                                className="text-secondary"
+                            >
+                                {match?.league?.league}
+                            </span>
+                        </div>
+                        <div className="d-flex justify-content-end">
+                            <CardStatus match={match} />
+                        </div>
+                    </div>
+
                     <Table
                         responsive
                         size="sm"
@@ -61,9 +69,6 @@ const CardMatch = ({ match }) => {
                                 <td className="text-center">
                                     <AwayScore match={match} />
                                 </td>
-                                <td className="text-end ">
-                                    <CardStatus match={match} />
-                                </td>
                             </tr>
                             <tr>
                                 <td>
@@ -72,7 +77,6 @@ const CardMatch = ({ match }) => {
                                 <td className="text-center">
                                     <LocalScore match={match} />
                                 </td>
-                                <td></td>
                             </tr>
                         </tbody>
                     </Table>
