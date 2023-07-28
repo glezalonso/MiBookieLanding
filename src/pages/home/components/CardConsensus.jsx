@@ -1,11 +1,12 @@
 import React from 'react'
-import { Button, Table } from 'react-bootstrap'
-import { At } from 'react-bootstrap-icons'
+import { Table, Card, Button } from 'react-bootstrap'
+import AwayVotes from './AwayVotes'
+import LocalVotes from './LocalVotes'
 import { useAddPickEm } from '../../../features/matches.features'
 import { useAuthStore } from '../../../store/authorization'
 import { toast } from 'react-hot-toast'
 
-const SectionContest = ({ match }) => {
+const CardConsensus = ({ match }) => {
     const { profile } = useAuthStore((state) => state)
     const addVote = useAddPickEm()
 
@@ -16,37 +17,24 @@ const SectionContest = ({ match }) => {
 
     return (
         <>
-            <div className="bg-dark text-light d-flex rounded justify-content-center  vw-50 mx-auto ">
-                <Table variant="dark" borderless className="my-2">
+            <Card.Body className="rounded">
+                <Table responsive borderless hover size="sm" className="my-1">
                     <tbody>
                         <tr>
-                            <td className="d-flex justify-content-end">
+                            <td>
                                 <img
-                                    style={{
-                                        width: '80px',
-                                        height: '80px',
-                                    }}
                                     src={match?.away?.poster}
-                                    alt={match.away?.name}
+                                    alt={match?.away?.name}
+                                    style={{
+                                        height: '25px',
+                                        width: '25px',
+                                    }}
                                 />
                             </td>
                             <td>
-                                <div className="d-flex justify-content-center my-2 ">
-                                    <At width={'50px'} height={'50px'} />
-                                </div>
+                                {' '}
+                                <AwayVotes match={match} />
                             </td>
-                            <td className='d-flex className="justify-content-start"'>
-                                <img
-                                    style={{
-                                        width: '80px',
-                                        height: '80px',
-                                    }}
-                                    src={match?.local?.poster}
-                                    alt={match.local?.name}
-                                />
-                            </td>
-                        </tr>
-                        <tr>
                             <td>
                                 <div className="d-flex justify-content-end">
                                     <Button
@@ -60,9 +48,23 @@ const SectionContest = ({ match }) => {
                                     </Button>
                                 </div>
                             </td>
-                            <td></td>
+                        </tr>
+                        <tr>
                             <td>
-                                <div className="d-flex justify-content-start">
+                                <img
+                                    src={match?.local?.poster}
+                                    alt={match?.local?.name}
+                                    style={{
+                                        height: '25px',
+                                        width: '25px',
+                                    }}
+                                />
+                            </td>
+                            <td>
+                                <LocalVotes match={match} />
+                            </td>
+                            <td>
+                                <div className="d-flex justify-content-end">
                                     <Button
                                         size="sm"
                                         variant="warning mx-4"
@@ -77,9 +79,9 @@ const SectionContest = ({ match }) => {
                         </tr>
                     </tbody>
                 </Table>
-            </div>
+            </Card.Body>
         </>
     )
 }
 
-export default SectionContest
+export default CardConsensus

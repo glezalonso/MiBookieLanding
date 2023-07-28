@@ -1,24 +1,26 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Button, ButtonGroup } from 'react-bootstrap'
 
-const CardTeam = ({ team }) => {
+const CardTeam = ({ team, setKey }) => {
+    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
     return (
         <>
             <section>
-                <Card bg="dark text-white">
-                    <Card.Header className="d-flex justify-content-center align-items-center">
+                <Card>
+                    <Card.Header>
                         <div className="d-flex justify-content-start">
-                            <Card.Img
-                                style={{
-                                    height: '100px',
-                                    width: '100px',
-                                }}
-                                src={team?.poster}
-                                alt={`image ${team?.name}`}
-                            />
-                        </div>
-                        <div className="d-flex justify-content-end">
-                            <Card.Body>
+                            <div>
+                                <Card.Img
+                                    style={{
+                                        height: '100px',
+                                        width: '100px',
+                                    }}
+                                    src={team?.poster}
+                                    alt={`image ${team?.name}`}
+                                />
+                            </div>
+
+                            <div className="mt-1 mx-1">
                                 <Card.Title>{team?.name}</Card.Title>
                                 <Card.Text className="my-1">
                                     Estadio: {team?.stadium}
@@ -26,8 +28,41 @@ const CardTeam = ({ team }) => {
                                 <Card.Text className="my-1">
                                     Deporte: {team?.sport?.sport}
                                 </Card.Text>
-                            </Card.Body>
+                            </div>
                         </div>
+                        <ButtonGroup className="d-flex  mx-auto mt-2">
+                            {team?.sport?._id === ID_FUTBOL ? null : (
+                                <Button
+                                    size="sm"
+                                    className=" mx-auto  btn-light rounded "
+                                    onClick={() => setKey('posiciones')}
+                                >
+                                    Posiciones
+                                </Button>
+                            )}
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-light rounded "
+                                onClick={() => setKey('plantilla')}
+                            >
+                                Plantilla
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-light rounded "
+                                onClick={() => setKey('proximos')}
+                            >
+                                Próximos partidos
+                            </Button>
+
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-light rounded "
+                                onClick={() => setKey('pasados')}
+                            >
+                                Últimos partidos
+                            </Button>
+                        </ButtonGroup>
                     </Card.Header>
                 </Card>
             </section>

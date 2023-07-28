@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
-import { Card, Button, Table, Badge } from 'react-bootstrap'
-import { ChatDotsFill, Clock, People, GraphUp } from 'react-bootstrap-icons'
+import { Card, Table } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
+import CardConsensus from './CardConsensus'
 import CardFooter from './CardFooter'
-import LocalVotes from './LocalVotes'
-import AwayVotes from './AwayVotes'
+import CardStatus from './CardStatus'
+import CardSectionAway from './CardSectionAway'
+import CardSectionLocal from './CardSectionLocal'
+import AwayScore from './AwayScore'
+import LocalScore from './LocalScore'
+import CardMenu from './CardMenu'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
@@ -15,167 +19,77 @@ const CardMatch = ({ match }) => {
 
     const navigate = useNavigate()
 
+    const handleComments = () => {
+        setShowComments(!showComments)
+        setShowLineUp(false)
+        setShowConsensus(false)
+    }
+    const handleLineUp = () => {
+        setShowComments(false)
+        setShowLineUp(!showLineUp)
+        setShowConsensus(false)
+    }
+    const handleConsensus = () => {
+        setShowComments(false)
+        setShowLineUp(false)
+        setShowConsensus(!showConsensus)
+    }
+
     return (
         <>
-            <Card bg="dark" className="shadow-xl my-2">
-                <Card.Header className=" border-secondary border-bottom rounded ">
+            <Card className="shadow-xl my-2">
+                <Card.Header className=" border-secondary border-bottom ">
                     <span
                         style={{ fontSize: '13px' }}
                         className="text-secondary"
                     >
                         {match?.league?.league}
                     </span>
-                    <Table responsive size="sm" borderless variant="dark my-2 ">
+                    <Table
+                        responsive
+                        size="sm"
+                        borderless
+                        variant="light my-2 "
+                    >
                         <tbody
                             onClick={() => navigate(`../matches/${match?._id}`)}
                         >
                             <tr>
                                 <td>
-                                    <div className="d-flex align-items-center">
-                                        <img
-                                            src={match?.away?.poster}
-                                            alt={match?.away?.name}
-                                            style={{
-                                                height: '28px',
-                                                width: '28px',
-                                            }}
-                                        />{' '}
-                                        <div className="ms-1">
-                                            <p className="fw-bold mb-1">
-                                                {match?.away?.name}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <CardSectionAway match={match} />
                                 </td>
-                                <td
-                                    className="mx-auto fw-bold"
-                                    style={
-                                        !showConsensus
-                                            ? { display: 'none' }
-                                            : null
-                                    }
-                                >
-                                    <AwayVotes match={match} />
-                                </td>
-
                                 <td className="text-center">
-                                    <strong>
-                                        {match?.score?.map(
-                                            (score) => score?.away
-                                        )}
-                                    </strong>
+                                    <AwayScore match={match} />
                                 </td>
                                 <td className="text-end ">
-                                    {match?.status ? (
-                                        <span>
-                                            <Clock />{' '}
-                                            {match?.date?.split('T')[1]}
-                                        </span>
-                                    ) : (
-                                        <Badge bg="danger">Terminado</Badge>
-                                    )}
+                                    <CardStatus match={match} />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="d-flex align-items-center">
-                                        <img
-                                            src={match?.local?.poster}
-                                            alt={match?.local?.name}
-                                            style={{
-                                                height: '28px',
-                                                width: '28px',
-                                            }}
-                                        />{' '}
-                                        <div className="ms-1">
-                                            <p className="fw-bold mb-1">
-                                                {match?.local?.name}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <CardSectionLocal match={match} />
                                 </td>
-                                <td
-                                    className="mx-auto fw-bold"
-                                    style={
-                                        !showConsensus
-                                            ? { display: 'none' }
-                                            : null
-                                    }
-                                >
-                                    <LocalVotes match={match} />
-                                </td>
-
                                 <td className="text-center">
-                                    <strong>
-                                        {match?.score?.map(
-                                            (score) => score?.local
-                                        )}
-                                    </strong>
+                                    <LocalScore match={match} />
                                 </td>
                                 <td></td>
                             </tr>
                         </tbody>
                     </Table>
-                    <div className="border-top  ">
-                        <Button
-                            className="btn btn-dark btn-sm my-1"
-                            style={{ fontSize: '12px' }}
-                            onClick={() => setShowComments(!showComments)}
-                        >
-                            {showComments ? (
-                                <>
-                                    <ChatDotsFill className="mx-1" />{' '}
-                                    {match?.comments?.length} Cerrar comentarios
-                                </>
-                            ) : (
-                                <>
-                                    <ChatDotsFill className="mx-1" />{' '}
-                                    {match?.comments?.length} comentario(s)
-                                </>
-                            )}
-                        </Button>
-                        {match?.lineup?.length > 0 ? (
-                            <Button
-                                className="btn btn-dark btn-sm my-1 "
-                                style={{ fontSize: '12px' }}
-                                onClick={() => setShowLineUp(!showLineUp)}
-                            >
-                                <People className="mx-1" /> Alineación
-                            </Button>
-                        ) : null}
-                        {match?.votes?.length > 0 ? (
-                            <Button
-                                className="btn btn-dark btn-sm my-1 "
-                                style={{ fontSize: '12px' }}
-                                onClick={() => setShowConsensus(!showConsensus)}
-                            >
-                                <GraphUp className="mx-1" /> Votos
-                            </Button>
-                        ) : null}
-                    </div>
+                    <CardMenu
+                        match={match}
+                        handleComments={handleComments}
+                        handleLineUp={handleLineUp}
+                        handleConsensus={handleConsensus}
+                    />
                 </Card.Header>
-                <div
-                    style={
-                        showLineUp
-                            ? { maxHeight: '200px', overflow: 'auto' }
-                            : { display: 'none' }
-                    }
-                >
-                    <CardLineUp match={match} />
-                </div>
-                <div
-                    style={
-                        showComments
-                            ? { maxHeight: '200px', overflow: 'auto' }
-                            : { display: 'none' }
-                    }
-                >
-                    <CardComments match={match} />
-                </div>
+                {showLineUp ? <CardLineUp match={match} /> : null}
 
-                <div style={!showComments ? { display: 'none' } : null}>
-                    <CardFooter match={match} />
-                </div>
+                {showComments ? <CardComments match={match} /> : null}
+
+                {showConsensus ? <CardConsensus match={match} /> : null}
+
+                {showComments ? <CardFooter match={match} /> : null}
             </Card>
         </>
     )

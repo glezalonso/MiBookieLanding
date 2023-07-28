@@ -110,8 +110,8 @@ const Sports = () => {
                                               }
                                             : null
                                     }
-                                    md={6}
-                                    className="mx-auto my-1 min-vh-50 m-vh-100"
+                                    md={5}
+                                    className="mx-auto my-1 min-vh-75 m-vh-100"
                                 >
                                     <SectionTeams
                                         style={
@@ -124,7 +124,10 @@ const Sports = () => {
                                         sport={sport}
                                     />
                                 </Col>
-                                <Col md={6} className="mx-auto my-1 mh-50">
+                                <Col
+                                    md={5}
+                                    className="mx-auto my-1 min-vh-75 m-vh-100"
+                                >
                                     {sport?._id === ID_TENNIS ? (
                                         <SectionPlayersTennis sport={sport} />
                                     ) : (

@@ -24,13 +24,13 @@ const SectionStandings = ({ season }) => {
                 <h5>Posiciones</h5>
 
                 {sort?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables">
+                    <div className="bg-light rounded section-tables p-1">
                         <Table
                             responsive
                             borderless
                             hover
                             size="sm"
-                            variant="dark"
+                            variant="light"
                         >
                             <thead className="border-bottom">
                                 <tr>

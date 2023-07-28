@@ -1,19 +1,48 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, ButtonGroup, Button } from 'react-bootstrap'
 
-const SectionLeague = ({ league }) => {
+const SectionLeague = ({ league, setKey }) => {
     return (
         <>
             <section>
-                <Card className="bg-dark text-light">
+                <Card>
                     <Card.Header>
-                        <Card.Title>{league?.league}</Card.Title>
-                        <Card.Text className="my-1">
-                            Descripción: {league?.description}
-                        </Card.Text>
-                        <Card.Text className="my-1">
-                            Deporte: {league?.sport?.sport}
-                        </Card.Text>
+                        <div className="d-flex justify-content-start">
+                            <div>
+                                <Card.Img
+                                    width={50}
+                                    height={50}
+                                    src={league?.poster}
+                                />
+                            </div>
+                            <div className="mt-3 mx-1">
+                                <Card.Title>{league?.league}</Card.Title>
+                            </div>
+                        </div>
+
+                        <ButtonGroup className="d-flex mx-auto mt-3 ">
+                            <Button
+                                size="sm"
+                                className=" btn-light rounded "
+                                onClick={() => setKey('temporadas')}
+                            >
+                                Temporadas
+                            </Button>
+                            <Button
+                                size="sm"
+                                className="btn-light rounded "
+                                onClick={() => setKey('proximos')}
+                            >
+                                Próximos partidos
+                            </Button>
+                            <Button
+                                size="sm"
+                                className="  btn-light rounded "
+                                onClick={() => setKey('ultimos')}
+                            >
+                                Últimos partidos
+                            </Button>
+                        </ButtonGroup>
                     </Card.Header>
                 </Card>
             </section>

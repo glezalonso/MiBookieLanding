@@ -15,7 +15,7 @@ const SectionLineUps = ({ match }) => {
                     <section>
                         <h5>Alineación visitante</h5>
                         {match?.lineup?.length > 0 ? (
-                            <div className="bg-dark rounded section-tables">
+                            <div className="bg-light rounded section-tables">
                                 <TableAway match={match} />
                             </div>
                         ) : (
@@ -29,7 +29,7 @@ const SectionLineUps = ({ match }) => {
                     <section>
                         <h5>Alineación local</h5>
                         {match?.lineup?.length > 0 ? (
-                            <div className="bg-dark rounded section-tables">
+                            <div className="bg-light rounded section-tables">
                                 <TableLocal match={match} />
                             </div>
                         ) : (

@@ -42,13 +42,13 @@ const SectionMatches = ({ player, open, title }) => {
                 </div>
 
                 {MatchesByFilter?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables">
+                    <div className="bg-light rounded section-tables">
                         <Table
                             responsive
                             borderless
                             hover
                             size="sm"
-                            variant="dark"
+                            variant="light"
                         >
                             <thead className="border-bottom">
                                 <tr>

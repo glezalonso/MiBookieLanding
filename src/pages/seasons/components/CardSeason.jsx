@@ -1,30 +1,52 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
-const CardSeason = ({ season }) => {
+import { Card, Button, ButtonGroup } from 'react-bootstrap'
+const CardSeason = ({ season, setKey }) => {
     return (
         <>
             <section>
-                <Card className="bg-dark text-light">
-                    <Card.Body>
-                        <Card.Title>{season?.season}</Card.Title>
-                        <Card.Text className="my-1">
-                            Descripción: {season?.description}
-                        </Card.Text>
-                        <Card.Text className="my-1">
-                            Deporte: {season?.sport?.sport}
-                        </Card.Text>
-                        <Card.Text className="my-1">
-                            Liga: {season?.league?.league}
-                        </Card.Text>
-                        <Card.Text className="my-1">
-                            Estatus:{' '}
-                            {season?.status ? (
-                                <span className="text-success">Abierta</span>
-                            ) : (
-                                <span className="text-danger">Cerrada</span>
-                            )}
-                        </Card.Text>
-                    </Card.Body>
+                <Card className="">
+                    <Card.Header>
+                        <div className="d-flex justify-content-start">
+                            <div>
+                                <Card.Img
+                                    width={50}
+                                    height={50}
+                                    src={season.league?.poster}
+                                />
+                            </div>
+                            <div className=" mx-1">
+                                <Card.Title>{season?.season}</Card.Title>
+                                <Card.Text className="mt-1">
+                                    Estatus:{' '}
+                                    {season?.status ? (
+                                        <span className="text-success">
+                                            Abierta
+                                        </span>
+                                    ) : (
+                                        <span className="text-danger">
+                                            Cerrada
+                                        </span>
+                                    )}
+                                </Card.Text>
+                            </div>
+                        </div>
+                        <ButtonGroup className="d-flex mx-auto mt-3 ">
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-light rounded "
+                                onClick={() => setKey('posiciones')}
+                            >
+                                Posiciones
+                            </Button>
+                            <Button
+                                size="sm"
+                                className=" mx-auto  btn-light rounded "
+                                onClick={() => setKey('rondas')}
+                            >
+                                Rondas
+                            </Button>
+                        </ButtonGroup>
+                    </Card.Header>
                 </Card>
             </section>
         </>

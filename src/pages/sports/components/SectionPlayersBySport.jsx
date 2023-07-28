@@ -36,15 +36,15 @@ const SectionPlayerBySport = ({ sport }) => {
                     />
                 </div>
                 {playersByFilter?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables">
+                    <div className="bg-light rounded section-tables">
                         <Table
                             responsive
                             borderless
                             hover
                             size="sm"
-                            variant="dark"
+                            variant="light"
                         >
-                            <thead className="border-bottom">
+                            <thead className="border-bottom border-secondary">
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Posición</th>

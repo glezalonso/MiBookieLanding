@@ -9,7 +9,7 @@ const TableAway = ({ match }) => {
     const ID_BASEBALL = '648f7211a4ba8860dfe38319'
     return (
         <>
-            <Table responsive borderless hover size="sm" variant="dark">
+            <Table responsive borderless hover size="sm" variant="light">
                 <thead className="border-bottom">
                     <tr>
                         {match?.sport?._id === ID_BASEBALL ? (

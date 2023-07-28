@@ -6,7 +6,7 @@ import NavBar from '../../ui/Navbar'
 import { Container, Row, Col } from 'react-bootstrap'
 import CardMatch from '../home/components/CardMatch'
 import SectionLineUps from './components/SectionLineUps'
-import SectionContest from './components/SectionContest'
+
 import { useGetMatch } from '../../features/matches.features'
 
 const Matches = () => {
@@ -20,13 +20,10 @@ const Matches = () => {
         <>
             <NavBar />
 
-            <Container fluid>
-                <Row className="m-2 mx-auto">
+            <Container>
+                <Row className="my-2 ">
                     <Col xs={12} md={8} className="rounded mx-auto my-1 ">
                         <CardMatch match={match} />
-                    </Col>
-                    <Col xs={12} md={5} className="rounded mx-auto my-1 ">
-                        <SectionContest match={match} />
                     </Col>
                 </Row>
                 <SectionLineUps match={match} />

@@ -19,7 +19,14 @@ const CardComments = ({ match }) => {
     }
     return (
         <>
-            <Card.Body style={{ background: 'rgb(58, 58, 58)' }}>
+            <Card.Body
+                style={{
+                    backgroundColor: 'rgb(209, 209, 209)',
+                    maxHeight: '200px',
+                    overflow: 'auto',
+                }}
+                className="rounded"
+            >
                 {match?.comments?.length > 0 ? (
                     match?.comments?.map((comment) =>
                         comment?.username === username ? (
@@ -81,7 +88,7 @@ const CardComments = ({ match }) => {
                         )
                     )
                 ) : (
-                    <Alert variant="warning mx-3 ">
+                    <Alert variant="warning mx-3 my-1 ">
                         No hay comentarios para mostrar!
                     </Alert>
                 )}

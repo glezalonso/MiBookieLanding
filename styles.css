@@ -21,7 +21,7 @@ tr:hover{
 }
 
 .section-tables {
-    max-height: 50vh;
+    max-height: 75vh;
     padding: 10px;
     overflow-y: auto;
 }

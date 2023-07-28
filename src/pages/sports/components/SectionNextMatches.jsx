@@ -45,15 +45,15 @@ const SectionNextMatches = ({ sport }) => {
                 </div>
 
                 {filterMatch?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables  vh-50">
+                    <div className="bg-light rounded section-tables  vh-50">
                         <Table
                             responsive
                             borderless
                             hover
                             size="sm"
-                            variant="dark"
+                            variant="light"
                         >
-                            <thead className="border-bottom">
+                            <thead className="border-bottom border-secondary">
                                 <tr>
                                     <th>Ronda</th>
                                     <th>Fecha</th>

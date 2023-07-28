@@ -24,13 +24,13 @@ const SectionSeasons = ({ league }) => {
                 <h5>Temporadas disponibles</h5>
 
                 {seasons?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables">
+                    <div className="bg-light rounded section-tables">
                         <Table
                             responsive
                             borderless
                             hover
                             size="sm"
-                            variant="dark"
+                            variant="light"
                         >
                             <thead className="border-bottom">
                                 <tr>

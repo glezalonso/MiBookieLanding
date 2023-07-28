@@ -8,9 +8,9 @@ const Home = () => {
     return (
         <>
             <NavBar />
-            <Container fluid>
+            <Container>
                 <Row className="my-2">
-                    <Col xs={12} md={8} xl={7} className="mx-auto">
+                    <Col xs={12} md={8} xl={7}>
                         <SectionMatches />
                     </Col>
                     <Col md={3} className="mx-auto d-none d-md-block">

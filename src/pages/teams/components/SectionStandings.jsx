@@ -39,13 +39,13 @@ const SectionStandings = ({ team }) => {
                 <h5>Posiciones</h5>
 
                 {sort?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables">
+                    <div className="bg-light rounded section-tables">
                         <Table
                             responsive
                             borderless
                             hover
                             size="sm"
-                            variant="dark"
+                            variant="light"
                         >
                             <thead className="border-bottom">
                                 <tr>
@@ -72,22 +72,18 @@ const SectionStandings = ({ team }) => {
                                                     `../teams/${stands?.team?._id}`
                                                 )
                                             }
+                                            style={
+                                                team?.name === stands.team?.name
+                                                    ? {
+                                                          fontWeight: 'bold',
+                                                          borderBottom:
+                                                              ' solid 1px ',
+                                                      }
+                                                    : null
+                                            }
                                         >
                                             <td>{i++}</td>
-                                            <td
-                                                style={
-                                                    team?.name ===
-                                                    stands.team?.name
-                                                        ? {
-                                                              fontWeight:
-                                                                  'bold',
-
-                                                              background:
-                                                                  'grey',
-                                                          }
-                                                        : null
-                                                }
-                                            >
+                                            <td>
                                                 <img
                                                     style={{
                                                         height: '15px',

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, ButtonGroup, Button } from 'react-bootstrap'
+import { Container, Row, Col } from 'react-bootstrap'
 import { toast } from 'react-hot-toast'
 import NavBar from '../../ui/Navbar'
 import CardPlayer from './components/CardPlayer'
@@ -11,7 +11,7 @@ import SectionStandings from './components/SectionStandings'
 
 const PlayerDetails = () => {
     const { id } = useParams()
-    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
+
     const [key, setKey] = useState('proximos')
     const { data: player, isLoading, isError } = useGetPlayer(id)
 
@@ -23,49 +23,14 @@ const PlayerDetails = () => {
 
             <Container fluid>
                 <Row className="my-2 mx-auto">
-                    <Col
-                        xs={12}
-                        md={10}
-                        className=" bg-dark rounded-top mx-auto"
-                    >
-                        <CardPlayer player={player} />
+                    <Col xs={12} md={10} className=" mx-auto rounded-top  ">
+                        <CardPlayer player={player} setKey={setKey} />
                     </Col>
-                    <Col
-                        xs={12}
-                        md={10}
-                        className="bg-dark rounded-bottom mx-auto justify-content-center "
-                    >
-                        <ButtonGroup className="d-flex  mx-auto my-2">
-                            {player?.sport?._id === ID_FUTBOL ? null : (
-                                <Button
-                                    size="sm"
-                                    className=" mx-auto  btn-dark rounded "
-                                    onClick={() => setKey('posiciones')}
-                                >
-                                    Posiciones
-                                </Button>
-                            )}
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-dark rounded "
-                                onClick={() => setKey('proximos')}
-                            >
-                                Póximos Partidos
-                            </Button>
 
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-dark rounded "
-                                onClick={() => setKey('pasados')}
-                            >
-                                Úlimos Partidos
-                            </Button>
-                        </ButtonGroup>
-                    </Col>
                     <Col
                         xs={12}
                         md={10}
-                        className=" bg-light text-dark my-3 rounded  mx-auto"
+                        className=" bg-light text-dark my-3 rounded  mx-auto shadow-lg"
                     >
                         {key === 'posiciones' ? (
                             <SectionStandings player={player} />
