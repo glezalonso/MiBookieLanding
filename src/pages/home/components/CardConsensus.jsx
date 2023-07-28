@@ -22,24 +22,33 @@ const CardConsensus = ({ match }) => {
                     <tbody>
                         <tr>
                             <td>
-                                <img
-                                    src={match?.away?.poster}
-                                    alt={match?.away?.name}
-                                    style={{
-                                        height: '25px',
-                                        width: '25px',
-                                    }}
-                                />
+                                <div className="d-flex justify-content-cente">
+                                    <div>
+                                        <img
+                                            src={match?.away?.poster}
+                                            alt={match?.away?.name}
+                                            style={{
+                                                height: '25px',
+                                                width: '25px',
+                                            }}
+                                        />
+                                    </div>
+                                    <div
+                                        className="mx-1 my-1"
+                                        style={{ fontSize: '13px' }}
+                                    >
+                                        <span>{match?.away?.name}</span>
+                                    </div>
+                                </div>
                             </td>
                             <td>
-                                {' '}
                                 <AwayVotes match={match} />
                             </td>
                             <td>
                                 <div className="d-flex justify-content-end">
                                     <Button
                                         size="sm"
-                                        variant="warning mx-4"
+                                        variant="warning "
                                         onClick={() =>
                                             handleVote('away', match?._id)
                                         }
@@ -51,14 +60,24 @@ const CardConsensus = ({ match }) => {
                         </tr>
                         <tr>
                             <td>
-                                <img
-                                    src={match?.local?.poster}
-                                    alt={match?.local?.name}
-                                    style={{
-                                        height: '25px',
-                                        width: '25px',
-                                    }}
-                                />
+                                <div className="d-flex justify-content-cente">
+                                    <div>
+                                        <img
+                                            src={match?.local?.poster}
+                                            alt={match?.local?.name}
+                                            style={{
+                                                height: '25px',
+                                                width: '25px',
+                                            }}
+                                        />
+                                    </div>
+                                    <div
+                                        className="mx-1 my-1"
+                                        style={{ fontSize: '13px' }}
+                                    >
+                                        <span>{match?.local?.name}</span>
+                                    </div>
+                                </div>
                             </td>
                             <td>
                                 <LocalVotes match={match} />
@@ -66,8 +85,9 @@ const CardConsensus = ({ match }) => {
                             <td>
                                 <div className="d-flex justify-content-end">
                                     <Button
+                                        style={{ fontSize: '14px' }}
                                         size="sm"
-                                        variant="warning mx-4"
+                                        variant="warning "
                                         onClick={() =>
                                             handleVote('local', match?._id)
                                         }
