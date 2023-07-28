@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
 import { useGetSports } from '../features/sports.features'
 import Register from '../pages/home/components/Register'
+import logo from '../assets/mibookie.png'
 
 function NavBar() {
     const username = useAuthStore((state) => state.profile)
@@ -37,7 +38,21 @@ function NavBar() {
                 <Container>
                     <Navbar.Brand>
                         <Link to={'/'} className="nav-link">
-                            Mi Bookie
+                            <div className="d-flex justify-content-center">
+                                <div>
+                                    <img
+                                        style={{
+                                            width: '30px',
+                                            height: '30px',
+                                        }}
+                                        src={logo}
+                                        alt="Mi Bookie"
+                                    />
+                                </div>
+                                <div className="my-1">
+                                    <span className="mx-1">Mi Bookie</span>
+                                </div>
+                            </div>
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
