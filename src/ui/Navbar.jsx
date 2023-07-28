@@ -98,7 +98,7 @@ function NavBar() {
                         ) : (
                             <Button
                                 style={{ fontSize: '14px' }}
-                                className="btn btn-warning mx-1 my-1"
+                                className="btn btn-warning mx-1 my-1 "
                                 onClick={() => handleShow()}
                             >
                                 Iniciar Sesión
