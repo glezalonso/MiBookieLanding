@@ -27,6 +27,15 @@ const CardMenu = ({
                         </span>
                     </div>
                 </Button>
+                <Button
+                    style={{ fontSize: '14px' }}
+                    size="sm"
+                    variant="light"
+                    className="my-1 px-1"
+                    onClick={() => handleConsensus()}
+                >
+                    <GraphUp className="mx-1" /> Votos
+                </Button>
                 {match?.lineup?.length > 0 ? (
                     <Button
                         style={{ fontSize: '14px' }}
@@ -36,17 +45,6 @@ const CardMenu = ({
                         onClick={() => handleLineUp()}
                     >
                         <People className="mx-1" /> Alineación
-                    </Button>
-                ) : null}
-                {match?.votes?.length > 0 ? (
-                    <Button
-                        style={{ fontSize: '14px' }}
-                        size="sm"
-                        variant="light"
-                        className="my-1 px-1"
-                        onClick={() => handleConsensus()}
-                    >
-                        <GraphUp className="mx-1" /> Votos
                     </Button>
                 ) : null}
             </div>

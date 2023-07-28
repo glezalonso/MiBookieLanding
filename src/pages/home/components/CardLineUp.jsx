@@ -6,14 +6,13 @@ const CardLineUp = ({ match }) => {
     return (
         <>
             <Card.Body
-                color="light"
                 style={{
                     maxHeight: '200px',
                     overflow: 'auto',
                 }}
                 className="rounded"
             >
-                <div className="d-flex justify-content-center bg-light">
+                <div className="d-flex justify-content-center ">
                     <div className="mx-auto">
                         <Table
                             style={{ fontSize: '12px' }}
@@ -21,7 +20,6 @@ const CardLineUp = ({ match }) => {
                             borderless
                             hover
                             size="sm"
-                            variant="light"
                         >
                             <thead className="border-bottom">
                                 <tr>
@@ -54,7 +52,6 @@ const CardLineUp = ({ match }) => {
                             borderless
                             hover
                             size="sm"
-                            variant="light"
                         >
                             <thead className="border-bottom">
                                 <tr>
