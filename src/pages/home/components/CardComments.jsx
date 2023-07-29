@@ -3,6 +3,7 @@ import { Card, Alert } from 'react-bootstrap'
 import { XCircleFill } from 'react-bootstrap-icons'
 import { useAuthStore } from '../../../store/authorization'
 import { useRemoveComment } from '../../../features/matches.features'
+import { Link } from 'react-router-dom'
 
 const CardComments = ({ match }) => {
     const username = useAuthStore((state) => state.profile)
@@ -47,7 +48,12 @@ const CardComments = ({ match }) => {
                                             fontSize: '12px',
                                         }}
                                     >
-                                        {comment?.username}:
+                                        <Link
+                                            to={`../profile/${comment?.username}`}
+                                            className="text-dark text-decoration-none"
+                                        >
+                                            {comment?.username} :
+                                        </Link>
                                     </strong>
                                     {comment?.comment}{' '}
                                     <XCircleFill
@@ -80,7 +86,12 @@ const CardComments = ({ match }) => {
                                             fontSize: '12px',
                                         }}
                                     >
-                                        {comment?.username}:{' '}
+                                        <Link
+                                            to={`../profile/${comment?.username}`}
+                                            className="text-light text-decoration-none"
+                                        >
+                                            {comment?.username} :
+                                        </Link>
                                     </strong>
                                     {comment?.comment}
                                 </div>

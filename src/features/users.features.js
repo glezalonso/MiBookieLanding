@@ -1,10 +1,11 @@
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import {
     loginBookie,
     registerBookie,
     generateOTP,
     verifyOTP,
     resetPassword,
+    getPicks,
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -96,4 +97,12 @@ export const useResetPassword = () => {
         onError: () => toast.error('Error al restablecer contraseña!'),
     })
     return resetPass
+}
+
+export const useGetPicks = (username) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['query', username],
+        queryFn: () => getPicks(username),
+    })
+    return { data, isLoading, isError }
 }

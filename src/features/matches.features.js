@@ -12,6 +12,7 @@ import {
     getMatchesByTeam,
     getNextMatchesBySport,
     pickEm,
+    getPicks,
 } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
 
@@ -122,4 +123,11 @@ export const useAddPickEm = () => {
         onError: () => toast.error('Ya se ha colocado su voto'),
     })
     return mutationAddPickEm
+}
+export const useGetPicks = (username) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['query', username],
+        queryFn: () => getPicks(username),
+    })
+    return { data, isLoading, isError }
 }

@@ -15,3 +15,8 @@ export const generateOTP = (values) => axios.post('/api/generateotp', values)
 export const verifyOTP = (values) => axios.post('/api/verifyOTP', values)
 
 export const resetPassword = (values) => axios.put('/api/resetPassword', values)
+
+export const getPicks = async (username) => {
+    const { data } = await axios.get(`/api/bookies/picks/${username}`)
+    return data
+}

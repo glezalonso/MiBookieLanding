@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import Home from './pages/home/Home'
+import Profile from './pages/profile/Profile'
 import Matches from './pages/matches/Matches'
 import Leagues from './pages/leagues/Leagues'
 import Sports from './pages/sports/Sports'
@@ -32,6 +33,7 @@ const App = () => {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
+                    <Route path="/profile/:username" element={<Profile />} />
                     <Route path="/generate" element={<GenerateCode />} />
                     <Route path="/verify" element={<VerifyCode />} />
                     <Route path="/reset" element={<ResetPassword />} />

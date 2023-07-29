@@ -86,7 +86,10 @@ function NavBar() {
                         </Nav>
                         {username ? (
                             <Navbar.Text style={{ fontSize: '14px' }}>
-                                Signed in as: <Link>{username}</Link>
+                                Signed in as:{' '}
+                                <Link to={`../profile/${username}`}>
+                                    {username}
+                                </Link>
                                 <Button
                                     style={{ fontSize: '14px' }}
                                     className="btn btn-warning mx-1 my-1"
