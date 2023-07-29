@@ -86,7 +86,7 @@ function NavBar() {
                         </Nav>
                         {username ? (
                             <Navbar.Text>
-                                Signed in as:{' '}
+                                Usuario:{' '}
                                 <Link
                                     className="my-1"
                                     style={{ fontSize: '14px' }}

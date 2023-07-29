@@ -34,7 +34,6 @@ const CardFooter = ({ match }) => {
                     <div className="d-flex justify-content-end">
                         <Button
                             type="submit"
-                            style={{ fontSize: '12px' }}
                             className=" btn btn-warning btn-sm mt-2 "
                         >
                             Comentar

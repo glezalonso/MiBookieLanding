@@ -23,7 +23,7 @@ const CardMenu = ({
                         <ChatDots size={15} />
                         <span className="">
                             {match?.comments?.length}
-                            <span className="mx-1">comentario(s)</span>
+                            <span className="mx-1">Comentario(s)</span>
                         </span>
                     </div>
                 </Button>

@@ -17,14 +17,14 @@ const SectionPicks = () => {
                         className=" btn-light rounded "
                         onClick={() => setKey('ultimos')}
                     >
-                        Últimos partidos <Badge bg="dark">15</Badge>
+                        Últimas predicciones <Badge bg="dark">15</Badge>
                     </Button>
                     <Button
                         size="sm"
                         className=" btn-light rounded "
                         onClick={() => setKey('proximos')}
                     >
-                        Próximos partidos <Badge bg="dark">15</Badge>
+                        Próximos predicciones
                     </Button>
                 </ButtonGroup>
                 {key === 'ultimos' ? <SectionLast username={username} /> : null}
