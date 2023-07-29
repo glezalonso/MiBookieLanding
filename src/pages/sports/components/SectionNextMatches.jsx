@@ -37,7 +37,6 @@ const SectionNextMatches = ({ sport }) => {
                 </h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
-                        style={{ fontSize: '14px' }}
                         name="team"
                         placeholder="Equipos..."
                         onChange={(e) => setFilter(e.target.value)}

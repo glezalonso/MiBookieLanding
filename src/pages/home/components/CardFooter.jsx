@@ -26,7 +26,6 @@ const CardFooter = ({ match }) => {
                         as="textarea"
                         rows={2}
                         name="comment"
-                        style={{ fontSize: '12px', marginTop: '8px' }}
                         placeholder="Ingresa tu comentario"
                         disabled={isDisable}
                         value={comment}

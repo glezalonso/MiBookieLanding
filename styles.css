@@ -39,3 +39,7 @@ tr:hover{
     color: black;
     
 }
+.profile:hover{
+ cursor: pointer;
+
+}

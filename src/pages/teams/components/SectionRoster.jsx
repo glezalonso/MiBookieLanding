@@ -16,7 +16,6 @@ const SectionRoster = ({ team }) => {
                 <h5>Plantilla</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
-                        style={{ fontSize: '14px' }}
                         name="player"
                         placeholder="Nombre del jugador..."
                         onChange={(e) => setFilter(e.target.value)}

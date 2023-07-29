@@ -85,9 +85,13 @@ function NavBar() {
                             ))}
                         </Nav>
                         {username ? (
-                            <Navbar.Text style={{ fontSize: '14px' }}>
+                            <Navbar.Text>
                                 Signed in as:{' '}
-                                <Link to={`../profile/${username}`}>
+                                <Link
+                                    className="my-1"
+                                    style={{ fontSize: '14px' }}
+                                    to={`../profile/${username}`}
+                                >
                                     {username}
                                 </Link>
                                 <Button

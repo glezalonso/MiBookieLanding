@@ -32,7 +32,6 @@ const SectionRounds = ({ season }) => {
                 <h5> Rondas</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
-                        style={{ fontSize: '13px' }}
                         name="round"
                         placeholder="Ronda..."
                         onChange={(e) => setFilter(e.target.value)}

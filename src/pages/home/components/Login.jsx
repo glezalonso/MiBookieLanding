@@ -35,7 +35,6 @@ const Login = ({ show, handleClose, handleRegister }) => {
                                 Usuario:{' '}
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('username')}
                                 type="username"
                                 name="username"
@@ -48,7 +47,6 @@ const Login = ({ show, handleClose, handleRegister }) => {
                                 Contraseña:{' '}
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('password')}
                                 type="password"
                                 name="password"

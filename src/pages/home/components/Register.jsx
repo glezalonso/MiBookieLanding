@@ -38,7 +38,6 @@ const Register = ({ handleClose, show }) => {
                                 Nombre completo:{' '}
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('fullName')}
                                 type="text"
                                 name="fullName"
@@ -50,7 +49,6 @@ const Register = ({ handleClose, show }) => {
                                 Email{' '}
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('email')}
                                 type="email"
                                 name="email"
@@ -62,7 +60,6 @@ const Register = ({ handleClose, show }) => {
                                 Usuario:{' '}
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('username')}
                                 type="text"
                                 name="username"
@@ -74,7 +71,6 @@ const Register = ({ handleClose, show }) => {
                                 Contraseña:{' '}
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('password')}
                                 type="password"
                                 name="password"

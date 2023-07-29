@@ -3,10 +3,12 @@ import { Card, Alert } from 'react-bootstrap'
 import { XCircleFill } from 'react-bootstrap-icons'
 import { useAuthStore } from '../../../store/authorization'
 import { useRemoveComment } from '../../../features/matches.features'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
 
 const CardComments = ({ match }) => {
     const username = useAuthStore((state) => state.profile)
+    const navigate = useNavigate()
 
     const removeComment = useRemoveComment()
 
@@ -18,6 +20,13 @@ const CardComments = ({ match }) => {
                 body: { comment, commentId, username },
             })
     }
+
+    const handleNavigate = (user) => {
+        if (!username)
+            return toast.error('Debes iniciar sesión para ir al perfil')
+        navigate(`../profile/${user}`)
+    }
+
     return (
         <>
             <Card.Body
@@ -38,22 +47,26 @@ const CardComments = ({ match }) => {
                                 <div
                                     className="p-2 ms-5 bg-light  rounded text-end"
                                     style={{
-                                        fontSize: '12px',
+                                        fontSize: '13px',
                                     }}
                                 >
                                     <strong
                                         className="text-dark"
                                         style={{
                                             marginRight: '2px',
-                                            fontSize: '12px',
+                                            fontSize: '13px',
                                         }}
                                     >
-                                        <Link
-                                            to={`../profile/${comment?.username}`}
-                                            className="text-dark text-decoration-none"
+                                        <span
+                                            className="text-dark profile"
+                                            onClick={() =>
+                                                handleNavigate(
+                                                    comment?.username
+                                                )
+                                            }
                                         >
                                             {comment?.username} :
-                                        </Link>
+                                        </span>
                                     </strong>
                                     {comment?.comment}{' '}
                                     <XCircleFill
@@ -77,21 +90,25 @@ const CardComments = ({ match }) => {
                                     className="p-2 rounded bg-dark text-light "
                                     style={{
                                         margin: '1px',
-                                        fontSize: '12px',
+                                        fontSize: '13px',
                                     }}
                                 >
                                     <strong
                                         style={{
                                             marginRight: '2px',
-                                            fontSize: '12px',
+                                            fontSize: '13px',
                                         }}
                                     >
-                                        <Link
-                                            to={`../profile/${comment?.username}`}
-                                            className="text-light text-decoration-none"
+                                        <span
+                                            className="text-light profile"
+                                            onClick={() =>
+                                                handleNavigate(
+                                                    comment?.username
+                                                )
+                                            }
                                         >
                                             {comment?.username} :
-                                        </Link>
+                                        </span>
                                     </strong>
                                     {comment?.comment}
                                 </div>

@@ -38,7 +38,6 @@ const VerifyCode = () => {
                                 Código
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('OTP')}
                                 type="number"
                                 name="OTP"

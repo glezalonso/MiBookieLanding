@@ -43,7 +43,6 @@ const ResetPassword = () => {
                                 Nueva contraseña
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('password')}
                                 type="password"
                                 name="password"
@@ -59,7 +58,6 @@ const ResetPassword = () => {
                                 Confirmar contraseña
                             </Form.Label>
                             <Form.Control
-                                style={{ fontSize: '13px' }}
                                 {...formik.getFieldProps('confirmPassword')}
                                 type="password"
                                 name="confirmPassword"
