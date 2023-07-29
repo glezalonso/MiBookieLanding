@@ -1,35 +1,36 @@
-import React from 'react'
-import { useGetPicks } from '../../../features/matches.features'
-import Loading from '../../../ui/Loading'
-import { toast } from 'react-hot-toast'
-import { Alert, Badge } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Badge, Button, ButtonGroup } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
-import CardPick from './CardPick'
+import SectionLast from './SectionLast'
+import SectionNext from './SectionNext'
 
 const SectionPicks = () => {
     const { username } = useParams()
-
-    const { data: matches, isLoading, isError } = useGetPicks(username)
-    if (isLoading) return <Loading />
-    if (isError) return toast.error('Hubo un error al cargar! los picks')
+    const [key, setKey] = useState('ultimos')
 
     return (
         <>
             <section>
-                <h5>
-                    Últimos Picks <Badge bg="dark">15</Badge>
-                </h5>
-                {matches?.length > 0 ? (
-                    matches?.map((match) => (
-                        <CardPick
-                            match={match}
-                            key={match?._id}
-                            username={username}
-                        />
-                    ))
-                ) : (
-                    <Alert variant="warning">No tienes predicciones aún</Alert>
-                )}
+                <ButtonGroup className="d-flex mx-auto mt-3 ">
+                    <Button
+                        size="sm"
+                        className=" btn-light rounded "
+                        onClick={() => setKey('ultimos')}
+                    >
+                        Últimos partidos <Badge bg="dark">15</Badge>
+                    </Button>
+                    <Button
+                        size="sm"
+                        className=" btn-light rounded "
+                        onClick={() => setKey('proximos')}
+                    >
+                        Próximos partidos <Badge bg="dark">15</Badge>
+                    </Button>
+                </ButtonGroup>
+                {key === 'ultimos' ? <SectionLast username={username} /> : null}
+                {key === 'proximos' ? (
+                    <SectionNext username={username} />
+                ) : null}
             </section>
         </>
     )

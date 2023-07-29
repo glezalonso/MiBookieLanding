@@ -27,6 +27,7 @@ const CardPick = ({ match, username }) => {
                             {match?.date?.split('T').reverse().join(' ')}
                         </span>
                     </div>
+                    <div></div>
                 </Card.Header>
                 <Card.Body>
                     <Table responsive size="sm" borderless className="my-1">
@@ -105,21 +106,23 @@ const CardPick = ({ match, username }) => {
                             </div>
 
                             <div>
-                                {votes.option === result ? (
-                                    <span
-                                        style={{ fontSize: '13px' }}
-                                        className="text-success"
-                                    >
-                                        Acertaste
-                                    </span>
-                                ) : (
-                                    <span
-                                        style={{ fontSize: '13px' }}
-                                        className="text-danger"
-                                    >
-                                        Fallaste
-                                    </span>
-                                )}
+                                {!match?.status ? (
+                                    votes.option === result ? (
+                                        <span
+                                            style={{ fontSize: '13px' }}
+                                            className="text-success"
+                                        >
+                                            Acertaste
+                                        </span>
+                                    ) : (
+                                        <span
+                                            style={{ fontSize: '13px' }}
+                                            className="text-danger"
+                                        >
+                                            Fallaste
+                                        </span>
+                                    )
+                                ) : null}
                             </div>
                         </div>
                     ))}

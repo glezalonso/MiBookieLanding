@@ -12,7 +12,8 @@ import {
     getMatchesByTeam,
     getNextMatchesBySport,
     pickEm,
-    getPicks,
+    getPicksOpen,
+    getPicksClosed,
 } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
 
@@ -124,10 +125,18 @@ export const useAddPickEm = () => {
     })
     return mutationAddPickEm
 }
-export const useGetPicks = (username) => {
+export const useGetPicksOpen = (username) => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['query', username],
-        queryFn: () => getPicks(username),
+        queryFn: () => getPicksOpen(username),
+    })
+    return { data, isLoading, isError }
+}
+
+export const useGetPicksClosed = (username) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['query', username],
+        queryFn: () => getPicksClosed(username),
     })
     return { data, isLoading, isError }
 }
