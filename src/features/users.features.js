@@ -21,7 +21,7 @@ export const useLogin = () => {
         onSuccess: (data) => {
             toast.success('Inicio de sesión exitoso ')
             auth(data.token)
-            profile(data.username)
+            profile({ username: data.username, id: data.id })
         },
         onError: (data) =>
             toast.error(`Error al iniciar sesión! ${data.response.data.error}`),
@@ -38,7 +38,7 @@ export const useRegister = () => {
         onSuccess: (data) => {
             toast.success('Bienvenido a Mi Bookie')
             auth(data.token)
-            profile(data.username)
+            profile({ username: data.username, id: data.id })
         },
         onError: (data) => toast.error(`${data.response.data.error}`),
     })

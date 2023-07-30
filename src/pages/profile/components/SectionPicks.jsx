@@ -5,7 +5,7 @@ import SectionLast from './SectionLast'
 import SectionNext from './SectionNext'
 
 const SectionPicks = () => {
-    const { username } = useParams()
+    const { id } = useParams()
     const [key, setKey] = useState('ultimos')
 
     return (
@@ -27,10 +27,8 @@ const SectionPicks = () => {
                         Próximos predicciones
                     </Button>
                 </ButtonGroup>
-                {key === 'ultimos' ? <SectionLast username={username} /> : null}
-                {key === 'proximos' ? (
-                    <SectionNext username={username} />
-                ) : null}
+                {key === 'ultimos' ? <SectionLast id={id} /> : null}
+                {key === 'proximos' ? <SectionNext id={id} /> : null}
             </section>
         </>
     )

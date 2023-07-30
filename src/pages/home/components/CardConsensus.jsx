@@ -7,12 +7,12 @@ import { useAuthStore } from '../../../store/authorization'
 import { toast } from 'react-hot-toast'
 
 const CardConsensus = ({ match }) => {
-    const { profile } = useAuthStore((state) => state)
+    const id = useAuthStore((state) => state.profile.id)
     const addVote = useAddPickEm()
 
     const handleVote = (option, match) => {
-        if (!profile) return toast.error('Debes iniciar sesión para comentar')
-        addVote.mutate({ body: { option, match, username: profile } })
+        if (!id) return toast.error('Debes iniciar sesión para comentar')
+        addVote.mutate({ body: { option, match, userId: id } })
     }
 
     return (

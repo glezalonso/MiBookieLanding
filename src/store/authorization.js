@@ -6,7 +6,7 @@ export const useAuthStore = create(
         (set) => ({
             auth: null,
             isLogged: false,
-            profile: null,
+            profile: { username: null, id: null },
             isDisable: true,
             setAuth: (token) =>
                 set((status) => ({
@@ -15,8 +15,8 @@ export const useAuthStore = create(
                     isLogged: true,
                     isDisable: false,
                 })),
-            setProfile: (username) =>
-                set((status) => ({ ...status, profile: username })),
+            setProfile: (username, id) =>
+                set((status) => ({ profile: username, id })),
             logOut: () =>
                 set((status) => ({
                     ...status,

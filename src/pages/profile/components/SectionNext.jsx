@@ -5,8 +5,8 @@ import { toast } from 'react-hot-toast'
 import CardPick from './CardPick'
 import { Alert } from 'react-bootstrap'
 
-const SectionNext = ({ username }) => {
-    const { data: matchesOpen, isLoading, isError } = useGetPicksOpen(username)
+const SectionNext = ({ id }) => {
+    const { data: matchesOpen, isLoading, isError } = useGetPicksOpen(id)
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar! los picks')
@@ -14,11 +14,7 @@ const SectionNext = ({ username }) => {
         <>
             {matchesOpen?.length > 0 ? (
                 matchesOpen?.map((match) => (
-                    <CardPick
-                        match={match}
-                        key={match?._id}
-                        username={username}
-                    />
+                    <CardPick match={match} key={match?._id} id={id} />
                 ))
             ) : (
                 <Alert variant="warning">No tienes predicciones aún</Alert>

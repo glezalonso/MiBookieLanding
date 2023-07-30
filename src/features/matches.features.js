@@ -125,18 +125,18 @@ export const useAddPickEm = () => {
     })
     return mutationAddPickEm
 }
-export const useGetPicksOpen = (username) => {
+export const useGetPicksOpen = (id) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['query', username],
-        queryFn: () => getPicksOpen(username),
+        queryKey: ['query', id],
+        queryFn: () => getPicksOpen(id),
     })
     return { data, isLoading, isError }
 }
 
-export const useGetPicksClosed = (username) => {
+export const useGetPicksClosed = (id) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['query', username],
-        queryFn: () => getPicksClosed(username),
+        queryKey: ['query', id],
+        queryFn: () => getPicksClosed(id),
     })
     return { data, isLoading, isError }
 }

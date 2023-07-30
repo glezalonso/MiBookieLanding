@@ -5,15 +5,15 @@ import { useAddComment } from '../../../features/matches.features'
 import { toast } from 'react-hot-toast'
 
 const CardFooter = ({ match }) => {
-    const username = useAuthStore((state) => state.profile)
+    const id = useAuthStore((state) => state.profile.id)
     const [comment, setComment] = useState('')
     const addComment = useAddComment()
 
     const handleSubmit = (e, match) => {
         e.preventDefault()
-        if (!username) return toast.error('Debes iniciar sesión para comentar')
+        if (!id) return toast.error('Debes iniciar sesión para comentar')
         if (comment.length < 1) toast.error('El mensaje debe tener contenido')
-        addComment.mutate({ id: match, body: { comment, username } })
+        addComment.mutate({ id: match, body: { comment, userId: id } })
         setComment('')
     }
 

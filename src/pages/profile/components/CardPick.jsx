@@ -1,10 +1,10 @@
 import React from 'react'
 import { Card, Table } from 'react-bootstrap'
 
-const CardPick = ({ match, username }) => {
+const CardPick = ({ match, id }) => {
     let result = ''
     const prediction = match?.votes?.filter(
-        (vote) => vote?.username === username
+        (vote) => vote?.username?._id === id
     )
 
     const away = match?.score?.map((away) => away?.away)

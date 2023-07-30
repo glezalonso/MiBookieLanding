@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
 const CardComments = ({ match }) => {
-    const username = useAuthStore((state) => state.profile)
+    const { username, id } = useAuthStore((state) => state.profile)
     const navigate = useNavigate()
 
     const removeComment = useRemoveComment()
@@ -17,14 +17,14 @@ const CardComments = ({ match }) => {
         if (sure)
             return removeComment.mutate({
                 id: matchId,
-                body: { comment, commentId, username },
+                body: { comment, commentId, userId: id },
             })
     }
 
-    const handleNavigate = (user) => {
+    const handleNavigate = (id) => {
         if (!username)
             return toast.error('Debes iniciar sesión para ir al perfil')
-        navigate(`../profile/${user}`)
+        navigate(`../profile/${id}`)
     }
 
     return (
@@ -39,7 +39,7 @@ const CardComments = ({ match }) => {
             >
                 {match?.comments?.length > 0 ? (
                     match?.comments?.map((comment) =>
-                        comment?.username === username ? (
+                        comment?.username?._id === id ? (
                             <div
                                 className="d-flex flex-row justify-content-end my-1 overflow-auto "
                                 key={comment?._id}
@@ -61,11 +61,11 @@ const CardComments = ({ match }) => {
                                             className="text-dark profile"
                                             onClick={() =>
                                                 handleNavigate(
-                                                    comment?.username
+                                                    comment?.username?._id
                                                 )
                                             }
                                         >
-                                            {comment?.username} :
+                                            {comment?.username?.username} :
                                         </span>
                                     </strong>
                                     {comment?.comment}{' '}
@@ -103,11 +103,11 @@ const CardComments = ({ match }) => {
                                             className="text-light profile"
                                             onClick={() =>
                                                 handleNavigate(
-                                                    comment?.username
+                                                    comment?.username?._id
                                                 )
                                             }
                                         >
-                                            {comment?.username} :
+                                            {comment?.username?.username} :
                                         </span>
                                     </strong>
                                     {comment?.comment}

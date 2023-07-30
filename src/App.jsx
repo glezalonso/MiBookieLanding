@@ -33,7 +33,7 @@ const App = () => {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/profile/:username" element={<Profile />} />
+                    <Route path="/profile/:id" element={<Profile />} />
                     <Route path="/generate" element={<GenerateCode />} />
                     <Route path="/verify" element={<VerifyCode />} />
                     <Route path="/reset" element={<ResetPassword />} />

@@ -9,7 +9,7 @@ import Register from '../pages/home/components/Register'
 import logo from '../assets/mibookie.png'
 
 function NavBar() {
-    const username = useAuthStore((state) => state.profile)
+    const { username, id } = useAuthStore((state) => state.profile)
     const logOut = useAuthStore((state) => state.logOut)
     const { data: sports } = useGetSports()
     const navigate = useNavigate()
@@ -90,7 +90,7 @@ function NavBar() {
                                 <Link
                                     className="my-1"
                                     style={{ fontSize: '14px' }}
-                                    to={`../profile/${username}`}
+                                    to={`../profile/${id}`}
                                 >
                                     {username}
                                 </Link>
