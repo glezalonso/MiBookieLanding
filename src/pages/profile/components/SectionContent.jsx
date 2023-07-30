@@ -10,6 +10,8 @@ const SectionContent = ({ id, user }) => {
     const [key, setKey] = useState('ultimos')
     const userId = useAuthStore((state) => state.profile.id)
 
+    if (user?._id !== userId) setKey('ultimos')
+
     return (
         <>
             <section>
