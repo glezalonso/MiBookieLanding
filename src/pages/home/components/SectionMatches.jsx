@@ -1,19 +1,11 @@
 import React, { useState } from 'react'
-import { toast } from 'react-hot-toast'
+
 import { Alert, FormControl, Badge } from 'react-bootstrap'
-import { useGetMatchesToday } from '../../../features/matches.features'
-import formatedDate from '../../../utils/formatedDate'
-import Loading from '../../../ui/Loading'
+
 import CardMatch from './CardMatch'
 
-const SectionMatches = () => {
+const SectionMatches = ({ matches }) => {
     const [filter, setFilter] = useState('')
-    const date = formatedDate()
-
-    const { data: matches, isLoading, isError } = useGetMatchesToday(date)
-
-    if (isLoading) return <Loading />
-    if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
     matches?.sort((a, b) => b.status - a.status)
 
@@ -29,7 +21,7 @@ const SectionMatches = () => {
         <>
             <section>
                 <h5>
-                    Partidos de hoy
+                    Partidos
                     <Badge bg="dark" className="mx-2">
                         {matches?.length}
                     </Badge>
