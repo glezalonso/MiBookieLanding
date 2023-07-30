@@ -22,7 +22,7 @@ export const useAuthStore = create(
                     ...status,
                     auth: null,
                     isLogged: false,
-                    profile: null,
+                    profile: { username: null, id: null },
                     isDisable: true,
                 })),
         }),
