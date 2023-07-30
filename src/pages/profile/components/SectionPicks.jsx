@@ -11,7 +11,7 @@ const SectionPicks = () => {
     return (
         <>
             <section>
-                <ButtonGroup className="d-flex mx-auto mt-3 ">
+                <ButtonGroup className="d-flex mx-auto mt-3  gap-2">
                     <Button
                         size="sm"
                         className=" btn-light rounded "

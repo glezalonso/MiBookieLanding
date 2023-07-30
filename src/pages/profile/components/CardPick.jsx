@@ -9,7 +9,7 @@ const CardPick = ({ match, username }) => {
 
     const away = match?.score?.map((away) => away?.away)
     const local = match?.score?.map((local) => local?.local)
-    if (away > local) {
+    if (Number(away) > Number(local)) {
         result = 'away'
     } else {
         result = 'local'
@@ -51,7 +51,7 @@ const CardPick = ({ match, username }) => {
                                     </div>
                                 </td>
                                 <td>
-                                    <div className="d-flex justify-content-start">
+                                    <div className="d-flex justify-content-center">
                                         {match?.score?.map(
                                             (away) => away?.away
                                         )}
@@ -77,7 +77,11 @@ const CardPick = ({ match, username }) => {
                                     </div>
                                 </td>
                                 <td>
-                                    {match?.score?.map((local) => local?.local)}
+                                    <div className="d-flex justify-content-center">
+                                        {match?.score?.map(
+                                            (local) => local?.local
+                                        )}
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
