@@ -11,13 +11,17 @@ const SectionLast = ({ id }) => {
     if (isError) return toast.error('Hubo un error al cargar! los picks')
     return (
         <>
-            {matchesClosed?.length > 0 ? (
-                matchesClosed?.map((match) => (
-                    <CardPick match={match} key={match?._id} id={id} />
-                ))
-            ) : (
-                <Alert variant="warning">No tienes predicciones aún</Alert>
-            )}
+            <section>
+                {matchesClosed?.length > 0 ? (
+                    matchesClosed?.map((match) => (
+                        <CardPick match={match} key={match?._id} id={id} />
+                    ))
+                ) : (
+                    <Alert variant="warning my-2">
+                        No tienes predicciones aún
+                    </Alert>
+                )}
+            </section>
         </>
     )
 }

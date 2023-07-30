@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import {
     loginBookie,
     registerBookie,
@@ -6,6 +6,9 @@ import {
     verifyOTP,
     resetPassword,
     getPicks,
+    getBookie,
+    addFollow,
+    removeFollow,
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -105,4 +108,36 @@ export const useGetPicks = (username) => {
         queryFn: () => getPicks(username),
     })
     return { data, isLoading, isError }
+}
+
+export const useGetBookie = (id) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['bookie', id],
+        queryFn: () => getBookie(id),
+    })
+    return { data, isLoading, isError }
+}
+
+export const useAddFollow = () => {
+    const queryClient = useQueryClient()
+    const mutationAdd = useMutation({
+        mutationFn: addFollow,
+        onSuccess: () => {
+            toast.success('Estas siguiendo al usuario')
+            queryClient.invalidateQueries({ queryKey: ['bookie'] })
+        },
+    })
+    return mutationAdd
+}
+
+export const useRemoveFollow = () => {
+    const queryClient = useQueryClient()
+    const mutationRemove = useMutation({
+        mutationFn: removeFollow,
+        onSuccess: () => {
+            toast.success('Has dejado de seguir al usuario')
+            queryClient.invalidateQueries({ queryKey: ['bookie'] })
+        },
+    })
+    return mutationRemove
 }

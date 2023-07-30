@@ -17,7 +17,7 @@ const SectionNext = ({ id }) => {
                     <CardPick match={match} key={match?._id} id={id} />
                 ))
             ) : (
-                <Alert variant="warning">No tienes predicciones aún</Alert>
+                <Alert variant="warning my-2">No tienes predicciones aún</Alert>
             )}
         </>
     )

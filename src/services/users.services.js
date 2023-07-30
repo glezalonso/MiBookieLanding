@@ -20,3 +20,14 @@ export const getPicks = async (username) => {
     const { data } = await axios.get(`/api/bookies/picks/${username}`)
     return data
 }
+
+export const getBookie = async (id) => {
+    const { data } = await axios.get(`/api/bookies/${id}`)
+    return data
+}
+
+export const addFollow = ({ id, body }) =>
+    axios.put(`/api/bookies/follow/${id}`, body)
+
+export const removeFollow = ({ id, body }) =>
+    axios.delete(`/api/bookies/follow/${id}`, body)
