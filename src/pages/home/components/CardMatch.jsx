@@ -37,8 +37,8 @@ const CardMatch = ({ match }) => {
 
     return (
         <>
-            <Card className="shadow-xl my-2">
-                <Card.Header className=" border-secondary border-bottom ">
+            <Card className="shadow-lg my-2">
+                <Card.Header className=" border-secondary rounded  border-bottom ">
                     <div className="d-flex justify-content-between">
                         <div className="d-flex justify-content-start">
                             <span

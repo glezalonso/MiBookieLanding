@@ -20,9 +20,10 @@ const CardFooter = ({ match }) => {
     const isDisable = useAuthStore((state) => state.isDisable)
     return (
         <>
-            <Card.Footer className="bg-light  border-secondary border-top">
+            <Card.Footer className="bg-light shadow-lg rounded border-secondary  border-top">
                 <Form onSubmit={(e) => handleSubmit(e, match?._id)}>
                     <FormControl
+                        className="my-1"
                         as="textarea"
                         rows={2}
                         name="comment"

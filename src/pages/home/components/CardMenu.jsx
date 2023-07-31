@@ -11,7 +11,7 @@ const CardMenu = ({
 }) => {
     return (
         <>
-            <div className="border-top  ">
+            <div className="border-top ">
                 <Button
                     style={{ fontSize: '14px' }}
                     size="sm"

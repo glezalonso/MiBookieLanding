@@ -31,11 +31,10 @@ const CardComments = ({ match }) => {
         <>
             <Card.Body
                 style={{
-                    backgroundColor: 'rgb(209, 209, 209)',
                     maxHeight: '200px',
                     overflow: 'auto',
                 }}
-                className="rounded"
+                className="bg-dark"
             >
                 {match?.comments?.length > 0 ? (
                     match?.comments?.map((comment) =>
@@ -45,7 +44,7 @@ const CardComments = ({ match }) => {
                                 key={comment?._id}
                             >
                                 <div
-                                    className="p-2 ms-5 bg-light  rounded text-end"
+                                    className="p-1 ms-5 bg-light  rounded text-end"
                                     style={{
                                         fontSize: '13px',
                                     }}
@@ -87,7 +86,7 @@ const CardComments = ({ match }) => {
                                 key={comment?._id}
                             >
                                 <div
-                                    className="p-2 rounded bg-dark text-light "
+                                    className="p-1 rounded bg-secondary  text-light "
                                     style={{
                                         margin: '1px',
                                         fontSize: '13px',
