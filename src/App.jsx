@@ -8,6 +8,7 @@ import Leagues from './pages/leagues/Leagues'
 import Sports from './pages/sports/Sports'
 import Rounds from './pages/rounds/Rounds'
 import Seasons from './pages/seasons/Seasons'
+import Protected from './auth/Protected'
 // import Players from './pages/players/Players'
 import PlayerDetails from './pages/players/PlayersDetails'
 // import Teams from './pages/teams/Teams'
@@ -22,6 +23,7 @@ import decode from 'jwt-decode'
 const App = () => {
     const token = useAuthStore((state) => state.auth)
     const logOut = useAuthStore((state) => state.logOut)
+    const isLogged = useAuthStore((state) => state.isLogged)
 
     useEffect(() => {
         if (token && Date.now() >= decode(token).exp * 1000) return logOut()
@@ -33,7 +35,9 @@ const App = () => {
 
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/profile/:id" element={<Profile />} />
+                    <Route element={<Protected isLogged={isLogged} />}>
+                        <Route path="/profile/:id" element={<Profile />} />
+                    </Route>
                     <Route path="/generate" element={<GenerateCode />} />
                     <Route path="/verify" element={<VerifyCode />} />
                     <Route path="/reset" element={<ResetPassword />} />

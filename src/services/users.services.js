@@ -27,7 +27,7 @@ export const getBookie = async (id) => {
 }
 
 export const addFollow = ({ id, body }) =>
-    axios.put(`/api/bookies/follow/${id}`, body)
+    axios.post(`/api/bookies/follow/${id}`, body)
 
 export const removeFollow = ({ id, body }) =>
-    axios.delete(`/api/bookies/follow/${id}`, body)
+    axios.put(`/api/bookies/follow/${id}`, body)

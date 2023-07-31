@@ -1,11 +1,13 @@
 import React from 'react'
 import { Table, Alert } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const SectionFollowers = ({ user }) => {
+    const navigate = useNavigate()
     return (
         <>
-            <section>
+            <section className="my-3">
+                <h5>Seguidores</h5>
                 {user?.followers?.length > 0 ? (
                     <div className="section-tables bg-light rounded p-1 my-3">
                         <Table
@@ -13,19 +15,19 @@ const SectionFollowers = ({ user }) => {
                             borderless
                             size="sm"
                             variant="light my-1"
+                            hover
                         >
                             <tbody>
                                 {user?.followers?.map((follower) => (
-                                    <tr key={follower?._id}>
-                                        <td>{follower?.username?.username}</td>
-                                        <td>
-                                            <Link
-                                                className="btn btn-dark btn-sm"
-                                                to={`../profile/${follower?.username?._id}`}
-                                            >
-                                                Ir al perfil
-                                            </Link>
-                                        </td>
+                                    <tr
+                                        onClick={() =>
+                                            navigate(
+                                                `../profile/${follower?._id}`
+                                            )
+                                        }
+                                        key={follower?._id}
+                                    >
+                                        <td>{follower?.username}</td>
                                     </tr>
                                 ))}
                             </tbody>
