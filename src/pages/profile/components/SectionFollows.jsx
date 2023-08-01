@@ -3,7 +3,7 @@ import { Table, Alert } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { useRemoveFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
-import { PersonDash } from 'react-bootstrap-icons'
+import { PersonDash, PeopleFill, PersonCircle } from 'react-bootstrap-icons'
 
 const SectionFollows = ({ user }) => {
     const userId = useAuthStore((state) => state.profile.id)
@@ -18,10 +18,13 @@ const SectionFollows = ({ user }) => {
     }
     return (
         <>
-            <section className="my-3">
-                <h5>Contáctos</h5>
+            <section className=" bg-light rounded p-2 my-3">
+                <div className="mx-2">
+                    <PeopleFill size={'20px'} color="dark" />
+                    <span className="mx-1">Contáctos</span>
+                </div>
                 {user?.follow?.length > 0 ? (
-                    <div className="section-tables bg-light rounded p-1 my-3">
+                    <div className="section-tables bg-light rounded p-1 border-top my-2">
                         <Table
                             responsive
                             borderless
@@ -39,7 +42,13 @@ const SectionFollows = ({ user }) => {
                                         }
                                         key={follower?._id}
                                     >
-                                        <td>{follower?.username}</td>
+                                        <td>
+                                            <PersonCircle
+                                                color="dark"
+                                                className="mx-1"
+                                            />
+                                            {follower?.username}
+                                        </td>
                                         <td>
                                             <div className="d-flex justify-content-end">
                                                 <PersonDash

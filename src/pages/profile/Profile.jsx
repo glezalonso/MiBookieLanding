@@ -8,6 +8,7 @@ import SectionFollowers from './components/SectionFollowers'
 import SectionFollows from './components/SectionFollows'
 import CardProfile from './components/CardProfile'
 import { useGetBookie } from '../../features/users.features'
+import { RewindFill, FastForwardFill } from 'react-bootstrap-icons'
 
 const Profile = () => {
     const { id } = useParams()
@@ -35,6 +36,7 @@ const Profile = () => {
                                             : null
                                     }
                                 >
+                                    <RewindFill color="dark" className="mx-1" />
                                     Últimas predicciones
                                 </span>
                             </Button>
@@ -51,6 +53,10 @@ const Profile = () => {
                                     }
                                 >
                                     Próximas predicciones
+                                    <FastForwardFill
+                                        color="dark"
+                                        className="mx-1"
+                                    />
                                 </span>
                             </Button>
                         </ButtonGroup>

@@ -3,6 +3,7 @@ import { Card, Table } from 'react-bootstrap'
 
 const CardPick = ({ match, id }) => {
     let result = ''
+
     const prediction = match?.votes?.filter(
         (vote) => vote?.username?._id === id
     )
@@ -110,23 +111,21 @@ const CardPick = ({ match, id }) => {
                             </div>
 
                             <div>
-                                {!match?.status ? (
-                                    votes.option === result ? (
-                                        <span
-                                            style={{ fontSize: '13px' }}
-                                            className="text-success"
-                                        >
-                                            Acertaste
-                                        </span>
-                                    ) : (
-                                        <span
-                                            style={{ fontSize: '13px' }}
-                                            className="text-danger"
-                                        >
-                                            Fallaste
-                                        </span>
-                                    )
-                                ) : null}
+                                {votes.option === result ? (
+                                    <span
+                                        style={{ fontSize: '13px' }}
+                                        className="text-success"
+                                    >
+                                        Acertaste
+                                    </span>
+                                ) : (
+                                    <span
+                                        style={{ fontSize: '13px' }}
+                                        className="text-danger"
+                                    >
+                                        Fallaste
+                                    </span>
+                                )}
                             </div>
                         </div>
                     ))}
