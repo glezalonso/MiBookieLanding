@@ -56,7 +56,7 @@ const SectionRating = ({ match, id }) => {
                 <Table responsive borderless size="sm" variant="light my-1">
                     <tbody>
                         <tr>
-                            <td>Últimos 15 uegos</td>
+                            <td>Últimos 15 juegos</td>
                             <td className="text-end">
                                 <span className="mx-4 text-dark">
                                     {match?.length}
