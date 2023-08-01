@@ -20,8 +20,8 @@ const Bookies = () => {
         <>
             <NavBar />
             <Container fluid></Container>
-            <Row className="my-2">
-                <Col xs={12} md={8} xl={7} className="mx-auto my-2">
+            <Row className="my-1">
+                <Col xs={12} md={8} xl={7} className="mx-auto my-1 p-3">
                     <h5>
                         Bookies
                         <Badge bg="dark" className="mx-1">
