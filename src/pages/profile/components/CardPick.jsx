@@ -15,7 +15,6 @@ const CardPick = ({ match, id }) => {
     } else {
         result = 'local'
     }
-    console.log(match?.status)
 
     return (
         <>

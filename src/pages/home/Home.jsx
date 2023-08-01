@@ -8,24 +8,40 @@ import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import Loading from '../../ui/Loading'
 import { toast } from 'react-hot-toast'
+import { PersonFill } from 'react-bootstrap-icons'
+import BookiesFirends from './components/BookiesFriends'
+import { useAuthStore } from '../../store/authorization'
 
 const Home = () => {
+    const { isLogged } = useAuthStore((state) => state)
     const [key, setKey] = useState('hoy')
+    const [show, setShow] = useState(false)
+
     const date = formatedDate()
     const dateTomorrow = tomorrowDate()
 
+    const handleShow = () => {
+        setKey('bookies')
+        setShow(true)
+    }
+    const handleClose = () => {
+        setKey('hoy')
+        setShow(false)
+    }
+
     const { data: matchesToday, isLoading, isError } = useGetMatchesToday(date)
     const { data: matchesTomorrow } = useGetMatchesToday(dateTomorrow)
+
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
     return (
         <>
             <NavBar />
-            <Container>
+            <Container fluid>
                 <Row className="my-2">
                     <Col xs={12} md={8} xl={7}>
-                        <ButtonGroup className="d-flex mx-auto my-3  gap-2 p-1">
+                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
                             <Button
                                 size="sm"
                                 className="btn-light rounded  "
@@ -56,6 +72,24 @@ const Home = () => {
                                     Partidos mañana
                                 </span>
                             </Button>
+                            {isLogged ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light rounded  "
+                                    onClick={() => handleShow()}
+                                >
+                                    <PersonFill size={'18px'} color="dark" />
+                                    <span
+                                        style={
+                                            key === 'bookies'
+                                                ? { fontWeight: 'bold' }
+                                                : null
+                                        }
+                                    >
+                                        Mis Bookies
+                                    </span>
+                                </Button>
+                            ) : null}
                         </ButtonGroup>
                         {key === 'hoy' ? (
                             <SectionMatches matches={matchesToday} key={key} />
@@ -71,6 +105,9 @@ const Home = () => {
                         <SectionLeagues />
                     </Col>
                 </Row>
+                {isLogged ? (
+                    <BookiesFirends show={show} handleClose={handleClose} />
+                ) : null}
             </Container>
         </>
     )

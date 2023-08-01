@@ -7,6 +7,7 @@ import { useAuthStore } from '../store/authorization'
 import { useGetSports } from '../features/sports.features'
 import Register from '../pages/home/components/Register'
 import logo from '../assets/mibookie.png'
+import user from '../assets/user.png'
 
 function NavBar() {
     const { username, id } = useAuthStore((state) => state.profile)
@@ -86,12 +87,18 @@ function NavBar() {
                         </Nav>
                         {username ? (
                             <Navbar.Text>
-                                Usuario:{' '}
                                 <Link
                                     className="my-1"
                                     style={{ fontSize: '14px' }}
                                     to={`../profile/${id}`}
                                 >
+                                    <img
+                                        src={user}
+                                        width={'30px'}
+                                        height={'30px'}
+                                        alt="Usuario:"
+                                        className="mx-1"
+                                    />
                                     {username}
                                 </Link>
                                 <Button

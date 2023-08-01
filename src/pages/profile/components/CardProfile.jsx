@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { useAddFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
-import avatar from '../../../assets/avatar.png'
+import avatar from '../../../assets/user.png'
 
 const CardProfile = ({ id, user }) => {
     const userId = useAuthStore((state) => state.profile.id)
