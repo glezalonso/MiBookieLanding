@@ -31,20 +31,24 @@ const SectionRating = ({ match, id }) => {
     return (
         <>
             <section className=" bg-light rounded p-2 my-3">
-                <div className="d-flex mx-2 justify-content-between">
+                <div className="d-flex mx-2 justify-content-between border-bottom">
                     <div>
                         <BarChartFill color="dark" size={'20px'} />
                         <span className="mx-1">Estadísticas</span>
                     </div>
-                    <div className="d-flex justify-content-end">
+                    <div className="d-flex justify-content-end ">
                         {match?.length < 1 ? null : (
                             <>
-                                <span className="mx-1 text-muted fw-bold">
-                                    {Math.round(
-                                        (aciertos?.length * 100) / match?.length
-                                    )}
-                                    %
-                                </span>
+                                <p className="mx-1 my-1 text-muted fw-bold">
+                                    Porcentaje
+                                    <span className="mx-1">
+                                        {Math.round(
+                                            (aciertos?.length * 100) /
+                                                match?.length
+                                        )}
+                                        %
+                                    </span>
+                                </p>
                             </>
                         )}
                     </div>
@@ -52,7 +56,7 @@ const SectionRating = ({ match, id }) => {
                 <Table responsive borderless size="sm" variant="light my-1">
                     <tbody>
                         <tr>
-                            <td>Total Juegos</td>
+                            <td>Últimos 15 uegos</td>
                             <td className="text-end">
                                 <span className="mx-4 text-dark">
                                     {match?.length}
