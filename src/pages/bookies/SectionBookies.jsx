@@ -53,18 +53,11 @@ const SectionBookies = ({ user }) => {
 
                             <td>
                                 <div className="d-flex justify-content-end ">
-                                    <div className=" my-2 mx-3 ">
-                                        {matchesClosed?.length < 1 ? null : (
-                                            <span className="text-muted fw-bold">
-                                                {`${aciertos?.length} ganado(s) de ${matchesClosed?.length} juegos`}
-                                            </span>
-                                        )}
-                                    </div>
                                     <div className="my-1 border-start">
                                         {matchesClosed?.length < 1 ? null : (
                                             <>
-                                                <p className="mx-3 my-1 text-muted fw-bold">
-                                                    Porcentaje
+                                                <p className="mx-2 my-1 text-muted fw-bold">
+                                                    Predicción
                                                     <span className="mx-1">
                                                         {Math.round(
                                                             (aciertos?.length *

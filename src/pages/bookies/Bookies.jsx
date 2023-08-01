@@ -11,7 +11,7 @@ const Bookies = () => {
     const { id } = useAuthStore((state) => state.profile)
     const { data, isLoading, isError } = useGetBookies()
 
-    const users = data.filter((user) => user?._id !== id)
+    const users = data?.filter((user) => user?._id !== id)
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los Bookies!')
