@@ -15,6 +15,7 @@ const CardPick = ({ match, id }) => {
     } else {
         result = 'local'
     }
+    console.log(match?.status)
 
     return (
         <>
@@ -111,21 +112,24 @@ const CardPick = ({ match, id }) => {
                             </div>
 
                             <div>
-                                {votes.option === result ? (
-                                    <span
-                                        style={{ fontSize: '13px' }}
-                                        className="text-success"
-                                    >
-                                        Acertaste
-                                    </span>
-                                ) : (
-                                    <span
-                                        style={{ fontSize: '13px' }}
-                                        className="text-danger"
-                                    >
-                                        Fallaste
-                                    </span>
-                                )}
+                                {}
+                                {!match.status ? (
+                                    votes?.option === result ? (
+                                        <span
+                                            style={{ fontSize: '13px' }}
+                                            className="text-success"
+                                        >
+                                            Acertaste
+                                        </span>
+                                    ) : (
+                                        <span
+                                            style={{ fontSize: '13px' }}
+                                            className="text-danger"
+                                        >
+                                            Fallaste
+                                        </span>
+                                    )
+                                ) : null}
                             </div>
                         </div>
                     ))}
