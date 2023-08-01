@@ -16,6 +16,7 @@ import TeamDetails from './pages/teams/TeamDetails'
 import GenerateCode from './pages/home/components/GenerateCode'
 import VerifyCode from './pages/home/components/VerifyCode'
 import ResetPassword from './pages/home/components/ResetPassword'
+import Bookies from './pages/bookies/Bookies'
 
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
@@ -37,6 +38,7 @@ const App = () => {
                     <Route path="/" element={<Home />} />
                     <Route element={<Protected isLogged={isLogged} />}>
                         <Route path="/profile/:id" element={<Profile />} />
+                        <Route path="/bookies" element={<Bookies />} />
                     </Route>
                     <Route path="/generate" element={<GenerateCode />} />
                     <Route path="/verify" element={<VerifyCode />} />

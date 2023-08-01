@@ -26,6 +26,11 @@ export const getBookie = async (id) => {
     return data
 }
 
+export const getBookies = async () => {
+    const { data } = await axios.get('/api/bookies')
+    return data
+}
+
 export const addFollow = ({ id, body }) =>
     axios.post(`/api/bookies/follow/${id}`, body)
 

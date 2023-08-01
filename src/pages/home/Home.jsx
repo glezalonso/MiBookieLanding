@@ -39,8 +39,8 @@ const Home = () => {
         <>
             <NavBar />
             <Container fluid>
-                <Row className="my-2">
-                    <Col xs={12} md={8} xl={7}>
+                <Row className="my-2 mx-auto">
+                    <Col xs={12} md={8} xl={7} className="mx-auto">
                         <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
                             <Button
                                 size="sm"

@@ -50,7 +50,10 @@ const BookiesFirends = ({ show, handleClose }) => {
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?{' '}
-                            <Link className="text-warning text-decoration-none">
+                            <Link
+                                to={'../bookies'}
+                                className="text-warning text-decoration-none"
+                            >
                                 Buscar
                             </Link>
                         </div>

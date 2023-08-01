@@ -9,6 +9,7 @@ import {
     getBookie,
     addFollow,
     removeFollow,
+    getBookies,
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -107,6 +108,15 @@ export const useGetPicks = (username) => {
         queryKey: ['query', username],
         queryFn: () => getPicks(username),
     })
+    return { data, isLoading, isError }
+}
+
+export const useGetBookies = () => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['bookies'],
+        queryFn: getBookies,
+    })
+
     return { data, isLoading, isError }
 }
 
