@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
-import NavBar from '../../ui/Navbar'
-import SectionMatches from './components/SectionMatches'
-import SectionLeagues from './components/SectionLeagues'
 import { useGetMatchesToday } from '../../features/matches.features'
+import { useAuthStore } from '../../store/authorization'
+import { toast } from 'react-hot-toast'
+import { Person } from 'react-bootstrap-icons'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import Loading from '../../ui/Loading'
-import { toast } from 'react-hot-toast'
-import { Person } from 'react-bootstrap-icons'
+import NavBar from '../../ui/Navbar'
 import BookiesFirends from './components/BookiesFriends'
-import { useAuthStore } from '../../store/authorization'
+import SectionMatches from './components/SectionMatches'
+import SectionLeagues from './components/SectionLeagues'
 
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)

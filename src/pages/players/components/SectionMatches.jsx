@@ -28,6 +28,8 @@ const SectionMatches = ({ player, open, title }) => {
         )
     })
 
+    MatchesByFilter.sort((a, b) => a.date - b.date)
+
     return (
         <>
             <section>
@@ -49,30 +51,25 @@ const SectionMatches = ({ player, open, title }) => {
                             size="sm"
                             variant="light"
                         >
-                            <thead className="border-bottom">
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Local</th>
-                                    <th>Visita</th>
-                                    <th>Ronda</th>
-                                    {!open ? <th>Marcador</th> : null}
-                                </tr>
-                            </thead>
                             <tbody>
                                 {MatchesByFilter?.map((match) => (
                                     <tr
+                                        className="border-bottom"
                                         key={match?._id}
                                         onClick={() =>
                                             navigate(`../matches/${match?._id}`)
                                         }
                                     >
                                         <td>
-                                            {match?.date
-                                                .split('T', 3)
-                                                .join(' ')}
+                                            <div className="d-flex justify-content-center mt-1">
+                                                {match?.date
+                                                    .slice(5)
+                                                    .split('T', 3)
+                                                    .join(' ')}
+                                            </div>
                                         </td>
                                         <td>
-                                            <div className="d-flex justify-content-right gap-2">
+                                            <div className="d-flex justify-content-right my-1 gap-1">
                                                 <div className="my-1">
                                                     <img
                                                         style={{
@@ -85,15 +82,13 @@ const SectionMatches = ({ player, open, title }) => {
                                                         alt={match?.local?.name}
                                                     />
                                                 </div>
-                                                <div>
+                                                <div className="mx-1">
                                                     <span>
                                                         {match?.local?.name}
                                                     </span>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-right gap-2">
+                                            </div>{' '}
+                                            <div className="d-flex justify-content-right my-1 gap-1">
                                                 <div className="my-1">
                                                     <img
                                                         style={{
@@ -106,25 +101,35 @@ const SectionMatches = ({ player, open, title }) => {
                                                         alt={match?.away?.name}
                                                     />
                                                 </div>
-                                                <div>
+                                                <div className="mx-1">
                                                     <span>
                                                         {match?.away?.name}
                                                     </span>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{match?.round?.round}</td>
-                                        {!open ? (
-                                            <td>
-                                                {match?.score?.map(
-                                                    (away) => away?.away
-                                                )}
-                                                -
-                                                {match?.score?.map(
-                                                    (local) => local?.local
-                                                )}
-                                            </td>
-                                        ) : null}
+                                        <td>
+                                            <div className="d-flex justify-content-center my-1 ">
+                                                <div>
+                                                    <strong>
+                                                        {match?.score?.map(
+                                                            (score) =>
+                                                                score?.away
+                                                        )}
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex justify-content-center my-1 ">
+                                                <div>
+                                                    <strong>
+                                                        {match?.score?.map(
+                                                            (score) =>
+                                                                score?.local
+                                                        )}
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>

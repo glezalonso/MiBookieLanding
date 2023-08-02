@@ -47,27 +47,25 @@ const SectionMatches = ({ round }) => {
                             size="sm"
                             variant="light"
                         >
-                            <thead className="border-bottom">
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Local</th>
-                                    <th>Visita</th>
-                                    <th>Marcador</th>
-                                </tr>
-                            </thead>
                             <tbody>
                                 {matchesByFilter?.map((match) => (
                                     <tr
+                                        className="border-bottom"
                                         key={match?._id}
                                         onClick={() =>
                                             navigate(`../matches/${match?._id}`)
                                         }
                                     >
                                         <td>
-                                            {match?.date.split('T', 2).slice(1)}
+                                            <div className="d-flex justify-content-center mt-1">
+                                                {match?.date
+                                                    .slice(5)
+                                                    .split('T', 3)
+                                                    .join(' ')}
+                                            </div>
                                         </td>
                                         <td>
-                                            <div className="d-flex justify-content-start gap-1">
+                                            <div className="d-flex justify-content-right my-1 gap-1">
                                                 <div className="my-1">
                                                     <img
                                                         style={{
@@ -80,15 +78,13 @@ const SectionMatches = ({ round }) => {
                                                         alt={match?.local?.name}
                                                     />
                                                 </div>
-                                                <div>
+                                                <div className="mx-1">
                                                     <span>
                                                         {match?.local?.name}
                                                     </span>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-start gap-1">
+                                            <div className="d-flex justify-content-right my-1 gap-1">
                                                 <div className="my-1">
                                                     <img
                                                         style={{
@@ -99,21 +95,35 @@ const SectionMatches = ({ round }) => {
                                                         alt={match?.away?.name}
                                                     />
                                                 </div>
-                                                <div className="mt-1">
+                                                <div className="mx-1">
                                                     <span>
                                                         {match?.away?.name}
                                                     </span>
                                                 </div>
                                             </div>
                                         </td>
+                                        <td></td>
                                         <td>
-                                            {match?.score?.map(
-                                                (score) => score?.local
-                                            )}{' '}
-                                            -{' '}
-                                            {match?.score?.map(
-                                                (score) => score?.away
-                                            )}
+                                            <div className="d-flex justify-content-center my-1 ">
+                                                <div>
+                                                    <strong>
+                                                        {match?.score?.map(
+                                                            (score) =>
+                                                                score?.away
+                                                        )}
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex justify-content-center my-1 ">
+                                                <div>
+                                                    <strong>
+                                                        {match?.score?.map(
+                                                            (score) =>
+                                                                score?.local
+                                                        )}
+                                                    </strong>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

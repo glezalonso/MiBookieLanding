@@ -46,32 +46,26 @@ const SectionMatches = ({ league, query }) => {
                             size="sm"
                             variant="light"
                         >
-                            <thead className="border-bottom">
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Local</th>
-                                    <th>Visita</th>
-                                    <th>Ronda</th>
-                                    <th>Marcador</th>
-                                </tr>
-                            </thead>
                             <tbody>
                                 {matchesByFilter?.map((match) => (
                                     <tr
+                                        className="border-bottom"
                                         key={match?._id}
                                         onClick={() =>
                                             navigate(`../matches/${match?._id}`)
                                         }
                                     >
                                         <td>
-                                            {match?.date
-                                                .split('T', 3)
-                                                .reverse()
-                                                .join(' ')}
+                                            <div className="d-flex justify-content-center mt-1">
+                                                {match?.date
+                                                    .slice(5)
+                                                    .split('T', 3)
+                                                    .join(' ')}
+                                            </div>
                                         </td>
                                         <td>
-                                            <div className="d-flex justify-content-right gap-1">
-                                                <div className="my-1">
+                                            <div className="d-flex justify-content-right my-1 gap-1">
+                                                <div>
                                                     <img
                                                         style={{
                                                             width: '20px',
@@ -89,10 +83,8 @@ const SectionMatches = ({ league, query }) => {
                                                     </span>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-right gap-1">
-                                                <div className="my-1">
+                                            <div className="d-flex justify-content-right my-1 gap-1">
+                                                <div>
                                                     <img
                                                         style={{
                                                             width: '20px',
@@ -111,19 +103,28 @@ const SectionMatches = ({ league, query }) => {
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>{match?.round?.round}</td>
+
                                         <td>
-                                            <strong>
-                                                {match?.score?.map(
-                                                    (score) => score?.local
-                                                )}
-                                            </strong>
-                                            -
-                                            <strong>
-                                                {match?.score?.map(
-                                                    (score) => score?.away
-                                                )}
-                                            </strong>
+                                            <div className="d-flex justify-content-center my-1 ">
+                                                <div>
+                                                    <strong>
+                                                        {match?.score?.map(
+                                                            (score) =>
+                                                                score?.away
+                                                        )}
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex justify-content-center my-1 ">
+                                                <div>
+                                                    <strong>
+                                                        {match?.score?.map(
+                                                            (score) =>
+                                                                score?.local
+                                                        )}
+                                                    </strong>
+                                                </div>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))}

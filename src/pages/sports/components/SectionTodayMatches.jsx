@@ -1,22 +1,24 @@
 import React, { useState } from 'react'
-import { Alert, Table, FormControl } from 'react-bootstrap'
+import { useGetMatchesToday } from '../../../features/matches.features'
 import { useNavigate } from 'react-router-dom'
-import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
+import { Alert, Table, FormControl, Badge } from 'react-bootstrap'
+import Loading from '../../../ui/Loading'
+import formatedDate from '../../../utils/formatedDate'
 
-import { useGetMatchesByTeam } from '../../../features/matches.features'
-
-const SectionMatches = ({ team, open, title }) => {
+const SectionTodayMatches = ({ sport }) => {
     const [filter, setFilter] = useState('')
-    const { data: matches, isLoading, isError } = useGetMatchesByTeam(team?._id)
+    const date = formatedDate()
+    const { data, isLoading, isError } = useGetMatchesToday(date)
     const navigate = useNavigate()
 
     if (isLoading) return <Loading />
-    if (isError) return toast.error('Hubo un error al cargar los partidos')
 
-    const matchesByPlayer = matches?.filter((match) => match?.status === open)
+    if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
-    const matchesByFilter = matchesByPlayer?.filter((matches) => {
+    const matches = data?.filter((match) => match?.sport?._id === sport?._id)
+
+    const filterMatch = matches?.filter((matches) => {
         if (!filter) return matches
         return (
             matches?.away?.name?.toLowerCase().includes(filter.toLowerCase()) ||
@@ -27,18 +29,22 @@ const SectionMatches = ({ team, open, title }) => {
     return (
         <>
             <section>
-                <h5>{title}</h5>
-
+                <span className="mx-2 fs-5">
+                    Partidos de hoy
+                    <Badge bg="dark" className="mx-2">
+                        {filterMatch?.length}
+                    </Badge>
+                </span>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         name="team"
-                        placeholder="Nombre del equipo..."
+                        placeholder="Equipos..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
 
-                {matchesByFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
+                {filterMatch?.length > 0 ? (
+                    <div className="bg-light rounded section-tables  vh-50">
                         <Table
                             responsive
                             borderless
@@ -47,25 +53,28 @@ const SectionMatches = ({ team, open, title }) => {
                             variant="light"
                         >
                             <tbody>
-                                {matchesByFilter?.map((match) => (
+                                {filterMatch?.map((match) => (
                                     <tr
-                                        className="border-bottom"
+                                        className="border-bottom "
                                         key={match?._id}
                                         onClick={() =>
                                             navigate(`../matches/${match?._id}`)
                                         }
                                     >
-                                        <td>
-                                            <div className="d-flex justify-content-center mt-1">
-                                                {match?.date
-                                                    .slice(5)
-                                                    .split('T', 3)
-                                                    .join(' ')}
+                                        <td className="text-center">
+                                            <div className="my-3">
+                                                <span>
+                                                    {match?.date
+                                                        .split('T')
+                                                        .splice(1)
+                                                        .reverse()
+                                                        .join(' ')}
+                                                </span>
                                             </div>
                                         </td>
                                         <td>
-                                            <div className="d-flex justify-content-right my-1 gap-1">
-                                                <div className="my-1">
+                                            <div className="d-flex justify-content-start my-1 gap-1">
+                                                <div>
                                                     <img
                                                         style={{
                                                             width: '20px',
@@ -77,14 +86,14 @@ const SectionMatches = ({ team, open, title }) => {
                                                         alt={match?.local?.name}
                                                     />
                                                 </div>
-                                                <div className="mx-1">
-                                                    <span>
+                                                <div>
+                                                    <span className="mx-1">
                                                         {match?.local?.name}
                                                     </span>
                                                 </div>
                                             </div>
-                                            <div className="d-flex justify-content-right my-1 gap-1">
-                                                <div className="my-1">
+                                            <div className="d-flex justify-content-start my-1 gap-1">
+                                                <div>
                                                     <img
                                                         style={{
                                                             width: '20px',
@@ -96,14 +105,13 @@ const SectionMatches = ({ team, open, title }) => {
                                                         alt={match?.away?.name}
                                                     />
                                                 </div>
-                                                <div className="mx-1">
-                                                    <span>
+                                                <div>
+                                                    <span className="mx-1">
                                                         {match?.away?.name}
                                                     </span>
                                                 </div>
                                             </div>
                                         </td>
-
                                         <td>
                                             <div className="d-flex justify-content-center my-1 ">
                                                 <div>
@@ -129,9 +137,6 @@ const SectionMatches = ({ team, open, title }) => {
                                     </tr>
                                 ))}
                             </tbody>
-                            <caption>
-                                Total de partidos: {matchesByFilter?.length}
-                            </caption>
                         </Table>
                     </div>
                 ) : (
@@ -143,4 +148,5 @@ const SectionMatches = ({ team, open, title }) => {
         </>
     )
 }
-export default SectionMatches
+
+export default SectionTodayMatches

@@ -20,7 +20,7 @@ const CardPlayer = ({ player }) => {
                             {player?.team ? (
                                 <Link
                                     to={`../teams/${player?.team?._id}`}
-                                    className="btn btn-sm btn-outline-dark"
+                                    className="btn btn-sm btn-light"
                                 >
                                     <img
                                         style={{
