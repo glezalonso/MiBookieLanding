@@ -10,8 +10,7 @@ const CardRound = ({ round }) => {
                         <div className="d-flex justify-content-start my-1">
                             <div className="my-2">
                                 <Card.Img
-                                    width={50}
-                                    height={50}
+                                    style={{ width: '50px', height: '50px' }}
                                     src={round?.league?.poster}
                                 />
                             </div>
