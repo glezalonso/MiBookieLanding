@@ -4,19 +4,25 @@ const CardSectionAway = ({ match }) => {
     return (
         <>
             <div className="d-flex align-items-center">
-                <img
-                    src={match?.away?.poster}
-                    alt={match?.away?.name}
-                    style={{
-                        height: '30px',
-                        width: '30px',
-                    }}
-                />
-                <div className="mx-1">
-                    <p className="fw-bold my-1">
-                        {match?.away?.name}
+                <div>
+                    <img
+                        src={match?.away?.poster}
+                        alt={match?.away?.name}
+                        style={{
+                            height: '35px',
+                            width: '35px',
+                        }}
+                    />
+                </div>
+                <div className="mx-2  ">
+                    <div>
+                        <span className="fw-bold text-muted fs-6">
+                            {match?.away?.name}
+                        </span>
+                    </div>
+                    <div>
                         <CardStandingAway match={match} />
-                    </p>
+                    </div>
                 </div>
             </div>
         </>

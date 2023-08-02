@@ -19,20 +19,21 @@ const Bookies = () => {
     return (
         <>
             <NavBar />
-            <Container fluid></Container>
-            <Row className="my-1">
-                <Col xs={12} md={8} xl={7} className="mx-auto my-1 p-3">
-                    <h5>
-                        Bookies
-                        <Badge bg="dark" className="mx-1">
-                            {users?.length}
-                        </Badge>
-                    </h5>
-                    {users?.map((user) => (
-                        <SectionBookies key={user?._id} user={user} />
-                    ))}
-                </Col>
-            </Row>
+            <Container fluid>
+                <Row className="my-2 mx-auto">
+                    <Col xs={12} md={8} xl={7} className="mx-auto my-1">
+                        <h5>
+                            Bookies
+                            <Badge bg="dark" className="mx-1">
+                                {users?.length}
+                            </Badge>
+                        </h5>
+                        {users?.map((user) => (
+                            <SectionBookies key={user?._id} user={user} />
+                        ))}
+                    </Col>
+                </Row>
+            </Container>
         </>
     )
 }

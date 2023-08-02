@@ -8,7 +8,7 @@ import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import Loading from '../../ui/Loading'
 import { toast } from 'react-hot-toast'
-import { PersonFill } from 'react-bootstrap-icons'
+import { Person } from 'react-bootstrap-icons'
 import BookiesFirends from './components/BookiesFriends'
 import { useAuthStore } from '../../store/authorization'
 
@@ -38,56 +38,57 @@ const Home = () => {
     return (
         <>
             <NavBar />
-            <Container>
+            <Container fluid>
                 <Row className="my-2 mx-auto">
-                    <Col xs={12} md={8} xl={7} className="mx-auto">
-                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
-                            <Button
-                                size="sm"
-                                className="btn-light rounded  "
-                                onClick={() => setKey('hoy')}
-                            >
-                                <span
-                                    style={
-                                        key === 'hoy'
-                                            ? { fontWeight: 'bold' }
-                                            : null
-                                    }
+                    <Col xs={12} md={10} className="p-0 mx-autp ">
+                        <ButtonGroup className="d-flex mx-auto mt-3 gap-1  ">
+                            {key === 'hoy' ? (
+                                <Button
+                                    size="sm"
+                                    className="btn-warning rounded  "
+                                    onClick={() => setKey('hoy')}
                                 >
-                                    Partidos hoy
-                                </span>
-                            </Button>
-                            <Button
-                                size="sm"
-                                className=" btn-light rounded  "
-                                onClick={() => setKey('mañana')}
-                            >
-                                <span
-                                    style={
-                                        key === 'mañana'
-                                            ? { fontWeight: 'bold' }
-                                            : null
-                                    }
+                                    <span>Partidos hoy</span>
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className="btn-light rounded  "
+                                    onClick={() => setKey('hoy')}
                                 >
-                                    Partidos mañana
-                                </span>
-                            </Button>
-                            {isLogged ? (
+                                    <span>Partidos hoy</span>
+                                </Button>
+                            )}
+                            {key === 'mañana' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning rounded  "
+                                    onClick={() => setKey('mañana')}
+                                >
+                                    <span>Partidos mañana</span>
+                                </Button>
+                            ) : (
                                 <Button
                                     size="sm"
                                     className=" btn-light rounded  "
+                                    onClick={() => setKey('mañana')}
+                                >
+                                    <span>Partidos mañana</span>
+                                </Button>
+                            )}
+
+                            {isLogged ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light rounded "
                                     onClick={() => handleShow()}
                                 >
-                                    <PersonFill size={'18px'} color="dark" />
-                                    <span
-                                        style={
-                                            key === 'bookies'
-                                                ? { fontWeight: 'bold' }
-                                                : null
-                                        }
-                                    >
-                                        Mis Bookies
-                                    </span>
+                                    <Person
+                                        size={'18px'}
+                                        color="dark"
+                                        className="mx-1"
+                                    />
+                                    <span className="my-1">Mis Bookies</span>
                                 </Button>
                             ) : null}
                         </ButtonGroup>

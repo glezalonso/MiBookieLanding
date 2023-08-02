@@ -42,7 +42,7 @@ const CardMatch = ({ match }) => {
                     <div className="d-flex justify-content-between">
                         <div className="d-flex justify-content-start">
                             <span
-                                style={{ fontSize: '13px' }}
+                                style={{ fontSize: '14px' }}
                                 className="text-secondary"
                             >
                                 {match?.league?.league}
@@ -57,7 +57,7 @@ const CardMatch = ({ match }) => {
                         responsive
                         size="sm"
                         borderless
-                        variant="light my-2 "
+                        variant="light my-1 "
                     >
                         <tbody
                             onClick={() => navigate(`../matches/${match?._id}`)}

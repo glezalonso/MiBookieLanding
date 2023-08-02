@@ -20,13 +20,13 @@ const SectionMatches = ({ matches }) => {
     return (
         <>
             <section>
-                <h5>
+                <span className=" mx-2 fs-5">
                     Partidos
                     <Badge bg="dark" className="mx-2">
                         {matches?.length}
                     </Badge>
-                </h5>
-                <div className="my-2 mx-auto p-1">
+                </span>
+                <div className="my-1 mx-auto p-1">
                     <FormControl
                         name="team"
                         placeholder="Equipo..."

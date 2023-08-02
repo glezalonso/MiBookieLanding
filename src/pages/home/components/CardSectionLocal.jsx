@@ -4,20 +4,26 @@ import CardStandingLocal from './CardStandingLocal'
 const CardSectionLocal = ({ match }) => {
     return (
         <>
-            <div className="d-flex align-items-center">
-                <img
-                    src={match?.local?.poster}
-                    alt={match?.local?.name}
-                    style={{
-                        height: '30px',
-                        width: '30px',
-                    }}
-                />
-                <div className="mx-1">
-                    <p className="fw-bold my-1">
-                        {match?.local?.name}
+            <div className="d-flex align-items-center ">
+                <div>
+                    <img
+                        src={match?.local?.poster}
+                        alt={match?.local?.name}
+                        style={{
+                            height: '35px',
+                            width: '35px',
+                        }}
+                    />
+                </div>
+                <div className="mx-2">
+                    <div>
+                        <span className="fw-bold text-muted fs-6">
+                            {match?.local?.name}
+                        </span>
+                    </div>
+                    <div>
                         <CardStandingLocal match={match} />
-                    </p>
+                    </div>
                 </div>
             </div>
         </>

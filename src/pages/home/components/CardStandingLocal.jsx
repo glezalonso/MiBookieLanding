@@ -8,7 +8,11 @@ const CardStandingLocal = ({ match }) => {
     return (
         <>
             {standingAway?.map((team) => (
-                <span key={team?.team} className="mx-1 text-secondary">
+                <span
+                    style={{ fontSize: '13px' }}
+                    key={team?.team}
+                    className="text-secondary"
+                >
                     {team?.wins}-{team?.loses}
                 </span>
             ))}
