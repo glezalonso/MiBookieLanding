@@ -38,7 +38,7 @@ const SectionMatches = ({ league, query }) => {
                 </div>
 
                 {matchesByFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
+                    <div className="bg-light rounded section-tables  vh-50">
                         <Table
                             responsive
                             borderless
@@ -65,13 +65,13 @@ const SectionMatches = ({ league, query }) => {
                                     >
                                         <td>
                                             {match?.date
-                                                .split('T', 1)
+                                                .split('T', 3)
                                                 .reverse()
                                                 .join(' ')}
                                         </td>
                                         <td>
-                                            <div className="d-flex justify-content-center">
-                                                <div>
+                                            <div className="d-flex justify-content-right gap-1">
+                                                <div className="my-1">
                                                     <img
                                                         style={{
                                                             width: '20px',
@@ -84,14 +84,15 @@ const SectionMatches = ({ league, query }) => {
                                                     />
                                                 </div>
                                                 <div className="mx-1">
-                                                    {match?.local?.name}
+                                                    <span>
+                                                        {match?.local?.name}
+                                                    </span>
                                                 </div>
                                             </div>
                                         </td>
                                         <td>
-                                            {' '}
-                                            <div className="d-flex justify-content-center">
-                                                <div>
+                                            <div className="d-flex justify-content-right gap-1">
+                                                <div className="my-1">
                                                     <img
                                                         style={{
                                                             width: '20px',
@@ -103,7 +104,11 @@ const SectionMatches = ({ league, query }) => {
                                                         alt={match?.away?.name}
                                                     />
                                                 </div>
-                                                <div>{match?.away?.name}</div>
+                                                <div className="mx-1">
+                                                    <span>
+                                                        {match?.away?.name}
+                                                    </span>
+                                                </div>
                                             </div>
                                         </td>
                                         <td>{match?.round?.round}</td>

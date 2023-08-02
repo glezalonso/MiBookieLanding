@@ -20,7 +20,7 @@ const Bookies = () => {
         <>
             <NavBar />
             <Container fluid>
-                <Row className="my-2 mx-auto">
+                <Row className="my-2 ">
                     <Col xs={12} md={8} xl={7} className="mx-auto my-1">
                         <h5>
                             Bookies

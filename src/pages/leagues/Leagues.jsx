@@ -25,15 +25,15 @@ const Leagues = () => {
             <NavBar />
             <Container fluid>
                 <Row className="my-2">
-                    <Col xs={12} md={10} className=" mx-auto   ">
+                    <Col xs={12} md={10} className="mx-auto">
                         <SectionLeague league={league} />
                     </Col>
                     <Col
                         xs={12}
                         md={10}
-                        className=" text-dark my-3 rounded  mx-auto "
+                        className=" mx-auto justify-content-center "
                     >
-                        <div className="d-flex mx-auto mt-2 mb-4 justify-content-center gap-2">
+                        <div className="d-flex mx-auto my-2 justify-content-center gap-2">
                             {key === 'proximos' ? (
                                 <Button
                                     size="sm"
@@ -86,6 +86,8 @@ const Leagues = () => {
                                 </Button>
                             )}
                         </div>
+                    </Col>
+                    <Col xs={12} md={10} className="mx-auto p-1 text-dark my-3">
                         {key === 'temporadas' ? (
                             <SectionSeasons league={league} />
                         ) : null}

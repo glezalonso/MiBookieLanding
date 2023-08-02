@@ -28,13 +28,13 @@ const Sports = () => {
             <NavBar />
             <Container fluid>
                 <Row className="my-1">
-                    <Col xs={12} md={8} className=" mx-auto ">
+                    <Col xs={12} md={8} className="mx-auto">
                         <CardSport sport={sport} />
                     </Col>
                     <Col
                         xs={12}
                         md={10}
-                        className="rounded-bottom mx-auto justify-content-center "
+                        className=" mx-auto justify-content-center "
                     >
                         <div className="d-flex mx-auto my-2 justify-content-center gap-2">
                             {key === 'proximos' ? (

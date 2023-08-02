@@ -71,6 +71,7 @@ const SectionNextMatches = ({ sport }) => {
                                         <td>
                                             {match?.date
                                                 .split('T', 3)
+                                                .reverse()
                                                 .join(' ')}
                                         </td>
                                         <td>
@@ -87,9 +88,8 @@ const SectionNextMatches = ({ sport }) => {
                                                         alt={match?.local?.name}
                                                     />
                                                 </div>
-                                                <div>
+                                                <div className="mx-1">
                                                     <span>
-                                                        {' '}
                                                         {match?.local?.name}
                                                     </span>
                                                 </div>
