@@ -24,7 +24,7 @@ const SectionNewsBySport = ({ sport }) => {
     return (
         <>
             <section>
-                <h5 className="h7">Noticias</h5>
+                <h5 className="mx-2">Noticias</h5>
                 <div className="m-2 p-2">
                     <FormControl
                         name="new"

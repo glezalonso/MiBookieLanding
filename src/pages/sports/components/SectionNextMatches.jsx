@@ -29,7 +29,7 @@ const SectionNextMatches = ({ sport }) => {
     return (
         <>
             <section>
-                <h5>
+                <h5 className="mx-2">
                     Próximos partidos
                     <Badge bg="dark" className="mx-2">
                         {filterMatch?.length}
@@ -54,10 +54,10 @@ const SectionNextMatches = ({ sport }) => {
                         >
                             <thead className="border-bottom border-secondary">
                                 <tr>
-                                    <th>Ronda</th>
                                     <th>Fecha</th>
                                     <th>Local</th>
                                     <th>Visita</th>
+                                    <th>Ronda</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -68,14 +68,55 @@ const SectionNextMatches = ({ sport }) => {
                                             navigate(`../matches/${match?._id}`)
                                         }
                                     >
-                                        <td>{match?.round?.round}</td>
                                         <td>
                                             {match?.date
                                                 .split('T', 3)
                                                 .join(' ')}
                                         </td>
-                                        <td>{match?.local?.name}</td>
-                                        <td>{match?.away?.name}</td>
+                                        <td>
+                                            <div className="d-flex justify-content-right gap-1">
+                                                <div className="my-1">
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={
+                                                            match?.local?.poster
+                                                        }
+                                                        alt={match?.local?.name}
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <span>
+                                                        {' '}
+                                                        {match?.local?.name}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="d-flex justify-content-right gap-1">
+                                                <div className="my-1">
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={
+                                                            match?.away?.poster
+                                                        }
+                                                        alt={match?.away?.name}
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <span>
+                                                        {match?.away?.name}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>{match?.round?.round}</td>
                                     </tr>
                                 ))}
                             </tbody>

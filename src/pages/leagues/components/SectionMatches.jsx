@@ -48,10 +48,10 @@ const SectionMatches = ({ league, query }) => {
                         >
                             <thead className="border-bottom">
                                 <tr>
-                                    <th>Ronda</th>
                                     <th>Fecha</th>
                                     <th>Local</th>
                                     <th>Visita</th>
+                                    <th>Ronda</th>
                                     <th>Marcador</th>
                                 </tr>
                             </thead>
@@ -63,15 +63,50 @@ const SectionMatches = ({ league, query }) => {
                                             navigate(`../matches/${match?._id}`)
                                         }
                                     >
-                                        <td>{match?.round?.round}</td>
                                         <td>
                                             {match?.date
-                                                .split('T', 3)
+                                                .split('T', 1)
                                                 .reverse()
                                                 .join(' ')}
                                         </td>
-                                        <td>{match?.local?.name}</td>
-                                        <td>{match?.away?.name}</td>
+                                        <td>
+                                            <div className="d-flex justify-content-center">
+                                                <div>
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={
+                                                            match?.local?.poster
+                                                        }
+                                                        alt={match?.local?.name}
+                                                    />
+                                                </div>
+                                                <div className="mx-1">
+                                                    {match?.local?.name}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            {' '}
+                                            <div className="d-flex justify-content-center">
+                                                <div>
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={
+                                                            match?.away?.poster
+                                                        }
+                                                        alt={match?.away?.name}
+                                                    />
+                                                </div>
+                                                <div>{match?.away?.name}</div>
+                                            </div>
+                                        </td>
+                                        <td>{match?.round?.round}</td>
                                         <td>
                                             <strong>
                                                 {match?.score?.map(

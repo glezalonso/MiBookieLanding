@@ -1,8 +1,7 @@
 import React from 'react'
-import { Card, Button, ButtonGroup } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 
 const CardTeam = ({ team, setKey }) => {
-    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
     return (
         <>
             <section>
@@ -30,39 +29,6 @@ const CardTeam = ({ team, setKey }) => {
                                 </Card.Text>
                             </div>
                         </div>
-                        <ButtonGroup className="d-flex  mx-auto mt-2">
-                            {team?.sport?._id === ID_FUTBOL ? null : (
-                                <Button
-                                    size="sm"
-                                    className=" mx-auto  btn-light rounded "
-                                    onClick={() => setKey('posiciones')}
-                                >
-                                    Posiciones
-                                </Button>
-                            )}
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-light rounded "
-                                onClick={() => setKey('plantilla')}
-                            >
-                                Plantilla
-                            </Button>
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-light rounded "
-                                onClick={() => setKey('proximos')}
-                            >
-                                Próximos partidos
-                            </Button>
-
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-light rounded "
-                                onClick={() => setKey('pasados')}
-                            >
-                                Últimos partidos
-                            </Button>
-                        </ButtonGroup>
                     </Card.Header>
                 </Card>
             </section>

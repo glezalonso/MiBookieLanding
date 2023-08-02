@@ -64,13 +64,48 @@ const SectionMatches = ({ round }) => {
                                         }
                                     >
                                         <td>
-                                            {match?.date
-                                                .split('T', 3)
-                                                .reverse()
-                                                .join(' ')}
+                                            {match?.date.split('T', 2).slice(1)}
                                         </td>
-                                        <td>{match?.local?.name}</td>
-                                        <td>{match?.away?.name}</td>
+                                        <td>
+                                            <div className="d-flex justify-content-start gap-1">
+                                                <div className="my-1">
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={
+                                                            match?.local.poster
+                                                        }
+                                                        alt={match?.local?.name}
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <span>
+                                                        {match?.local?.name}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="d-flex justify-content-start gap-1">
+                                                <div className="my-1">
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={match?.away.poster}
+                                                        alt={match?.away?.name}
+                                                    />
+                                                </div>
+                                                <div className="mt-1">
+                                                    <span>
+                                                        {match?.away?.name}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>
                                             {match?.score?.map(
                                                 (score) => score?.local

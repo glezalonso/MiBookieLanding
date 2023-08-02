@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { useGetSport } from '../../features/sports.features'
 import NavBar from '../../ui/Navbar'
 import CardSport from './components/CardSport'
@@ -16,7 +16,7 @@ import SectionNewsBySport from './components/SectionNewsBySport'
 
 const Sports = () => {
     const { id } = useParams()
-    const [key, setKey] = useState('ligas')
+    const [key, setKey] = useState('proximos')
     const { data: sport, isLoading, isError } = useGetSport(id)
     const ID_TENNIS = '648f71eea4ba8860dfe38314'
 
@@ -27,63 +27,104 @@ const Sports = () => {
         <>
             <NavBar />
             <Container fluid>
-                <Row className="my-2 mx-auto">
-                    <Col
-                        xs={12}
-                        md={10}
-                        className=" bg-dark rounded-top  mx-auto"
-                    >
+                <Row className="my-1">
+                    <Col xs={12} md={8} className=" mx-auto ">
                         <CardSport sport={sport} />
                     </Col>
                     <Col
                         xs={12}
                         md={10}
-                        className="bg-dark rounded-bottom mx-auto justify-content-center "
+                        className="rounded-bottom mx-auto justify-content-center "
                     >
-                        <ButtonGroup className="d-flex mx-auto my-2">
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-dark rounded "
-                                onClick={() => setKey('ligas')}
-                            >
-                                Ligas
-                            </Button>
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-dark rounded "
-                                onClick={() => setKey('temporadas')}
-                            >
-                                Temporadas abiertas
-                            </Button>
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-dark rounded "
-                                onClick={() => setKey('proximos')}
-                            >
-                                Póximos Partidos
-                            </Button>
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-dark rounded "
-                                onClick={() => setKey('noticias')}
-                            >
-                                Noticias
-                            </Button>
-
-                            <Button
-                                size="sm"
-                                className=" mx-auto btn-dark rounded"
-                                onClick={() => setKey('mas')}
-                            >
-                                Más
-                            </Button>
-                        </ButtonGroup>
+                        <div className="d-flex mx-auto my-2 justify-content-center gap-2">
+                            {key === 'proximos' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning  "
+                                    onClick={() => setKey('proximos')}
+                                >
+                                    Póximos
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light  "
+                                    onClick={() => setKey('proximos')}
+                                >
+                                    Póximos
+                                </Button>
+                            )}
+                            {key === 'ligas' ? (
+                                <Button
+                                    size="sm"
+                                    className="  btn-warning  "
+                                    onClick={() => setKey('ligas')}
+                                >
+                                    Ligas
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light  "
+                                    onClick={() => setKey('ligas')}
+                                >
+                                    Ligas
+                                </Button>
+                            )}
+                            {key === 'temporadas' ? (
+                                <Button
+                                    size="sm"
+                                    className="  btn-warning "
+                                    onClick={() => setKey('temporadas')}
+                                >
+                                    Temporadas
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className="  btn-light  "
+                                    onClick={() => setKey('temporadas')}
+                                >
+                                    Temporadas
+                                </Button>
+                            )}
+                            {key === 'noticias' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning  "
+                                    onClick={() => setKey('noticias')}
+                                >
+                                    Noticias
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light  "
+                                    onClick={() => setKey('noticias')}
+                                >
+                                    Noticias
+                                </Button>
+                            )}
+                            {key === 'mas' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning "
+                                    onClick={() => setKey('mas')}
+                                >
+                                    Más
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light "
+                                    onClick={() => setKey('mas')}
+                                >
+                                    Más
+                                </Button>
+                            )}
+                        </div>
                     </Col>
-                    <Col
-                        xs={12}
-                        md={10}
-                        className=" bg-light text-dark my-3 rounded  mx-auto"
-                    >
+                    <Col xs={12} md={10} className="mx-auto p-1 text-dark my-3">
                         {key === 'ligas' ? (
                             <SectionLeaguesBySport sport={sport} />
                         ) : null}

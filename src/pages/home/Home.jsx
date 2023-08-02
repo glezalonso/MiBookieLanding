@@ -39,8 +39,11 @@ const Home = () => {
         <>
             <NavBar />
             <Container fluid>
-                <Row className="my-2 mx-auto">
-                    <Col xs={12} md={10} className="p-0 mx-autp ">
+                <Row className="my-2">
+                    <Col md={3} className="mx-auto d-none d-md-block">
+                        <SectionLeagues />
+                    </Col>
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
                         <ButtonGroup className="d-flex mx-auto mt-3 gap-1  ">
                             {key === 'hoy' ? (
                                 <Button
@@ -101,9 +104,6 @@ const Home = () => {
                                 key={key}
                             />
                         ) : null}
-                    </Col>
-                    <Col md={3} className="mx-auto d-none d-md-block">
-                        <SectionLeagues />
                     </Col>
                 </Row>
                 {isLogged ? (

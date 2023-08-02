@@ -8,7 +8,7 @@ const CardRound = ({ round }) => {
                 <Card>
                     <Card.Header>
                         <div className="d-flex justify-content-start my-1">
-                            <div>
+                            <div className="my-2">
                                 <Card.Img
                                     width={50}
                                     height={50}
@@ -16,8 +16,10 @@ const CardRound = ({ round }) => {
                                 />
                             </div>
                             <div className="mx-2">
-                                <Card.Title>{round?.round}</Card.Title>
-                                <Card.Text className="">
+                                <Card.Title className="my-1">
+                                    {round?.round}
+                                </Card.Title>
+                                <Card.Text>
                                     Temporada: {round?.season?.season}
                                 </Card.Text>
                             </div>

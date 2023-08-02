@@ -21,7 +21,7 @@ const SectionStandings = ({ season }) => {
     return (
         <>
             <section>
-                <h5>Posiciones</h5>
+                <h5>Clasificacíon</h5>
 
                 {sort?.length > 0 ? (
                     <div className="bg-light rounded section-tables p-1">

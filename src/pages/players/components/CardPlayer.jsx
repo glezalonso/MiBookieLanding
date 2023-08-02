@@ -1,9 +1,8 @@
 import React from 'react'
-import { Card, Button, ButtonGroup } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const CardPlayer = ({ player, setKey }) => {
-    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
+const CardPlayer = ({ player }) => {
     return (
         <>
             <section>
@@ -21,40 +20,24 @@ const CardPlayer = ({ player, setKey }) => {
                             {player?.team ? (
                                 <Link
                                     to={`../teams/${player?.team?._id}`}
-                                    className="btn btn-warning btn-sm"
+                                    className="btn btn-sm btn-outline-dark"
                                 >
-                                    {player?.team?.name}
+                                    <img
+                                        style={{
+                                            width: '15px',
+                                            height: '15px',
+                                        }}
+                                        src={player?.team?.poster}
+                                        alt={player?.team?.name}
+                                    />
+                                    <span className="mx-1">
+                                        {player?.team?.name}
+                                    </span>
                                 </Link>
                             ) : (
                                 <span className="text-danger">Sin asignar</span>
                             )}
                         </Card.Text>
-                        <ButtonGroup className="d-flex mx-auto mt-3 ">
-                            {player?.sport?._id === ID_FUTBOL ? null : (
-                                <Button
-                                    size="sm"
-                                    className=" mx-auto  btn-light rounded "
-                                    onClick={() => setKey('posiciones')}
-                                >
-                                    Posiciones
-                                </Button>
-                            )}
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-light rounded "
-                                onClick={() => setKey('proximos')}
-                            >
-                                Póximos Partidos
-                            </Button>
-
-                            <Button
-                                size="sm"
-                                className=" mx-auto  btn-light rounded "
-                                onClick={() => setKey('pasados')}
-                            >
-                                Úlimos Partidos
-                            </Button>
-                        </ButtonGroup>
                     </Card.Header>
                 </Card>
             </section>

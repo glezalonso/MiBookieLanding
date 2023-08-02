@@ -21,7 +21,7 @@ const SectionPlayersTennis = ({ sport }) => {
     return (
         <>
             <section>
-                <h5>Jugadores de {sport?.sport}</h5>
+                <h5 className="mx-2">Jugadores de {sport?.sport}</h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         name="team"

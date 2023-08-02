@@ -5,8 +5,8 @@ const CardSport = ({ sport }) => {
     return (
         <>
             <section>
-                <Card className="bg-dark my-2 text-light">
-                    <Card.Title className="my-1">
+                <Card className=" my-2 text-dark">
+                    <Card.Title className="my-1 mx-1">
                         <img
                             style={{ width: '30px', height: '30px' }}
                             src={sport?.poster}

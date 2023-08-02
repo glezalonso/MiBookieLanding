@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 import { toast } from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import Loading from '../../ui/Loading'
@@ -13,7 +13,9 @@ import SectionRoster from './components/SectionRoster'
 const TeamDetails = () => {
     const { id } = useParams()
 
-    const [key, setKey] = useState('plantilla')
+    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
+
+    const [key, setKey] = useState('proximos')
     const { data: team, isLoading, isError } = useGetTeam(id)
 
     if (isLoading) return <Loading />
@@ -22,7 +24,7 @@ const TeamDetails = () => {
         <>
             <NavBar />
             <Container fluid>
-                <Row className="my-2 mx-auto">
+                <Row className="my-2 ">
                     <Col xs={12} md={10} className=" mx-auto rounded-top  ">
                         <CardTeam team={team} setKey={setKey} />
                     </Col>
@@ -30,8 +32,82 @@ const TeamDetails = () => {
                     <Col
                         xs={12}
                         md={10}
-                        className=" bg-light text-dark my-3 rounded  mx-auto shadow-lg"
+                        className=" text-dark my-3 rounded  mx-auto "
                     >
+                        <div className="d-flex mx-auto mt-2 mb-4 justify-content-center gap-2">
+                            {key === 'proximos' ? (
+                                <Button
+                                    size="sm"
+                                    className="btn-warning"
+                                    onClick={() => setKey('proximos')}
+                                >
+                                    Próximos
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className="btn-light"
+                                    onClick={() => setKey('proximos')}
+                                >
+                                    Próximos
+                                </Button>
+                            )}
+
+                            {key === 'posiciones' ? (
+                                team?.sport?._id === ID_FUTBOL ? null : (
+                                    <Button
+                                        size="sm"
+                                        className=" btn-warning "
+                                        onClick={() => setKey('posiciones')}
+                                    >
+                                        Calificación
+                                    </Button>
+                                )
+                            ) : team?.sport?._id === ID_FUTBOL ? null : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light"
+                                    onClick={() => setKey('posiciones')}
+                                >
+                                    Calificación
+                                </Button>
+                            )}
+                            {key === 'plantilla' ? (
+                                <Button
+                                    size="sm"
+                                    className="btn-warning"
+                                    onClick={() => setKey('plantilla')}
+                                >
+                                    Plantilla
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className="btn-light"
+                                    onClick={() => setKey('plantilla')}
+                                >
+                                    Plantilla
+                                </Button>
+                            )}
+
+                            {key === 'pasados' ? (
+                                <Button
+                                    size="sm"
+                                    className="btn-warning"
+                                    onClick={() => setKey('pasados')}
+                                >
+                                    Últimos
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className="btn-light"
+                                    onClick={() => setKey('pasados')}
+                                >
+                                    Últimos
+                                </Button>
+                            )}
+                        </div>
                         {key === 'posiciones' ? (
                             <SectionStandings team={team} />
                         ) : null}

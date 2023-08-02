@@ -29,7 +29,7 @@ const SectionLeaguesBySport = ({ sport }) => {
     return (
         <>
             <section>
-                <h5> Ligas </h5>
+                <h5 className="mx-2"> Ligas </h5>
                 <div className="my-2 mx-auto p-1">
                     <FormControl
                         name="league"
@@ -62,7 +62,25 @@ const SectionLeaguesBySport = ({ sport }) => {
                                             )
                                         }
                                     >
-                                        <td>{league?.league}</td>
+                                        <td>
+                                            <div className="d-flex justify-content-start gap-2">
+                                                <div className="my-1">
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={league?.poster}
+                                                        alt={league?.league}
+                                                    />
+                                                </div>
+                                                <div className="my-1">
+                                                    <span>
+                                                        {league?.league}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
                                         <td>{league?.description}</td>
                                     </tr>
                                 ))}

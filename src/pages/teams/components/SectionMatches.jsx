@@ -48,10 +48,10 @@ const SectionMatches = ({ team, open, title }) => {
                         >
                             <thead className="border-bottom">
                                 <tr>
-                                    <th>Ronda</th>
                                     <th>Fecha</th>
                                     <th>Local</th>
                                     <th>Visitante</th>
+                                    <th>Ronda</th>
                                     {!open ? <th>Marcador</th> : null}
                                 </tr>
                             </thead>
@@ -63,14 +63,56 @@ const SectionMatches = ({ team, open, title }) => {
                                             navigate(`../matches/${match?._id}`)
                                         }
                                     >
-                                        <td>{match?.round?.round}</td>
                                         <td>
                                             {match?.date
                                                 .split('T', 3)
                                                 .join(' ')}
                                         </td>
-                                        <td>{match?.local?.name}</td>
-                                        <td>{match?.away?.name}</td>
+                                        <td>
+                                            <div className="d-flex justify-content-right gap-1">
+                                                <div className="my-1">
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={
+                                                            match?.local?.poster
+                                                        }
+                                                        alt={match?.local?.name}
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <span>
+                                                        {' '}
+                                                        {match?.local?.name}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="d-flex justify-content-right gap-2">
+                                                <div className="my-1">
+                                                    <img
+                                                        style={{
+                                                            width: '20px',
+                                                            height: '20px',
+                                                        }}
+                                                        src={
+                                                            match?.away?.poster
+                                                        }
+                                                        alt={match?.away?.name}
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <span>
+                                                        {' '}
+                                                        {match?.away?.name}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>{match?.round?.round}</td>
                                         <td>
                                             {match?.score?.map(
                                                 (away) => away?.away
