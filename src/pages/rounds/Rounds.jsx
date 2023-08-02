@@ -19,12 +19,12 @@ const Rounds = () => {
         <>
             <NavBar />
             <Container fluid>
-                <Row className="my-2  mx-auto">
+                <Row className="my-2 ">
                     <Col xs={12} md={10} className="mx-auto my-1 ">
                         <CardRound round={round} />
                     </Col>
                 </Row>
-                <Row className="my-2 mx-auto">
+                <Row className="my-2">
                     <Col
                         xs={12}
                         md={10}
