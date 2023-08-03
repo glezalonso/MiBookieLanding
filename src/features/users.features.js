@@ -10,6 +10,7 @@ import {
     addFollow,
     removeFollow,
     getBookies,
+    addAvatar,
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -150,4 +151,16 @@ export const useRemoveFollow = () => {
         },
     })
     return mutationRemove
+}
+
+export const useAddAvatar = () => {
+    const queryClient = useQueryClient()
+    const mutationAdd = useMutation({
+        mutationFn: addAvatar,
+        onSuccess: () => {
+            toast.success('Has cambiado tu avatar')
+            queryClient.invalidateQueries({ queryKey: ['bookie'] })
+        },
+    })
+    return mutationAdd
 }

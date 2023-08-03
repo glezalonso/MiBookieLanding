@@ -29,7 +29,7 @@ const CardProfile = ({ id, user }) => {
                     <div className="d-flex justify-content-between">
                         <div className="d-flex justify-content-center">
                             <Card.Img
-                                src={avatar}
+                                src={user?.avatar || avatar}
                                 style={{ width: '60px', height: '60px' }}
                             />
                             <Card.Title className="my-3">
@@ -61,7 +61,7 @@ const CardProfile = ({ id, user }) => {
                     </div>
                 </Card.Header>
             </Card>
-            <ChangePicture show={show} handleClose={handleClose} />
+            <ChangePicture user={user} show={show} handleClose={handleClose} />
         </>
     )
 }

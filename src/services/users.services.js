@@ -36,3 +36,6 @@ export const addFollow = ({ id, body }) =>
 
 export const removeFollow = ({ id, body }) =>
     axios.put(`/api/bookies/follow/${id}`, body)
+
+export const addAvatar = ({ id, body }) =>
+    axios.put(`/api/bookies/avatar/${id}`, body)
