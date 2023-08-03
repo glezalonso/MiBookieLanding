@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card } from 'react-bootstrap'
 import { useAddFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
 import avatar from '../../../assets/user.png'
+import { GearFill } from 'react-bootstrap-icons'
+import ChangePicture from './ChangePicture'
 
 const CardProfile = ({ id, user }) => {
+    const [show, setShow] = useState(false)
     const userId = useAuthStore((state) => state.profile.id)
     const addFollow = useAddFollow()
+
+    const handleShow = () => setShow(true)
+    const handleClose = () => setShow(false)
 
     const handleFollow = (follow, follower) => {
         addFollow.mutate({ id: follow, body: { follower } })
@@ -18,7 +24,7 @@ const CardProfile = ({ id, user }) => {
 
     return (
         <>
-            <Card className="shadow-md">
+            <Card>
                 <Card.Header>
                     <div className="d-flex justify-content-between">
                         <div className="d-flex justify-content-center">
@@ -44,10 +50,18 @@ const CardProfile = ({ id, user }) => {
                                     </Button>
                                 </Card.Subtitle>
                             ) : null}
+                            {user?._id === userId ? (
+                                <GearFill
+                                    color="grey"
+                                    className="mx-1"
+                                    onClick={handleShow}
+                                />
+                            ) : null}
                         </div>
                     </div>
                 </Card.Header>
             </Card>
+            <ChangePicture show={show} handleClose={handleClose} />
         </>
     )
 }

@@ -5,14 +5,16 @@ import LocalVotes from './LocalVotes'
 import { useAddPickEm } from '../../../features/matches.features'
 import { useAuthStore } from '../../../store/authorization'
 import { toast } from 'react-hot-toast'
+import formatedDate from '../../../utils/formatedDate'
+import formatedHour from '../../../utils/formatedHour'
 
 const CardConsensus = ({ match }) => {
     const id = useAuthStore((state) => state.profile.id)
     const addVote = useAddPickEm()
-    const d = new Date()
-    const h = d.getHours()
-    const m = d.getMinutes()
-    const hour = `${h}:${m}`
+    const date = formatedDate()
+    const hour = formatedHour()
+    const fullDate = `${date}T${hour}`
+    console.log(match?.date > fullDate)
 
     const handleVote = (option, match) => {
         if (!id) return toast.error('Debes iniciar sesión para comentar')
@@ -48,22 +50,21 @@ const CardConsensus = ({ match }) => {
                             <td>
                                 <AwayVotes match={match} />
                             </td>
-                            {/* {match?.date?.split('T').splice(1).toString() >
-                            hour ? ( */}
-                            <td>
-                                <div className="d-flex justify-content-end">
-                                    <Button
-                                        size="sm"
-                                        variant="warning "
-                                        onClick={() =>
-                                            handleVote('away', match?._id)
-                                        }
-                                    >
-                                        Votar
-                                    </Button>
-                                </div>
-                            </td>
-                            {/* ) : null} */}
+                            {match?.date > fullDate ? (
+                                <td>
+                                    <div className="d-flex justify-content-end">
+                                        <Button
+                                            size="sm"
+                                            variant="warning "
+                                            onClick={() =>
+                                                handleVote('away', match?._id)
+                                            }
+                                        >
+                                            Votar
+                                        </Button>
+                                    </div>
+                                </td>
+                            ) : null}
                         </tr>
                         <tr>
                             <td>
@@ -89,23 +90,22 @@ const CardConsensus = ({ match }) => {
                             <td>
                                 <LocalVotes match={match} />
                             </td>
-                            {/* {match?.date?.split('T').splice(1).toString() >
-                            hour ? ( */}
-                            <td>
-                                <div className="d-flex justify-content-end">
-                                    <Button
-                                        style={{ fontSize: '14px' }}
-                                        size="sm"
-                                        variant="warning "
-                                        onClick={() =>
-                                            handleVote('local', match?._id)
-                                        }
-                                    >
-                                        Votar
-                                    </Button>
-                                </div>
-                            </td>
-                            {/* ) : null} */}
+                            {match?.date > fullDate ? (
+                                <td>
+                                    <div className="d-flex justify-content-end">
+                                        <Button
+                                            style={{ fontSize: '14px' }}
+                                            size="sm"
+                                            variant="warning "
+                                            onClick={() =>
+                                                handleVote('local', match?._id)
+                                            }
+                                        >
+                                            Votar
+                                        </Button>
+                                    </div>
+                                </td>
+                            ) : null}
                         </tr>
                     </tbody>
                 </Table>

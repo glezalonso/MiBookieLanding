@@ -21,11 +21,12 @@ const Profile = () => {
             <NavBar />
             <Container>
                 <Row className="my-2">
-                    <Col xs={12} md={3} xl={4} className="my-1 ">
+                    <Col xs={12} sm={5} md={5} xl={4} className="my-1 ">
                         <CardProfile user={user} />
+
                         <SectionRating user={user} />
                     </Col>
-                    <Col xs={12} md={8} xl={7} className="my-1 ">
+                    <Col xs={12} sm={7} md={7} xl={7} className="my-1 ">
                         <ButtonGroup className="d-flex mx-auto mb-2 gap-1  ">
                             {key === 'proximos' ? (
                                 <Button
