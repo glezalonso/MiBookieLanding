@@ -14,7 +14,7 @@ import SectionRating from './components/SectionRating'
 const Profile = () => {
     const { id } = useParams()
     const { data: user } = useGetBookie(id)
-    const [key, setKey] = useState('ultimos')
+    const [key, setKey] = useState('proximos')
 
     return (
         <>
@@ -27,23 +27,6 @@ const Profile = () => {
                     </Col>
                     <Col xs={12} md={8} xl={7} className="my-1 ">
                         <ButtonGroup className="d-flex mx-auto mb-2 gap-1  ">
-                            {key === 'ultimos' ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-warning rounded "
-                                    onClick={() => setKey('ultimos')}
-                                >
-                                    Últimos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light rounded "
-                                    onClick={() => setKey('ultimos')}
-                                >
-                                    Últimos
-                                </Button>
-                            )}
                             {key === 'proximos' ? (
                                 <Button
                                     size="sm"
@@ -61,6 +44,24 @@ const Profile = () => {
                                     Próximos
                                 </Button>
                             )}
+                            {key === 'ultimos' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning rounded "
+                                    onClick={() => setKey('ultimos')}
+                                >
+                                    Últimos
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light rounded "
+                                    onClick={() => setKey('ultimos')}
+                                >
+                                    Últimos
+                                </Button>
+                            )}
+
                             {key === 'contactos' ? (
                                 <Button
                                     size="sm"
@@ -107,10 +108,10 @@ const Profile = () => {
                             )}
                         </ButtonGroup>
                         <section>
-                            {key === 'ultimos' ? <SectionLast id={id} /> : null}
                             {key === 'proximos' ? (
                                 <SectionNext id={id} />
                             ) : null}
+                            {key === 'ultimos' ? <SectionLast id={id} /> : null}
                             {key === 'contactos' ? (
                                 <SectionFollows user={user} />
                             ) : null}
