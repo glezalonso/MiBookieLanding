@@ -34,7 +34,7 @@ const SectionRating = ({ match, id }) => {
                 <div className="d-flex mx-2 justify-content-between border-bottom">
                     <div>
                         <BarChartFill color="dark" size={'20px'} />
-                        <span className="mx-1">Estadísticas</span>
+                        <span className="mx-1">Estadística Mensual</span>
                     </div>
                     <div className="d-flex justify-content-end ">
                         {match?.length < 1 ? null : (

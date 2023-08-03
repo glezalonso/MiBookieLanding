@@ -3,9 +3,11 @@ import { Table } from 'react-bootstrap'
 import { useGetPicksClosed } from '../../features/matches.features'
 import { PersonCircle } from 'react-bootstrap-icons'
 import { Link } from 'react-router-dom'
+import formatedDate from '../../utils/formatedDate'
 
 const SectionBookies = ({ user }) => {
-    const { data: matchesClosed } = useGetPicksClosed(user?._id)
+    const date = formatedDate().slice(0, 7)
+    const { data: matchesClosed } = useGetPicksClosed(user?._id, date)
     const act = matchesClosed?.map((match) => {
         let result = ''
         const away = match?.score?.map((away) => away?.away)
