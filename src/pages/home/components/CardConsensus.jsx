@@ -48,22 +48,22 @@ const CardConsensus = ({ match }) => {
                             <td>
                                 <AwayVotes match={match} />
                             </td>
-                            {match?.date?.split('T').splice(1).toString() >
-                            hour ? (
-                                <td>
-                                    <div className="d-flex justify-content-end">
-                                        <Button
-                                            size="sm"
-                                            variant="warning "
-                                            onClick={() =>
-                                                handleVote('away', match?._id)
-                                            }
-                                        >
-                                            Votar
-                                        </Button>
-                                    </div>
-                                </td>
-                            ) : null}
+                            {/* {match?.date?.split('T').splice(1).toString() >
+                            hour ? ( */}
+                            <td>
+                                <div className="d-flex justify-content-end">
+                                    <Button
+                                        size="sm"
+                                        variant="warning "
+                                        onClick={() =>
+                                            handleVote('away', match?._id)
+                                        }
+                                    >
+                                        Votar
+                                    </Button>
+                                </div>
+                            </td>
+                            {/* ) : null} */}
                         </tr>
                         <tr>
                             <td>
@@ -89,23 +89,23 @@ const CardConsensus = ({ match }) => {
                             <td>
                                 <LocalVotes match={match} />
                             </td>
-                            {match?.date?.split('T').splice(1).toString() >
-                            hour ? (
-                                <td>
-                                    <div className="d-flex justify-content-end">
-                                        <Button
-                                            style={{ fontSize: '14px' }}
-                                            size="sm"
-                                            variant="warning "
-                                            onClick={() =>
-                                                handleVote('local', match?._id)
-                                            }
-                                        >
-                                            Votar
-                                        </Button>
-                                    </div>
-                                </td>
-                            ) : null}
+                            {/* {match?.date?.split('T').splice(1).toString() >
+                            hour ? ( */}
+                            <td>
+                                <div className="d-flex justify-content-end">
+                                    <Button
+                                        style={{ fontSize: '14px' }}
+                                        size="sm"
+                                        variant="warning "
+                                        onClick={() =>
+                                            handleVote('local', match?._id)
+                                        }
+                                    >
+                                        Votar
+                                    </Button>
+                                </div>
+                            </td>
+                            {/* ) : null} */}
                         </tr>
                     </tbody>
                 </Table>
