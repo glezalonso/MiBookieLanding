@@ -1,40 +1,9 @@
 import React from 'react'
 import { Table } from 'react-bootstrap'
-import { useGetPicksClosed } from '../../features/matches.features'
 import { PersonCircle } from 'react-bootstrap-icons'
 import { Link } from 'react-router-dom'
-import formatedDate from '../../utils/formatedDate'
 
 const SectionBookies = ({ user }) => {
-    const date = formatedDate().slice(0, 7)
-    const { data: matchesClosed } = useGetPicksClosed(user?._id, date)
-    const act = matchesClosed?.map((match) => {
-        let result = ''
-        const away = match?.score?.map((away) => away?.away)
-        const local = match?.score?.map((local) => local?.local)
-        if (Number(away) > Number(local)) {
-            result = 'away'
-        } else {
-            result = 'local'
-        }
-
-        const picks = match?.votes?.filter(
-            (vote) => vote?.username?._id === user?._id
-        )
-
-        const aciertos = picks?.map((votes) => {
-            let hits = 0
-            if (votes.option === result) {
-                hits += 1
-            }
-            return hits
-        })
-
-        return aciertos
-    })
-
-    const aciertos = act?.filter((e) => Number(e) === 1)
-
     return (
         <>
             <section className="bg-light rounded p-1 my-1">
@@ -56,15 +25,16 @@ const SectionBookies = ({ user }) => {
                             <td>
                                 <div className="d-flex justify-content-end ">
                                     <div className="my-1 border-start">
-                                        {matchesClosed?.length < 1 ? null : (
+                                        {user?.total < 1 ||
+                                        user?.total === undefined ? null : (
                                             <>
                                                 <p className="mx-2 my-1 text-muted fw-bold">
                                                     Predicción
                                                     <span className="mx-1">
                                                         {Math.round(
-                                                            (aciertos?.length *
+                                                            (user?.success *
                                                                 100) /
-                                                                matchesClosed?.length
+                                                                user?.total
                                                         )}
                                                         %
                                                     </span>

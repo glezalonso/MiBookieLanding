@@ -2,32 +2,7 @@ import React from 'react'
 import { Table } from 'react-bootstrap'
 import { BarChartFill } from 'react-bootstrap-icons'
 
-const SectionRating = ({ match, id }) => {
-    const act = match?.map((match) => {
-        let result = ''
-        const away = match?.score?.map((away) => away?.away)
-        const local = match?.score?.map((local) => local?.local)
-        if (Number(away) > Number(local)) {
-            result = 'away'
-        } else {
-            result = 'local'
-        }
-
-        const picks = match?.votes?.filter((vote) => vote?.username?._id === id)
-
-        const aciertos = picks?.map((votes) => {
-            let hits = 0
-            if (votes.option === result) {
-                hits += 1
-            }
-            return hits
-        })
-
-        return aciertos
-    })
-
-    const aciertos = act?.filter((e) => Number(e) === 1)
-
+const SectionRating = ({ user }) => {
     return (
         <>
             <section className=" bg-light rounded p-2 my-3">
@@ -37,14 +12,15 @@ const SectionRating = ({ match, id }) => {
                         <span className="mx-1">Estadística Mensual</span>
                     </div>
                     <div className="d-flex justify-content-end ">
-                        {match?.length < 1 ? null : (
+                        {user?.total?.legth < 1 ||
+                        user?.total === undefined ? null : (
                             <>
                                 <p className="mx-1 my-1 text-muted fw-bold">
                                     Porcentaje
                                     <span className="mx-1">
                                         {Math.round(
-                                            (aciertos?.length * 100) /
-                                                match?.length
+                                            (user?.success || 0 * 100) /
+                                                user?.total
                                         )}
                                         %
                                     </span>
@@ -56,10 +32,10 @@ const SectionRating = ({ match, id }) => {
                 <Table responsive borderless size="sm" variant="light my-1">
                     <tbody>
                         <tr>
-                            <td>Últimos {match?.length} juegos</td>
+                            <td>Últimos {user?.total} juegos</td>
                             <td className="text-end">
                                 <span className="mx-4 text-dark">
-                                    {match?.length}
+                                    {user?.total}
                                 </span>
                             </td>
                         </tr>
@@ -67,7 +43,7 @@ const SectionRating = ({ match, id }) => {
                             <td>Aciertos</td>
                             <td className="text-end">
                                 <span className="mx-4 text-success">
-                                    {aciertos?.length}
+                                    {user?.success}
                                 </span>
                             </td>
                         </tr>
@@ -75,7 +51,7 @@ const SectionRating = ({ match, id }) => {
                             <td>Fallados</td>
                             <td className="text-end">
                                 <span className="mx-4 text-danger">
-                                    {match?.length - aciertos?.length}
+                                    {user?.failures}
                                 </span>
                             </td>
                         </tr>

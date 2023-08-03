@@ -4,7 +4,7 @@ import NavBar from '../../ui/Navbar'
 import { useGetBookies } from '../../features/users.features'
 import Loading from '../../ui/Loading'
 import { toast } from 'react-hot-toast'
-import SectionBookies from './SectionBookies'
+import SectionBookies from './components/SectionBookies'
 import { useAuthStore } from '../../store/authorization'
 
 const Bookies = () => {
