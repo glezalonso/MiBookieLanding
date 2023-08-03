@@ -9,6 +9,10 @@ import { toast } from 'react-hot-toast'
 const CardConsensus = ({ match }) => {
     const id = useAuthStore((state) => state.profile.id)
     const addVote = useAddPickEm()
+    const d = new Date()
+    const h = d.getHours()
+    const m = d.getMinutes()
+    const hour = `${h}:${m}`
 
     const handleVote = (option, match) => {
         if (!id) return toast.error('Debes iniciar sesión para comentar')
@@ -44,7 +48,8 @@ const CardConsensus = ({ match }) => {
                             <td>
                                 <AwayVotes match={match} />
                             </td>
-                            {match?.status ? (
+                            {match?.date?.split('T').splice(1).toString() >
+                            hour ? (
                                 <td>
                                     <div className="d-flex justify-content-end">
                                         <Button
@@ -84,7 +89,8 @@ const CardConsensus = ({ match }) => {
                             <td>
                                 <LocalVotes match={match} />
                             </td>
-                            {match?.status ? (
+                            {match?.date?.split('T').splice(1).toString() >
+                            hour ? (
                                 <td>
                                     <div className="d-flex justify-content-end">
                                         <Button
