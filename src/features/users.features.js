@@ -11,6 +11,7 @@ import {
     removeFollow,
     getBookies,
     addAvatar,
+    getTopBookies,
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -163,4 +164,13 @@ export const useAddAvatar = () => {
         },
     })
     return mutationAdd
+}
+
+export const useGetTopBookies = () => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['bookies'],
+        queryFn: getTopBookies,
+    })
+
+    return { data, isLoading, isError }
 }

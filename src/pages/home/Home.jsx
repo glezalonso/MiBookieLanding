@@ -3,7 +3,12 @@ import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 import { useGetMatchesToday } from '../../features/matches.features'
 import { useAuthStore } from '../../store/authorization'
 import { toast } from 'react-hot-toast'
-import { Person } from 'react-bootstrap-icons'
+import {
+    Person,
+    Gem,
+    Calendar2Check,
+    Calendar2Event,
+} from 'react-bootstrap-icons'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import Loading from '../../ui/Loading'
@@ -11,20 +16,30 @@ import NavBar from '../../ui/Navbar'
 import BookiesFirends from './components/BookiesFriends'
 import SectionMatches from './components/SectionMatches'
 import SectionLeagues from './components/SectionLeagues'
+import SectionTop from './components/SectionTop'
 
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)
     const [key, setKey] = useState('hoy')
     const [show, setShow] = useState(false)
+    const [showTop, setShowTop] = useState(false)
 
     const date = formatedDate()
     const dateTomorrow = tomorrowDate()
 
     const handleShow = () => {
-        setKey('bookies')
         setShow(true)
     }
     const handleClose = () => {
+        setKey('hoy')
+        setShow(false)
+    }
+    const handleShowTop = () => {
+        setShowTop(true)
+        setShow(false)
+    }
+    const handleCloseTop = () => {
+        setShowTop(false)
         setKey('hoy')
         setShow(false)
     }
@@ -48,7 +63,11 @@ const Home = () => {
                                     className="btn-warning rounded  "
                                     onClick={() => setKey('hoy')}
                                 >
-                                    Partidos hoy
+                                    <Calendar2Check
+                                        color="dark"
+                                        className="mx-1"
+                                    />
+                                    Hoy
                                 </Button>
                             ) : (
                                 <Button
@@ -56,7 +75,11 @@ const Home = () => {
                                     className="btn-light rounded  "
                                     onClick={() => setKey('hoy')}
                                 >
-                                    Partidos hoy
+                                    <Calendar2Check
+                                        color="dark"
+                                        className="mx-1"
+                                    />
+                                    Hoy
                                 </Button>
                             )}
                             {key === 'mañana' ? (
@@ -65,7 +88,11 @@ const Home = () => {
                                     className=" btn-warning rounded  "
                                     onClick={() => setKey('mañana')}
                                 >
-                                    Partidos mañana
+                                    <Calendar2Event
+                                        color="dark"
+                                        className="mx-1"
+                                    />
+                                    Mañana
                                 </Button>
                             ) : (
                                 <Button
@@ -73,9 +100,22 @@ const Home = () => {
                                     className=" btn-light rounded  "
                                     onClick={() => setKey('mañana')}
                                 >
-                                    Partidos mañana
+                                    <Calendar2Event
+                                        color="dark"
+                                        className="mx-1"
+                                    />
+                                    Mañana
                                 </Button>
                             )}
+
+                            <Button
+                                size="sm"
+                                className=" btn-light rounded  "
+                                onClick={() => handleShowTop()}
+                            >
+                                <Gem color="dark" className="mx-1" />
+                                Top
+                            </Button>
 
                             {isLogged ? (
                                 <Button
@@ -113,6 +153,9 @@ const Home = () => {
                 </Row>
                 {isLogged ? (
                     <BookiesFirends show={show} handleClose={handleClose} />
+                ) : null}
+                {isLogged ? (
+                    <SectionTop show={showTop} handleClose={handleCloseTop} />
                 ) : null}
             </Container>
         </>

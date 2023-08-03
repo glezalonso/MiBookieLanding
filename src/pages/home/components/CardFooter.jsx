@@ -12,7 +12,8 @@ const CardFooter = ({ match }) => {
     const handleSubmit = (e, match) => {
         e.preventDefault()
         if (!id) return toast.error('Debes iniciar sesión para comentar')
-        if (comment.length < 1) toast.error('El mensaje debe tener contenido')
+        if (comment.length < 1)
+            return toast.error('El mensaje debe tener contenido')
         addComment.mutate({ id: match, body: { comment, userId: id } })
         setComment('')
     }
