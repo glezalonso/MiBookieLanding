@@ -1,12 +1,14 @@
 import React from 'react'
 import { Table, Card, Button } from 'react-bootstrap'
-import AwayVotes from './AwayVotes'
-import LocalVotes from './LocalVotes'
 import { useAddPickEm } from '../../../features/matches.features'
 import { useAuthStore } from '../../../store/authorization'
 import { toast } from 'react-hot-toast'
+import AwayVotes from './AwayVotes'
+import LocalVotes from './LocalVotes'
+import DrawVotes from './DrawVotes'
 import formatedDate from '../../../utils/formatedDate'
 import formatedHour from '../../../utils/formatedHour'
+import draw from '../../../assets/draw.png'
 
 const CardConsensus = ({ match }) => {
     const id = useAuthStore((state) => state.profile.id)
@@ -14,6 +16,7 @@ const CardConsensus = ({ match }) => {
     const date = formatedDate()
     const hour = formatedHour()
     const fullDate = `${date}T${hour}`
+    const ID_SOCCER = '648f71dea4ba8860dfe3830f'
 
     const handleVote = (option, match) => {
         if (!id) return toast.error('Debes iniciar sesión para comentar')
@@ -27,7 +30,7 @@ const CardConsensus = ({ match }) => {
                     <tbody>
                         <tr>
                             <td>
-                                <div className="d-flex justify-content-cente">
+                                <div className="d-flex ">
                                     <div>
                                         <img
                                             src={match?.away?.poster}
@@ -65,9 +68,50 @@ const CardConsensus = ({ match }) => {
                                 </td>
                             ) : null}
                         </tr>
+                        {match?.sport?._id === ID_SOCCER ? (
+                            <tr>
+                                <td>
+                                    <div className="d-flex ">
+                                        <div>
+                                            <img
+                                                src={draw}
+                                                alt="empate"
+                                                style={{
+                                                    height: '25px',
+                                                    width: '25px',
+                                                }}
+                                            />
+                                        </div>
+                                        <div
+                                            className="mx-1 my-1"
+                                            style={{ fontSize: '13px' }}
+                                        >
+                                            <span>Empate</span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <DrawVotes match={match} />
+                                </td>
+
+                                <td>
+                                    <div className="d-flex justify-content-end">
+                                        <Button
+                                            size="sm"
+                                            variant="warning "
+                                            onClick={() =>
+                                                handleVote('draw', match?._id)
+                                            }
+                                        >
+                                            Votar
+                                        </Button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ) : null}
                         <tr>
                             <td>
-                                <div className="d-flex justify-content-cente">
+                                <div className="d-flex ">
                                     <div>
                                         <img
                                             src={match?.local?.poster}

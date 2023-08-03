@@ -5,8 +5,9 @@ const AwayVotes = ({ match }) => {
     const voteslocal = match?.votes?.filter?.(
         (vote) => vote?.option === 'local'
     )
+    const votesdraw = match?.votes?.filter?.((vote) => vote?.option === 'draw')
 
-    const total = voteslocal.length + votesaway.length
+    const total = voteslocal.length + votesaway?.length + votesdraw?.length
 
     if (match?.votes?.length < 0) return null
 
