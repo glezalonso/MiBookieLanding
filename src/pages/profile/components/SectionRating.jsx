@@ -9,10 +9,11 @@ const SectionRating = ({ user }) => {
                 <div className="d-flex mx-2 justify-content-between border-bottom">
                     <div>
                         <BarChartFill color="dark" size={'20px'} />
-                        <span className="mx-1">Estadística Mensual</span>
+                        <span className="mx-1">Estadísticas</span>
                     </div>
                     <div className="d-flex justify-content-end ">
-                        {user?.total?.legth < 1 ||
+                        {user?.success === undefined ||
+                        user?.total?.legth < 1 ||
                         user?.total === undefined ? null : (
                             <>
                                 <p className="mx-1 my-1 text-muted fw-bold">
@@ -42,7 +43,7 @@ const SectionRating = ({ user }) => {
                             <td>Aciertos</td>
                             <td className="text-end">
                                 <span className="mx-4 text-success">
-                                    {user?.success}
+                                    {user?.success ? user?.success : null}
                                 </span>
                             </td>
                         </tr>

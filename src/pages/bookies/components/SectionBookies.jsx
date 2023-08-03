@@ -25,7 +25,8 @@ const SectionBookies = ({ user }) => {
                             <td>
                                 <div className="d-flex justify-content-end ">
                                     <div className="my-1 border-start">
-                                        {user?.total < 1 ||
+                                        {user?.success === undefined ||
+                                        user?.total?.legth < 1 ||
                                         user?.total === undefined ? null : (
                                             <>
                                                 <p className="mx-2 my-1 text-muted fw-bold">

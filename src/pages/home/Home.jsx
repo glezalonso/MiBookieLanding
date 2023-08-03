@@ -48,7 +48,7 @@ const Home = () => {
                                     className="btn-warning rounded  "
                                     onClick={() => setKey('hoy')}
                                 >
-                                    <span>Partidos hoy</span>
+                                    Partidos hoy
                                 </Button>
                             ) : (
                                 <Button
@@ -56,7 +56,7 @@ const Home = () => {
                                     className="btn-light rounded  "
                                     onClick={() => setKey('hoy')}
                                 >
-                                    <span>Partidos hoy</span>
+                                    Partidos hoy
                                 </Button>
                             )}
                             {key === 'mañana' ? (
@@ -65,7 +65,7 @@ const Home = () => {
                                     className=" btn-warning rounded  "
                                     onClick={() => setKey('mañana')}
                                 >
-                                    <span>Partidos mañana</span>
+                                    Partidos mañana
                                 </Button>
                             ) : (
                                 <Button
@@ -73,7 +73,7 @@ const Home = () => {
                                     className=" btn-light rounded  "
                                     onClick={() => setKey('mañana')}
                                 >
-                                    <span>Partidos mañana</span>
+                                    Partidos mañana
                                 </Button>
                             )}
 

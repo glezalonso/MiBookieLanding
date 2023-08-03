@@ -8,8 +8,9 @@ import SectionFollowers from './components/SectionFollowers'
 import SectionFollows from './components/SectionFollows'
 import CardProfile from './components/CardProfile'
 import { useGetBookie } from '../../features/users.features'
-import { RewindFill, FastForwardFill } from 'react-bootstrap-icons'
+import { PeopleFill, PersonCheckFill } from 'react-bootstrap-icons'
 import SectionRating from './components/SectionRating'
+
 const Profile = () => {
     const { id } = useParams()
     const { data: user } = useGetBookie(id)
@@ -20,56 +21,103 @@ const Profile = () => {
             <NavBar />
             <Container>
                 <Row className="my-2">
-                    <Col xs={12} md={8} xl={7} className="mx-auto">
+                    <Col xs={12} md={3} xl={4} className="my-1 ">
                         <CardProfile user={user} />
-                        <ButtonGroup className="d-flex mx-auto mt-2 gap-2">
-                            <Button
-                                size="sm"
-                                className=" btn-light rounded "
-                                onClick={() => setKey('ultimos')}
-                            >
-                                <span
-                                    style={
-                                        key === 'ultimos'
-                                            ? { fontWeight: 'bold' }
-                                            : null
-                                    }
+                        <SectionRating user={user} />
+                    </Col>
+                    <Col xs={12} md={8} xl={7} className="my-1 ">
+                        <ButtonGroup className="d-flex mx-auto mb-2 gap-1  ">
+                            {key === 'ultimos' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning rounded "
+                                    onClick={() => setKey('ultimos')}
                                 >
-                                    <RewindFill color="dark" className="mx-1" />
-                                    Últimas predicciones
-                                </span>
-                            </Button>
-                            <Button
-                                size="sm"
-                                className=" btn-light rounded "
-                                onClick={() => setKey('proximos')}
-                            >
-                                <span
-                                    style={
-                                        key === 'proximos'
-                                            ? { fontWeight: 'bold' }
-                                            : null
-                                    }
+                                    Últimos
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light rounded "
+                                    onClick={() => setKey('ultimos')}
                                 >
-                                    Próximas predicciones
-                                    <FastForwardFill
+                                    Últimos
+                                </Button>
+                            )}
+                            {key === 'proximos' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning rounded "
+                                    onClick={() => setKey('proximos')}
+                                >
+                                    Próximos
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light rounded "
+                                    onClick={() => setKey('proximos')}
+                                >
+                                    Próximos
+                                </Button>
+                            )}
+                            {key === 'contactos' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning rounded "
+                                    onClick={() => setKey('contactos')}
+                                >
+                                    <PeopleFill color="dark" className="mx-1" />
+                                    Contáctos
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light rounded "
+                                    onClick={() => setKey('contactos')}
+                                >
+                                    <PeopleFill color="dark" className="mx-1" />
+                                    Contáctos
+                                </Button>
+                            )}
+                            {key === 'seguidores' ? (
+                                <Button
+                                    size="sm"
+                                    className=" btn-warning rounded "
+                                    onClick={() => setKey('seguidores')}
+                                >
+                                    <PersonCheckFill
                                         color="dark"
                                         className="mx-1"
                                     />
-                                </span>
-                            </Button>
+                                    Seguidores
+                                </Button>
+                            ) : (
+                                <Button
+                                    size="sm"
+                                    className=" btn-light rounded "
+                                    onClick={() => setKey('seguidores')}
+                                >
+                                    <PersonCheckFill
+                                        color="dark"
+                                        className="mx-1"
+                                    />
+                                    Seguidores
+                                </Button>
+                            )}
                         </ButtonGroup>
                         <section>
-                            <SectionRating user={user} />
                             {key === 'ultimos' ? <SectionLast id={id} /> : null}
                             {key === 'proximos' ? (
                                 <SectionNext id={id} />
                             ) : null}
+                            {key === 'contactos' ? (
+                                <SectionFollows user={user} />
+                            ) : null}
+                            {key === 'seguidores' ? (
+                                <SectionFollowers user={user} />
+                            ) : null}
                         </section>
-                    </Col>
-                    <Col xs={12} md={3} xl={4}>
-                        <SectionFollowers user={user} />
-                        <SectionFollows user={user} />
                     </Col>
                 </Row>
             </Container>
