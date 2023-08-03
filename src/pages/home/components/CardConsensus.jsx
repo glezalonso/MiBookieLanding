@@ -14,7 +14,6 @@ const CardConsensus = ({ match }) => {
     const date = formatedDate()
     const hour = formatedHour()
     const fullDate = `${date}T${hour}`
-    console.log(match?.date > fullDate)
 
     const handleVote = (option, match) => {
         if (!id) return toast.error('Debes iniciar sesión para comentar')
