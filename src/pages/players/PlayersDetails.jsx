@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 import { toast } from 'react-hot-toast'
 import NavBar from '../../ui/Navbar'
 import CardPlayer from './components/CardPlayer'
@@ -24,16 +24,12 @@ const PlayerDetails = () => {
 
             <Container fluid>
                 <Row className="my-2 ">
-                    <Col xs={12} md={10} className=" mx-auto ">
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
                         <CardPlayer player={player} setKey={setKey} />
                     </Col>
 
-                    <Col
-                        xs={12}
-                        md={10}
-                        className=" text-dark my-3 rounded  mx-auto "
-                    >
-                        <div className="d-flex mx-auto mt-2 mb-4 justify-content-center gap-2">
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
+                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
                             {key === 'posiciones' ? (
                                 player?.sport?._id === ID_FUTBOL ? null : (
                                     <Button
@@ -88,7 +84,7 @@ const PlayerDetails = () => {
                                     Úlimos Partidos
                                 </Button>
                             )}
-                        </div>
+                        </ButtonGroup>
                         {key === 'posiciones' ? (
                             <SectionStandings player={player} />
                         ) : null}

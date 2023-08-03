@@ -5,9 +5,16 @@ import { toast } from 'react-hot-toast'
 import CardPick from './CardPick'
 import { Alert } from 'react-bootstrap'
 import SectionRating from './SectionRating'
+import formatedDate from '../../../utils/formatedDate'
 
 const SectionLast = ({ id }) => {
-    const { data: matchesClosed, isError, isLoading } = useGetPicksClosed(id)
+    const date = formatedDate().slice(0, 7)
+
+    const {
+        data: matchesClosed,
+        isError,
+        isLoading,
+    } = useGetPicksClosed(id, date)
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los picks!')
 

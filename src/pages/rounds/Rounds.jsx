@@ -20,16 +20,12 @@ const Rounds = () => {
             <NavBar />
             <Container fluid>
                 <Row className="my-2 ">
-                    <Col xs={12} md={10} className="mx-auto my-1 ">
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
                         <CardRound round={round} />
                     </Col>
                 </Row>
                 <Row className="my-2">
-                    <Col
-                        xs={12}
-                        md={10}
-                        className=" text-dark my-3 rounded  mx-auto "
-                    >
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
                         <SectionMatches round={round} />
                     </Col>
                 </Row>

@@ -133,10 +133,10 @@ export const useGetPicksOpen = (id) => {
     return { data, isLoading, isError }
 }
 
-export const useGetPicksClosed = (id) => {
+export const useGetPicksClosed = (id, date) => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['query', id],
-        queryFn: () => getPicksClosed(id),
+        queryFn: () => getPicksClosed(id, date),
     })
     return { data, isLoading, isError }
 }

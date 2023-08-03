@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 import { toast } from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import Loading from '../../ui/Loading'
@@ -25,16 +25,12 @@ const TeamDetails = () => {
             <NavBar />
             <Container fluid>
                 <Row className="my-2 ">
-                    <Col xs={12} md={10} className=" mx-auto rounded-top  ">
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
                         <CardTeam team={team} setKey={setKey} />
                     </Col>
 
-                    <Col
-                        xs={12}
-                        md={10}
-                        className=" text-dark my-3 rounded  mx-auto "
-                    >
-                        <div className="d-flex mx-auto mt-2 mb-4 justify-content-center gap-2">
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
+                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
                             {key === 'proximos' ? (
                                 <Button
                                     size="sm"
@@ -107,27 +103,29 @@ const TeamDetails = () => {
                                     Últimos
                                 </Button>
                             )}
-                        </div>
-                        {key === 'posiciones' ? (
-                            <SectionStandings team={team} />
-                        ) : null}
-                        {key === 'plantilla' ? (
-                            <SectionRoster team={team} />
-                        ) : null}
-                        {key === 'proximos' ? (
-                            <SectionMatches
-                                team={team}
-                                open={true}
-                                title={'Próximos Partidos'}
-                            />
-                        ) : null}
-                        {key === 'pasados' ? (
-                            <SectionMatches
-                                team={team}
-                                open={false}
-                                title={'Últimos Partidos'}
-                            />
-                        ) : null}
+                        </ButtonGroup>
+                        <section>
+                            {key === 'posiciones' ? (
+                                <SectionStandings team={team} />
+                            ) : null}
+                            {key === 'plantilla' ? (
+                                <SectionRoster team={team} />
+                            ) : null}
+                            {key === 'proximos' ? (
+                                <SectionMatches
+                                    team={team}
+                                    open={true}
+                                    title={'Próximos Partidos'}
+                                />
+                            ) : null}
+                            {key === 'pasados' ? (
+                                <SectionMatches
+                                    team={team}
+                                    open={false}
+                                    title={'Últimos Partidos'}
+                                />
+                            ) : null}
+                        </section>
                     </Col>
                 </Row>
             </Container>

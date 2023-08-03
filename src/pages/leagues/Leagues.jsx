@@ -4,7 +4,7 @@ import { useGetLeague } from '../../features/leagues.features'
 import { toast } from 'react-hot-toast'
 import NavBar from '../../ui/Navbar'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Button } from 'react-bootstrap'
+import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 import SectionLeague from './components/SectionLeague'
 import SectionSeasons from './components/SectionSeasons'
 import SectionMatches from './components/SectionMatches'
@@ -28,12 +28,8 @@ const Leagues = () => {
                     <Col xs={12} md={10} className="mx-auto">
                         <SectionLeague league={league} />
                     </Col>
-                    <Col
-                        xs={12}
-                        md={10}
-                        className=" mx-auto justify-content-center "
-                    >
-                        <div className="d-flex mx-auto my-2 justify-content-center gap-2">
+                    <Col xs={12} md={8} className="p-1 mx-auto ">
+                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
                             {key === 'proximos' ? (
                                 <Button
                                     size="sm"
@@ -85,24 +81,25 @@ const Leagues = () => {
                                     Últimos partidos
                                 </Button>
                             )}
-                        </div>
-                    </Col>
-                    <Col xs={12} md={10} className="mx-auto p-1 text-dark my-3">
-                        {key === 'temporadas' ? (
-                            <SectionSeasons league={league} />
-                        ) : null}
-                        {key === 'proximos' ? (
-                            <SectionMatches
-                                league={league}
-                                query={useGetMatchesOpenByLeague}
-                            />
-                        ) : null}
-                        {key === 'ultimos' ? (
-                            <SectionMatches
-                                league={league}
-                                query={useGetMatchesClosedByLeague}
-                            />
-                        ) : null}
+                        </ButtonGroup>
+                        <section>
+                            {' '}
+                            {key === 'temporadas' ? (
+                                <SectionSeasons league={league} />
+                            ) : null}
+                            {key === 'proximos' ? (
+                                <SectionMatches
+                                    league={league}
+                                    query={useGetMatchesOpenByLeague}
+                                />
+                            ) : null}
+                            {key === 'ultimos' ? (
+                                <SectionMatches
+                                    league={league}
+                                    query={useGetMatchesClosedByLeague}
+                                />
+                            ) : null}
+                        </section>
                     </Col>
                 </Row>
             </Container>
