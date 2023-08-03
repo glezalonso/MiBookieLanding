@@ -19,8 +19,7 @@ const SectionRating = ({ user }) => {
                                     Porcentaje
                                     <span className="mx-1">
                                         {Math.round(
-                                            (user?.success || 0 * 100) /
-                                                user?.total
+                                            (user?.success * 100) / user?.total
                                         )}
                                         %
                                     </span>
