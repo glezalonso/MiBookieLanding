@@ -14,13 +14,13 @@ const CardSectionAway = ({ match }) => {
                         }}
                     />
                 </div>
-                <div className="mx-2  ">
+                <div className="mx-1 ">
                     <div>
-                        <span className="fw-bold text-muted fs-6">
+                        <span className="fw-bold mx-1 text-muted fs-6">
                             {match?.away?.name}
                         </span>
                     </div>
-                    <div>
+                    <div className="mx-1">
                         <CardStandingAway match={match} />
                     </div>
                 </div>

@@ -4,7 +4,7 @@ import CardStandingLocal from './CardStandingLocal'
 const CardSectionLocal = ({ match }) => {
     return (
         <>
-            <div className="d-flex align-items-center ">
+            <div className="d-flex align-items-center  ">
                 <div>
                     <img
                         src={match?.local?.poster}
@@ -15,13 +15,13 @@ const CardSectionLocal = ({ match }) => {
                         }}
                     />
                 </div>
-                <div className="mx-2">
+                <div className="mx-1 ">
                     <div>
-                        <span className="fw-bold text-muted fs-6">
+                        <span className="fw-bold mx-1 text-muted fs-6">
                             {match?.local?.name}
                         </span>
                     </div>
-                    <div>
+                    <div className="mx-1">
                         <CardStandingLocal match={match} />
                     </div>
                 </div>
