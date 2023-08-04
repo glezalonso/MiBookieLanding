@@ -8,7 +8,9 @@ const SectionTop = ({ show, handleClose }) => {
     let i = 0
     const { data: users } = useGetTopBookies()
     const navigate = useNavigate()
-    const topUsers = users?.sort((a, b) => b?.success - a?.success)
+    const topUsers = users?.sort(
+        (a, b) => (b?.success * 100) / b?.total - (a?.success * 100) / a?.total
+    )
 
     return (
         <>
@@ -30,7 +32,8 @@ const SectionTop = ({ show, handleClose }) => {
                                 <th>Bookie</th>
                                 <th>Juegos</th>
                                 <th>Aciertos</th>
-                                <th>Fallos</th>
+
+                                <th>Efect.</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,8 +59,12 @@ const SectionTop = ({ show, handleClose }) => {
                                         {users?.success}
                                     </td>
 
-                                    <td className="text-center">
-                                        {users?.failures}
+                                    <td className="text-center text-muted fw-bold">
+                                        {Math.round(
+                                            (users?.success * 100) /
+                                                users?.total
+                                        )}
+                                        %
                                     </td>
                                 </tr>
                             ))}
