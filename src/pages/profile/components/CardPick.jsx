@@ -1,5 +1,10 @@
 import React from 'react'
 import { Card, Table } from 'react-bootstrap'
+import CardSectionAway from '../../comuncomponents/CardSectionAway'
+import AwayScore from '../../comuncomponents/AwayScore'
+import CardSectionLocal from '../../comuncomponents/CardSectionLocal'
+import LocalScore from '../../comuncomponents/LocalScore'
+import CardHeader from '../../comuncomponents/CardHeader'
 
 const CardPick = ({ match, id }) => {
     let result = ''
@@ -12,77 +17,35 @@ const CardPick = ({ match, id }) => {
     const local = match?.score?.map((local) => local?.local)
     if (Number(away) > Number(local)) {
         result = 'away'
-    } else {
+    } else if (Number(away) < Number(local)) {
         result = 'local'
+    } else {
+        result = 'draw'
     }
 
     return (
         <>
             <Card className="shadow-xl my-2">
                 <Card.Header>
-                    <div className="d-flex justify-content-start">
-                        <span
-                            style={{ fontSize: '13px' }}
-                            className="text-secondary"
-                        >
-                            {match?.date?.split('T').reverse().join(' ')}
-                        </span>
-                    </div>
-                    <div></div>
+                    <CardHeader match={match} />
                 </Card.Header>
                 <Card.Body>
                     <Table responsive size="sm" borderless className="my-1">
                         <tbody>
                             <tr>
                                 <td>
-                                    <div className="d-flex align-items-center">
-                                        <img
-                                            src={match?.away?.poster}
-                                            alt={match?.away?.name}
-                                            style={{
-                                                height: '30px',
-                                                width: '30px',
-                                            }}
-                                        />
-                                        <div className="mx-1">
-                                            <p className="fw-bold my-1">
-                                                {match?.away?.name}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <CardSectionAway match={match} />
                                 </td>
-                                <td>
-                                    <div className="d-flex justify-content-center">
-                                        {match?.score?.map(
-                                            (away) => away?.away
-                                        )}
-                                    </div>
+                                <td className="text-end">
+                                    <AwayScore match={match} />
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <div className="d-flex align-items-center">
-                                        <img
-                                            src={match?.local?.poster}
-                                            alt={match?.local?.name}
-                                            style={{
-                                                height: '30px',
-                                                width: '30px',
-                                            }}
-                                        />
-                                        <div className="mx-1">
-                                            <p className="fw-bold my-1">
-                                                {match?.local?.name}
-                                            </p>
-                                        </div>
-                                    </div>
+                                    <CardSectionLocal match={match} />
                                 </td>
-                                <td>
-                                    <div className="d-flex justify-content-center">
-                                        {match?.score?.map(
-                                            (local) => local?.local
-                                        )}
-                                    </div>
+                                <td className="text-end">
+                                    <LocalScore match={match} />
                                 </td>
                             </tr>
                         </tbody>
@@ -111,7 +74,6 @@ const CardPick = ({ match, id }) => {
                             </div>
 
                             <div>
-                                {}
                                 {!match.status ? (
                                     votes?.option === result ? (
                                         <span

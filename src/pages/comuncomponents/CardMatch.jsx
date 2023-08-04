@@ -5,7 +5,7 @@ import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardConsensus from './CardConsensus'
 import CardFooter from './CardFooter'
-import CardStatus from './CardStatus'
+import CardHeader from './CardHeader'
 import CardSectionAway from './CardSectionAway'
 import CardSectionLocal from './CardSectionLocal'
 import AwayScore from './AwayScore'
@@ -39,20 +39,7 @@ const CardMatch = ({ match }) => {
         <>
             <Card className="shadow-lg my-1">
                 <Card.Header className=" border-secondary border-bottom">
-                    <div className="d-flex justify-content-between">
-                        <div className="d-flex justify-content-start">
-                            <span
-                                style={{ fontSize: '14px' }}
-                                className="text-secondary"
-                            >
-                                {match?.league?.league}
-                            </span>
-                        </div>
-                        <div className="d-flex justify-content-end">
-                            <CardStatus match={match} />
-                        </div>
-                    </div>
-
+                    <CardHeader match={match} />
                     <Table
                         responsive
                         size="sm"
