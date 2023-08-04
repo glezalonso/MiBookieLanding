@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Card, FormControl, Form, Button } from 'react-bootstrap'
-import { useAuthStore } from '../../../store/authorization'
-import { useAddComment } from '../../../features/matches.features'
+import { useAuthStore } from '../../store/authorization'
+import { useAddComment } from '../../features/matches.features'
 import { toast } from 'react-hot-toast'
 
 const CardFooter = ({ match }) => {

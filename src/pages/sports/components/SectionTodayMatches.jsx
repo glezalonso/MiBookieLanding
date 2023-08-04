@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
+import { Alert, FormControl, Badge } from 'react-bootstrap'
 import { useGetMatchesToday } from '../../../features/matches.features'
-import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import { Alert, Table, FormControl, Badge } from 'react-bootstrap'
 import Loading from '../../../ui/Loading'
 import formatedDate from '../../../utils/formatedDate'
+import TableMatch from '../../comuncomponents/TableMatch'
 
 const SectionTodayMatches = ({ sport }) => {
     const [filter, setFilter] = useState('')
     const date = formatedDate()
     const { data, isLoading, isError } = useGetMatchesToday(date)
-    const navigate = useNavigate()
 
     if (isLoading) return <Loading />
 
@@ -44,101 +43,7 @@ const SectionTodayMatches = ({ sport }) => {
                 </div>
 
                 {filterMatch?.length > 0 ? (
-                    <div className="bg-light rounded section-tables  vh-50">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <tbody>
-                                {filterMatch?.map((match) => (
-                                    <tr
-                                        className="border-bottom "
-                                        key={match?._id}
-                                        onClick={() =>
-                                            navigate(`../matches/${match?._id}`)
-                                        }
-                                    >
-                                        <td className="text-center">
-                                            <div className="my-3">
-                                                <span>
-                                                    {match?.date
-                                                        .split('T')
-                                                        .splice(1)
-                                                        .reverse()
-                                                        .join(' ')}
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-start my-1 gap-1">
-                                                <div>
-                                                    <img
-                                                        style={{
-                                                            width: '20px',
-                                                            height: '20px',
-                                                        }}
-                                                        src={
-                                                            match?.local?.poster
-                                                        }
-                                                        alt={match?.local?.name}
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <span className="mx-1">
-                                                        {match?.local?.name}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                            <div className="d-flex justify-content-start my-1 gap-1">
-                                                <div>
-                                                    <img
-                                                        style={{
-                                                            width: '20px',
-                                                            height: '20px',
-                                                        }}
-                                                        src={
-                                                            match?.away?.poster
-                                                        }
-                                                        alt={match?.away?.name}
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <span className="mx-1">
-                                                        {match?.away?.name}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-center my-1 ">
-                                                <div>
-                                                    <strong>
-                                                        {match?.score?.map(
-                                                            (score) =>
-                                                                score?.away
-                                                        )}
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                            <div className="d-flex justify-content-center my-1 ">
-                                                <div>
-                                                    <strong>
-                                                        {match?.score?.map(
-                                                            (score) =>
-                                                                score?.local
-                                                        )}
-                                                    </strong>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </Table>
-                    </div>
+                    <TableMatch match={filterMatch} />
                 ) : (
                     <Alert variant="warning">
                         No hay partidos para mostrar!

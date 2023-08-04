@@ -1,10 +1,14 @@
 import React from 'react'
+import { Container, Row, Col } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
+
+// UI section
 import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
-import { Container, Row, Col } from 'react-bootstrap'
-import CardMatch from '../home/components/CardMatch'
+
+// Sections
+import CardMatch from '../comuncomponents/CardMatch'
 import SectionLineUps from './components/SectionLineUps'
 
 import { useGetMatch } from '../../features/matches.features'
@@ -19,7 +23,6 @@ const Matches = () => {
     return (
         <>
             <NavBar />
-
             <Container>
                 <Row className="my-2 ">
                     <Col xs={12} md={8} className="rounded mx-auto my-1 ">

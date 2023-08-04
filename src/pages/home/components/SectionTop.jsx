@@ -5,9 +5,9 @@ import { useGetTopBookies } from '../../../features/users.features'
 import { PersonCircle } from 'react-bootstrap-icons'
 
 const SectionTop = ({ show, handleClose }) => {
-    const navigate = useNavigate()
     let i = 0
     const { data: users } = useGetTopBookies()
+    const navigate = useNavigate()
     const topUsers = users?.sort((a, b) => b?.success - a?.success)
 
     return (

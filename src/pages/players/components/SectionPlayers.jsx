@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import { Alert, FormControl, Table } from 'react-bootstrap'
-import Loading from '../../../ui/Loading'
 import { useGetPlayers } from '../../../features/players.features'
+
+import Loading from '../../../ui/Loading'
 
 const SectionPlayers = () => {
     const [filter, setFilter] = useState('')

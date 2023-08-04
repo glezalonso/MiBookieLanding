@@ -3,7 +3,9 @@ import React from 'react'
 const LocalScore = ({ match }) => {
     return (
         <>
-            <strong>{match?.score?.map((score) => score?.local)}</strong>
+            <div className="my-1">
+                <strong>{match?.score?.map((score) => score?.local)}</strong>
+            </div>
         </>
     )
 }

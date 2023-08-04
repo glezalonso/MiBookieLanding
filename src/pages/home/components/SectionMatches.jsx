@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-
 import { Alert, FormControl, Badge } from 'react-bootstrap'
-
-import CardMatch from './CardMatch'
+import CardMatch from '../../comuncomponents/CardMatch'
 
 const SectionMatches = ({ matches }) => {
     const [filter, setFilter] = useState('')

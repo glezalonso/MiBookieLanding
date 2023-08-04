@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { Alert, FormControl, Badge } from 'react-bootstrap'
 import { useGetNextMatchesBySport } from '../../../features/matches.features'
-import { useNavigate } from 'react-router-dom'
+
 import { toast } from 'react-hot-toast'
-import { Alert, Table, FormControl, Badge } from 'react-bootstrap'
+
 import Loading from '../../../ui/Loading'
+import TableMatche from '../../comuncomponents/TableMatch'
 
 const SectionNextMatches = ({ sport }) => {
     const [filter, setFilter] = useState('')
@@ -12,7 +14,6 @@ const SectionNextMatches = ({ sport }) => {
         isLoading,
         isError,
     } = useGetNextMatchesBySport(sport?._id)
-    const navigate = useNavigate()
 
     if (isLoading) return <Loading />
 
@@ -44,84 +45,7 @@ const SectionNextMatches = ({ sport }) => {
                 </div>
 
                 {filterMatch?.length > 0 ? (
-                    <div className="bg-light rounded section-tables  vh-50">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom border-secondary">
-                                <tr>
-                                    <th>Fecha</th>
-                                    <th>Local</th>
-                                    <th>Visita</th>
-                                    <th>Ronda</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {filterMatch?.map((match) => (
-                                    <tr
-                                        key={match?._id}
-                                        onClick={() =>
-                                            navigate(`../matches/${match?._id}`)
-                                        }
-                                    >
-                                        <td>
-                                            {match?.date
-                                                .split('T', 3)
-                                                .reverse()
-                                                .join(' ')}
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-right gap-1">
-                                                <div className="my-1">
-                                                    <img
-                                                        style={{
-                                                            width: '20px',
-                                                            height: '20px',
-                                                        }}
-                                                        src={
-                                                            match?.local?.poster
-                                                        }
-                                                        alt={match?.local?.name}
-                                                    />
-                                                </div>
-                                                <div className="mx-1">
-                                                    <span>
-                                                        {match?.local?.name}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-right gap-1">
-                                                <div className="my-1">
-                                                    <img
-                                                        style={{
-                                                            width: '20px',
-                                                            height: '20px',
-                                                        }}
-                                                        src={
-                                                            match?.away?.poster
-                                                        }
-                                                        alt={match?.away?.name}
-                                                    />
-                                                </div>
-                                                <div>
-                                                    <span>
-                                                        {match?.away?.name}
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td>{match?.round?.round}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </Table>
-                    </div>
+                    <TableMatche match={filterMatch} />
                 ) : (
                     <Alert variant="warning">
                         No hay partidos para mostrar!

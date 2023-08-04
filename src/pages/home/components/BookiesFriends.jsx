@@ -49,10 +49,10 @@ const BookiesFirends = ({ show, handleClose }) => {
                 <Modal.Footer className="bg-dark text-white">
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
-                            Quieres buscar otro bookie?{' '}
+                            Quieres buscar otro bookie?
                             <Link
                                 to={'../bookies'}
-                                className="text-warning text-decoration-none"
+                                className="text-warning text-decoration-none mx-1"
                             >
                                 Buscar
                             </Link>

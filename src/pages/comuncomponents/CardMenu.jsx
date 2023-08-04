@@ -2,13 +2,7 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import { ChatDots, People, GraphUp } from 'react-bootstrap-icons'
 
-const CardMenu = ({
-    match,
-
-    handleComments,
-    handleConsensus,
-    handleLineUp,
-}) => {
+const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
     return (
         <>
             <div className="border-top ">

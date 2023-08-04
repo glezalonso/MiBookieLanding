@@ -1,10 +1,14 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import Loading from '../../ui/Loading'
 import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 import { useGetSport } from '../../features/sports.features'
+
+//  UI sections
+import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
+
+// Section
 import CardSport from './components/CardSport'
 import SectionLeaguesBySport from './components/SectionLeaguesBySport'
 import SectionTodayMatches from './components/SectionTodayMatches'
@@ -107,7 +111,7 @@ const Sports = () => {
                                     className=" btn-warning "
                                     onClick={() => setKey('mas')}
                                 >
-                                    Más
+                                    Jug. y equi.
                                 </Button>
                             ) : (
                                 <Button
@@ -115,7 +119,7 @@ const Sports = () => {
                                     className=" btn-light "
                                     onClick={() => setKey('mas')}
                                 >
-                                    Más
+                                    Jug. y equi.
                                 </Button>
                             )}
                         </ButtonGroup>
@@ -139,28 +143,15 @@ const Sports = () => {
 
                             {key === 'mas' ? (
                                 <Row>
-                                    <Col
-                                        style={
-                                            sport?._id === ID_TENNIS
-                                                ? {
-                                                      display: 'none',
-                                                  }
-                                                : null
-                                        }
-                                        md={5}
-                                        className="mx-auto my-1 min-vh-75 m-vh-100"
-                                    >
-                                        <SectionTeams
-                                            style={
-                                                sport?._id === ID_TENNIS
-                                                    ? {
-                                                          display: 'none',
-                                                      }
-                                                    : null
-                                            }
-                                            sport={sport}
-                                        />
-                                    </Col>
+                                    {sport?._id !== ID_TENNIS ? (
+                                        <Col
+                                            md={5}
+                                            className="mx-auto my-1 min-vh-75 m-vh-100"
+                                        >
+                                            <SectionTeams sport={sport} />
+                                        </Col>
+                                    ) : null}
+
                                     <Col
                                         md={5}
                                         className="mx-auto my-1 min-vh-75 m-vh-100"

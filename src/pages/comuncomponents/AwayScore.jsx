@@ -3,7 +3,9 @@ import React from 'react'
 const AwayScore = ({ match }) => {
     return (
         <>
-            <strong>{match?.score?.map((score) => score?.away)}</strong>
+            <div className="my-1">
+                <strong>{match?.score?.map((score) => score?.away)}</strong>
+            </div>
         </>
     )
 }
