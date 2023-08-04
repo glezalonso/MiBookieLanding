@@ -65,13 +65,14 @@ const CardConsensus = ({ match }) => {
                                 <td>
                                     <DrawVotes match={match} />
                                 </td>
-
-                                <td>
-                                    <DrawVote
-                                        match={match}
-                                        handleVote={handleVote}
-                                    />
-                                </td>
+                                {match?.date > fullDate ? (
+                                    <td>
+                                        <DrawVote
+                                            match={match}
+                                            handleVote={handleVote}
+                                        />
+                                    </td>
+                                ) : null}
                             </tr>
                         ) : null}
                         <tr>
