@@ -39,6 +39,11 @@ const SectionTop = ({ show, handleClose }) => {
                         <tbody>
                             {topUsers?.map((users) => (
                                 <tr
+                                    style={
+                                        i === 2
+                                            ? { borderBottom: '1px solid grey' }
+                                            : null
+                                    }
                                     onClick={() =>
                                         navigate(`../profile/${users?._id}`)
                                     }
