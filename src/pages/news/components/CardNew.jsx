@@ -41,7 +41,7 @@ const CardNew = ({ content }) => {
                                     className="mx-1"
                                     onClick={() => setSeeMore(!seeMore)}
                                 >
-                                    Ver más
+                                    {seeMore ? `Ver menos` : `Ver más`}
                                 </Link>
                                 <div className="d-flex justify-content-end">
                                     <Clock className="my-1 mx-1" />
