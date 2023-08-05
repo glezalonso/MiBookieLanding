@@ -15,7 +15,6 @@ const CardSeason = ({ season }) => {
                         <div>
                             <div className="mx-1 mt-2">
                                 <span className=" mx-1 fs-5">
-                                    {' '}
                                     {season?.season}
                                 </span>
                             </div>

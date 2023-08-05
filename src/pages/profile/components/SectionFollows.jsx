@@ -5,7 +5,7 @@ import { useRemoveFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
 import { PersonDash, PeopleFill, PersonCircle } from 'react-bootstrap-icons'
 
-const SectionFollows = ({ user }) => {
+const SectionFollows = ({ user, setKey }) => {
     const userId = useAuthStore((state) => state.profile.id)
     const removeFollow = useRemoveFollow()
     const navigate = useNavigate()
@@ -16,6 +16,12 @@ const SectionFollows = ({ user }) => {
             return removeFollow.mutate({ id: follow, body: { follower } })
         }
     }
+
+    const handleNavigate = (follower) => {
+        setKey('proximos')
+        navigate(`../profile/${follower?._id}`)
+    }
+
     return (
         <>
             <section className=" bg-light rounded p-2 my-3">
@@ -35,11 +41,7 @@ const SectionFollows = ({ user }) => {
                             <tbody>
                                 {user?.follow?.map((follower) => (
                                     <tr
-                                        onClick={() =>
-                                            navigate(
-                                                `../profile/${follower?._id}`
-                                            )
-                                        }
+                                        onClick={() => handleNavigate(follower)}
                                         key={follower?._id}
                                     >
                                         <td>

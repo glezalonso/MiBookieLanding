@@ -114,10 +114,10 @@ const Profile = () => {
                             ) : null}
                             {key === 'ultimos' ? <SectionLast id={id} /> : null}
                             {key === 'contactos' ? (
-                                <SectionFollows user={user} />
+                                <SectionFollows user={user} setKey={setKey} />
                             ) : null}
                             {key === 'seguidores' ? (
-                                <SectionFollowers user={user} />
+                                <SectionFollowers user={user} setKey={setKey} />
                             ) : null}
                         </section>
                     </Col>

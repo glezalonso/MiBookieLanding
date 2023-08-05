@@ -29,20 +29,25 @@ const CardNew = ({ content }) => {
                                     </div>
                                 </div>
                             </td>
-                            <td className="text-rightr">
-                                {seeMore
-                                    ? content?.content
-                                    : `${content?.content?.slice(
-                                          0,
-                                          150
-                                      )}.......`}
+                            <td>
+                                <h5 className="fw-bold fs-6">
+                                    {content?.title}
+                                </h5>
+                                <p>
+                                    {seeMore
+                                        ? content?.content
+                                        : `${content?.content?.slice(
+                                              0,
+                                              150
+                                          )}.......`}
 
-                                <Link
-                                    className="mx-1"
-                                    onClick={() => setSeeMore(!seeMore)}
-                                >
-                                    {seeMore ? `Ver menos` : `Ver más`}
-                                </Link>
+                                    <Link
+                                        className="mx-1"
+                                        onClick={() => setSeeMore(!seeMore)}
+                                    >
+                                        {seeMore ? `Ver menos` : `Ver más`}
+                                    </Link>
+                                </p>
                                 <div className="d-flex my-1 justify-content-end text-muted">
                                     <Clock className="my-1 mx-1" />
                                     {content?.date

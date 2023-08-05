@@ -3,8 +3,13 @@ import { Table, Alert } from 'react-bootstrap'
 import { PersonFillCheck, Person } from 'react-bootstrap-icons'
 import { useNavigate } from 'react-router-dom'
 
-const SectionFollowers = ({ user }) => {
+const SectionFollowers = ({ user, setKey }) => {
     const navigate = useNavigate()
+
+    const handleNavigate = (follower) => {
+        setKey('proximos')
+        navigate(`../profile/${follower?._id}`)
+    }
     return (
         <>
             <section className=" bg-light rounded p-2 my-3">
@@ -24,11 +29,7 @@ const SectionFollowers = ({ user }) => {
                             <tbody>
                                 {user?.followers?.map((follower) => (
                                     <tr
-                                        onClick={() =>
-                                            navigate(
-                                                `../profile/${follower?._id}`
-                                            )
-                                        }
+                                        onClick={() => handleNavigate(follower)}
                                         key={follower?._id}
                                     >
                                         <td>

@@ -107,29 +107,32 @@ const Home = () => {
                                     Mañana
                                 </Button>
                             )}
-
-                            <Button
-                                size="sm"
-                                className=" btn-light rounded  "
-                                onClick={() => handleShowTop()}
-                            >
-                                <Gem color="dark" className="mx-1" />
-                                Top
-                            </Button>
-
                             {isLogged ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light rounded "
-                                    onClick={() => handleShow()}
-                                >
-                                    <Person
-                                        size={'18px'}
-                                        color="dark"
-                                        className="mx-1"
-                                    />
-                                    <span className="my-1">Mis Bookies</span>
-                                </Button>
+                                <>
+                                    <Button
+                                        size="sm"
+                                        className=" btn-light rounded  "
+                                        onClick={() => handleShowTop()}
+                                    >
+                                        <Gem color="dark" className="mx-1" />
+                                        Top
+                                    </Button>
+
+                                    <Button
+                                        size="sm"
+                                        className=" btn-light rounded "
+                                        onClick={() => handleShow()}
+                                    >
+                                        <Person
+                                            size={'18px'}
+                                            color="dark"
+                                            className="mx-1"
+                                        />
+                                        <span className="my-1">
+                                            Mis Bookies
+                                        </span>
+                                    </Button>
+                                </>
                             ) : null}
                         </ButtonGroup>
                         <section>
