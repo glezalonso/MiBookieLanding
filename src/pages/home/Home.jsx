@@ -161,6 +161,9 @@ const Home = () => {
                     <SectionTop show={showTop} handleClose={handleCloseTop} />
                 ) : null}
             </Container>
+            <Container fluid className="bg-dark text-light text-center">
+                <p>&copy; Mi Bookie</p>
+            </Container>
         </>
     )
 }

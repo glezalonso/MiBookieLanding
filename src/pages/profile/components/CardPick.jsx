@@ -65,9 +65,9 @@ const CardPick = ({ match, id }) => {
                                     Tu pronóstico:
                                     <strong className="mx-1">
                                         {votes?.option === 'local' ? (
-                                            <span>local</span>
+                                            <span>Local</span>
                                         ) : votes?.option === 'away' ? (
-                                            <span>visitante</span>
+                                            <span>Visitante</span>
                                         ) : (
                                             <span>Empate</span>
                                         )}

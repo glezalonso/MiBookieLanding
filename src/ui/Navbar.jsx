@@ -35,8 +35,8 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar expand="lg" bg="dark" sticky="top" data-bs-theme="dark">
-                <Container>
+            <Navbar expand="" bg="dark" sticky="top" data-bs-theme="dark">
+                <Container fluid>
                     <Navbar.Brand>
                         <Link to={'/'} className="nav-link">
                             <div className="d-flex justify-content-center">
@@ -50,7 +50,7 @@ function NavBar() {
                                         alt="Mi Bookie"
                                     />
                                 </div>
-                                <div className="my-1">
+                                <div className="my-1 text-center">
                                     <span className="mx-1">Mi Bookie</span>
                                 </div>
                             </div>

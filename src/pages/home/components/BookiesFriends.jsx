@@ -16,35 +16,43 @@ const BookiesFirends = ({ show, handleClose }) => {
                     <Modal.Title>Mis Bookies</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Table
-                        responsive
-                        size="sm"
-                        hover
-                        borderless
-                        className="my-1"
+                    <div
+                        style={{
+                            maxHeight: '400px',
+                            overflow: 'auto',
+                        }}
                     >
-                        <tbody>
-                            {user?.follow?.map((users) => (
-                                <tr key={users?._id}>
-                                    <td>
-                                        <PersonCircle
-                                            color="dark"
-                                            className="mx-1"
-                                        />
-                                        {users?.username}
-                                    </td>
-                                    <td>
-                                        <Link
-                                            to={`../profile/${users?._id}`}
-                                            className="btn btn-dark btn-sm"
-                                        >
-                                            Perfil
-                                        </Link>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </Table>
+                        <Table
+                            style={{ height: '25px' }}
+                            responsive
+                            size="sm"
+                            hover
+                            borderless
+                            className="my-1"
+                        >
+                            <tbody>
+                                {user?.follow?.map((users) => (
+                                    <tr key={users?._id}>
+                                        <td>
+                                            <PersonCircle
+                                                color="dark"
+                                                className="mx-1"
+                                            />
+                                            {users?.username}
+                                        </td>
+                                        <td>
+                                            <Link
+                                                to={`../profile/${users?._id}`}
+                                                className="btn btn-dark btn-sm"
+                                            >
+                                                Perfil
+                                            </Link>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    </div>
                 </Modal.Body>
                 <Modal.Footer className="bg-dark text-white">
                     <div className="d-flex flex-row justify-content-end ">
