@@ -28,7 +28,7 @@ const CardNew = ({ content }) => {
                                 </div>
                             </td>
                             <td>
-                                {content?.content}.......
+                                {content?.content}
                                 <div className="d-flex justify-content-end">
                                     <Clock className="my-1 mx-1" />
                                     {content?.date
