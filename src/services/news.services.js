@@ -1,6 +1,11 @@
 import axios from '../libs/axios'
 
-export const getNewsBySport = async (sport) => {
-    const { data } = await axios.post('/api/news/newsbysport', { sport })
+export const getNews = async () => {
+    const { data } = await axios.get('/api/news/')
+    return data
+}
+
+export const GetNew = async (id) => {
+    const { data } = await axios.get(`/api/news/${id}`)
     return data
 }

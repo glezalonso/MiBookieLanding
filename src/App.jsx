@@ -17,6 +17,8 @@ import GenerateCode from './pages/home/components/GenerateCode'
 import VerifyCode from './pages/home/components/VerifyCode'
 import ResetPassword from './pages/home/components/ResetPassword'
 import Bookies from './pages/bookies/Bookies'
+import News from './pages/news/News'
+import NewDetails from './pages/news/NewDetails'
 
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
@@ -40,6 +42,8 @@ const App = () => {
                         <Route path="/profile/:id" element={<Profile />} />
                         <Route path="/bookies" element={<Bookies />} />
                     </Route>
+                    <Route path="/news" element={<News />} />
+                    <Route path="/news/:id" element={<NewDetails />} />
                     <Route path="/generate" element={<GenerateCode />} />
                     <Route path="/verify" element={<VerifyCode />} />
                     <Route path="/reset" element={<ResetPassword />} />

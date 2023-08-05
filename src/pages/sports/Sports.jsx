@@ -16,7 +16,6 @@ import SectionPlayersBySport from './components/SectionPlayersBySport'
 import SectionSeasonsBySport from './components/SectionSeasonsBySport'
 import SectionPlayersTennis from './components/SectionPlayersTennis'
 import SectionTeams from './components/SectionTeams'
-import SectionNewsBySport from './components/SectionNewsBySport'
 
 const Sports = () => {
     const { id } = useParams()
@@ -88,23 +87,7 @@ const Sports = () => {
                                     Temporadas
                                 </Button>
                             )}
-                            {key === 'noticias' ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-warning  "
-                                    onClick={() => setKey('noticias')}
-                                >
-                                    Noticias
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light  "
-                                    onClick={() => setKey('noticias')}
-                                >
-                                    Noticias
-                                </Button>
-                            )}
+
                             {key === 'mas' ? (
                                 <Button
                                     size="sm"
@@ -131,10 +114,6 @@ const Sports = () => {
 
                             {key === 'temporadas' ? (
                                 <SectionSeasonsBySport sport={sport} />
-                            ) : null}
-
-                            {key === 'noticias' ? (
-                                <SectionNewsBySport sport={sport} />
                             ) : null}
 
                             {key === 'hoy' ? (

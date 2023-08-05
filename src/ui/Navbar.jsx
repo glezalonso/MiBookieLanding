@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Navbar, Nav, Button } from 'react-bootstrap'
-import { HouseDoor } from 'react-bootstrap-icons'
+import { HouseDoor, Newspaper } from 'react-bootstrap-icons'
 import Login from '../pages/home/components/Login'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
@@ -84,6 +84,14 @@ function NavBar() {
                                     <span className="mx-1">{sport?.sport}</span>
                                 </Link>
                             ))}
+                            <Link to={'../news'} className="nav-link">
+                                <Newspaper
+                                    color="grey"
+                                    width={'20px'}
+                                    height={'20px'}
+                                />
+                                <span className="mx-1"> Noticias</span>
+                            </Link>
                         </Nav>
                         {username ? (
                             <Navbar.Text>
