@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Table } from 'react-bootstrap'
 import { Clock } from 'react-bootstrap-icons'
+import { Link } from 'react-router-dom'
 
 const CardNew = ({ content }) => {
+    const [seeMore, setSeeMore] = useState(false)
     return (
         <>
             <section className="bg-light rounded p-1">
@@ -28,7 +30,19 @@ const CardNew = ({ content }) => {
                                 </div>
                             </td>
                             <td>
-                                {content?.content}
+                                {seeMore
+                                    ? content?.content
+                                    : `${content?.content?.slice(
+                                          0,
+                                          150
+                                      )}.......`}
+
+                                <Link
+                                    className="mx-1"
+                                    onClick={() => setSeeMore(!seeMore)}
+                                >
+                                    Ver más
+                                </Link>
                                 <div className="d-flex justify-content-end">
                                     <Clock className="my-1 mx-1" />
                                     {content?.date
