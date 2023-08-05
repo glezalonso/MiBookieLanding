@@ -4,21 +4,24 @@ const CardSeason = ({ season }) => {
     return (
         <>
             <section>
-                <Card className="">
-                    <Card.Header>
-                        <div className="d-flex justify-content-start">
-                            <div>
-                                <Card.Img
-                                    style={{ width: '50px', height: '50px' }}
-                                    src={season.league?.poster}
-                                />
-                            </div>
-                            <div className=" mx-1">
-                                <Card.Title className="my-1">
+                <div className=" my-2 text-dark">
+                    <Card.Title className="d-flex mx-1">
+                        <div className="my-1">
+                            <img
+                                style={{ width: '50px', height: '50px' }}
+                                src={season.league?.poster}
+                            />
+                        </div>
+                        <div>
+                            <div className="mx-1 mt-2">
+                                <span className=" mx-1 fs-5">
+                                    {' '}
                                     {season?.season}
-                                </Card.Title>
-                                <Card.Text className="mt-1">
-                                    Estatus:{' '}
+                                </span>
+                            </div>
+                            <div className="mx-1 ">
+                                <span className=" mx-1 fs-6">
+                                    Estatus:
                                     {season?.status ? (
                                         <span className="text-success">
                                             Abierta
@@ -28,11 +31,11 @@ const CardSeason = ({ season }) => {
                                             Cerrada
                                         </span>
                                     )}
-                                </Card.Text>
+                                </span>
                             </div>
                         </div>
-                    </Card.Header>
-                </Card>
+                    </Card.Title>
+                </div>
             </section>
         </>
     )

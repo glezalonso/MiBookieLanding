@@ -22,14 +22,14 @@ const CardNew = ({ content }) => {
                                             src={content?.league?.poster}
                                         />
                                     </div>
-                                    <div className="my-1">
+                                    <div className="d-flex justify-content-center my-1">
                                         <span className="text-muted fw-bold mx-2">
                                             {content?.league?.league}
                                         </span>
                                     </div>
                                 </div>
                             </td>
-                            <td>
+                            <td className="text-rightr">
                                 {seeMore
                                     ? content?.content
                                     : `${content?.content?.slice(
@@ -43,7 +43,7 @@ const CardNew = ({ content }) => {
                                 >
                                     {seeMore ? `Ver menos` : `Ver más`}
                                 </Link>
-                                <div className="d-flex justify-content-end">
+                                <div className="d-flex my-1 justify-content-end text-muted">
                                     <Clock className="my-1 mx-1" />
                                     {content?.date
                                         ?.split('T', 3)

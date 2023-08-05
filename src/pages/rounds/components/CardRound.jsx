@@ -5,26 +5,28 @@ const CardRound = ({ round }) => {
     return (
         <>
             <section>
-                <Card>
-                    <Card.Header>
-                        <div className="d-flex justify-content-start my-1">
-                            <div className="my-2">
-                                <Card.Img
-                                    style={{ width: '50px', height: '50px' }}
-                                    src={round?.league?.poster}
-                                />
-                            </div>
-                            <div className="mx-2">
-                                <Card.Title className="my-1">
+                <div className=" my-2 text-dark">
+                    <Card.Title className="d-flex mx-1">
+                        <div className="my-1">
+                            <img
+                                style={{ width: '50px', height: '50px' }}
+                                src={round?.league?.poster}
+                            />
+                        </div>
+                        <div>
+                            <div className="mx-1 mt-2">
+                                <span className=" mx-1 fs-5">
                                     {round?.round}
-                                </Card.Title>
-                                <Card.Text>
+                                </span>
+                            </div>
+                            <div className="mx-1 ">
+                                <span className=" mx-1 fs-6">
                                     Temporada: {round?.season?.season}
-                                </Card.Text>
+                                </span>
                             </div>
                         </div>
-                    </Card.Header>
-                </Card>
+                    </Card.Title>
+                </div>
             </section>
         </>
     )
