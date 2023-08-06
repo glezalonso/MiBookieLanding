@@ -44,7 +44,6 @@ const SectionMatches = ({ matches }) => {
                 </div>
                 <div className="my-1 mx-auto p-1">
                     <FormControl
-                        style={{ fontSize: '15px' }}
                         name="team"
                         placeholder="Equipo..."
                         onChange={(e) => setFilter(e.target.value)}
