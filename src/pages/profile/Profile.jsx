@@ -116,7 +116,7 @@ const Profile = () => {
                                     className="rounded w-50"
                                     onChange={(e) => setLimit(e.target.value)}
                                 >
-                                    <option value={limit}>Últimos 15</option>
+                                    <option value="15">Últimos 15</option>
                                     <option value="30">Últimos 30</option>
                                     <option value="0">Todos</option>
                                 </Form.Select>
