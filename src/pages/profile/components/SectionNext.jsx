@@ -5,10 +5,15 @@ import { toast } from 'react-hot-toast'
 import CardPick from './CardPick'
 import { Alert } from 'react-bootstrap'
 
-const SectionNext = ({ id }) => {
-    const { data: matchesOpen, isLoading, isError } = useGetPicksOpen(id)
+const SectionNext = ({ id, limit }) => {
+    const {
+        data: matchesOpen,
+        isLoading,
+        isError,
+        isFetching,
+    } = useGetPicksOpen(id, limit)
 
-    if (isLoading) return <Loading />
+    if (isLoading || isFetching) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar! los picks')
     return (
         <>

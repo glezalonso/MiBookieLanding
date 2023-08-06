@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from '../../ui/Navbar'
-import { Container, Row, Col, ButtonGroup, Button } from 'react-bootstrap'
+import { Container, Row, Col, ButtonGroup, Button, Form } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import SectionNext from './components/SectionNext'
 import SectionLast from './components/SectionLast'
@@ -15,6 +15,7 @@ const Profile = () => {
     const { id } = useParams()
     const { data: user } = useGetBookie(id)
     const [key, setKey] = useState('proximos')
+    const [limit, setLimit] = useState(15)
 
     return (
         <>
@@ -109,10 +110,23 @@ const Profile = () => {
                             )}
                         </ButtonGroup>
                         <section>
+                            <div className="d-flex my-1 justify-content-end">
+                                <Form.Select
+                                    style={{ fontSize: '15px' }}
+                                    className="rounded w-50"
+                                    onChange={(e) => setLimit(e.target.value)}
+                                >
+                                    <option value={limit}>Últimos 15</option>
+                                    <option value="30">Últimos 30</option>
+                                    <option value="0">Todos</option>
+                                </Form.Select>
+                            </div>
                             {key === 'proximos' ? (
-                                <SectionNext id={id} />
+                                <SectionNext id={id} limit={limit} />
                             ) : null}
-                            {key === 'ultimos' ? <SectionLast id={id} /> : null}
+                            {key === 'ultimos' ? (
+                                <SectionLast id={id} limit={limit} />
+                            ) : null}
                             {key === 'contactos' ? (
                                 <SectionFollows user={user} setKey={setKey} />
                             ) : null}

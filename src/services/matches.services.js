@@ -69,7 +69,9 @@ export const getPicksClosed = async (id, date, limit) => {
     return data
 }
 
-export const getPicksOpen = async (id) => {
-    const { data } = await axios.put(`/api/matches/matchbookieopen/${id}`)
+export const getPicksOpen = async (id, limit) => {
+    const { data } = await axios.put(
+        `/api/matches/matchbookieopen/${id}/${limit}`
+    )
     return data
 }
