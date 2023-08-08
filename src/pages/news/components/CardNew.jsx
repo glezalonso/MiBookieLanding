@@ -15,7 +15,7 @@ const CardNew = ({ content }) => {
                                 <div className="mt-3 md:px-2">
                                     <div>
                                         <img
-                                            className="h-20 w-32 lg:w-14 lg:h:14"
+                                            className="h-20 w-20 lg:w-14 lg:h:14"
                                             src={content?.league?.poster}
                                         />
                                     </div>
