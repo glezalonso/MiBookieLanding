@@ -11,23 +11,23 @@ const CardNew = ({ content }) => {
                 <Table hoverable className="table-auto mt-1 text-sm">
                     <Table.Body>
                         <Table.Row>
-                            <Table.Cell className="flex  px-3">
-                                <div className="mx-auto">
-                                    <div className="mx-auto">
+                            <Table.Cell className="flex items-center">
+                                <div className="mt-3 md:px-2">
+                                    <div>
                                         <img
-                                            className="h-16 w-16"
+                                            className="h-20 w-32 lg:w-14 lg:h:14"
                                             src={content?.league?.poster}
                                         />
                                     </div>
-                                    <div className="flex justify-center text-center mt-1">
-                                        <span className="text-gray-600 font-bold text-start  ">
+                                    <div className="mt-1">
+                                        <span className="flex text-gray-600 font-bold  text-justify  ">
                                             {content?.league?.league}
                                         </span>
                                     </div>
                                 </div>
                             </Table.Cell>
                             <Table.Cell>
-                                <h5 className="font-bold text-gray-800 text-base">
+                                <h5 className="font-bold text-gray-800 ">
                                     {content?.title}
                                 </h5>
                                 <p className="text-gray-600">
@@ -39,13 +39,13 @@ const CardNew = ({ content }) => {
                                         )}.......`}
 
                                     <Link
-                                        className="mx-1"
+                                        className=" text-blue-500 mx-1 : hover:underline"
                                         onClick={() => setSeeMore(!seeMore)}
                                     >
                                         {seeMore ? `Ver menos` : `Ver más`}
                                     </Link>
                                 </p>
-                                <div className="flex my-1 justify-end text-gray-600">
+                                <div className="flex mt-2.5 justify-end text-gray-600">
                                     <Clock className="my-1 mx-1" />
                                     {content?.date
                                         ?.split('T', 3)

@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 import { Dropdown, Navbar, Avatar, Button } from 'flowbite-react'
 import { HouseDoor, Newspaper } from 'react-bootstrap-icons'
-import Login from '../pages/home/components/Login'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
 import { useGetSports } from '../features/sports.features'
+import Login from '../pages/home/components/Login'
 import Register from '../pages/home/components/Register'
 import logo from '../assets/mibookie.png'
 import user from '../assets/user.png'
@@ -35,22 +35,22 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar
-                fluid
-                className="bg-zinc-950 w-full md:p-0 md:h-16 2xl:w-4/5 2xl:mx-auto  "
-            >
-                <Navbar.Brand className="no-underline mr-auto md:mt-2.5  text-gray-400">
+            <Navbar fluid className="bg-zinc-950 md:p-0  md:h-16  ">
+                <Link
+                    href="/"
+                    className="flex items-center no-underline text-gray-400  mr-auto md:mt-2.5 xl:ml-3"
+                >
                     <img
                         alt="mibookie"
                         className="mr-1 h-6 mt-1.5 sm:h-9"
                         src={logo}
                     />
-                    <span className="text-md mt-2.5 font-semibol">
+                    <span className="text-lg mt-2.5 font-semibol">
                         Mi Bookie
                     </span>
-                </Navbar.Brand>
+                </Link>
 
-                <div className="flex md:mt-2.5 md:order-2 ml-auto">
+                <div className="flex ml-auto  md:mt-2.5 sm:order-2 md:order-2 xl:mr-3">
                     {username ? (
                         <Dropdown
                             inline
@@ -103,21 +103,17 @@ function NavBar() {
                         <Link
                             to={`../sports/${sport?._id}`}
                             key={sport?._id}
-                            className="mt-5 no-underline text-gray-500 hover:text-gray-200  "
+                            className="inline-flex mt-5 no-underline text-gray-500 hover:text-gray-200  "
                         >
-                            <div className="flex">
-                                <div>
-                                    <img
-                                        className="w-5 h-5"
-                                        src={sport?.poster}
-                                        alt={sport?.sport}
-                                    />
-                                </div>
-                                <div>
-                                    <span className="mx-0.5">
-                                        {sport?.sport}
-                                    </span>
-                                </div>
+                            <div>
+                                <img
+                                    className="w-5 h-5"
+                                    src={sport?.poster}
+                                    alt={sport?.sport}
+                                />
+                            </div>
+                            <div>
+                                <span>{sport?.sport}</span>
                             </div>
                         </Link>
                     ))}
