@@ -10,7 +10,7 @@ const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
                     pill
                     size="xs"
                     color="gray"
-                    className=" text-gray-600 mt-1"
+                    className=" text-gray-600 my-1"
                     onClick={() => handleComments()}
                 >
                     <div className="flex items-center gap-1">
@@ -25,7 +25,7 @@ const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
                     pill
                     size="xs"
                     color="gray"
-                    className=" text-gray-600 mt-1"
+                    className=" text-gray-600 my-1"
                     onClick={() => handleConsensus()}
                 >
                     <GraphUp className="mx-1" /> Votos
@@ -35,7 +35,7 @@ const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
                         pill
                         size="xs"
                         color="gray"
-                        className=" text-gray-600 mt-1"
+                        className=" text-gray-600 my-1"
                         onClick={() => handleLineUp()}
                     >
                         <People className="mx-1" /> Alineación

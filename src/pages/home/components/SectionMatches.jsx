@@ -26,14 +26,13 @@ const SectionMatches = ({ matches }) => {
                         <h5 className="mt-1">Partidos</h5>
                         <Badge
                             size={'sm'}
-                            className="mx-2 mb-2 bg-zinc-900 text-gray-200"
+                            className="mx-2 mb-1 bg-zinc-900 text-gray-200"
                         >
                             {matches?.length}
                         </Badge>
                     </div>
                     <Select
-                        style={{ fontSize: '15px' }}
-                        className="rounded w-50"
+                        className="rounded w-50 text-sm mr-1"
                         onChange={(e) => setFilter(e.target.value)}
                     >
                         <option value="6">Todos</option>

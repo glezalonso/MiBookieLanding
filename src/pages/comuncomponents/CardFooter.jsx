@@ -21,10 +21,10 @@ const CardFooter = ({ match }) => {
     const isDisable = useAuthStore((state) => state.isDisable)
     return (
         <>
-            <div>
+            <div className="rounded  border-gray-500 border-t-1 ">
                 <form onSubmit={(e) => handleSubmit(e, match?._id)}>
                     <Textarea
-                        className="my-1 text-sm"
+                        className="mt-2 text-sm"
                         rows={2}
                         name="comment"
                         placeholder="Ingresa tu comentario"

@@ -52,7 +52,7 @@ const Home = () => {
                 <div className="grid sm:grid-cols-4 sm:gap-2">
                     <div className="col-span-3">
                         <div
-                            className="flex gap-1 mt-3 justify-center mx-auto "
+                            className="flex gap-1 mt-2 justify-center mx-auto "
                             role="group"
                         >
                             <Button
