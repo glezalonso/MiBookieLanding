@@ -58,7 +58,7 @@ function NavBar() {
                         >
                             <Dropdown.Item>
                                 <Link
-                                    className="text-sm  text-gray-600"
+                                    className="text-sm  text-gray-600 hover:underline"
                                     to={`../profile/${id}`}
                                 >
                                     {username}
@@ -66,7 +66,7 @@ function NavBar() {
                             </Dropdown.Item>
                             <Dropdown.Item
                                 size="xs"
-                                className="text-yellow-400 text-sm p-0  mr-1.5 border-0"
+                                className="bg-yellow-400 rounded text-white text-sm p-1 mx-auto border-0 hover:bg-yellow-200 hover:text-gray-400"
                                 onClick={() => handleLogOut()}
                             >
                                 Cerrar Sesión
