@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import { Table, FormControl, Alert } from 'react-bootstrap'
+import { Table, TextInput, Alert } from 'flowbite-react'
 import { useGetTeamsBySport } from '../../../features/teams.features'
 import Loading from '../../../ui/Loading'
 
@@ -23,38 +23,34 @@ const SectionPlayersTennis = ({ sport }) => {
             <section>
                 <h5 className="mx-2">Jugadores de {sport?.sport}</h5>
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="team"
                         placeholder="Nombre del jugador..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
                 {playersByFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom border-secondary">
-                                <tr>
-                                    <th>Nombre</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Nombre
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
                                 {playersByFilter.map((player) => (
-                                    <tr
+                                    <Table.Row
                                         key={player?._id}
                                         onClick={() =>
                                             navigate(`../teams/${player?._id}`)
                                         }
                                     >
-                                        <td>{player?.name}</td>
-                                    </tr>
+                                        <Table.Cell className="p-1">
+                                            {player?.name}
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (

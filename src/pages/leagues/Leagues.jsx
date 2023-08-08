@@ -4,7 +4,7 @@ import { useGetLeague } from '../../features/leagues.features'
 import { toast } from 'react-hot-toast'
 import NavBar from '../../ui/Navbar'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
+import { Button } from 'flowbite-react'
 import SectionLeague from './components/SectionLeague'
 import SectionSeasons from './components/SectionSeasons'
 import SectionMatches from './components/SectionMatches'
@@ -23,67 +23,46 @@ const Leagues = () => {
     return (
         <>
             <NavBar />
-            <Container fluid>
-                <Row className="my-2">
-                    <Col xs={12} md={10} className="mx-auto">
+            <div className="container px-0 mx-auto">
+                <div className="mx-auto">
+                    <div className="mx-auto lg:w-3/4">
                         <SectionLeague league={league} />
-                    </Col>
-                    <Col xs={12} md={8} className="p-1 mx-auto ">
-                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
-                            {key === 'proximos' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning "
-                                    onClick={() => setKey('proximos')}
-                                >
-                                    Próximos partidos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('proximos')}
-                                >
-                                    Próximos partidos
-                                </Button>
-                            )}
-                            {key === 'temporadas' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning"
-                                    onClick={() => setKey('temporadas')}
-                                >
-                                    Temporadas
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('temporadas')}
-                                >
-                                    Temporadas
-                                </Button>
-                            )}
-                            {key === 'ultimos' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning "
-                                    onClick={() => setKey('ultimos')}
-                                >
-                                    Últimos partidos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('ultimos')}
-                                >
-                                    Últimos partidos
-                                </Button>
-                            )}
-                        </ButtonGroup>
+
+                        <div
+                            className="flex gap-1 mt-1 justify-center mx-auto "
+                            role="group"
+                        >
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('proximos')}
+                            >
+                                Próximos partidos
+                            </Button>
+
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('temporadas')}
+                            >
+                                Temporadas
+                            </Button>
+
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('ultimos')}
+                            >
+                                Últimos partidos
+                            </Button>
+                        </div>
                         <section>
-                            {' '}
                             {key === 'temporadas' ? (
                                 <SectionSeasons league={league} />
                             ) : null}
@@ -100,9 +79,9 @@ const Leagues = () => {
                                 />
                             ) : null}
                         </section>
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

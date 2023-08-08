@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Table } from 'react-bootstrap'
+import { Table } from 'flowbite-react'
 
 const TableLocal = ({ match }) => {
     const navigate = useNavigate()
@@ -9,22 +9,25 @@ const TableLocal = ({ match }) => {
     const ID_BASEBALL = '648f7211a4ba8860dfe38319'
     return (
         <>
-            <Table responsive borderless hover size="sm" variant="light">
-                <thead className="border-bottom">
-                    <tr>
-                        {match?.sport?._id === ID_BASEBALL ? (
-                            <th>Orden al Bat</th>
-                        ) : null}
-                        <th>Jugador</th>
-                        {match?.sport?._id !== ID_BASEBALL ? (
-                            <th>Posición</th>
-                        ) : null}
-                    </tr>
-                </thead>
-                <tbody>
+            <Table hoverable className="table-auto mt-1 text-sm">
+                <Table.Head>
+                    {match?.sport?._id === ID_BASEBALL ? (
+                        <Table.HeadCell className="px-1">
+                            Orden al bat
+                        </Table.HeadCell>
+                    ) : null}
+                    <th>Jugador</th>
+                    {match?.sport?._id !== ID_BASEBALL ? (
+                        <Table.HeadCell className="px-1">
+                            Posición
+                        </Table.HeadCell>
+                    ) : null}
+                </Table.Head>
+                <Table.Body className="divide-y">
                     {match?.lineup?.map((local) =>
                         local?.local?.map((player) => (
-                            <tr
+                            <Table.Row
+                                className="hover:cursor-pointer"
                                 key={player?.playerId?._id}
                                 onClick={() =>
                                     navigate(
@@ -33,23 +36,27 @@ const TableLocal = ({ match }) => {
                                 }
                             >
                                 {match?.sport?._id === ID_BASEBALL ? (
-                                    <td>
+                                    <Table.Cell className="p-1">
                                         {player?.playerId?.position ===
-                                        position ? (
+                                            position ? (
                                             <span>Lanzador</span>
                                         ) : (
                                             j++
                                         )}
-                                    </td>
+                                    </Table.Cell>
                                 ) : null}
-                                <td>{player?.playerId?.fullName}</td>
+                                <Table.Cell className="p-1">
+                                    {player?.playerId?.fullName}
+                                </Table.Cell>
                                 {match?.sport?._id !== ID_BASEBALL ? (
-                                    <td>{player?.playerId?.position}</td>
+                                    <Table.Cell className="p-1">
+                                        {player?.playerId?.position}
+                                    </Table.Cell>
                                 ) : null}
-                            </tr>
+                            </Table.Row>
                         ))
                     )}
-                </tbody>
+                </Table.Body>
             </Table>
         </>
     )

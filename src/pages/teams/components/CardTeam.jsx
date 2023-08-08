@@ -1,36 +1,24 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
 
-const CardTeam = ({ team, setKey }) => {
+const CardTeam = ({ team }) => {
     return (
         <>
-            <section>
-                <Card>
-                    <Card.Header>
-                        <div className="d-flex justify-content-start">
-                            <div>
-                                <Card.Img
-                                    style={{
-                                        height: '100px',
-                                        width: '100px',
-                                    }}
-                                    src={team?.poster}
-                                    alt={`image ${team?.name}`}
-                                />
-                            </div>
+            <section className="flex justify-center  text-black my-3">
+                <div className="flex my-2 justify-start">
+                    <div>
+                        <img
+                            className="w-24 h-24"
+                            src={team?.poster}
+                            alt={`image ${team?.name}`}
+                        />
+                    </div>
 
-                            <div className="mt-1 mx-1">
-                                <Card.Title>{team?.name}</Card.Title>
-                                <Card.Text className="my-1">
-                                    Estadio: {team?.stadium}
-                                </Card.Text>
-                                <Card.Text className="my-1">
-                                    Deporte: {team?.sport?.sport}
-                                </Card.Text>
-                            </div>
-                        </div>
-                    </Card.Header>
-                </Card>
+                    <div className="mt-1 mx-1">
+                        <h4 className="mt-1">{team?.name}</h4>
+                        <p className="my-1">Estadio: {team?.stadium}</p>
+                        <p className="my-1">Deporte: {team?.sport?.sport}</p>
+                    </div>
+                </div>
             </section>
         </>
     )

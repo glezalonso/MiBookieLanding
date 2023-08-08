@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Modal, Form, Button } from 'react-bootstrap'
+import { Button, Modal, Select } from 'flowbite-react'
 import { useAddAvatar } from '../../../features/users.features'
 
 const ChangePicture = ({ user, show, handleClose }) => {
@@ -20,32 +20,38 @@ const ChangePicture = ({ user, show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} className="my-5" size="xs" onHide={handleClose}>
-                <Modal.Header className="bg-dark text-white" closeButton>
-                    <Modal.Title>Cambiar avatar</Modal.Title>
-                </Modal.Header>
+            <Modal
+                show={show}
+                className="w-full h-full mt-5 mx-auto bg-transparent md:w-2/4 md:h-3/4"
+                popup
+                dismissible
+                onClose={() => handleClose()}
+            >
+                <Modal.Header />
                 <Modal.Body>
-                    <div className="d-flex justify-content-center">
-                        <img
-                            style={{ width: '100px', height: '100px' }}
-                            src={avatar}
-                            alt="Avatar"
-                        />
+                    <div className="space-y-3">
+                        <h3 className="text-xl font-medium text-gray-900">
+                            Cambiar Avatar
+                        </h3>
+                    </div>
+                    <div className="flex justify-center">
+                        <img className="h-24 q-24" src={avatar} alt="Avatar" />
                     </div>
 
-                    <Form.Select
-                        className="my-2"
+                    <Select
+                        className="mt-2"
                         size="sm"
                         onChange={(e) => setAvatar(e.target.value)}
                     >
                         <option value={urlAvatar1}>Hombre</option>
                         <option value={urlAvatar2}>Mujer</option>
-                    </Form.Select>
+                    </Select>
                 </Modal.Body>
-                <Modal.Footer>
+                <Modal.Footer className="flex justify-end">
                     <Button
+                        size="xs"
                         onClick={() => handleAdd(user?._id, avatar)}
-                        className="btn btn-warning"
+                        color="warning"
                     >
                         Colocar
                     </Button>

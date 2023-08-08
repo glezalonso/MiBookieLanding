@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Table } from 'react-bootstrap'
+import { Table } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom'
 import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
@@ -37,43 +37,38 @@ const CardMatch = ({ match }) => {
 
     return (
         <>
-            <Card className="shadow-lg my-1">
-                <Card.Header className=" border-secondary border-bottom">
-                    <CardHeader match={match} />
-                    <Table
-                        responsive
-                        size="sm"
-                        borderless
-                        variant="light my-1 "
+            <div className="  max-w-full bg-white  border-gray-200 my-1 p-2 rounded-lg hover:shadow-lg">
+                <CardHeader match={match} />
+                <Table className="table-auto text-xs">
+                    <Table.Body
+                        className="border-b-inherit "
+                        onClick={() => navigate(`../matches/${match?._id}`)}
                     >
-                        <tbody
-                            onClick={() => navigate(`../matches/${match?._id}`)}
-                        >
-                            <tr>
-                                <td>
-                                    <CardSectionAway match={match} />
-                                </td>
-                                <td className="text-center">
-                                    <AwayScore match={match} />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <CardSectionLocal match={match} />
-                                </td>
-                                <td className="text-center">
-                                    <LocalScore match={match} />
-                                </td>
-                            </tr>
-                        </tbody>
-                    </Table>
-                    <CardMenu
-                        match={match}
-                        handleComments={handleComments}
-                        handleLineUp={handleLineUp}
-                        handleConsensus={handleConsensus}
-                    />
-                </Card.Header>
+                        <Table.Row>
+                            <Table.Cell className="p-2">
+                                <CardSectionAway match={match} />
+                            </Table.Cell>
+                            <Table.Cell className="p-2 text-center ">
+                                <AwayScore match={match} />
+                            </Table.Cell>
+                        </Table.Row>
+                        <Table.Row>
+                            <Table.Cell className="p-2">
+                                <CardSectionLocal match={match} />
+                            </Table.Cell>
+                            <Table.Cell className="p-2 text-center ">
+                                <LocalScore match={match} />
+                            </Table.Cell>
+                        </Table.Row>
+                    </Table.Body>
+                </Table>
+                <CardMenu
+                    match={match}
+                    handleComments={handleComments}
+                    handleLineUp={handleLineUp}
+                    handleConsensus={handleConsensus}
+                />
+
                 {showLineUp ? <CardLineUp match={match} /> : null}
 
                 {showComments ? <CardComments match={match} /> : null}
@@ -81,7 +76,7 @@ const CardMatch = ({ match }) => {
                 {showConsensus ? <CardConsensus match={match} /> : null}
 
                 {showComments ? <CardFooter match={match} /> : null}
-            </Card>
+            </div>
         </>
     )
 }

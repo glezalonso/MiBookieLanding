@@ -1,8 +1,9 @@
 import React from 'react'
-import { Modal, Table } from 'react-bootstrap'
+import { Modal, Table } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom'
 import { useGetTopBookies } from '../../../features/users.features'
 import { PersonCircle } from 'react-bootstrap-icons'
+import { IoMdMedal } from 'react-icons/io'
 
 const SectionTop = ({ show, handleClose }) => {
     let i = 0
@@ -14,31 +15,45 @@ const SectionTop = ({ show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} className="my-5" size="xs" onHide={handleClose}>
-                <Modal.Header className="bg-dark text-white" closeButton>
-                    <Modal.Title>Top 10</Modal.Title>
+            <Modal
+                show={show}
+                className="w-full h-full mt-5 mx-auto bg-transparent md:w-full md:h-3/4"
+                popup
+                dismissible
+                onClose={() => handleClose()}
+            >
+                <Modal.Header className="bg-zinc-950 pb-1 px-1">
+                    <div className="flex justify-start">
+                        <div className="my-1">
+                            <IoMdMedal className="mx-2 h-8 w-8  text-gray-500" />
+                        </div>
+                        <div>
+                            <h3 className="text-xl mt-2 text-gray-500 font-medium">
+                                Top 10
+                            </h3>
+                        </div>
+                    </div>
                 </Modal.Header>
-                <Modal.Body>
-                    <Table
-                        responsive
-                        size="sm"
-                        hover
-                        borderless
-                        className="my-1"
-                    >
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Bookie</th>
-                                <th>Juegos</th>
-                                <th>Aciertos</th>
+                <Modal.Body className="px-1">
+                    <Table hoverable className="table-auto mt-3 text-xs">
+                        <Table.Head>
+                            <Table.HeadCell className="px-1">#</Table.HeadCell>
+                            <Table.HeadCell className="px-1">
+                                Bookie
+                            </Table.HeadCell>
+                            <Table.HeadCell className="px-1">
+                                Juegos
+                            </Table.HeadCell>
+                            <Table.HeadCell className="px-1">
+                                Aciertos
+                            </Table.HeadCell>
 
-                                <th>Efect.</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                            <Table.HeadCell>Efect.</Table.HeadCell>
+                        </Table.Head>
+                        <Table.Body className="divide-y">
                             {topUsers?.map((users) => (
-                                <tr
+                                <Table.Row
+                                    className="hover:cursor-pointer"
                                     style={
                                         i === 2
                                             ? { borderBottom: '1px solid grey' }
@@ -49,31 +64,33 @@ const SectionTop = ({ show, handleClose }) => {
                                     }
                                     key={users?._id}
                                 >
-                                    <td>{++i}</td>
-                                    <td>
+                                    <Table.Cell className="p-1 text-center ">
+                                        {++i}
+                                    </Table.Cell>
+                                    <Table.Cell className="p-1 flex text-center ">
                                         <PersonCircle
                                             color="dark"
                                             className="mx-1"
                                         />
                                         {users?.username}
-                                    </td>
-                                    <td className="text-center">
+                                    </Table.Cell>
+                                    <Table.Cell className="p-1 text-center ">
                                         {users?.total}
-                                    </td>
-                                    <td className="text-center">
+                                    </Table.Cell>
+                                    <Table.Cell className="p-1 text-center ">
                                         {users?.success}
-                                    </td>
+                                    </Table.Cell>
 
-                                    <td className="text-center text-muted fw-bold">
+                                    <Table.Cell className="p-1 text-center text-gray-500 font-bold ">
                                         {Math.round(
                                             (users?.success * 100) /
-                                                users?.total
+                                            users?.total
                                         )}
                                         %
-                                    </td>
-                                </tr>
+                                    </Table.Cell>
+                                </Table.Row>
                             ))}
-                        </tbody>
+                        </Table.Body>
                     </Table>
                 </Modal.Body>
             </Modal>

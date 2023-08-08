@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import { Table, FormControl, Alert } from 'react-bootstrap'
+
+import { Table, TextInput, Alert } from 'flowbite-react'
 import { useGetTeamsBySport } from '../../../features/teams.features'
 import Loading from '../../../ui/Loading'
 
@@ -14,7 +15,7 @@ const SectionTeams = ({ sport }) => {
 
     if (isError) return toast.error('Hubo un error al cargar los jugadores!')
 
-    const playersByFilter = teams?.filter((teams) => {
+    const teamFilter = teams?.filter((teams) => {
         if (!filter) return teams
         return teams?.name?.toLowerCase().includes(filter.toLowerCase())
     })
@@ -24,38 +25,40 @@ const SectionTeams = ({ sport }) => {
             <section>
                 <h5 className="mx-2">Equipos</h5>
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="team"
                         placeholder="Equipo..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
-                {playersByFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom border-secondary">
-                                <tr>
-                                    <th>Nombre</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {playersByFilter.map((player) => (
-                                    <tr
-                                        key={player?._id}
+                {teamFilter?.length > 0 ? (
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Nombre
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
+                                {teamFilter.map((team) => (
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
+                                        key={team?._id}
                                         onClick={() =>
-                                            navigate(`../teams/${player?._id}`)
+                                            navigate(`../teams/${team?._id}`)
                                         }
                                     >
-                                        <td>{player?.name}</td>
-                                    </tr>
+                                        <Table.Cell className="flex  gap-1 p-1">
+                                            <img
+                                                className="h-5 w-5"
+                                                src={team?.poster}
+                                                alt={team?.name}
+                                            />
+                                            {team?.name}
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (

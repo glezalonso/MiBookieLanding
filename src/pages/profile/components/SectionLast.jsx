@@ -3,7 +3,7 @@ import { useGetPicksClosed } from '../../../features/matches.features'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 import CardPick from './CardPick'
-import { Alert } from 'react-bootstrap'
+import { Alert } from 'flowbite-react'
 
 import formatedDate from '../../../utils/formatedDate'
 
@@ -28,7 +28,7 @@ const SectionLast = ({ id, limit }) => {
                         <CardPick match={match} key={match?._id} id={id} />
                     ))
                 ) : (
-                    <Alert variant="warning my-2">
+                    <Alert color="warning" className="my-2">
                         No tienes predicciones aún
                     </Alert>
                 )}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Alert, Table } from 'react-bootstrap'
+import { Alert, Table } from 'flowbite-react'
 import { useGetSeasons } from '../../../features/seasons.features'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
@@ -36,36 +36,41 @@ const SectionStandings = ({ player }) => {
     return (
         <>
             <section>
-                <h5>Posiciones</h5>
+                <h5>Clasificacíon</h5>
 
                 {sort?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom">
-                                <tr>
-                                    <th>Pos</th>
-                                    <th>Equipo</th>
-                                    <th>Gan</th>
-                                    <th>Per</th>
-                                    {season?.sport?._id === ID_SOCCER ||
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Pos
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Equipo
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1 text-center">
+                                    Gan
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1 text-center">
+                                    Per
+                                </Table.HeadCell>
+                                {season?.sport?._id === ID_SOCCER ||
                                     season?.sport?._id === ID_AMERICANO ? (
-                                        <th>Emp</th>
-                                    ) : null}
-                                    {player?.sport?._id === ID_SOCCER ? (
-                                        <th>Pts</th>
-                                    ) : null}
-                                </tr>
-                            </thead>
-                            <tbody>
+                                    <Table.HeadCell className="px-1 text-center">
+                                        Emp
+                                    </Table.HeadCell>
+                                ) : null}
+                                {season?.sport?._id === ID_SOCCER ? (
+                                    <Table.HeadCell className="px-1 text-center">
+                                        Pts
+                                    </Table.HeadCell>
+                                ) : null}
+                            </Table.Head>
+                            <Table.Body className="divide-y">
                                 {sort.map((stands) =>
                                     stands.map((stands) => (
-                                        <tr
+                                        <Table.Row
+                                            className="hover:cursor-pointer"
                                             key={stands?.team?._id}
                                             onClick={() =>
                                                 navigate(
@@ -73,59 +78,61 @@ const SectionStandings = ({ player }) => {
                                                 )
                                             }
                                         >
-                                            <td>{i++}</td>
-                                            <td
+                                            <Table.Cell className="p-1">
+                                                {i++}
+                                            </Table.Cell>
+                                            <Table.Cell
+                                                className=" flex p-1"
                                                 style={
                                                     player?.team?.name ===
-                                                    stands.team?.name
+                                                        stands.team?.name
                                                         ? {
-                                                              fontWeight:
-                                                                  'bold',
-
-                                                              background:
-                                                                  'grey',
-                                                          }
+                                                            fontWeight:
+                                                                'bold',
+                                                        }
                                                         : null
                                                 }
                                             >
                                                 <img
-                                                    style={{
-                                                        height: '15px',
-                                                        width: '15px',
-                                                        borderRadius: '50%',
-                                                    }}
+                                                    className="h-5 w-5"
                                                     src={stands.team?.poster}
                                                     alt={stands.team?.name}
                                                 />
                                                 <span className="mx-1">
                                                     {stands.team?.name}
                                                 </span>
-                                            </td>
-                                            <td>{stands?.wins}</td>
-                                            <td>{stands?.loses}</td>
+                                            </Table.Cell>
+                                            <Table.Cell className="p-1 text-center">
+                                                {stands?.wins}
+                                            </Table.Cell>
+                                            <Table.Cell className="p-1 text-center">
+                                                {stands?.loses}
+                                            </Table.Cell>
                                             {season?.sport?._id === ID_SOCCER ||
-                                            season?.sport?._id ===
+                                                season?.sport?._id ===
                                                 ID_AMERICANO ? (
-                                                <td>{stands?.draws}</td>
+                                                <Table.Cell className="p-1 text-center">
+                                                    {stands?.draws}
+                                                </Table.Cell>
                                             ) : null}
-                                            {player?.sport?._id ===
-                                            ID_SOCCER ? (
-                                                <td>
-                                                    {player?.sport?._id ===
-                                                    ID_SOCCER
+                                            {season?.sport?._id ===
+                                                ID_SOCCER ? (
+                                                <Table.Cell className="p-1 text-center">
+                                                    {season?.sport?._id ===
+                                                        ID_SOCCER
                                                         ? stands?.wins * 3 +
-                                                          stands?.draws
+                                                        stands?.draws
                                                         : null}
-                                                </td>
+                                                </Table.Cell>
                                             ) : null}
-                                        </tr>
+                                        </Table.Row>
                                     ))
                                 )}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (
-                    <Alert variant="warning">
+                    <Alert color="warning">
                         No hay posiciones para mostrar!
                     </Alert>
                 )}

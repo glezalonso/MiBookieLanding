@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Table, FormControl, Alert } from 'react-bootstrap'
+import { Table, TextInput, Alert } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom'
 
 const SectionRoster = ({ team }) => {
@@ -15,30 +15,28 @@ const SectionRoster = ({ team }) => {
             <section>
                 <h5>Plantilla</h5>
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="player"
                         placeholder="Nombre del jugador..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
                 {playerFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom">
-                                <tr>
-                                    <th>Jugador</th>
-                                    <th>Posición</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Jugador
+                                </Table.HeadCell>
+
+                                <Table.HeadCell className="px-1">
+                                    Posición
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
                                 {playerFilter?.map((player) => (
-                                    <tr
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={player?.playerId?._id}
                                         onClick={() =>
                                             navigate(
@@ -46,11 +44,15 @@ const SectionRoster = ({ team }) => {
                                             )
                                         }
                                     >
-                                        <td>{player?.playerId?.fullName}</td>
-                                        <td>{player?.playerId?.position}</td>
-                                    </tr>
+                                        <Table.Cell className="p-1">
+                                            {player?.playerId?.fullName}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {player?.playerId?.position}
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (

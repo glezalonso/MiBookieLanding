@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useGetLeaguesBySport } from '../../../features/leagues.features'
 import { toast } from 'react-hot-toast'
-import { Table, FormControl, Alert } from 'react-bootstrap'
+import { Table, TextInput, Alert } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 
@@ -31,30 +31,27 @@ const SectionLeaguesBySport = ({ sport }) => {
             <section>
                 <h5 className="mx-2"> Ligas </h5>
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="league"
                         placeholder="Liga..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
                 {leaguesFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom border-secondary ">
-                                <tr>
-                                    <th>Liga</th>
-                                    <th>Descripción</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Liga
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Descripción
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
                                 {leaguesFilter?.map((league) => (
-                                    <tr
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={league?._id}
                                         onClick={() =>
                                             navigate(
@@ -62,14 +59,11 @@ const SectionLeaguesBySport = ({ sport }) => {
                                             )
                                         }
                                     >
-                                        <td>
-                                            <div className="d-flex justify-content-start gap-2">
+                                        <Table.Cell className="p-1">
+                                            <div className="flex justify-start gap-2">
                                                 <div className="my-1">
                                                     <img
-                                                        style={{
-                                                            width: '20px',
-                                                            height: '20px',
-                                                        }}
+                                                        className="h-5 w-5"
                                                         src={league?.poster}
                                                         alt={league?.league}
                                                     />
@@ -80,15 +74,17 @@ const SectionLeaguesBySport = ({ sport }) => {
                                                     </span>
                                                 </div>
                                             </div>
-                                        </td>
-                                        <td>{league?.description}</td>
-                                    </tr>
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {league?.description}
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (
-                    <Alert variant="warning">No hay ligas para mostrar!</Alert>
+                    <Alert color="warning">No hay ligas para mostrar!</Alert>
                 )}
             </section>
         </>

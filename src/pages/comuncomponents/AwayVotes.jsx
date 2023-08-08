@@ -20,7 +20,7 @@ const AwayVotes = ({ match }) => {
                         {` ${Math.round((votesaway?.length * 100) / total)} %`}
                     </span>
                 ) : (
-                    <span className="text-danger text-center">
+                    <span className="text-red-800 text-center">
                         No hay votos!
                     </span>
                 )}

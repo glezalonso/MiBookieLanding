@@ -1,14 +1,13 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button } from 'flowbite-react'
 
 const LocalVote = ({ match, handleVote }) => {
     return (
         <>
-            <div className="d-flex justify-content-end">
+            <div className="flex justify-end">
                 <Button
-                    style={{ fontSize: '14px' }}
-                    size="sm"
-                    variant="warning "
+                    size="xs"
+                    color="warning"
                     onClick={() => handleVote('local', match?._id)}
                 >
                     Votar

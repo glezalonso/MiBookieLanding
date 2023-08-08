@@ -3,18 +3,15 @@ import React from 'react'
 const AwaySection = ({ match }) => {
     return (
         <>
-            <div className="d-flex ">
+            <div className="flex my-1 ">
                 <div>
                     <img
                         src={match?.away?.poster}
                         alt={match?.away?.name}
-                        style={{
-                            height: '25px',
-                            width: '25px',
-                        }}
+                        className="h-5 w-5"
                     />
                 </div>
-                <div className="mx-1 my-1" style={{ fontSize: '13px' }}>
+                <div className="mx-1  text-sm">
                     <span>{match?.away?.name}</span>
                 </div>
             </div>

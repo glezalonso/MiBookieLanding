@@ -4,16 +4,13 @@ import CardStatus from './CardStatus'
 const CardHeader = ({ match }) => {
     return (
         <>
-            <div className="d-flex justify-content-between">
-                <div className="d-flex justify-content-start">
-                    <span
-                        style={{ fontSize: '14px' }}
-                        className="text-secondary"
-                    >
+            <div className="flex my-1 justify-between">
+                <div className="block ml-2 justify-start">
+                    <span className="text-gray-600 font-sans font-bold text-sm">
                         {match?.league?.league}
                     </span>
                 </div>
-                <div className="d-flex justify-content-end">
+                <div className="block mx-2 justify-end">
                     <CardStatus match={match} />
                 </div>
             </div>

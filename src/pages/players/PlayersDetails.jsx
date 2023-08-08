@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
+import { Button } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import NavBar from '../../ui/Navbar'
 import CardPlayer from './components/CardPlayer'
@@ -22,89 +22,64 @@ const PlayerDetails = () => {
         <>
             <NavBar />
 
-            <Container fluid>
-                <Row className="my-2 ">
-                    <Col xs={12} md={8} className="p-1 mx-auto ">
-                        <CardPlayer player={player} setKey={setKey} />
-                    </Col>
+            <div className="container px-0 auto ">
+                <div className="mx-auto lg:w-3/4">
+                    <CardPlayer player={player} setKey={setKey} />
 
-                    <Col xs={12} md={8} className="p-1 mx-auto ">
-                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
-                            {key === 'posiciones' ? (
-                                player?.sport?._id === ID_FUTBOL ? null : (
-                                    <Button
-                                        size="sm"
-                                        className="btn-warning"
-                                        onClick={() => setKey('posiciones')}
-                                    >
-                                        Posiciones
-                                    </Button>
-                                )
-                            ) : player?.sport?._id === ID_FUTBOL ? null : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('posiciones')}
-                                >
-                                    Posiciones
-                                </Button>
-                            )}
+                    <div
+                        className="flex gap-1 mt-1 justify-center mx-auto "
+                        role="group"
+                    >
+                        {player?.sport?._id !== ID_FUTBOL ? (
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('posiciones')}
+                            >
+                                Posiciones
+                            </Button>
+                        ) : null}
 
-                            {key === 'proximos' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning"
-                                    onClick={() => setKey('proximos')}
-                                >
-                                    Póximos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('proximos')}
-                                >
-                                    Póximos
-                                </Button>
-                            )}
-                            {key === 'pasados' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning"
-                                    onClick={() => setKey('pasados')}
-                                >
-                                    Úlimos Partidos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('pasados')}
-                                >
-                                    Úlimos Partidos
-                                </Button>
-                            )}
-                        </ButtonGroup>
-                        {key === 'posiciones' ? (
-                            <SectionStandings player={player} />
-                        ) : null}
-                        {key === 'proximos' ? (
-                            <SectionMatches
-                                player={player}
-                                open={true}
-                                title={'Próximos Partidos'}
-                            />
-                        ) : null}
-                        {key === 'pasados' ? (
-                            <SectionMatches
-                                player={player}
-                                open={false}
-                                title={'Últimos Partidos'}
-                            />
-                        ) : null}
-                    </Col>
-                </Row>
-            </Container>
+                        <Button
+                            pill
+                            size="xs"
+                            color="gray"
+                            className=" text-gray-600"
+                            onClick={() => setKey('proximos')}
+                        >
+                            Póximos
+                        </Button>
+                        <Button
+                            pill
+                            size="xs"
+                            color="gray"
+                            className=" text-gray-600"
+                            onClick={() => setKey('pasados')}
+                        >
+                            Úlimos Partidos
+                        </Button>
+                    </div>
+                    {key === 'posiciones' ? (
+                        <SectionStandings player={player} />
+                    ) : null}
+                    {key === 'proximos' ? (
+                        <SectionMatches
+                            player={player}
+                            open={true}
+                            title={'Próximos Partidos'}
+                        />
+                    ) : null}
+                    {key === 'pasados' ? (
+                        <SectionMatches
+                            player={player}
+                            open={false}
+                            title={'Últimos Partidos'}
+                        />
+                    ) : null}
+                </div>
+            </div>
         </>
     )
 }

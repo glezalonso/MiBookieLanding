@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Alert } from 'react-bootstrap'
+import { Table, Alert } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom'
 import { useRemoveFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
@@ -24,35 +24,30 @@ const SectionFollows = ({ user, setKey }) => {
 
     return (
         <>
-            <section className=" bg-light rounded p-2 my-3">
-                <div className="mx-2">
+            <section className=" bg-white rounded p-2 my-3">
+                <div className="flex mx-2">
                     <PeopleFill size={'20px'} color="dark" />
                     <span className="mx-1">Contáctos</span>
                 </div>
                 {user?.follow?.length > 0 ? (
-                    <div className="section-tables bg-light rounded p-1 border-top my-2">
-                        <Table
-                            responsive
-                            borderless
-                            size="sm"
-                            variant="light my-1"
-                            hover
-                        >
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Body className="divide-y">
                                 {user?.follow?.map((follower) => (
-                                    <tr
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
                                         onClick={() => handleNavigate(follower)}
                                         key={follower?._id}
                                     >
-                                        <td>
+                                        <Table.Cell className=" flex p-1">
                                             <PersonCircle
                                                 color="dark"
                                                 className="mx-1"
                                             />
                                             {follower?.username}
-                                        </td>
-                                        <td>
-                                            <div className="d-flex justify-content-end">
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            <div className="flex justify-end">
                                                 <PersonDash
                                                     size={'20px'}
                                                     color="red"
@@ -64,14 +59,14 @@ const SectionFollows = ({ user, setKey }) => {
                                                     }
                                                 />
                                             </div>
-                                        </td>
-                                    </tr>
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (
-                    <Alert variant="warning my-2">
+                    <Alert color="warning" className="my-2">
                         No cuentas con seguidores
                     </Alert>
                 )}

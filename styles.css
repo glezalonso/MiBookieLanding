@@ -7,28 +7,11 @@
      
 }
 
-.table {
-    font-size: 14px;
-   
-}
+
 section {
     margin-top: 8px;
 }
 
-tr:hover{
-    cursor: pointer;
-
-}
-
-.filter {
-     font-size: 14px;
-}
-
-.section-tables {
-    max-height: 75vh;
-    padding: 10px;
-    overflow-y: auto;
-}
 .card{
     font-size: 16px;
 
@@ -38,15 +21,8 @@ tr:hover{
     font-size: 13px;
     
 }
-.nav-tabs .nav-link {
-    background-color:rgb(236, 236, 236);
-    color: black;
-    
-}
-.profile:hover{
- cursor: pointer;
 
-}
+
 footer{
     margin-top: auto;
 }

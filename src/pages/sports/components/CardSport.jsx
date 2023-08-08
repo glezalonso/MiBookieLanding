@@ -1,15 +1,14 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
 
 const CardSport = ({ sport }) => {
     return (
         <>
-            <section>
-                <div className=" my-2 text-dark">
-                    <Card.Title className="d-flex mx-1">
+            <section className="mx-2">
+                <div className="mt-3 text-black">
+                    <h4 className="flex mx-1">
                         <div className="my-1">
                             <img
-                                style={{ width: '30px', height: '30px' }}
+                                className="w-8 h-8"
                                 src={sport?.poster}
                                 alt={sport?.sport}
                             />
@@ -17,7 +16,7 @@ const CardSport = ({ sport }) => {
                         <div className="mx-1 my-2">
                             <span className=" mx-1">{sport?.sport}</span>
                         </div>
-                    </Card.Title>
+                    </h4>
                 </div>
             </section>
         </>

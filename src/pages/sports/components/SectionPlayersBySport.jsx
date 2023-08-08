@@ -3,7 +3,7 @@ import { useGetPlayerBySport } from '../../../features/players.features'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
-import { Table, FormControl, Alert } from 'react-bootstrap'
+import { Table, TextInput, Alert } from 'flowbite-react'
 
 const SectionPlayerBySport = ({ sport }) => {
     const [filter, setFilter] = useState('')
@@ -28,30 +28,27 @@ const SectionPlayerBySport = ({ sport }) => {
             <section>
                 <h5 className="mx-2">Jugadores</h5>
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="player"
                         placeholder="Nombre del jugador..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
                 {playersByFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom border-secondary">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Posición</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Nombre
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Posición
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
                                 {playersByFilter.map((player) => (
-                                    <tr
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={player?._id}
                                         onClick={() =>
                                             navigate(
@@ -59,11 +56,15 @@ const SectionPlayerBySport = ({ sport }) => {
                                             )
                                         }
                                     >
-                                        <td>{player?.fullName}</td>
-                                        <td>{player?.position}</td>
-                                    </tr>
+                                        <Table.Cell className="p-1">
+                                            {player?.fullName}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {player?.position}
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (

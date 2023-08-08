@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Table } from 'react-bootstrap'
+import { Table } from 'flowbite-react'
 
 // Local team sections
 import LocalSection from './LocalSection'
@@ -18,37 +18,34 @@ const TableMatche = ({ match }) => {
 
     return (
         <>
-            <div className="bg-light rounded section-tables  vh-50">
-                <Table responsive borderless hover size="sm" variant="light">
-                    <tbody>
+            <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                <Table hoverable className="table-auto mt-1 text-sm">
+                    <Table.Body className="divide-y">
                         {match?.map((match) => (
-                            <tr
-                                className="border-bottom"
+                            <Table.Row
+                                className="border-bottom hover:cursor-pointer"
                                 key={match?._id}
                                 onClick={() =>
                                     navigate(`../matches/${match?._id}`)
                                 }
                             >
-                                <td>
+                                <Table.Cell className="p-1">
                                     <SectionDate match={match} />
-                                </td>
-                                <td>
+                                </Table.Cell>
+                                <Table.Cell className="p-1">
                                     <AwaySection match={match} />
                                     <LocalSection match={match} />
-                                </td>
+                                </Table.Cell>
 
-                                <td>
-                                    <div className="d-block justify-content-center">
+                                <Table.Cell className="p-1">
+                                    <div className="block justify-end">
                                         <AwayScore match={match} />
                                         <LocalScore match={match} />
                                     </div>
-                                </td>
-                            </tr>
+                                </Table.Cell>
+                            </Table.Row>
                         ))}
-                    </tbody>
-                    <caption className="text-light">
-                        Total de partidos: {match?.length}
-                    </caption>
+                    </Table.Body>
                 </Table>
             </div>
         </>

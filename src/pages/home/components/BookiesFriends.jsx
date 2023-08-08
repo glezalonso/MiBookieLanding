@@ -1,9 +1,10 @@
 import React from 'react'
-import { Modal, Table } from 'react-bootstrap'
+import { Modal, Table } from 'flowbite-react'
 import { Link } from 'react-router-dom'
 import { useAuthStore } from '../../../store/authorization'
 import { useGetBookie } from '../../../features/users.features'
 import { PersonCircle } from 'react-bootstrap-icons'
+import { IoMdPeople } from 'react-icons/io'
 
 const BookiesFirends = ({ show, handleClose }) => {
     const { id } = useAuthStore((state) => state.profile)
@@ -11,50 +12,50 @@ const BookiesFirends = ({ show, handleClose }) => {
 
     return (
         <>
-            <Modal show={show} className="my-5" size="xs" onHide={handleClose}>
-                <Modal.Header className="bg-dark text-white" closeButton>
-                    <Modal.Title>Mis Bookies</Modal.Title>
+            <Modal
+                show={show}
+                className="w-full h-full mt-4 mx-auto bg-transparent max-w-md"
+                popup
+                dismissible
+                onClose={() => handleClose()}
+            >
+                <Modal.Header className="bg-zinc-950 pb-1 px-1">
+                    <div className="flex justify-start">
+                        <div className="my-1">
+                            <IoMdPeople className="mx-2 h-8 w-8  text-gray-500" />
+                        </div>
+                        <div>
+                            <h3 className="text-xl mt-2 text-gray-500 font-medium">
+                                Mis Bookies
+                            </h3>
+                        </div>
+                    </div>
                 </Modal.Header>
-                <Modal.Body>
-                    <div
-                        style={{
-                            maxHeight: '400px',
-                            overflow: 'auto',
-                        }}
-                    >
-                        <Table
-                            style={{ height: '25px' }}
-                            responsive
-                            size="sm"
-                            hover
-                            borderless
-                            className="my-1"
-                        >
-                            <tbody>
+                <Modal.Body className="max-h-screen overflow-auto">
+                    <div>
+                        <Table hoverable className="table-auto mt-3 text-sm">
+                            <Table.Body className="divide-y">
                                 {user?.follow?.map((users) => (
-                                    <tr key={users?._id}>
-                                        <td>
-                                            <PersonCircle
-                                                color="dark"
-                                                className="mx-1"
-                                            />
-                                            {users?.username}
-                                        </td>
-                                        <td>
+                                    <Table.Row key={users?._id}>
+                                        <Table.Cell className="py-1">
                                             <Link
                                                 to={`../profile/${users?._id}`}
-                                                className="btn btn-dark btn-sm"
+                                                className="text-gray-500 flex no-underline hover:text-gray-900 hover:underline "
                                             >
-                                                Perfil
+                                                <PersonCircle
+                                                    color="black"
+                                                    className="mr-2"
+                                                />
+                                                {users?.username}
                                             </Link>
-                                        </td>
-                                    </tr>
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className="bg-dark text-white">
+                <Modal.Footer className="bg-zinc-950 text-gray-500 p-3 justify-end">
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?

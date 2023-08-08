@@ -1,45 +1,60 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { Table } from 'flowbite-react'
 
 const CardPlayer = ({ player }) => {
     return (
         <>
-            <section>
-                <Card>
-                    <Card.Header>
-                        <Card.Title>{player?.fullName}</Card.Title>
-                        <Card.Text className="my-1">
-                            Posición: {player?.position}
-                        </Card.Text>
-                        <Card.Text className="my-1">
-                            Deporte: {player?.sport?.sport}
-                        </Card.Text>
-                        <Card.Text className="my-1">
-                            Equipo:{' '}
-                            {player?.team ? (
-                                <Link
-                                    to={`../teams/${player?.team?._id}`}
-                                    className="btn btn-sm btn-light"
-                                >
-                                    <img
-                                        style={{
-                                            width: '15px',
-                                            height: '15px',
-                                        }}
-                                        src={player?.team?.poster}
-                                        alt={player?.team?.name}
-                                    />
-                                    <span className="mx-1">
-                                        {player?.team?.name}
-                                    </span>
-                                </Link>
-                            ) : (
-                                <span className="text-danger">Sin asignar</span>
-                            )}
-                        </Card.Text>
-                    </Card.Header>
-                </Card>
+            <section className="my-3">
+                <div>
+                    <Table>
+                        <Table.Body>
+                            <Table.Row>
+                                <Table.Cell className="p-2 text-base font-bold">
+                                    {player?.fullName}
+                                </Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell className="p-2">
+                                    Posición
+                                </Table.Cell>
+                                <Table.Cell className="p-2">
+                                    {player?.position}
+                                </Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell className="p-2">Deporte</Table.Cell>
+                                <Table.Cell className="p-2">
+                                    {player?.sport?.sport}
+                                </Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell className="p-2">Equipo:</Table.Cell>
+                                <Table.Cell className="p-2">
+                                    {player?.team ? (
+                                        <Link
+                                            to={`../teams/${player?.team?._id}`}
+                                            className="flex no-underline"
+                                        >
+                                            <img
+                                                className="h-5 w-5"
+                                                src={player?.team?.poster}
+                                                alt={player?.team?.name}
+                                            />
+                                            <span className="mx-1">
+                                                {player?.team?.name}
+                                            </span>
+                                        </Link>
+                                    ) : (
+                                        <span className="text-red-800">
+                                            Sin asignar
+                                        </span>
+                                    )}
+                                </Table.Cell>
+                            </Table.Row>
+                        </Table.Body>
+                    </Table>
+                </div>
             </section>
         </>
     )

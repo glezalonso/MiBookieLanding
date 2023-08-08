@@ -15,32 +15,23 @@ const PeopleComments = ({ comment }) => {
     return (
         <>
             <div
-                className="d-flex flex-row justify-content-start my-1 overflow-auto"
+                className="flex flex-row p-1 justify-start mt-1 w-2/4  overflow-auto"
                 key={comment?._id}
             >
-                <div
-                    className="p-1 rounded bg-secondary  text-light "
-                    style={{
-                        margin: '1px',
-                        fontSize: '13px',
-                    }}
-                >
-                    <strong
-                        style={{
-                            marginRight: '2px',
-                            fontSize: '13px',
-                        }}
-                    >
-                        <span
-                            className="text-light profile"
-                            onClick={() =>
-                                handleNavigate(comment?.username?._id)
-                            }
-                        >
-                            {comment?.username?.username} :
-                        </span>
-                    </strong>
-                    {comment?.comment}
+                <div className="p-2 m-0.5 text-xs rounded bg-white   ">
+                    <div className="flex ">
+                        <strong className="mr-0.5 text-xs ">
+                            <span
+                                className="text-black hover:cursor-pointer"
+                                onClick={() =>
+                                    handleNavigate(comment?.username?._id)
+                                }
+                            >
+                                {comment?.username?.username}
+                            </span>
+                        </strong>
+                    </div>
+                    <div>{comment?.comment}</div>
                 </div>
             </div>
         </>

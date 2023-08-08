@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 import { useGetMatchesToday } from '../../features/matches.features'
 import { useAuthStore } from '../../store/authorization'
 import { toast } from 'react-hot-toast'
-import {
-    Person,
-    Gem,
-    Calendar2Check,
-    Calendar2Event,
-} from 'react-bootstrap-icons'
+import { IoMdCalendar, IoMdMedal, IoMdPeople } from 'react-icons/io'
+import { Button } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import Loading from '../../ui/Loading'
@@ -53,88 +48,89 @@ const Home = () => {
     return (
         <>
             <NavBar />
-            <Container fluid>
-                <Row className="my-2">
-                    <Col xs={12} md={8} className="p-1 mx-auto ">
-                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
-                            {key === 'hoy' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning rounded  "
-                                    onClick={() => setKey('hoy')}
-                                >
-                                    <Calendar2Check
-                                        color="dark"
-                                        className="mx-1"
-                                    />
-                                    Hoy
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light rounded  "
-                                    onClick={() => setKey('hoy')}
-                                >
-                                    <Calendar2Check
-                                        color="dark"
-                                        className="mx-1"
-                                    />
-                                    Hoy
-                                </Button>
-                            )}
-                            {key === 'mañana' ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-warning rounded  "
-                                    onClick={() => setKey('mañana')}
-                                >
-                                    <Calendar2Event
-                                        color="dark"
-                                        className="mx-1"
-                                    />
-                                    Mañana
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light rounded  "
-                                    onClick={() => setKey('mañana')}
-                                >
-                                    <Calendar2Event
-                                        color="dark"
-                                        className="mx-1"
-                                    />
-                                    Mañana
-                                </Button>
-                            )}
+            <div className="container px-0 mx-auto">
+                <div className="grid sm:grid-cols-4 sm:gap-2">
+                    <div className="col-span-3">
+                        <div
+                            className="flex gap-1 mt-3 justify-center mx-auto "
+                            role="group"
+                        >
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('hoy')}
+                            >
+                                <div className="flex">
+                                    <div>
+                                        <IoMdCalendar className="h-5 w-5" />
+                                    </div>
+                                    <div className="my-0.5">
+                                        <span className="ml-1">Hoy</span>
+                                    </div>
+                                </div>
+                            </Button>
+
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('mañana')}
+                            >
+                                <div className="flex">
+                                    <div>
+                                        <IoMdCalendar className="h-5 w-5" />
+                                    </div>
+                                    <div className="my-0.5">
+                                        <span className="ml-1">Mañana</span>
+                                    </div>
+                                </div>
+                            </Button>
+
                             {isLogged ? (
                                 <>
                                     <Button
-                                        size="sm"
-                                        className=" btn-light rounded  "
+                                        pill
+                                        size="xs"
+                                        color="gray"
+                                        className=" text-gray-600"
                                         onClick={() => handleShowTop()}
                                     >
-                                        <Gem color="dark" className="mx-1" />
-                                        Top
+                                        <div className="flex">
+                                            <div>
+                                                <IoMdMedal className="h-5 w-5" />
+                                            </div>
+                                            <div className="my-0.5">
+                                                <span className="ml-1">
+                                                    Top
+                                                </span>
+                                            </div>
+                                        </div>
                                     </Button>
 
                                     <Button
-                                        size="sm"
-                                        className=" btn-light rounded "
+                                        pill
+                                        size="xs"
+                                        color="gray"
+                                        className=" text-gray-600"
                                         onClick={() => handleShow()}
                                     >
-                                        <Person
-                                            size={'18px'}
-                                            color="dark"
-                                            className="mx-1"
-                                        />
-                                        <span className="my-1">
-                                            Mis Bookies
-                                        </span>
+                                        <div className="flex">
+                                            <div>
+                                                <IoMdPeople className="h-5 w-5" />
+                                            </div>
+                                            <div className="my-0.5">
+                                                <span className="ml-1">
+                                                    Mis Bookies
+                                                </span>
+                                            </div>
+                                        </div>
                                     </Button>
                                 </>
                             ) : null}
-                        </ButtonGroup>
+                        </div>
                         <section>
                             {key === 'hoy' ? (
                                 <SectionMatches
@@ -149,18 +145,18 @@ const Home = () => {
                                 />
                             ) : null}
                         </section>
-                    </Col>
-                    <Col md={3} className="mx-auto d-none d-md-block">
+                    </div>
+                    <div className="hidden sm:block sm:col-span-1 mt-5 mx-auto">
                         <SectionLeagues />
-                    </Col>
-                </Row>
+                    </div>
+                </div>
                 {isLogged ? (
                     <BookiesFirends show={show} handleClose={handleClose} />
                 ) : null}
                 {isLogged ? (
                     <SectionTop show={showTop} handleClose={handleCloseTop} />
                 ) : null}
-            </Container>
+            </div>
         </>
     )
 }

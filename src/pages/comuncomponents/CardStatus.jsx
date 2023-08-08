@@ -1,21 +1,20 @@
 import React from 'react'
 import { Clock } from 'react-bootstrap-icons'
-import { Badge } from 'react-bootstrap'
+import { Badge } from 'flowbite-react'
 
 const CardStatus = ({ match }) => {
     return (
         <>
-            <div
-                style={{ fontSize: '14px' }}
-                className="d-flex align-items-center gap-1"
-            >
+            <div className="flex align-center gap-1 text-sm">
                 {match?.status ? (
                     <>
-                        <Clock size={15} />
+                        <Clock size={15} className="mt-1" />
                         <span>{match?.date?.split('T')[1]}</span>
                     </>
                 ) : (
-                    <Badge bg="danger">Terminado</Badge>
+                    <Badge className="mx-2 mb-2 bg-red-800 text-white">
+                        Terminado
+                    </Badge>
                 )}
             </div>
         </>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 
@@ -23,14 +22,14 @@ const Matches = () => {
     return (
         <>
             <NavBar />
-            <Container>
-                <Row className="my-2 ">
-                    <Col xs={12} md={8} className="rounded mx-auto my-1 ">
+            <div className="container px-0 auto">
+                <div className="mx-auto">
+                    <div className="mx-auto mt-2 lg:w-3/4">
                         <CardMatch match={match} />
-                    </Col>
-                </Row>
-                <SectionLineUps match={match} />
-            </Container>
+                        <SectionLineUps match={match} />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

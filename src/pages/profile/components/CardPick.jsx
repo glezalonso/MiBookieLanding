@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Table } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
+import { Table } from 'flowbite-react'
 import CardSectionAway from '../../comuncomponents/CardSectionAway'
 import AwayScore from '../../comuncomponents/AwayScore'
 import CardSectionLocal from '../../comuncomponents/CardSectionLocal'
@@ -8,6 +9,7 @@ import CardHeader from '../../comuncomponents/CardHeader'
 
 const CardPick = ({ match, id }) => {
     let result = ''
+    const navigate = useNavigate()
 
     const prediction = match?.votes?.filter(
         (vote) => vote?.username?._id === id
@@ -25,43 +27,43 @@ const CardPick = ({ match, id }) => {
 
     return (
         <>
-            <Card className="shadow-xl my-2">
-                <Card.Header>
+            <div className="  max-w-full bg-white  border-gray-200 my-2 p-2 rounded-lg hover:shadow-lg">
+                <div>
                     <CardHeader match={match} />
-                </Card.Header>
-                <Card.Body>
-                    <Table responsive size="sm" borderless className="my-1">
-                        <tbody>
-                            <tr>
-                                <td>
+                </div>
+                <div>
+                    <Table className="table-auto text-xs">
+                        <Table.Body
+                            className="border-b-inherit "
+                            onClick={() => navigate(`../matches/${match?._id}`)}
+                        >
+                            <Table.Row>
+                                <Table.Cell className="p-2">
                                     <CardSectionAway match={match} />
-                                </td>
-                                <td className="text-end">
+                                </Table.Cell>
+                                <Table.Cell className="p-2 text-center ">
                                     <AwayScore match={match} />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
+                                </Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell className="p-2">
                                     <CardSectionLocal match={match} />
-                                </td>
-                                <td className="text-end">
+                                </Table.Cell>
+                                <Table.Cell className="p-2 text-center ">
                                     <LocalScore match={match} />
-                                </td>
-                            </tr>
-                        </tbody>
+                                </Table.Cell>
+                            </Table.Row>
+                        </Table.Body>
                     </Table>
-                </Card.Body>
-                <Card.Footer>
+                </div>
+                <div>
                     {prediction?.map((votes) => (
                         <div
-                            className="d-flex justify-content-between"
+                            className="flex justify-between"
                             key={votes?.username}
                         >
                             <div>
-                                <span
-                                    style={{ fontSize: '13px' }}
-                                    className="text-secondary"
-                                >
+                                <span className="text-gray-500 text-xs">
                                     Tu pronóstico:
                                     <strong className="mx-1">
                                         {votes?.option === 'local' ? (
@@ -78,17 +80,11 @@ const CardPick = ({ match, id }) => {
                             <div>
                                 {!match.status ? (
                                     votes?.option === result ? (
-                                        <span
-                                            style={{ fontSize: '13px' }}
-                                            className="text-success"
-                                        >
+                                        <span className="text-green-600 text-xs">
                                             Acertaste
                                         </span>
                                     ) : (
-                                        <span
-                                            style={{ fontSize: '13px' }}
-                                            className="text-danger"
-                                        >
+                                        <span className="text-red-800 text-xs">
                                             Fallaste
                                         </span>
                                     )
@@ -96,8 +92,8 @@ const CardPick = ({ match, id }) => {
                             </div>
                         </div>
                     ))}
-                </Card.Footer>
-            </Card>
+                </div>
+            </div>
         </>
     )
 }

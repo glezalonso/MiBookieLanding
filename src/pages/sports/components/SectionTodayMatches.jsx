@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, FormControl, Badge } from 'react-bootstrap'
+import { Alert, TextInput, Badge } from 'flowbite-react'
 import { useGetMatchesToday } from '../../../features/matches.features'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
@@ -28,14 +28,18 @@ const SectionTodayMatches = ({ sport }) => {
     return (
         <>
             <section>
-                <span className="mx-2 fs-5">
-                    Partidos de hoy
-                    <Badge bg="dark" className="mx-2">
+                <div className="flex mt-1 mx-2 ">
+                    <h5 className="mt-1">Partidos de hoy</h5>
+                    <Badge
+                        size={'sm'}
+                        className="mx-2  mb-2 bg-zinc-900 text-gray-200"
+                    >
                         {filterMatch?.length}
                     </Badge>
-                </span>
-                <div className="my-2 mx-auto p-1">
-                    <FormControl
+                </div>
+
+                <div className="my-1 mx-auto p-1">
+                    <TextInput
                         name="team"
                         placeholder="Equipos..."
                         onChange={(e) => setFilter(e.target.value)}
@@ -45,9 +49,7 @@ const SectionTodayMatches = ({ sport }) => {
                 {filterMatch?.length > 0 ? (
                     <TableMatch match={filterMatch} />
                 ) : (
-                    <Alert variant="warning">
-                        No hay partidos para mostrar!
-                    </Alert>
+                    <Alert color="warning">No hay partidos para mostrar!</Alert>
                 )}
             </section>
         </>

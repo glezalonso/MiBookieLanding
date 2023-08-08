@@ -11,7 +11,7 @@ const CardStandingAway = ({ match }) => {
                 <span
                     style={{ fontSize: '13px' }}
                     key={team?.team}
-                    className="text-secondary"
+                    className="text-gray-400 font-semibold"
                 >
                     {team?.wins}-{team?.loses}
                 </span>

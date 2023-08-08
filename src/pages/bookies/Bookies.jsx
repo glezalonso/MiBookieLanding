@@ -1,5 +1,5 @@
 import React from 'react'
-import { Badge, Col, Container, Row } from 'react-bootstrap'
+import { Badge } from 'flowbite-react'
 import NavBar from '../../ui/Navbar'
 import { useGetBookies } from '../../features/users.features'
 import Loading from '../../ui/Loading'
@@ -19,21 +19,24 @@ const Bookies = () => {
     return (
         <>
             <NavBar />
-            <Container fluid>
-                <Row className="my-2 ">
-                    <Col xs={12} md={8} xl={7} className="mx-auto my-1">
-                        <h5>
-                            Bookies
-                            <Badge bg="dark" className="mx-1">
+            <div className="container px-0 auto">
+                <div className="mx-auto mt-2">
+                    <div className="mx-auto lg:w-3/4">
+                        <div className="flex mt-1 mx-2 ">
+                            <h5 className="mt-1">Bookies</h5>
+                            <Badge
+                                size={'sm'}
+                                className="mx-2 mb-2 bg-zinc-900 text-gray-200"
+                            >
                                 {users?.length}
                             </Badge>
-                        </h5>
+                        </div>
                         {users?.map((user) => (
                             <SectionBookies key={user?._id} user={user} />
                         ))}
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

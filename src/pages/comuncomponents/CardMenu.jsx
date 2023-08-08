@@ -1,19 +1,19 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button } from 'flowbite-react'
 import { ChatDots, People, GraphUp } from 'react-bootstrap-icons'
 
 const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
     return (
         <>
-            <div className="border-top ">
+            <div className=" flex justify-start gap-1 border-t-2 ">
                 <Button
-                    style={{ fontSize: '14px' }}
-                    size="sm"
-                    variant="light"
-                    className="my-1 px-1"
+                    pill
+                    size="xs"
+                    color="gray"
+                    className=" text-gray-600 mt-1"
                     onClick={() => handleComments()}
                 >
-                    <div className="d-flex align-items-center gap-1">
+                    <div className="flex items-center gap-1">
                         <ChatDots size={15} />
                         <span className="">
                             {match?.comments?.length}
@@ -22,20 +22,20 @@ const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
                     </div>
                 </Button>
                 <Button
-                    style={{ fontSize: '14px' }}
-                    size="sm"
-                    variant="light"
-                    className="my-1 px-1"
+                    pill
+                    size="xs"
+                    color="gray"
+                    className=" text-gray-600 mt-1"
                     onClick={() => handleConsensus()}
                 >
                     <GraphUp className="mx-1" /> Votos
                 </Button>
                 {match?.lineup?.length > 0 ? (
                     <Button
-                        style={{ fontSize: '14px' }}
-                        size="sm"
-                        variant="light"
-                        className="my-1 px-1"
+                        pill
+                        size="xs"
+                        color="gray"
+                        className=" text-gray-600 mt-1"
                         onClick={() => handleLineUp()}
                     >
                         <People className="mx-1" /> Alineación

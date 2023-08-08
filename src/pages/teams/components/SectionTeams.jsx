@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
-import { Alert, FormControl, Table } from 'react-bootstrap'
+import { Alert, TextInputt, Table } from 'flowbite-react'
 import Loading from '../../../ui/Loading'
 import { useGetTeams } from '../../../features/teams.features'
 
@@ -26,7 +26,7 @@ const SectionTeams = () => {
             <section>
                 <h5>Todos los equipos</h5>
                 <div className="my-2 auto p-1">
-                    <FormControl
+                    <TextInputt
                         style={{ fontSize: '13px' }}
                         name="team"
                         placeholder="Nombre del equipo, deporte..."
@@ -34,35 +34,40 @@ const SectionTeams = () => {
                     />
                 </div>
                 {filterTeams?.length > 0 ? (
-                    <div className="bg-dark rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="dark"
-                        >
-                            <thead className="border-bottom">
-                                <tr>
-                                    <th>Equipo</th>
-                                    <th>Estadio</th>
-                                    <th>Deporte</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Equipo
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Estadio
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Deporte
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
                                 {filterTeams?.map((team) => (
-                                    <tr
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={team?._id}
                                         onClick={() =>
                                             navigate(`../teams/${team?._id}`)
                                         }
                                     >
-                                        <td>{team?.name}</td>
-                                        <td>{team?.stadium}</td>
-                                        <td>{team?.sport?.sport}</td>
-                                    </tr>
+                                        <Table.Cell className="p-1">
+                                            {team?.name}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {team?.stadium}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {team?.sport?.sport}
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (

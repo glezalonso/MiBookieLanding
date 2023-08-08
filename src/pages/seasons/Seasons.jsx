@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
-import { Container, Row, Col, Button, ButtonGroup } from 'react-bootstrap'
+import { Button } from 'flowbite-react'
 import { useGetSeason } from '../../features/seasons.features'
 import CardSeason from './components/CardSeason'
 import SectionRounds from './components/SectionRounds'
@@ -20,48 +20,35 @@ const Seasons = () => {
     return (
         <>
             <NavBar />
-            <Container fluid>
-                <Row className="my-2">
-                    <Col xs={12} md={8} className=" mx-auto ">
+            <div className="container px-0 auto">
+                <div className="mx-auto">
+                    <div className="mx-auto lg:w-3/4">
                         <CardSeason season={season} setKey={setKey} />
-                    </Col>
-                    <Col xs={12} md={8} className="p-1 mx-auto ">
-                        <ButtonGroup className="d-flex mx-auto my-3 gap-1  ">
-                            {key === 'posiciones' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning "
-                                    onClick={() => setKey('posiciones')}
-                                >
-                                    Clasificación
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('posiciones')}
-                                >
-                                    Posiciones
-                                </Button>
-                            )}
-                            {key === 'rondas' ? (
-                                <Button
-                                    size="sm"
-                                    className="btn-warning"
-                                    onClick={() => setKey('rondas')}
-                                >
-                                    Rondas
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className="btn-light"
-                                    onClick={() => setKey('rondas')}
-                                >
-                                    Rondas
-                                </Button>
-                            )}
-                        </ButtonGroup>
+
+                        <div
+                            className="flex gap-1 mt-1 justify-center mx-auto "
+                            role="group"
+                        >
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('posiciones')}
+                            >
+                                Clasificación
+                            </Button>
+
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('rondas')}
+                            >
+                                Rondas
+                            </Button>
+                        </div>
                         <section>
                             {key === 'posiciones' ? (
                                 <SectionStandings season={season} />
@@ -70,9 +57,9 @@ const Seasons = () => {
                                 <SectionRounds season={season} />
                             ) : null}
                         </section>
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, FormControl, Badge, Form } from 'react-bootstrap'
+import { Select, Alert, Badge, TextInput } from 'flowbite-react'
 import { useGetSports } from '../../../features/sports.features'
 import CardMatch from '../../comuncomponents/CardMatch'
 
@@ -21,14 +21,17 @@ const SectionMatches = ({ matches }) => {
     return (
         <>
             <section>
-                <div className="d-flex my-1 justify-content-between ">
-                    <h5 className=" mt-1 mx-2 ">
-                        Partidos
-                        <Badge bg="dark" className="mx-2">
+                <div className="flex my-1 justify-between ">
+                    <div className="flex mt-1 mx-2 ">
+                        <h5 className="mt-1">Partidos</h5>
+                        <Badge
+                            size={'sm'}
+                            className="mx-2 mb-2 bg-zinc-900 text-gray-200"
+                        >
                             {matches?.length}
                         </Badge>
-                    </h5>
-                    <Form.Select
+                    </div>
+                    <Select
                         style={{ fontSize: '15px' }}
                         className="rounded w-50"
                         onChange={(e) => setFilter(e.target.value)}
@@ -40,10 +43,10 @@ const SectionMatches = ({ matches }) => {
                                 {sport?.sport}
                             </option>
                         ))}
-                    </Form.Select>
+                    </Select>
                 </div>
                 <div className="my-1 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="team"
                         placeholder="Equipo..."
                         onChange={(e) => setFilter(e.target.value)}
@@ -54,7 +57,7 @@ const SectionMatches = ({ matches }) => {
                         <CardMatch key={match?._id} match={match} />
                     ))
                 ) : (
-                    <Alert variant="warning">
+                    <Alert color={'warning'}>
                         No hay partidos para mostrar!
                     </Alert>
                 )}

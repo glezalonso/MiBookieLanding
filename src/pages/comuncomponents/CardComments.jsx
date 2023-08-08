@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Alert } from 'react-bootstrap'
+import { Alert } from 'flowbite-react'
 import { useAuthStore } from '../../store/authorization'
 import PersonalComments from './PersonalComments'
 import PeopleComments from './PeopleComments'
@@ -9,13 +9,7 @@ const CardComments = ({ match }) => {
 
     return (
         <>
-            <Card.Body
-                style={{
-                    maxHeight: '200px',
-                    overflow: 'auto',
-                }}
-                className="bg-dark"
-            >
+            <div className="max-h-56 overflow-auto bg-zinc-950 rounded border-t-2 p-1">
                 {match?.comments?.length > 0 ? (
                     match?.comments?.map((comment) =>
                         comment?.username?._id === id ? (
@@ -32,11 +26,11 @@ const CardComments = ({ match }) => {
                         )
                     )
                 ) : (
-                    <Alert variant="warning mx-3 my-1 ">
+                    <Alert color="warning" className="mx-3 p-2 my-2 ">
                         No hay comentarios para mostrar!
                     </Alert>
                 )}
-            </Card.Body>
+            </div>
         </>
     )
 }

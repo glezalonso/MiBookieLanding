@@ -1,31 +1,30 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
 
 const CardRound = ({ round }) => {
     return (
         <>
             <section>
-                <div className=" my-2 text-dark">
-                    <Card.Title className="d-flex mx-1">
-                        <div className="my-1">
+                <div className=" mt-2 text-black">
+                    <h4 className="flex mx-1">
+                        <div className="mt-1">
                             <img
-                                style={{ width: '50px', height: '50px' }}
+                                className="h-12 w-12"
                                 src={round?.league?.poster}
                             />
                         </div>
                         <div>
-                            <div className="mx-1 mt-2">
-                                <span className=" mx-1 fs-5">
+                            <div className="mx-1 mt-1">
+                                <span className=" mx-1 text-base">
                                     {round?.round}
                                 </span>
                             </div>
                             <div className="mx-1 ">
-                                <span className=" mx-1 fs-6">
+                                <span className=" mx-1 text-sm">
                                     Temporada: {round?.season?.season}
                                 </span>
                             </div>
                         </div>
-                    </Card.Title>
+                    </h4>
                 </div>
             </section>
         </>

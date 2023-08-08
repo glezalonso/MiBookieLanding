@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-
 import { toast } from 'react-hot-toast'
-import { Alert, FormControl, Badge } from 'react-bootstrap'
+import { Alert, Badge, TextInput } from 'flowbite-react'
 
 // Section ui
 import Loading from '../../../ui/Loading'
@@ -27,12 +26,18 @@ const SectionMatches = ({ league, query }) => {
     return (
         <>
             <section>
-                <h5>
-                    Próximos partidos <Badge bg="dark">{matches?.length}</Badge>
-                </h5>
+                <div className="flex mt-1 mx-2 ">
+                    <h5 className="mt-1">Próximos partidos</h5>
+                    <Badge
+                        size={'sm'}
+                        className="mx-2 mb-2 bg-zinc-900 text-gray-200"
+                    >
+                        {matches?.length}
+                    </Badge>
+                </div>
 
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="team"
                         placeholder="Equipos..."
                         onChange={(e) => setFilter(e.target.value)}
@@ -42,9 +47,7 @@ const SectionMatches = ({ league, query }) => {
                 {matchesByFilter?.length > 0 ? (
                     <TableMatche match={matchesByFilter} />
                 ) : (
-                    <Alert variant="warning">
-                        No hay partidos para mostrar!
-                    </Alert>
+                    <Alert color="warning">No hay partidos para mostrar!</Alert>
                 )}
             </section>
         </>

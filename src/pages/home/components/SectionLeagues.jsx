@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Table, FormControl, Alert } from 'react-bootstrap'
+import { Alert, Table, TextInput } from 'flowbite-react'
 import { useGetLeagues } from '../../../features/leagues.features'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
@@ -22,30 +22,19 @@ const SectionLeagues = () => {
         <>
             <section>
                 <h5>Ligas</h5>
-                <div className="my-2 mx-auto p-1">
-                    <FormControl
+                <div className="mt-2 mx-auto p-1">
+                    <TextInput
                         name="league"
                         placeholder="Liga..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
                 {leaguesByFilter?.length > 0 ? (
-                    <div className="bg-light rounded ">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom solid">
-                                <tr>
-                                    <th scope="col">Liga</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className="bg-light rounded p-1 ">
+                        <Table hoverable className="table-aut0  text-sm">
+                            <Table.Body className="divide-y">
                                 {leaguesByFilter?.map((league) => (
-                                    <tr
+                                    <Table.Row
                                         key={league?._id}
                                         onClick={() =>
                                             navigate(
@@ -53,10 +42,19 @@ const SectionLeagues = () => {
                                             )
                                         }
                                     >
-                                        <td>{league?.league}</td>
-                                    </tr>
+                                        <Table.Cell className=" flex p-1">
+                                            <img
+                                                className="h-4 w-4"
+                                                src={league?.poster}
+                                                alt={league?.league}
+                                            />
+                                            <span className="mx-1">
+                                                {league?.league}
+                                            </span>
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (

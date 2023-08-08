@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button, Modal } from 'react-bootstrap'
+import { Button, Label, Modal, TextInput } from 'flowbite-react'
 import { useFormik } from 'formik'
 import { useRegister } from '../../../features/users.features'
 import { validateRegister } from '../../../helpers/validations'
@@ -27,60 +27,72 @@ const Register = ({ handleClose, show }) => {
 
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header className="bg-dark text-white">
-                    <Modal.Title>Registro</Modal.Title>
-                </Modal.Header>
+            <Modal show={show} popup dismissible onClose={() => handleClose()}>
+                <Modal.Header />
                 <Modal.Body>
-                    <Form onSubmit={formik.handleSubmit}>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="text-dark">
-                                Nombre completo:{' '}
-                            </Form.Label>
-                            <Form.Control
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                            Registro
+                        </h3>
+                    </div>
+                    <form onSubmit={formik.handleSubmit}>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="fullName"
+                                    value="Nombre completo"
+                                />
+                            </div>
+                            <TextInput
                                 {...formik.getFieldProps('fullName')}
                                 type="text"
                                 name="fullName"
                                 placeholder="Ingresa tu nombre completo"
                             />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="text-dark">
-                                Email{' '}
-                            </Form.Label>
-                            <Form.Control
+                        </div>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="email" value="Email" />
+                            </div>
+                            <TextInput
                                 {...formik.getFieldProps('email')}
                                 type="email"
                                 name="email"
                                 placeholder="Ingresa tu email"
                             />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="text-dark">
-                                Usuario:{' '}
-                            </Form.Label>
-                            <Form.Control
+                        </div>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="username" value="Usuario" />
+                            </div>
+                            <TextInput
                                 {...formik.getFieldProps('username')}
                                 type="text"
                                 name="username"
                                 placeholder="Crea tu usuario"
                             />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="text-dark">
-                                Contraseña:{' '}
-                            </Form.Label>
-                            <Form.Control
+                        </div>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="password" value="Contraseña" />
+                            </div>
+                            <TextInput
                                 {...formik.getFieldProps('password')}
                                 type="password"
                                 name="password"
                                 placeholder="Crea una contraseña"
                             />
-                        </Form.Group>
-                        <Button variant="warning" type="submit">
-                            Registrar
-                        </Button>
-                    </Form>
+                        </div>
+                        <div className="w-full flex justify-end">
+                            <Button
+                                className="mt-1"
+                                color="warning"
+                                type="submit"
+                            >
+                                Registrar
+                            </Button>
+                        </div>
+                    </form>
                 </Modal.Body>
             </Modal>
         </>

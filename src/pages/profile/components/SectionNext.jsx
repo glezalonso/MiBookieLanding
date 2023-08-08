@@ -3,7 +3,7 @@ import { useGetPicksOpen } from '../../../features/matches.features'
 import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
 import CardPick from './CardPick'
-import { Alert } from 'react-bootstrap'
+import { Alert } from 'flowbite-react'
 
 const SectionNext = ({ id, limit }) => {
     const {
@@ -22,7 +22,9 @@ const SectionNext = ({ id, limit }) => {
                     <CardPick match={match} key={match?._id} id={id} />
                 ))
             ) : (
-                <Alert variant="warning my-2">No tienes predicciones aún</Alert>
+                <Alert color="warning" className="my-2">
+                    No tienes predicciones aún
+                </Alert>
             )}
         </>
     )

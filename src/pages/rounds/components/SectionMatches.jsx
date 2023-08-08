@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Alert, FormControl } from 'react-bootstrap'
+import { Alert, TextInput } from 'flowbite-react'
 
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
@@ -31,7 +31,7 @@ const SectionMatches = ({ round }) => {
                 <h5>Partidos</h5>
 
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="team"
                         placeholder="Equipos..."
                         onChange={(e) => setFilter(e.target.value)}
@@ -41,9 +41,7 @@ const SectionMatches = ({ round }) => {
                 {matchesByFilter?.length > 0 ? (
                     <TableMatch match={matchesByFilter} />
                 ) : (
-                    <Alert variant="warning">
-                        No hay partidos para mostrar!
-                    </Alert>
+                    <Alert color="warning">No hay partidos para mostrar!</Alert>
                 )}
             </section>
         </>

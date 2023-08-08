@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Card } from 'react-bootstrap'
+import { Table } from 'flowbite-react'
 import { useAddPickEm } from '../../features/matches.features'
 import { useAuthStore } from '../../store/authorization'
 import { toast } from 'react-hot-toast'
@@ -38,62 +38,62 @@ const CardConsensus = ({ match }) => {
 
     return (
         <>
-            <Card.Body className="rounded">
-                <Table responsive borderless hover size="sm" className="my-1">
-                    <tbody>
-                        <tr>
-                            <td>
+            <div className="rounded p-1 border-t-2">
+                <Table hoverable className="table-auto mt-2 text-xs">
+                    <Table.Body>
+                        <Table.Row>
+                            <Table.Cell className="p-1 m">
                                 <AwaySection match={match} />
-                            </td>
-                            <td>
+                            </Table.Cell>
+                            <Table.Cell className="p-1 m">
                                 <AwayVotes match={match} />
-                            </td>
+                            </Table.Cell>
                             {match?.date > fullDate ? (
-                                <td>
+                                <Table.Cell className="p-1 m">
                                     <AwayVote
                                         match={match}
                                         handleVote={handleVote}
                                     />
-                                </td>
+                                </Table.Cell>
                             ) : null}
-                        </tr>
+                        </Table.Row>
                         {match?.sport?._id === ID_SOCCER ? (
-                            <tr>
-                                <td>
+                            <Table.Row>
+                                <Table.Cell className="p-1 m">
                                     <DrawSection />
-                                </td>
-                                <td>
+                                </Table.Cell>
+                                <Table.Cell className="p-1 m">
                                     <DrawVotes match={match} />
-                                </td>
+                                </Table.Cell>
                                 {match?.date > fullDate ? (
-                                    <td>
+                                    <Table.Cell className="p-1 m">
                                         <DrawVote
                                             match={match}
                                             handleVote={handleVote}
                                         />
-                                    </td>
+                                    </Table.Cell>
                                 ) : null}
-                            </tr>
+                            </Table.Row>
                         ) : null}
-                        <tr>
-                            <td>
+                        <Table.Row>
+                            <Table.Cell className="p-1 m">
                                 <LocalSection match={match} />
-                            </td>
-                            <td>
+                            </Table.Cell>
+                            <Table.Cell className="p-1 m">
                                 <LocalVotes match={match} />
-                            </td>
+                            </Table.Cell>
                             {match?.date > fullDate ? (
-                                <td>
+                                <Table.Cell className="p-1 m">
                                     <LocalVote
                                         match={match}
                                         handleVote={handleVote}
                                     />
-                                </td>
+                                </Table.Cell>
                             ) : null}
-                        </tr>
-                    </tbody>
+                        </Table.Row>
+                    </Table.Body>
                 </Table>
-            </Card.Body>
+            </div>
         </>
     )
 }

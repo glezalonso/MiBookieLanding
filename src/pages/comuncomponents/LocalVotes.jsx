@@ -18,7 +18,7 @@ const LocalVotes = ({ match }) => {
                         {` ${Math.round((voteslocal?.length * 100) / total)} %`}
                     </span>
                 ) : (
-                    <span className="text-danger text-center">
+                    <span className="text-red-800 text-center">
                         No hay votos!
                     </span>
                 )}

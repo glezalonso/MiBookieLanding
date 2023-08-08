@@ -25,40 +25,35 @@ const PersonalComments = ({ match, comment }) => {
     }
     return (
         <>
-            <div className="d-flex flex-row justify-content-end my-1 overflow-auto ">
-                <div
-                    className="p-1 ms-5 bg-light  rounded text-end"
-                    style={{
-                        fontSize: '13px',
-                    }}
-                >
-                    <strong
-                        className="text-dark"
-                        style={{
-                            marginRight: '2px',
-                            fontSize: '13px',
-                        }}
-                    >
-                        <span
-                            className="text-dark profile"
+            <div className="flex  p-1 justify-end   mb-1 overflow-auto ">
+                <div className="p-1 ml-2 bg-white text-xs  rounded text-end">
+                    <div className="flex ">
+                        <strong className="text-dark mr-0.5 text-xs">
+                            <span
+                                className="text-dark profile"
+                                onClick={() =>
+                                    handleNavigate(comment?.username?._id)
+                                }
+                            >
+                                {comment?.username?.username}
+                            </span>
+                        </strong>
+                    </div>
+                    <div className=" flex justify-end">
+                        <div>{comment?.comment}</div>
+
+                        <XCircleFill
+                            color="red"
+                            className="mt-0.5 mx-0.5"
                             onClick={() =>
-                                handleNavigate(comment?.username?._id)
+                                handleRemove(
+                                    comment?.comment,
+                                    comment?._id,
+                                    match?._id
+                                )
                             }
-                        >
-                            {comment?.username?.username} :
-                        </span>
-                    </strong>
-                    {comment?.comment}{' '}
-                    <XCircleFill
-                        color="red"
-                        onClick={() =>
-                            handleRemove(
-                                comment?.comment,
-                                comment?._id,
-                                match?._id
-                            )
-                        }
-                    />
+                        />
+                    </div>
                 </div>
             </div>
         </>

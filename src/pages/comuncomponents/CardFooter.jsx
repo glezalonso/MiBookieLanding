@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, FormControl, Form, Button } from 'react-bootstrap'
+import { Button, Textarea } from 'flowbite-react'
 import { useAuthStore } from '../../store/authorization'
 import { useAddComment } from '../../features/matches.features'
 import { toast } from 'react-hot-toast'
@@ -21,11 +21,10 @@ const CardFooter = ({ match }) => {
     const isDisable = useAuthStore((state) => state.isDisable)
     return (
         <>
-            <Card.Footer className="bg-light shadow-lg  border-secondary  border-top">
-                <Form onSubmit={(e) => handleSubmit(e, match?._id)}>
-                    <FormControl
-                        className="my-1"
-                        as="textarea"
+            <div>
+                <form onSubmit={(e) => handleSubmit(e, match?._id)}>
+                    <Textarea
+                        className="my-1 text-sm"
                         rows={2}
                         name="comment"
                         placeholder="Ingresa tu comentario"
@@ -33,16 +32,18 @@ const CardFooter = ({ match }) => {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     />
-                    <div className="d-flex justify-content-end">
+                    <div className="flex justify-end">
                         <Button
                             type="submit"
-                            className=" btn btn-warning btn-sm mt-2 "
+                            size="xs"
+                            color="warning"
+                            className="mt-1 "
                         >
                             Comentar
                         </Button>
                     </div>
-                </Form>
-            </Card.Footer>
+                </form>
+            </div>
         </>
     )
 }

@@ -1,14 +1,11 @@
 import React from 'react'
-import { Spinner } from 'react-bootstrap'
+import { Spinner } from 'flowbite-react'
 
 const Loading = () => {
     return (
         <>
-            <div className="d-flex justify-content-center my-5">
-                <Spinner
-                    animation="border"
-                    variant="dark d-flex justify-content-center"
-                />
+            <div className="flex justify-center my-5">
+                <Spinner color="warning" />
             </div>
         </>
     )

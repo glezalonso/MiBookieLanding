@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
-import { Alert, FormControl, Table } from 'react-bootstrap'
+import { Alert, TextInput, Table } from 'flowbite-react'
 import { useGetPlayers } from '../../../features/players.features'
 
 import Loading from '../../../ui/Loading'
@@ -31,34 +31,33 @@ const SectionPlayers = () => {
                 <h5>Todos los jugadores</h5>
 
                 <div className="m-2 p-2">
-                    <FormControl
+                    <TextInput
                         name="player"
                         placeholder="Nombre, deporte, equipo..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
                 {filterPlayers.length > 0 ? (
-                    <div
-                        className="table-responsive rounded "
-                        style={{ maxHeight: '500px', overflow: 'auto' }}
-                    >
-                        <Table
-                            responsive
-                            variant="dark table-sm table-borderless"
-                            style={{ fontSize: '14px' }}
-                            hover
-                        >
-                            <thead className="border-bottom">
-                                <tr>
-                                    <th>Nombre</th>
-                                    <th>Posición</th>
-                                    <th>Deporte</th>
-                                    <th>Equipo</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Nombre
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Posición
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Deporte
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Equipo
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body>
                                 {filterPlayers?.map((player) => (
-                                    <tr
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={player?._id}
                                         onClick={(e) =>
                                             navigate(
@@ -66,25 +65,31 @@ const SectionPlayers = () => {
                                             )
                                         }
                                     >
-                                        <td>{player?.fullName}</td>
-                                        <td>{player?.position}</td>
-                                        <td>{player?.sport?.sport}</td>
-                                        <td>
+                                        <Table.Cell className="p-1">
+                                            {player?.fullName}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {player?.position}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {player?.sport?.sport}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
                                             {player?.team ? (
                                                 player?.team?.name
                                             ) : (
-                                                <span className="text-danger">
+                                                <span className="text-red-800">
                                                     Sin asignar
                                                 </span>
                                             )}
-                                        </td>
-                                    </tr>
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (
-                    <Alert variant="warning">
+                    <Alert color="warning">
                         No hay jugadores para mostrar!
                     </Alert>
                 )}

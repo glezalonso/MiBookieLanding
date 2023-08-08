@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from '../../ui/Navbar'
-import { Container, Row, Col, ButtonGroup, Button, Form } from 'react-bootstrap'
+import { Button, Select } from 'flowbite-react'
 import { useParams } from 'react-router-dom'
 import SectionNext from './components/SectionNext'
 import SectionLast from './components/SectionLast'
@@ -20,106 +20,70 @@ const Profile = () => {
     return (
         <>
             <NavBar />
-            <Container>
-                <Row className="my-2">
-                    <Col xs={12} sm={5} md={5} xl={4} className="my-1 ">
+            <div className="container px-0 auto ">
+                <div className="grid w-full my-1 sm:grid-cols-5 sm:gap-1 xl:grid-col-4  ">
+                    <div className=" col-span-5 mx-1 sm:col-span-2">
                         <CardProfile user={user} />
-
                         <SectionRating user={user} />
-                    </Col>
-                    <Col xs={12} sm={7} md={7} xl={7} className="my-1 ">
-                        <ButtonGroup className="d-flex mx-auto mb-2 gap-1  ">
-                            {key === 'proximos' ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-warning rounded "
-                                    onClick={() => setKey('proximos')}
-                                >
-                                    Próximos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light rounded "
-                                    onClick={() => setKey('proximos')}
-                                >
-                                    Próximos
-                                </Button>
-                            )}
-                            {key === 'ultimos' ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-warning rounded "
-                                    onClick={() => setKey('ultimos')}
-                                >
-                                    Últimos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light rounded "
-                                    onClick={() => setKey('ultimos')}
-                                >
-                                    Últimos
-                                </Button>
-                            )}
+                    </div>
+                    <div className="col-span-5 mx-1 sm:block sm:col-span-3  ">
+                        <div
+                            className="flex gap-1 mt-3 justify-center "
+                            role="group"
+                        >
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('proximos')}
+                            >
+                                Próximos
+                            </Button>
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('ultimos')}
+                            >
+                                Últimos
+                            </Button>
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('contactos')}
+                            >
+                                <PeopleFill color="dark" className="mx-1" />
+                                Contáctos
+                            </Button>
 
-                            {key === 'contactos' ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-warning rounded "
-                                    onClick={() => setKey('contactos')}
-                                >
-                                    <PeopleFill color="dark" className="mx-1" />
-                                    Contáctos
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light rounded "
-                                    onClick={() => setKey('contactos')}
-                                >
-                                    <PeopleFill color="dark" className="mx-1" />
-                                    Contáctos
-                                </Button>
-                            )}
-                            {key === 'seguidores' ? (
-                                <Button
-                                    size="sm"
-                                    className=" btn-warning rounded "
-                                    onClick={() => setKey('seguidores')}
-                                >
-                                    <PersonCheckFill
-                                        color="dark"
-                                        className="mx-1"
-                                    />
-                                    Seguidores
-                                </Button>
-                            ) : (
-                                <Button
-                                    size="sm"
-                                    className=" btn-light rounded "
-                                    onClick={() => setKey('seguidores')}
-                                >
-                                    <PersonCheckFill
-                                        color="dark"
-                                        className="mx-1"
-                                    />
-                                    Seguidores
-                                </Button>
-                            )}
-                        </ButtonGroup>
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('seguidores')}
+                            >
+                                <PersonCheckFill
+                                    color="dark"
+                                    className="mx-1"
+                                />
+                                Seguidores
+                            </Button>
+                        </div>
                         <section>
-                            <div className="d-flex my-1 justify-content-end">
-                                <Form.Select
-                                    style={{ fontSize: '15px' }}
-                                    className="rounded w-50"
+                            <div className="flex my-1 justify-end">
+                                <Select
+                                    className="rounded w-1/3 cap-1 text-xs"
                                     onChange={(e) => setLimit(e.target.value)}
                                 >
                                     <option value="15">Últimos 15</option>
                                     <option value="30">Últimos 30</option>
                                     <option value="0">Todos</option>
-                                </Form.Select>
+                                </Select>
                             </div>
                             {key === 'proximos' ? (
                                 <SectionNext id={id} limit={limit} />
@@ -134,9 +98,9 @@ const Profile = () => {
                                 <SectionFollowers user={user} setKey={setKey} />
                             ) : null}
                         </section>
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

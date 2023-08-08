@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Button, Modal } from 'react-bootstrap'
+import { Button, Label, Modal, TextInput } from 'flowbite-react'
 import { useFormik } from 'formik'
 import { useLogin } from '../../../features/users.features'
 import { Link } from 'react-router-dom'
@@ -24,58 +24,66 @@ const Login = ({ show, handleClose, handleRegister }) => {
     })
     return (
         <>
-            <Modal show={show} onHide={handleClose}>
-                <Modal.Header className="bg-dark text-white">
-                    <Modal.Title>Iniciar Sesión</Modal.Title>
-                </Modal.Header>
+            <Modal show={show} popup dismissible onClose={() => handleClose()}>
+                <Modal.Header />
                 <Modal.Body>
-                    <Form onSubmit={formik.handleSubmit}>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="text-dark">
-                                Usuario:{' '}
-                            </Form.Label>
-                            <Form.Control
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-medium text-gray-900">
+                            Iniciar Sesión
+                        </h3>
+                    </div>
+                    <form onSubmit={formik.handleSubmit}>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="username" value="Usuario" />
+                            </div>
+                            <TextInput
                                 {...formik.getFieldProps('username')}
                                 type="username"
                                 name="username"
                                 id="username"
                                 placeholder="Ingresa tu usuario"
                             />
-                        </Form.Group>
-                        <Form.Group className="mb-3">
-                            <Form.Label className="text-dark">
-                                Contraseña:{' '}
-                            </Form.Label>
-                            <Form.Control
+                        </div>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label htmlFor="password" value="Contraseña" />
+                            </div>
+
+                            <TextInput
                                 {...formik.getFieldProps('password')}
                                 type="password"
                                 name="password"
                                 id="password"
                                 placeholder="Ingresa tu contraseña"
                             />
-                        </Form.Group>
-                        <Button variant="warning" type="submit">
-                            Iniciar Sesión
-                        </Button>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <div className="d-flex flex-row justify-content-start">
-                        <div className="text-start">
+                        </div>
+                        <div className="w-full flex justify-end">
+                            <Button
+                                className="mt-1"
+                                color="warning"
+                                type="submit"
+                            >
+                                Iniciar Sesión
+                            </Button>
+                        </div>
+                    </form>
+
+                    <div className="flex justify-between mt-3   gap-1 text-sm font-medium">
+                        <div className=" justify-start">
                             <Link to={'../generate'}>
                                 Olvidaste tu contraseña?
                             </Link>
                         </div>
-                    </div>
-                    <div className="d-flex flex-row justify-content-end ">
-                        <div className="text-end">
+
+                        <div className="">
                             No eres miembro?{' '}
                             <Link onClick={() => handleRegister()}>
                                 Crea un cuenta{' '}
                             </Link>
                         </div>
                     </div>
-                </Modal.Footer>
+                </Modal.Body>
             </Modal>
         </>
     )

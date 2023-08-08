@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Loading from '../../ui/Loading'
-import { Container, Row, Col, Alert, Form } from 'react-bootstrap'
+import { Alert, Select } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import { useGetNews } from '../../features/news.features'
 import { useGetSports } from '../../features/sports.features'
@@ -25,38 +25,35 @@ const News = () => {
     return (
         <>
             <NavBar />
-            <Container fluid>
-                <Row className="my-2">
-                    <Col xs={12} md={8} className=" mx-auto ">
-                        <div className="d-flex my-1 justify-content-between ">
-                            <h5 className="my-2 mx-1">Noticias</h5>
+            <div className="container px-0 auto">
+                <div className="mx-auto md:w-3/4">
+                    <div className="flex mt-2 justify-between ">
+                        <h5 className="my-2 mx-1">Noticias</h5>
 
-                            <Form.Select
-                                style={{ fontSize: '15px' }}
-                                className="rounded w-50"
-                                onChange={(e) => setFilter(e.target.value)}
-                            >
-                                <option value="6">Todos</option>
+                        <Select
+                            className="rounded w-50"
+                            onChange={(e) => setFilter(e.target.value)}
+                        >
+                            <option value="6">Todos</option>
 
-                                {sports?.map((sport) => (
-                                    <option key={sport?._id} value={sport?._id}>
-                                        {sport?.sport}
-                                    </option>
-                                ))}
-                            </Form.Select>
-                        </div>
-                        {filterNews?.length > 0 ? (
-                            filterNews?.map((content) => (
-                                <CardNew key={content?._id} content={content} />
-                            ))
-                        ) : (
-                            <Alert variant="warning">
-                                No hay noticias para mostrar!
-                            </Alert>
-                        )}
-                    </Col>
-                </Row>
-            </Container>
+                            {sports?.map((sport) => (
+                                <option key={sport?._id} value={sport?._id}>
+                                    {sport?.sport}
+                                </option>
+                            ))}
+                        </Select>
+                    </div>
+                    {filterNews?.length > 0 ? (
+                        filterNews?.map((content) => (
+                            <CardNew key={content?._id} content={content} />
+                        ))
+                    ) : (
+                        <Alert color="warning">
+                            No hay noticias para mostrar!
+                        </Alert>
+                    )}
+                </div>
+            </div>
         </>
     )
 }

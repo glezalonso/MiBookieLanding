@@ -3,18 +3,11 @@ import draw from '../../assets/draw.png'
 const DrawSection = () => {
     return (
         <>
-            <div className="d-flex ">
+            <div className="flex ">
                 <div>
-                    <img
-                        src={draw}
-                        alt="empate"
-                        style={{
-                            height: '25px',
-                            width: '25px',
-                        }}
-                    />
+                    <img src={draw} alt="empate" className="h-5 w-5" />
                 </div>
-                <div className="mx-1 my-1" style={{ fontSize: '13px' }}>
+                <div className="mx-1  text-sm">
                     <span>Empate</span>
                 </div>
             </div>

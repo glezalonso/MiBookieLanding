@@ -1,10 +1,9 @@
 import React from 'react'
-import { Modal, Button, Form } from 'react-bootstrap'
+import { Button, Label, Modal, TextInput } from 'flowbite-react'
 import { useFormik } from 'formik'
 import { Link } from 'react-router-dom'
 import { useResetPassword } from '../../../features/users.features'
 import { useRecovery } from '../../../store/recovery'
-import { Toaster } from 'react-hot-toast'
 import { validateResetPassword } from '../../../helpers/validations'
 
 const ResetPassword = () => {
@@ -28,50 +27,58 @@ const ResetPassword = () => {
 
     return (
         <>
-            <Toaster position="top-center" reverseOrder={false} />
             <Modal show={true}>
-                <Modal.Header className="bg-dark text-white">
-                    <Modal.Title>Nueva contraseña</Modal.Title>
-                </Modal.Header>
+                <Modal.Header />
                 <Modal.Body>
-                    <Form onSubmit={formik.handleSubmit}>
-                        <Form.Group>
-                            <Form.Label
-                                className="mt-1 text-dark"
-                                htmlFor="password"
-                            >
-                                Nueva contraseña
-                            </Form.Label>
-                            <Form.Control
+                    <div className="space-y-6">
+                        <h3 className="text-xl font-medium text-gray-900">
+                            Recuperar contraseña
+                        </h3>
+                    </div>
+                    <form onSubmit={formik.handleSubmit}>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="password"
+                                    value="Nueva contraseña"
+                                />
+                            </div>
+                            <TextInput
                                 {...formik.getFieldProps('password')}
                                 type="password"
                                 name="password"
                                 id="password"
                                 placeholder="Ingresa nueva contraseña"
                             />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label
-                                className="mt-1 text-dark"
-                                htmlFor="confirmPassword"
-                            >
-                                Confirmar contraseña
-                            </Form.Label>
-                            <Form.Control
+                        </div>
+                        <div>
+                            <div className="mb-2 block">
+                                <Label
+                                    htmlFor="confirmpassword"
+                                    value="Confirmar contraseña"
+                                />
+                            </div>
+                            <TextInput
                                 {...formik.getFieldProps('confirmPassword')}
                                 type="password"
                                 name="confirmPassword"
                                 id="confirmPassword"
                                 placeholder="Confirma nueva contraseña"
                             />
-                        </Form.Group>
-                        <Link className="btn btn-dark" to={'../'}>
-                            Cerrar
-                        </Link>
-                        <Button variant="warning" type="submit">
-                            Recuperar
-                        </Button>
-                    </Form>
+                        </div>
+                        <div className="w-full flex justify-between">
+                            <Link className="mt-3 text-yellow-400" to={'../'}>
+                                Cerrar
+                            </Link>
+                            <Button
+                                className="mt-3"
+                                color="warning"
+                                type="submit"
+                            >
+                                Recuperar
+                            </Button>
+                        </div>
+                    </form>
                 </Modal.Body>
             </Modal>
         </>

@@ -1,5 +1,4 @@
 import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
 import SectionTeams from './components/SectionTeams'
 import NavBar from '../../ui/Navbar'
 
@@ -7,13 +6,11 @@ const Teams = () => {
     return (
         <>
             <NavBar />
-            <Container fluid>
-                <Row className="my-2 mx-auto">
-                    <Col md={12} className="mx-auto">
-                        <SectionTeams />
-                    </Col>
-                </Row>
-            </Container>
+            <div className="container px-0 auto ">
+                <div className="mx-auto lg:w-3/4">
+                    <SectionTeams />
+                </div>
+            </div>
         </>
     )
 }

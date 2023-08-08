@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useGetSeasonsBySport } from '../../../features/seasons.features'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import { Alert, Table, FormControl } from 'react-bootstrap'
+import { Table, TextInput, Alert } from 'flowbite-react'
 import Loading from '../../../ui/Loading'
 
 const SectionSeasonsBySport = ({ sport }) => {
@@ -30,30 +30,26 @@ const SectionSeasonsBySport = ({ sport }) => {
             <section>
                 <h5 className="mx-2">Temporadas</h5>
                 <div className="my-2 mx-auto p-1">
-                    <FormControl
+                    <TextInput
                         name="sport"
                         placeholder="Temporada..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
                 </div>
                 {seasonsByFilter?.length > 0 ? (
-                    <div className="bg-light rounded section-tables">
-                        <Table
-                            responsive
-                            borderless
-                            hover
-                            size="sm"
-                            variant="light"
-                        >
-                            <thead className="border-bottom border-secondary">
-                                <tr>
-                                    <th>Temporada</th>
-                                    <th>Liga</th>
-                                </tr>
-                            </thead>
-                            <tbody>
+                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                        <Table hoverable className="table-auto mt-1 text-sm">
+                            <Table.Head>
+                                <Table.HeadCell className="px-1">
+                                    Temporada
+                                </Table.HeadCell>
+                                <Table.HeadCell className="px-1">
+                                    Liga
+                                </Table.HeadCell>
+                            </Table.Head>
+                            <Table.Body className="divide-y">
                                 {seasonsByFilter?.map((season) => (
-                                    <tr
+                                    <Table.Row
                                         key={season?._id}
                                         onClick={() =>
                                             navigate(
@@ -61,11 +57,15 @@ const SectionSeasonsBySport = ({ sport }) => {
                                             )
                                         }
                                     >
-                                        <td>{season?.season}</td>
-                                        <td>{season?.league?.league}</td>
-                                    </tr>
+                                        <Table.Cell className="p-1">
+                                            {season?.season}
+                                        </Table.Cell>
+                                        <Table.Cell className="p-1">
+                                            {season?.league?.league}
+                                        </Table.Cell>
+                                    </Table.Row>
                                 ))}
-                            </tbody>
+                            </Table.Body>
                         </Table>
                     </div>
                 ) : (

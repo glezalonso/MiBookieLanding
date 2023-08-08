@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Container, Navbar, Nav, Button } from 'react-bootstrap'
+import { Dropdown, Navbar, Avatar, Button } from 'flowbite-react'
 import { HouseDoor, Newspaper } from 'react-bootstrap-icons'
 import Login from '../pages/home/components/Login'
 import { Link, useNavigate } from 'react-router-dom'
@@ -35,99 +35,110 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar expand="" bg="dark" sticky="top" data-bs-theme="dark">
-                <Container fluid>
-                    <Navbar.Brand>
-                        <Link to={'/'} className="nav-link">
-                            <div className="d-flex justify-content-center">
+            <Navbar
+                fluid
+                className="bg-zinc-950 w-full md:p-0 md:h-16 2xl:w-4/5 2xl:mx-auto  "
+            >
+                <Navbar.Brand className="no-underline mr-auto md:mt-2.5  text-gray-400">
+                    <img
+                        alt="mibookie"
+                        className="mr-1 h-6 mt-1.5 sm:h-9"
+                        src={logo}
+                    />
+                    <span className="text-md mt-2.5 font-semibol">
+                        Mi Bookie
+                    </span>
+                </Navbar.Brand>
+
+                <div className="flex md:mt-2.5 md:order-2 ml-auto">
+                    {username ? (
+                        <Dropdown
+                            inline
+                            label={<Avatar alt={username} img={user} />}
+                        >
+                            <Dropdown.Item>
+                                <Link
+                                    className="text-sm  text-gray-600"
+                                    to={`../profile/${id}`}
+                                >
+                                    {username}
+                                </Link>
+                            </Dropdown.Item>
+                            <Dropdown.Item
+                                size="xs"
+                                className="text-yellow-400 text-sm p-0  mr-1.5 border-0"
+                                onClick={() => handleLogOut()}
+                            >
+                                Cerrar Sesión
+                            </Dropdown.Item>
+                        </Dropdown>
+                    ) : (
+                        <Button
+                            size="xs"
+                            color="warning"
+                            className="text-sm mt-1.5 mx-1.5 border-0"
+                            onClick={() => handleShow()}
+                        >
+                            Iniciar Sesión
+                        </Button>
+                    )}
+
+                    <Navbar.Toggle />
+                </div>
+                <Navbar.Collapse>
+                    <Link
+                        to={'/'}
+                        className="mt-5 no-underline text-gray-500 hover:text-gray-200"
+                    >
+                        <div className="flex">
+                            <div>
+                                <HouseDoor color="grey" className="w-5 h-5" />
+                            </div>
+                            <div>
+                                <span className="mx-1"> Inicio</span>
+                            </div>
+                        </div>
+                    </Link>
+                    {sports?.map((sport) => (
+                        <Link
+                            to={`../sports/${sport?._id}`}
+                            key={sport?._id}
+                            className="mt-5 no-underline text-gray-500 hover:text-gray-200  "
+                        >
+                            <div className="flex">
                                 <div>
                                     <img
-                                        style={{
-                                            width: '30px',
-                                            height: '30px',
-                                        }}
-                                        src={logo}
-                                        alt="Mi Bookie"
-                                    />
-                                </div>
-                                <div className="my-1 text-center">
-                                    <span className="mx-1">Mi Bookie</span>
-                                </div>
-                            </div>
-                        </Link>
-                    </Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav style={{ fontSize: '15px' }} className="ms-auto">
-                            <Link to={'/'} className="nav-link">
-                                <HouseDoor
-                                    color="grey"
-                                    width={'20px'}
-                                    height={'20px'}
-                                />
-                                <span className="mx-1"> Inicio</span>
-                            </Link>
-                            {sports?.map((sport) => (
-                                <Link
-                                    style={{ fontSize: '14px' }}
-                                    to={`../sports/${sport?._id}`}
-                                    key={sport?._id}
-                                    className="nav-link"
-                                >
-                                    <img
-                                        width={'20px'}
-                                        height={'20px'}
-                                        className="mx-auto"
+                                        className="w-5 h-5"
                                         src={sport?.poster}
                                         alt={sport?.sport}
                                     />
-                                    <span className="mx-1">{sport?.sport}</span>
-                                </Link>
-                            ))}
-                            <Link to={'../news'} className="nav-link">
+                                </div>
+                                <div>
+                                    <span className="mx-0.5">
+                                        {sport?.sport}
+                                    </span>
+                                </div>
+                            </div>
+                        </Link>
+                    ))}
+                    <Link
+                        to={'../news'}
+                        className="mt-5 no-underline text-gray-500 hover:text-gray-200 "
+                    >
+                        <div className="flex">
+                            <div>
                                 <Newspaper
                                     color="grey"
                                     width={'20px'}
                                     height={'20px'}
                                 />
+                            </div>
+                            <div>
                                 <span className="mx-1"> Noticias</span>
-                            </Link>
-                        </Nav>
-                        {username ? (
-                            <Navbar.Text>
-                                <Link
-                                    className="my-1"
-                                    style={{ fontSize: '14px' }}
-                                    to={`../profile/${id}`}
-                                >
-                                    <img
-                                        src={user}
-                                        width={'30px'}
-                                        height={'30px'}
-                                        alt="Usuario:"
-                                        className="mx-1"
-                                    />
-                                    {username}
-                                </Link>
-                                <Button
-                                    style={{ fontSize: '14px' }}
-                                    className="btn btn-warning mx-1 my-1"
-                                    onClick={() => handleLogOut()}
-                                >
-                                    Cerrar Sesión
-                                </Button>
-                            </Navbar.Text>
-                        ) : (
-                            <Button
-                                style={{ fontSize: '14px' }}
-                                className="btn btn-warning mx-1 my-1 "
-                                onClick={() => handleShow()}
-                            >
-                                Iniciar Sesión
-                            </Button>
-                        )}
-                    </Navbar.Collapse>
-                </Container>
+                            </div>
+                        </div>
+                    </Link>
+                </Navbar.Collapse>
             </Navbar>
             <Register show={showRegister} handleClose={handleCloseRegister} />
             <Login

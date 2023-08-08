@@ -1,13 +1,13 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Button } from 'flowbite-react'
 
 const AwayVote = ({ match, handleVote }) => {
     return (
         <>
-            <div className="d-flex justify-content-end">
+            <div className="flex justify-end">
                 <Button
-                    size="sm"
-                    variant="warning "
+                    size="xs"
+                    color="warning"
                     onClick={() => handleVote('away', match?._id)}
                 >
                     Votar

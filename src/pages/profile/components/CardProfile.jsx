@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Card } from 'react-bootstrap'
+import { Button } from 'flowbite-react'
 import { useAddFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
 import avatar from '../../../assets/user.png'
@@ -24,43 +24,40 @@ const CardProfile = ({ id, user }) => {
 
     return (
         <>
-            <Card>
-                <Card.Header>
-                    <div className="d-flex justify-content-between">
-                        <div className="d-flex justify-content-center">
-                            <Card.Img
-                                src={user?.avatar || avatar}
-                                style={{ width: '60px', height: '60px' }}
-                            />
-                            <Card.Title className="my-3">
-                                {user?.username}
-                            </Card.Title>
-                        </div>
-                        <div className=" d-flex justify-content-end">
-                            {id !== userId && exist?.length === 0 ? (
-                                <Card.Subtitle>
-                                    <Button
-                                        size="sm"
-                                        variant="warning p-1 rounded my-1"
-                                        onClick={() =>
-                                            handleFollow(user?._id, userId)
-                                        }
-                                    >
-                                        Seguir
-                                    </Button>
-                                </Card.Subtitle>
-                            ) : null}
-                            {user?._id === userId ? (
-                                <GearFill
-                                    color="grey"
-                                    className="mx-1"
-                                    onClick={handleShow}
-                                />
-                            ) : null}
-                        </div>
+            <div className="  max-w-full bg-white  border-gray-200 my-1 p-2 rounded-lg hover:shadow-lg">
+                <div className="flex justify-between">
+                    <div className="flex justify-center">
+                        <img
+                            src={user?.avatar || avatar}
+                            className="h-14 w-14"
+                        />
+                        <h4 className="mx-1 my-3">{user?.username}</h4>
                     </div>
-                </Card.Header>
-            </Card>
+                    <div className=" flex justify-end">
+                        {id !== userId && exist?.length === 0 ? (
+                            <h5>
+                                <Button
+                                    size="xs"
+                                    coloir="warning "
+                                    className="my-1"
+                                    onClick={() =>
+                                        handleFollow(user?._id, userId)
+                                    }
+                                >
+                                    Seguir
+                                </Button>
+                            </h5>
+                        ) : null}
+                        {user?._id === userId ? (
+                            <GearFill
+                                color="grey"
+                                className="mx-1"
+                                onClick={handleShow}
+                            />
+                        ) : null}
+                    </div>
+                </div>
+            </div>
             <ChangePicture user={user} show={show} handleClose={handleClose} />
         </>
     )
