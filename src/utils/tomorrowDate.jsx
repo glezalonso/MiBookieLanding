@@ -10,8 +10,8 @@ export default (tomorrowDate) => {
             const date = `${year}-0${month + 2}-${'01'}`
             return date
         } else {
-            const date = `${year}-0${month + 1}-${day + 1}`
-            return date
+                const date = `${year}-0${month + 1}-${day}`
+                return date
         }
     } else {
         if (day + 1 < 10) {
