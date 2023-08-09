@@ -49,8 +49,8 @@ const Home = () => {
         <>
             <NavBar />
             <div className="container px-0 mx-auto">
-                <div className="grid sm:grid-cols-4 sm:gap-2">
-                    <div className="col-span-3">
+                <div className="grid sm:grid-cols-4 sm:gap-2 ">
+                    <div className="col-span-3 ml-1">
                         <div
                             className="flex gap-1 mt-2 justify-center mx-auto "
                             role="group"
@@ -146,7 +146,7 @@ const Home = () => {
                             ) : null}
                         </section>
                     </div>
-                    <div className="hidden sm:block sm:col-span-1 mt-5 mx-auto">
+                    <div className="hidden sm:block sm:col-span-1 mt-5 mx-2">
                         <SectionLeagues />
                     </div>
                 </div>

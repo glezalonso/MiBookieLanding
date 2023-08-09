@@ -24,8 +24,8 @@ const CardFooter = ({ match }) => {
             <div className="rounded  border-gray-500 border-t-1 ">
                 <form onSubmit={(e) => handleSubmit(e, match?._id)}>
                     <Textarea
-                        className="mt-2 text-sm"
-                        rows={2}
+                        className="mt-2 text-base placeholder:text-sm"
+                        rows={1}
                         name="comment"
                         placeholder="Ingresa tu comentario"
                         disabled={isDisable}

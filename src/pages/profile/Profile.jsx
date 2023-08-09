@@ -20,8 +20,8 @@ const Profile = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 auto ">
-                <div className="grid w-full my-1 sm:grid-cols-5 sm:gap-1 xl:grid-col-4  ">
+            <div className="container px-0 mx-auto ">
+                <div className="grid w-full mt-5 sm:grid-cols-5 sm:gap-1 xl:grid-col-4  ">
                     <div className=" col-span-5 mx-1 sm:col-span-2">
                         <CardProfile user={user} />
                         <SectionRating user={user} />
