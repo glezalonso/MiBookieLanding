@@ -37,7 +37,7 @@ function NavBar() {
         <>
             <Navbar fluid className="bg-zinc-950 md:p-0  md:h-16  ">
                 <Link
-                    href="/"
+                    to={'/'}
                     className="flex items-center no-underline text-gray-400  mr-auto md:mt-2.5 xl:ml-3"
                 >
                     <img
