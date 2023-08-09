@@ -13,7 +13,7 @@ const SectionRoster = ({ team }) => {
     return (
         <>
             <section>
-                <h5>Plantilla</h5>
+                <h5 className="mx-1">Plantilla</h5>
                 <div className="my-2 mx-auto p-1">
                     <TextInput
                         name="player"
@@ -25,15 +25,15 @@ const SectionRoster = ({ team }) => {
                     <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Head>
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Jugador
                                 </Table.HeadCell>
 
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Posición
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {playerFilter?.map((player) => (
                                     <Table.Row
                                         className="hover:cursor-pointer"

@@ -28,14 +28,14 @@ const Profile = () => {
                     </div>
                     <div className="col-span-5 mx-1 sm:block sm:col-span-3  ">
                         <div
-                            className="flex gap-1 mt-3 justify-center "
+                            className="flex gap-3 mt-2 justify-center "
                             role="group"
                         >
                             <Button
                                 pill
                                 size="xs"
                                 color="gray"
-                                className=" text-gray-600"
+                                className=" text-gray-600 text-sm"
                                 onClick={() => setKey('proximos')}
                             >
                                 Próximos
@@ -44,7 +44,7 @@ const Profile = () => {
                                 pill
                                 size="xs"
                                 color="gray"
-                                className=" text-gray-600"
+                                className=" text-gray-600 text-sm"
                                 onClick={() => setKey('ultimos')}
                             >
                                 Últimos

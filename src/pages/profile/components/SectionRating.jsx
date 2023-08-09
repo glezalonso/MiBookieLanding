@@ -7,7 +7,7 @@ const SectionRating = ({ user }) => {
         <>
             <section className=" bg-white rounded p-2 my-3">
                 <div className="flex mx-2 justify-between border-b-2">
-                    <div className="flex">
+                    <div className="flex mt-1">
                         <BarChartFill color="dark" size={'20px'} />
                         <span className="mx-1">Estadísticas</span>
                     </div>

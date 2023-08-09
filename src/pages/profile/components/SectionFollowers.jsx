@@ -40,7 +40,7 @@ const SectionFollowers = ({ user, setKey }) => {
                         </Table>
                     </div>
                 ) : (
-                    <Alert variant="warning my-2">
+                    <Alert color="warning" className="my-2">
                         No cuentas con seguidores
                     </Alert>
                 )}

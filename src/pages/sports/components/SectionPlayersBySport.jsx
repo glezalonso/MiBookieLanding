@@ -45,7 +45,7 @@ const SectionPlayerBySport = ({ sport }) => {
                                     Posición
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {playersByFilter.map((player) => (
                                     <Table.Row
                                         className="hover:cursor-pointer"

@@ -33,12 +33,12 @@ const CardProfile = ({ id, user }) => {
                         />
                         <h4 className="mx-1 my-3">{user?.username}</h4>
                     </div>
-                    <div className=" flex justify-end">
+                    <div className="flex justify-end">
                         {id !== userId && exist?.length === 0 ? (
                             <h5>
                                 <Button
                                     size="xs"
-                                    coloir="warning "
+                                    color="warning"
                                     className="my-1"
                                     onClick={() =>
                                         handleFollow(user?._id, userId)

@@ -27,7 +27,7 @@ const CardPick = ({ match, id }) => {
 
     return (
         <>
-            <div className="  max-w-full bg-white  border-gray-200 my-2 p-2 rounded-lg hover:shadow-lg">
+            <div className="max-w-full bg-white  border-gray-200 my-2 p-2 rounded-lg hover:shadow-lg">
                 <div>
                     <CardHeader match={match} />
                 </div>

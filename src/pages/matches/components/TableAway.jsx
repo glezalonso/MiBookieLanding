@@ -12,18 +12,18 @@ const TableAway = ({ match }) => {
             <Table hoverable className="table-auto mt-1 text-sm">
                 <Table.Head>
                     {match?.sport?._id === ID_BASEBALL ? (
-                        <Table.HeadCell className="px-1">
+                        <Table.HeadCell className="p-1 ">
                             Orden al bat
                         </Table.HeadCell>
                     ) : null}
-                    <th>Jugador</th>
+                    <Table.HeadCell className="p-1 ">Jugador</Table.HeadCell>
                     {match?.sport?._id !== ID_BASEBALL ? (
-                        <Table.HeadCell className="px-1">
+                        <Table.HeadCell className="p-1 ">
                             Posición
                         </Table.HeadCell>
                     ) : null}
                 </Table.Head>
-                <Table.Body className="divide-y">
+                <Table.Body>
                     {match?.lineup?.map((away) =>
                         away?.away?.map((player) => (
                             <Table.Row

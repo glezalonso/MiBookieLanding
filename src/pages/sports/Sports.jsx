@@ -34,7 +34,7 @@ const Sports = () => {
                     <CardSport sport={sport} />
 
                     <div
-                        className="flex gap-1 mt-1 justify-center mx-auto "
+                        className="flex gap-5 mt-2 justify-center mx-auto "
                         role="group"
                     >
                         <Button

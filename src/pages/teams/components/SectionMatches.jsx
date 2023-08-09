@@ -25,9 +25,8 @@ const SectionMatches = ({ team, open, title }) => {
     return (
         <>
             <section>
-                <h5>{title}</h5>
-
-                <div className="my-2 mx-auto p-1">
+                <h5 className="mx-1">{title}</h5>
+                <div className="my-1 mx-auto p-1">
                     <TextInput
                         name="team"
                         placeholder="Nombre del equipo..."

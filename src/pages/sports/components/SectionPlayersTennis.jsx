@@ -37,9 +37,10 @@ const SectionPlayersTennis = ({ sport }) => {
                                     Nombre
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {playersByFilter.map((player) => (
                                     <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={player?._id}
                                         onClick={() =>
                                             navigate(`../teams/${player?._id}`)

@@ -29,8 +29,8 @@ const SectionRounds = ({ season }) => {
     return (
         <>
             <section>
-                <h5> Rondas</h5>
-                <div className="my-2 mx-auto p-1">
+                <h5 className="mx-1">Rondas</h5>
+                <div className="my-1 mx-auto p-1">
                     <TextInput
                         name="round"
                         placeholder="Ronda..."
@@ -41,14 +41,14 @@ const SectionRounds = ({ season }) => {
                     <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Head>
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Ronda
                                 </Table.HeadCell>
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Estatus
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {filterRounds?.map((round) => (
                                     <Table.Row
                                         className="hover:cursor-pointer"

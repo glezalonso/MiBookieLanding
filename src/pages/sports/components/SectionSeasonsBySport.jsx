@@ -47,9 +47,10 @@ const SectionSeasonsBySport = ({ sport }) => {
                                     Liga
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {seasonsByFilter?.map((season) => (
                                     <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={season?._id}
                                         onClick={() =>
                                             navigate(

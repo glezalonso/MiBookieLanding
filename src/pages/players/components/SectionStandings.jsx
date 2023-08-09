@@ -36,37 +36,37 @@ const SectionStandings = ({ player }) => {
     return (
         <>
             <section>
-                <h5>Clasificacíon</h5>
+                <h5 className="mx-1">Clasificacíon</h5>
 
                 {sort?.length > 0 ? (
-                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                    <div className=" bg-white mt-2 rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Head>
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Pos
                                 </Table.HeadCell>
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Equipo
                                 </Table.HeadCell>
-                                <Table.HeadCell className="px-1 text-center">
+                                <Table.HeadCell className="p-1 text-center">
                                     Gan
                                 </Table.HeadCell>
-                                <Table.HeadCell className="px-1 text-center">
+                                <Table.HeadCell className="p-1 text-center">
                                     Per
                                 </Table.HeadCell>
                                 {season?.sport?._id === ID_SOCCER ||
                                     season?.sport?._id === ID_AMERICANO ? (
-                                    <Table.HeadCell className="px-1 text-center">
+                                    <Table.HeadCell className="p-1 text-center">
                                         Emp
                                     </Table.HeadCell>
                                 ) : null}
                                 {season?.sport?._id === ID_SOCCER ? (
-                                    <Table.HeadCell className="px-1 text-center">
+                                    <Table.HeadCell className="p-1 text-center">
                                         Pts
                                     </Table.HeadCell>
                                 ) : null}
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {sort.map((stands) =>
                                     stands.map((stands) => (
                                         <Table.Row

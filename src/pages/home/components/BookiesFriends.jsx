@@ -14,37 +14,37 @@ const BookiesFirends = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full mt-4 mx-auto bg-transparent max-w-md"
+                className="w-full h-full mt-14 mx-auto  bg-gray-200 md:w-full md:h-3/4"
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-zinc-950 pb-1 px-1">
+                <Modal.Header className="bg-zinc-950 pb-1 ">
                     <div className="flex justify-start">
                         <div className="my-1">
-                            <IoMdPeople className="mx-2 h-8 w-8  text-gray-500" />
+                            <IoMdPeople className="mx-2 h-8 w-8  text-white" />
                         </div>
                         <div>
-                            <h3 className="text-xl mt-2 text-gray-500 font-medium">
+                            <h3 className="text-xl mt-1.5 text-gray-500 font-medium">
                                 Mis Bookies
                             </h3>
                         </div>
                     </div>
                 </Modal.Header>
-                <Modal.Body className="max-h-screen overflow-auto">
+                <Modal.Body className="max-h-screen overflow-auto px-1">
                     <div>
                         <Table hoverable className="table-auto mt-3 text-sm">
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {user?.follow?.map((users) => (
                                     <Table.Row key={users?._id}>
                                         <Table.Cell className="py-1">
                                             <Link
                                                 to={`../profile/${users?._id}`}
-                                                className="text-gray-500 flex no-underline hover:text-gray-900 hover:underline "
+                                                className="text-gray-500 flex no-underline hover:text-gray-900 hover:underline hover:cursor-pointer "
                                             >
                                                 <PersonCircle
                                                     color="black"
-                                                    className="mr-2"
+                                                    className="mr-2 mt-1"
                                                 />
                                                 {users?.username}
                                             </Link>
@@ -55,13 +55,13 @@ const BookiesFirends = ({ show, handleClose }) => {
                         </Table>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className="bg-zinc-950 text-gray-500 p-3 justify-end">
+                <Modal.Footer className="bg-zinc-950 text-white p-3 justify-end">
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?
                             <Link
                                 to={'../bookies'}
-                                className="text-warning text-decoration-none mx-1"
+                                className="text-yellow-300 text-decoration-none mx-1 hover:underline"
                             >
                                 Buscar
                             </Link>

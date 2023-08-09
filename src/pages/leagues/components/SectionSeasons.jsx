@@ -27,14 +27,14 @@ const SectionSeasons = ({ league }) => {
                     <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Head>
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Temporada
                                 </Table.HeadCell>
-                                <Table.HeadCell className="px-1">
+                                <Table.HeadCell className="p-1">
                                     Estatus
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {seasons?.map((season) => (
                                     <Table.Row
                                         className="hover:cursor-pointer"
