@@ -29,7 +29,7 @@ const Sports = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 auto ">
+            <div className="container px-0 mx:auto ">
                 <div className="mx-auto lg:w-3/4">
                     <CardSport sport={sport} />
 

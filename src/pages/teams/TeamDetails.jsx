@@ -23,7 +23,7 @@ const TeamDetails = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 ">
+            <div className="container px-0 mx-auto ">
                 <div className="mx-auto lg:w-3/4">
                     <CardTeam team={team} setKey={setKey} />
 

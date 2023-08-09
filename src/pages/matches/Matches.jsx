@@ -22,7 +22,7 @@ const Matches = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 auto">
+            <div className="container px-0 mx:auto">
                 <div className="mx-auto">
                     <div className="mx-auto mt-2 lg:w-3/4">
                         <CardMatch match={match} />
