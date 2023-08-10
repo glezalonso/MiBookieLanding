@@ -32,7 +32,7 @@ const SectionMatches = ({ matches }) => {
                         </Badge>
                     </div>
                     <Select
-                        className="rounded  mr-1"
+                        className="rounded mr-1"
                         onChange={(e) => setFilter(e.target.value)}
                     >
                         <option value="6">Todos</option>
@@ -46,7 +46,6 @@ const SectionMatches = ({ matches }) => {
                 </div>
                 <div className="my-1 mx-auto p-1">
                     <TextInput
-                        className=" text-base"
                         name="team"
                         placeholder="Equipo..."
                         onChange={(e) => setFilter(e.target.value)}
