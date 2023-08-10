@@ -32,7 +32,7 @@ const SectionMatches = ({ matches }) => {
                         </Badge>
                     </div>
                     <Select
-                        className="rounded w-50 text-sm mr-1"
+                        className="rounded  mr-1"
                         onChange={(e) => setFilter(e.target.value)}
                     >
                         <option value="6">Todos</option>

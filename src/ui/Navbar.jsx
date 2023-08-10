@@ -35,10 +35,13 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar fluid className="bg-zinc-950 md:p-0  md:h-16  ">
+            <Navbar
+                fluid
+                className="bg-zinc-950 md:p-0  md:h-16 rounded-b-md  "
+            >
                 <Link
                     to={'/'}
-                    className="flex items-center no-underline text-gray-400  mr-auto md:mt-2.5 xl:ml-3"
+                    className="flex items-center no-underline text-gray-400  mr-auto md:mt-1.5 xl:ml-3"
                 >
                     <img
                         alt="mibookie"
@@ -50,15 +53,16 @@ function NavBar() {
                     </span>
                 </Link>
 
-                <div className="flex ml-auto  md:mt-2.5 sm:order-2 md:order-2 xl:mr-3">
+                <div className="flex ml-auto py-1  md:mt-2.5 sm:order-2 md:order-2 xl:mr-3">
                     {username ? (
                         <Dropdown
+                            className="p-1"
                             inline
                             label={<Avatar alt={username} img={user} />}
                         >
                             <Dropdown.Item>
                                 <Link
-                                    className="text-sm  text-gray-600 hover:underline"
+                                    className="text-sm text-gray-600 hover:underline hover:text-black"
                                     to={`../profile/${id}`}
                                 >
                                     {username}
@@ -66,7 +70,7 @@ function NavBar() {
                             </Dropdown.Item>
                             <Dropdown.Item
                                 size="xs"
-                                className="bg-yellow-400 rounded text-white text-sm p-1 mx-auto border-0 hover:bg-yellow-200 hover:text-gray-400"
+                                className="bg-yellow-400 rounded text-white text-sm p-1 mx-auto border-0 hover:bg-yellow-300 hover:text-black"
                                 onClick={() => handleLogOut()}
                             >
                                 Cerrar Sesión
@@ -82,32 +86,32 @@ function NavBar() {
                             Iniciar Sesión
                         </Button>
                     )}
-
                     <Navbar.Toggle />
                 </div>
                 <Navbar.Collapse>
                     <Link
                         to={'/'}
-                        className="mt-5 no-underline text-gray-500 hover:text-gray-200"
+                        className="inline-flex sm:mt-3 no-underline text-gray-500 hover:text-gray-200 "
                     >
-                        <div className="flex">
-                            <div>
-                                <HouseDoor color="grey" className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <span className="mx-1"> Inicio</span>
-                            </div>
+                        <div>
+                            <HouseDoor
+                                color="grey"
+                                className="w-5 h-5 mr-1 sm:mr-0 2xl:mr-1"
+                            />
+                        </div>
+                        <div>
+                            <span> Inicio</span>
                         </div>
                     </Link>
                     {sports?.map((sport) => (
                         <Link
                             to={`../sports/${sport?._id}`}
                             key={sport?._id}
-                            className="inline-flex mt-5 no-underline text-gray-500 hover:text-gray-200  "
+                            className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200  "
                         >
                             <div>
                                 <img
-                                    className="w-5 h-5"
+                                    className="w-5 h-5 mr-1 sm:mr-0 lg:mr-1"
                                     src={sport?.poster}
                                     alt={sport?.sport}
                                 />
@@ -119,19 +123,16 @@ function NavBar() {
                     ))}
                     <Link
                         to={'../news'}
-                        className="mt-5 no-underline text-gray-500 hover:text-gray-200 "
+                        className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200 "
                     >
-                        <div className="flex">
-                            <div>
-                                <Newspaper
-                                    color="grey"
-                                    width={'20px'}
-                                    height={'20px'}
-                                />
-                            </div>
-                            <div>
-                                <span className="mx-1"> Noticias</span>
-                            </div>
+                        <div>
+                            <Newspaper
+                                color="grey"
+                                className="h-5 w-5  mr-1 sm:mr-0 lg:mr-1"
+                            />
+                        </div>
+                        <div>
+                            <span> Noticias</span>
                         </div>
                     </Link>
                 </Navbar.Collapse>
