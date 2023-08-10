@@ -27,7 +27,7 @@ const SectionLineUps = ({ match }) => {
                 <section className="mt-3 col-span-2">
                     <h5>{match?.local?.name}</h5>
                     {match?.lineup?.length > 0 ? (
-                        <div className="bg-white rounded section-tables">
+                        <div className="bg-white rounded ">
                             <TableLocal match={match} />
                         </div>
                     ) : (
