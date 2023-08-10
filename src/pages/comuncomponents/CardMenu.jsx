@@ -1,11 +1,17 @@
 import React from 'react'
 import { Button } from 'flowbite-react'
-import { ChatDots, People, GraphUp } from 'react-bootstrap-icons'
+import { ChatDots, People, GraphUp, Bank } from 'react-bootstrap-icons'
 
-const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
+const CardMenu = ({
+    match,
+    handleComments,
+    handleConsensus,
+    handleLineUp,
+    handleOdds,
+}) => {
     return (
         <>
-            <div className=" flex justify-start gap-1 border-t-2 ">
+            <div className="flex justify-start gap-1 border-t-2 ">
                 <Button
                     pill
                     size="xs"
@@ -13,12 +19,12 @@ const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
                     className=" text-gray-600 my-1"
                     onClick={() => handleComments()}
                 >
-                    <div className="flex items-center gap-1">
-                        <ChatDots size={15} />
-                        <span className="">
+                    <div className="flex items-center">
+                        <ChatDots size={15} className="mr-1" />
+                        <div className="mt-.5">
                             {match?.comments?.length}
-                            <span className="mx-1">Comentario(s)</span>
-                        </span>
+                            <span className="ml-.5">Comentario(s)</span>
+                        </div>
                     </div>
                 </Button>
                 <Button
@@ -28,7 +34,7 @@ const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
                     className=" text-gray-600 my-1"
                     onClick={() => handleConsensus()}
                 >
-                    <GraphUp className="mx-1" /> Votos
+                    <GraphUp className="mr-1" /> Votos
                 </Button>
                 {match?.lineup?.length > 0 ? (
                     <Button
@@ -38,7 +44,18 @@ const CardMenu = ({ match, handleComments, handleConsensus, handleLineUp }) => {
                         className=" text-gray-600 my-1"
                         onClick={() => handleLineUp()}
                     >
-                        <People className="mx-1" /> Alineación
+                        <People className="mr-1" /> Alineación
+                    </Button>
+                ) : null}
+                {match?.oddHome?.length && match?.oddAway?.length > 0 ? (
+                    <Button
+                        pill
+                        size="xs"
+                        color="gray"
+                        className=" text-gray-600 my-1"
+                        onClick={() => handleOdds()}
+                    >
+                        <Bank className="mr-1" /> Cuotas
                     </Button>
                 ) : null}
             </div>
