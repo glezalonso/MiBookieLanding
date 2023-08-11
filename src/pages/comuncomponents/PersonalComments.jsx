@@ -53,7 +53,7 @@ const PersonalComments = ({ match, comment }) => {
                             </span>
                         </div>
                     </div>
-                    <div className="p-1">
+                    <div className="p-1 text-end">
                         <p className=" text-gray-200">{comment?.comment}</p>
                     </div>
                 </div>

@@ -32,7 +32,7 @@ const PeopleComments = ({ comment }) => {
                             </div>
                         </span>
                     </div>
-                    <div className="p-1">
+                    <div className="p-1 text-start ">
                         <p className=" text-gray-200">{comment?.comment}</p>
                     </div>
                 </div>
