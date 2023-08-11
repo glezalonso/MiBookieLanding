@@ -43,20 +43,21 @@ const CardConsensus = ({ match }) => {
                     <Table.Body>
                         <Table.Row>
                             <Table.Cell className="p-1 m">
-                                <AwaySection match={match} />
+                                <LocalSection match={match} />
                             </Table.Cell>
                             <Table.Cell className="p-1 m">
-                                <AwayVotes match={match} />
+                                <LocalVotes match={match} />
                             </Table.Cell>
                             {match?.date > fullDate ? (
                                 <Table.Cell className="p-1 m">
-                                    <AwayVote
+                                    <LocalVote
                                         match={match}
                                         handleVote={handleVote}
                                     />
                                 </Table.Cell>
                             ) : null}
                         </Table.Row>
+
                         {match?.sport?._id === ID_SOCCER ? (
                             <Table.Row>
                                 <Table.Cell className="p-1 m">
@@ -77,14 +78,14 @@ const CardConsensus = ({ match }) => {
                         ) : null}
                         <Table.Row>
                             <Table.Cell className="p-1 m">
-                                <LocalSection match={match} />
+                                <AwaySection match={match} />
                             </Table.Cell>
                             <Table.Cell className="p-1 m">
-                                <LocalVotes match={match} />
+                                <AwayVotes match={match} />
                             </Table.Cell>
                             {match?.date > fullDate ? (
                                 <Table.Cell className="p-1 m">
-                                    <LocalVote
+                                    <AwayVote
                                         match={match}
                                         handleVote={handleVote}
                                     />

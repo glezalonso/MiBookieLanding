@@ -8,11 +8,10 @@ import CardFooter from './CardFooter'
 import CardHeader from './CardHeader'
 import CardSectionAway from './CardSectionAway'
 import CardSectionLocal from './CardSectionLocal'
-import AwayOdd from './AwayOdd'
 import AwayScore from './AwayScore'
-import LocalOdd from './LocalOdd'
 import LocalScore from './LocalScore'
 import CardMenu from './CardMenu'
+import CardOdds from './CardOdds'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
@@ -59,28 +58,18 @@ const CardMatch = ({ match }) => {
                     >
                         <Table.Row>
                             <Table.Cell className="p-2">
-                                <CardSectionAway match={match} />
+                                <CardSectionLocal match={match} />
                             </Table.Cell>
-                            {showOdds ? (
-                                <Table.Cell className="p-2 text-center ">
-                                    <AwayOdd match={match} />
-                                </Table.Cell>
-                            ) : null}
                             <Table.Cell className="p-2 text-center ">
-                                <AwayScore match={match} />
+                                <LocalScore match={match} />
                             </Table.Cell>
                         </Table.Row>
                         <Table.Row>
                             <Table.Cell className="p-2">
-                                <CardSectionLocal match={match} />
+                                <CardSectionAway match={match} />
                             </Table.Cell>
-                            {showOdds ? (
-                                <Table.Cell className="p-2 text-center ">
-                                    <LocalOdd match={match} />
-                                </Table.Cell>
-                            ) : null}
                             <Table.Cell className="p-2 text-center ">
-                                <LocalScore match={match} />
+                                <AwayScore match={match} />
                             </Table.Cell>
                         </Table.Row>
                     </Table.Body>
@@ -92,6 +81,7 @@ const CardMatch = ({ match }) => {
                     handleConsensus={handleConsensus}
                     handleOdds={handleOdds}
                 />
+                {showOdds ? <CardOdds match={match} /> : null}
 
                 {showLineUp ? <CardLineUp match={match} /> : null}
 

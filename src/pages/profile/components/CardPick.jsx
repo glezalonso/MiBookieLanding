@@ -39,18 +39,18 @@ const CardPick = ({ match, id }) => {
                         >
                             <Table.Row>
                                 <Table.Cell className="p-2">
-                                    <CardSectionAway match={match} />
-                                </Table.Cell>
-                                <Table.Cell className="p-2 text-center ">
-                                    <AwayScore match={match} />
-                                </Table.Cell>
-                            </Table.Row>
-                            <Table.Row>
-                                <Table.Cell className="p-2">
                                     <CardSectionLocal match={match} />
                                 </Table.Cell>
                                 <Table.Cell className="p-2 text-center ">
                                     <LocalScore match={match} />
+                                </Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell className="p-2">
+                                    <CardSectionAway match={match} />
+                                </Table.Cell>
+                                <Table.Cell className="p-2 text-center ">
+                                    <AwayScore match={match} />
                                 </Table.Cell>
                             </Table.Row>
                         </Table.Body>

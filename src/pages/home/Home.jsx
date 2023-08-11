@@ -6,6 +6,7 @@ import { IoMdCalendar, IoMdMedal, IoMdPeople } from 'react-icons/io'
 import { Button } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
+import yesterdayDate from '../../utils/yesterdayDate'
 import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
 import BookiesFirends from './components/BookiesFriends'
@@ -21,6 +22,7 @@ const Home = () => {
 
     const date = formatedDate()
     const dateTomorrow = tomorrowDate()
+    const dateYestadary = yesterdayDate()
 
     const handleShow = () => {
         setShow(true)
@@ -41,6 +43,7 @@ const Home = () => {
 
     const { data: matchesToday, isLoading, isError } = useGetMatchesToday(date)
     const { data: matchesTomorrow } = useGetMatchesToday(dateTomorrow)
+    const { data: matchesYesterday } = useGetMatchesToday(dateYestadary)
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos!')
@@ -52,7 +55,7 @@ const Home = () => {
                 <div className="sm:grid sm:grid-cols-4 sm:gap-2 ">
                     <div className="sm:col-span-3 sm:ml-1">
                         <div
-                            className="flex gap-3 mt-2 justify-center mx-auto "
+                            className="flex gap-1 mt-2 justify-center mx-auto "
                             role="group"
                         >
                             <Button
@@ -67,7 +70,7 @@ const Home = () => {
                                         <IoMdCalendar className="h-5 w-5" />
                                     </div>
                                     <div className="my-0.5">
-                                        <span className="ml-1">Hoy</span>
+                                        <span className="ml-.5">Hoy</span>
                                     </div>
                                 </div>
                             </Button>
@@ -84,7 +87,23 @@ const Home = () => {
                                         <IoMdCalendar className="h-5 w-5" />
                                     </div>
                                     <div className="my-0.5">
-                                        <span className="ml-1">Mañana</span>
+                                        <span className="ml-.5">Mañana</span>
+                                    </div>
+                                </div>
+                            </Button>
+                            <Button
+                                pill
+                                size="xs"
+                                color="gray"
+                                className=" text-gray-600"
+                                onClick={() => setKey('ayer')}
+                            >
+                                <div className="flex">
+                                    <div>
+                                        <IoMdCalendar className="h-5 w-5" />
+                                    </div>
+                                    <div className="my-0.5">
+                                        <span className="ml-.5">Ayer</span>
                                     </div>
                                 </div>
                             </Button>
@@ -103,7 +122,7 @@ const Home = () => {
                                                 <IoMdMedal className="h-5 w-5" />
                                             </div>
                                             <div className="my-0.5">
-                                                <span className="ml-1">
+                                                <span className="ml-.5">
                                                     Top
                                                 </span>
                                             </div>
@@ -122,8 +141,8 @@ const Home = () => {
                                                 <IoMdPeople className="h-5 w-5" />
                                             </div>
                                             <div className="my-0.5">
-                                                <span className="ml-1">
-                                                    Mis Bookies
+                                                <span className="ml-.5">
+                                                    Bookies
                                                 </span>
                                             </div>
                                         </div>
@@ -141,6 +160,12 @@ const Home = () => {
                             {key === 'mañana' ? (
                                 <SectionMatches
                                     matches={matchesTomorrow}
+                                    key={key}
+                                />
+                            ) : null}
+                            {key === 'ayer' ? (
+                                <SectionMatches
+                                    matches={matchesYesterday}
                                     key={key}
                                 />
                             ) : null}

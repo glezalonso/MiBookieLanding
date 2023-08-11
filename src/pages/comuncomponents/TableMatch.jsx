@@ -33,14 +33,14 @@ const TableMatche = ({ match }) => {
                                     <SectionDate match={match} />
                                 </Table.Cell>
                                 <Table.Cell className="p-1">
-                                    <AwaySection match={match} />
                                     <LocalSection match={match} />
+                                    <AwaySection match={match} />
                                 </Table.Cell>
 
                                 <Table.Cell className="p-1">
                                     <div className="block justify-end">
-                                        <AwayScore match={match} />
                                         <LocalScore match={match} />
+                                        <AwayScore match={match} />
                                     </div>
                                 </Table.Cell>
                             </Table.Row>
