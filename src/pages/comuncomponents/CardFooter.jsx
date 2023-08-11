@@ -3,18 +3,20 @@ import { Button, Textarea } from 'flowbite-react'
 import { useAuthStore } from '../../store/authorization'
 import { useAddComment } from '../../features/matches.features'
 import { toast } from 'react-hot-toast'
+import getHour from '../../utils/getHour'
 
 const CardFooter = ({ match }) => {
     const id = useAuthStore((state) => state.profile.id)
     const [comment, setComment] = useState('')
     const addComment = useAddComment()
+    const hour = getHour()
 
     const handleSubmit = (e, match) => {
         e.preventDefault()
         if (!id) return toast.error('Debes iniciar sesión para comentar')
         if (comment.length < 1)
             return toast.error('El mensaje debe tener contenido')
-        addComment.mutate({ id: match, body: { comment, userId: id } })
+        addComment.mutate({ id: match, body: { comment, hour, userId: id } })
         setComment('')
     }
 

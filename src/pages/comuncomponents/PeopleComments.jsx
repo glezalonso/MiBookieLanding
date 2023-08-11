@@ -18,8 +18,8 @@ const PeopleComments = ({ comment }) => {
                 className="flex flex-row p-1 justify-start mt-1 w-2/4  overflow-auto"
                 key={comment?._id}
             >
-                <div className="p-2 m-0.5 text-xs rounded bg-white   ">
-                    <div className="flex ">
+                <div className="p-2 m-0.5 justify-start text-xs rounded bg-white   ">
+                    <div className="flex">
                         <strong className="mr-0.5 text-xs ">
                             <span
                                 className="text-black hover:cursor-pointer"
@@ -27,11 +27,16 @@ const PeopleComments = ({ comment }) => {
                                     handleNavigate(comment?.username?._id)
                                 }
                             >
-                                {comment?.username?.username}
+                                {comment?.username?.username}:
                             </span>
                         </strong>
                     </div>
-                    <div>{comment?.comment}</div>
+                    <div className="text-start py-1">
+                        <p>{comment?.comment}</p>
+                    </div>
+                    <div className="text-end">
+                        <span className="text-gray-500">{comment?.hour}</span>
+                    </div>
                 </div>
             </div>
         </>

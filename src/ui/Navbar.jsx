@@ -41,7 +41,7 @@ function NavBar() {
             >
                 <Link
                     to={'/'}
-                    className="flex items-center no-underline text-gray-400  mr-auto md:mt-1.5 xl:ml-3"
+                    className="flex items-center no-underline text-white  mr-auto md:mt-1.5 xl:ml-3"
                 >
                     <img
                         alt="mibookie"
