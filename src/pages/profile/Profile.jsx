@@ -10,9 +10,11 @@ import CardProfile from './components/CardProfile'
 import { useGetBookie } from '../../features/users.features'
 import { PeopleFill, PersonCheckFill } from 'react-bootstrap-icons'
 import SectionRating from './components/SectionRating'
+import { useAuthStore } from '../../store/authorization'
 
 const Profile = () => {
     const { id } = useParams()
+    const userId = useAuthStore((state) => state.profile.id)
     const { data: user } = useGetBookie(id)
     const [key, setKey] = useState('proximos')
     const [limit, setLimit] = useState(15)
@@ -49,30 +51,37 @@ const Profile = () => {
                             >
                                 Últimos
                             </Button>
-                            <Button
-                                pill
-                                size="xs"
-                                color="gray"
-                                className=" text-gray-600"
-                                onClick={() => setKey('contactos')}
-                            >
-                                <PeopleFill color="dark" className="mx-1" />
-                                Contáctos
-                            </Button>
+                            {id === userId ? (
+                                <>
+                                    <Button
+                                        pill
+                                        size="xs"
+                                        color="gray"
+                                        className=" text-gray-600"
+                                        onClick={() => setKey('contactos')}
+                                    >
+                                        <PeopleFill
+                                            color="dark"
+                                            className="mx-1"
+                                        />
+                                        Contáctos
+                                    </Button>
 
-                            <Button
-                                pill
-                                size="xs"
-                                color="gray"
-                                className=" text-gray-600"
-                                onClick={() => setKey('seguidores')}
-                            >
-                                <PersonCheckFill
-                                    color="dark"
-                                    className="mx-1"
-                                />
-                                Seguidores
-                            </Button>
+                                    <Button
+                                        pill
+                                        size="xs"
+                                        color="gray"
+                                        className=" text-gray-600"
+                                        onClick={() => setKey('seguidores')}
+                                    >
+                                        <PersonCheckFill
+                                            color="dark"
+                                            className="mx-1"
+                                        />
+                                        Seguidores
+                                    </Button>
+                                </>
+                            ) : null}
                         </div>
                         <section>
                             <div className="flex my-1 justify-end">

@@ -20,7 +20,7 @@ const SectionFollowers = ({ user, setKey }) => {
                 {user?.followers?.length > 0 ? (
                     <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {user?.follow?.map((follower) => (
                                     <Table.Row
                                         className="hover:cursor-pointer"

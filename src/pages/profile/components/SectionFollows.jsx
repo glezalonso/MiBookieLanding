@@ -32,14 +32,15 @@ const SectionFollows = ({ user, setKey }) => {
                 {user?.follow?.length > 0 ? (
                     <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {user?.follow?.map((follower) => (
-                                    <Table.Row
-                                        className="hover:cursor-pointer"
-                                        onClick={() => handleNavigate(follower)}
-                                        key={follower?._id}
-                                    >
-                                        <Table.Cell className=" flex p-1">
+                                    <Table.Row key={follower?._id}>
+                                        <Table.Cell
+                                            className="flex p-1 hover:cursor-pointer"
+                                            onClick={() =>
+                                                handleNavigate(follower)
+                                            }
+                                        >
                                             <PersonCircle
                                                 color="dark"
                                                 className="mx-1"
@@ -49,8 +50,8 @@ const SectionFollows = ({ user, setKey }) => {
                                         <Table.Cell className="p-1">
                                             <div className="flex justify-end">
                                                 <PersonDash
-                                                    size={'20px'}
                                                     color="red"
+                                                    className="hover:cursor-pointer h-5 w-5"
                                                     onClick={() =>
                                                         handleRemove(
                                                             follower?._id,
