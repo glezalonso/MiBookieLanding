@@ -4,13 +4,11 @@ import { toast } from 'react-hot-toast'
 import { XCircleFill } from 'react-bootstrap-icons'
 import { useRemoveComment } from '../../features/matches.features'
 import { useAuthStore } from '../../store/authorization'
-import getHour from '../../utils/getHour'
 
 const PersonalComments = ({ match, comment }) => {
     const navigate = useNavigate()
     const { username, id } = useAuthStore((state) => state.profile)
     const removeComment = useRemoveComment()
-    const hour = getHour()
 
     const handleRemove = (comment, hour, commentId, matchId) => {
         const sure = confirm('Quieres borrar el comentario?')
@@ -48,7 +46,7 @@ const PersonalComments = ({ match, comment }) => {
                         onClick={() =>
                             handleRemove(
                                 comment?.comment,
-                                hour,
+                                comment?.hour,
                                 comment?._id,
                                 match?._id
                             )
