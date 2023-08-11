@@ -6,7 +6,7 @@ const TagOU = ({ match }) => {
             <div className="flex justify-between mb-1 w-2/4 mx-auto p-1 rounded-md border-2 border-gray-200 text-sm">
                 <div>
                     <span className="justify-start-start text-sm text-gray-500">
-                        Total:{match?.oddOverUnder?.split(' ', 1)}
+                        Total: {match?.oddOverUnder?.split(' ', 1)}
                     </span>
                 </div>
                 <div>

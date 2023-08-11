@@ -25,36 +25,36 @@ const PersonalComments = ({ match, comment }) => {
     }
     return (
         <>
-            <div className="flex  p-1 justify-end   mb-1 overflow-auto ">
-                <div className="p-1 ml-2 bg-white text-xs  rounded text-end">
-                    <div className="text-start">
-                        <strong className="text-black mr-0.5 text-xs">
-                            <span
-                                className="text-black profile"
-                                onClick={() =>
-                                    handleNavigate(comment?.username?._id)
-                                }
-                            >
-                                {comment?.username?.username}
-                            </span>
-                        </strong>
-                    </div>
-                    <div className="justify-start py-1">
-                        <p>{comment?.comment}</p>
-                    </div>
+            <div className="flex p-1 justify-end  mb-1 overflow-auto ">
+                <div className="p-1  text-xs  bg-gray-900  rounded-md  text-end">
                     <div
-                        onClick={() =>
-                            handleRemove(
-                                comment?.comment,
-                                comment?.hour,
-                                comment?._id,
-                                match?._id
-                            )
-                        }
-                        className="flex mt-0.5 justify-end gap-1 hover:cursor-pointer"
+                        onClick={() => handleNavigate(comment?.username?._id)}
+                        className="flex justify-between gap-2 "
                     >
-                        <span className="text-gray-500">{comment?.hour}</span>
-                        <XCircleFill color="red" className="mt-0.5 mx-0.5" />
+                        <div
+                            onClick={() =>
+                                handleRemove(
+                                    comment?.comment,
+                                    comment?.hour,
+                                    comment?._id,
+                                    match?._id
+                                )
+                            }
+                            className="mr-1 hover:cursor-pointer"
+                        >
+                            <span className="flex justify-between gap-1  text-white font-bold text-xs">
+                                <div className="ml-2">
+                                    <span>{comment?.username?.username}</span>
+                                </div>
+                                <div className="flex ml-1 text-xs text-gray-500">
+                                    {comment?.hour}
+                                    <XCircleFill color="red" className="ml-1" />
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                    <div className="p-1">
+                        <p className=" text-gray-200">{comment?.comment}</p>
                     </div>
                 </div>
             </div>

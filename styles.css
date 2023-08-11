@@ -1,35 +1,27 @@
 #body {
     font-family: sans-serif;
-    background-color:rgb(236, 236, 236);
+    background-color: rgb(236, 236, 236);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-     
 }
-
 
 section {
     margin-top: 8px;
 }
 
-.card{
+.card {
     font-size: 16px;
-
 }
 
 .alert {
     font-size: 13px;
-    
 }
 
-
-footer{
+footer {
     margin-top: auto;
 }
 .img-footer {
     width: 30px;
     height: 30px;
-    
 }
-
-
