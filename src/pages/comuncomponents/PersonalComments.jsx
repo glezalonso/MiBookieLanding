@@ -44,20 +44,19 @@ const PersonalComments = ({ match, comment }) => {
                     <div className="justify-start py-1">
                         <p>{comment?.comment}</p>
                     </div>
-                    <div className="flex mt-0.5 justify-end gap-1">
+                    <div
+                        onClick={() =>
+                            handleRemove(
+                                comment?.comment,
+                                hour,
+                                comment?._id,
+                                match?._id
+                            )
+                        }
+                        className="flex mt-0.5 justify-end gap-1 hover:cursor-pointer"
+                    >
                         <span className="text-gray-500">{comment?.hour}</span>
-                        <XCircleFill
-                            color="red"
-                            className="mt-0.5 mx-0.5"
-                            onClick={() =>
-                                handleRemove(
-                                    comment?.comment,
-                                    hour,
-                                    comment?._id,
-                                    match?._id
-                                )
-                            }
-                        />
+                        <XCircleFill color="red" className="mt-0.5 mx-0.5" />
                     </div>
                 </div>
             </div>
