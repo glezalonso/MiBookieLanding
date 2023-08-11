@@ -21,7 +21,7 @@ const SectionFollowers = ({ user, setKey }) => {
                     <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Body>
-                                {user?.follow?.map((follower) => (
+                                {user?.followers?.map((follower) => (
                                     <Table.Row
                                         className="hover:cursor-pointer"
                                         onClick={() => handleNavigate(follower)}
