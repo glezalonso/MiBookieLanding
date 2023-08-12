@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { Select, Alert, Badge, TextInput } from 'flowbite-react'
 import { useGetSports } from '../../../features/sports.features'
 import CardMatch from '../../comuncomponents/CardMatch'
+import { IoFilterOutline } from 'react-icons/io5'
 
 const SectionMatches = ({ matches }) => {
     const { data: sports } = useGetSports()
+    const [search, setSearch] = useState(false)
     const [filter, setFilter] = useState('')
 
     matches?.sort((a, b) => b.status - a.status)
@@ -21,36 +23,46 @@ const SectionMatches = ({ matches }) => {
     return (
         <>
             <section>
-                <div className="flex my-1 justify-between ">
-                    <div className="flex mt-1 mx-2 ">
-                        <h5 className="mt-1">Partidos</h5>
+                <div className="flex justify-between mt-1 mx-2 ">
+                    <h5 className=" flex mt-1">
+                        <div className="mt-1">Partidos</div>
                         <Badge
                             size={'sm'}
                             className="mx-2 mb-1 bg-zinc-900 text-gray-200"
                         >
                             {matches?.length}
                         </Badge>
-                    </div>
-                    <Select
-                        className="rounded mr-1"
-                        onChange={(e) => setFilter(e.target.value)}
-                    >
-                        <option value="6">Todos</option>
+                    </h5>
 
-                        {sports?.map((sport) => (
-                            <option key={sport?._id} value={sport?._id}>
-                                {sport?.sport}
-                            </option>
-                        ))}
-                    </Select>
-                </div>
-                <div className="my-1 mx-auto p-1">
-                    <TextInput
-                        name="team"
-                        placeholder="Equipo..."
-                        onChange={(e) => setFilter(e.target.value)}
+                    <IoFilterOutline
+                        onClick={() => setSearch(!search)}
+                        className="mt-3 mr-2"
+                        size={20}
                     />
                 </div>
+                {search ? (
+                    <div className=" flex justify-between gap-2 my-1 mx-auto p-1">
+                        <TextInput
+                            className="w-3/4"
+                            name="team"
+                            placeholder="Equipo..."
+                            onChange={(e) => setFilter(e.target.value)}
+                        />
+                        <Select
+                            className="rounded w-1/4 mx-auto"
+                            onChange={(e) => setFilter(e.target.value)}
+                        >
+                            <option value="6">Todos</option>
+
+                            {sports?.map((sport) => (
+                                <option key={sport?._id} value={sport?._id}>
+                                    {sport?.sport}
+                                </option>
+                            ))}
+                        </Select>
+                    </div>
+                ) : null}
+
                 {matchFilter?.length > 0 ? (
                     matchFilter?.map((match) => (
                         <CardMatch key={match?._id} match={match} />

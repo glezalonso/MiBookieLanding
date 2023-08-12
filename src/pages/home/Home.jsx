@@ -55,14 +55,13 @@ const Home = () => {
                 <div className="sm:grid sm:grid-cols-4 sm:gap-2 ">
                     <div className="sm:col-span-3 sm:ml-1">
                         <div
-                            className="flex gap-1 mt-2 justify-center mx-auto "
+                            className="flex gap-.5 mt-4 justify-center mx-auto sm:gap-2 "
                             role="group"
                         >
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
-                                className=" text-gray-600"
+                                className=" text-gray-600 py-0 px-0  sm:px-4 "
                                 onClick={() => setKey('hoy')}
                             >
                                 <div className="flex">
@@ -76,10 +75,9 @@ const Home = () => {
                             </Button>
 
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
-                                className=" text-gray-600"
+                                className=" text-gray-600 py-0 px-0  sm:px-4 "
                                 onClick={() => setKey('mañana')}
                             >
                                 <div className="flex">
@@ -92,10 +90,9 @@ const Home = () => {
                                 </div>
                             </Button>
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
-                                className=" text-gray-600"
+                                className=" text-gray-600 py-0 px-0  sm:px-4 "
                                 onClick={() => setKey('ayer')}
                             >
                                 <div className="flex">
@@ -111,10 +108,9 @@ const Home = () => {
                             {isLogged ? (
                                 <>
                                     <Button
-                                        pill
-                                        size="xs"
+                                        size="sm"
                                         color="gray"
-                                        className=" text-gray-600"
+                                        className=" text-gray-600 py-0 px-0  sm:px-4 "
                                         onClick={() => handleShowTop()}
                                     >
                                         <div className="flex">
@@ -130,10 +126,9 @@ const Home = () => {
                                     </Button>
 
                                     <Button
-                                        pill
-                                        size="xs"
+                                        size="sm"
                                         color="gray"
-                                        className=" text-gray-600"
+                                        className=" text-gray-600 py-0 px-0  sm:px-4 "
                                         onClick={() => handleShow()}
                                     >
                                         <div className="flex">

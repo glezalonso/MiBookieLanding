@@ -35,30 +35,34 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar
-                fluid
-                className="bg-zinc-950 md:p-0  md:h-16 rounded-b-md  "
-            >
+            <Navbar fluid className="bg-zinc-950  md:p-0  md:h-16  ">
                 <Link
                     to={'/'}
                     className="flex items-center no-underline text-white  mr-auto md:mt-1.5 xl:ml-3"
                 >
                     <img
                         alt="mibookie"
-                        className="mr-1 h-6 mt-1.5 sm:h-9"
+                        className="mr-1 h-8 w-8 sm:mt-1.5 sm:h-9"
                         src={logo}
                     />
-                    <span className="text-lg mt-2.5 font-semibol">
+                    <span className="text-lg mt-1 sm:mt-2.5 font-semibol">
                         Mi Bookie
                     </span>
                 </Link>
 
-                <div className="flex ml-auto py-1  md:mt-2.5 sm:order-2 md:order-2 xl:mr-3">
+                <div className="flex p-1 text-white  sm:mt-2.5 sm:order-2 xl:mr-3">
                     {username ? (
                         <Dropdown
                             className="p-1"
                             inline
-                            label={<Avatar alt={username} img={user} />}
+                            label={
+                                <Avatar
+                                    size={'sm'}
+                                    className=" sm:mt-1.5 sm:h-9"
+                                    alt={username}
+                                    img={user}
+                                />
+                            }
                         >
                             <Dropdown.Item>
                                 <Link
