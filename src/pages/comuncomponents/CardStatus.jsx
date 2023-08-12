@@ -12,22 +12,24 @@ const CardStatus = ({ match }) => {
     return (
         <>
             <div className="flex align-center gap-1 text-sm">
-                {match?.status && match?.date > fullDate ? (
+                {!match?.status ? (
                     <>
-                        <Clock size={16} className="mt-.5" />
-
-                        <span className="block text-sm ">
-                            {match?.date?.split('T')[1]}
-                        </span>
+                        <Badge className=" mb-2 bg-red-800 text-white">
+                            Terminado
+                        </Badge>
                     </>
                 ) : match?.date < fullDate ? (
                     <Badge className=" mb-2 bg-green-800 text-white">
                         En juego
                     </Badge>
                 ) : (
-                    <Badge className=" mb-2 bg-red-800 text-white">
-                        Terminado
-                    </Badge>
+                    <div className="mb-2">
+                        <Clock size={16} className="mt-.5" />
+
+                        <span className="block text-sm ">
+                            {match?.date?.split('T')[1]}
+                        </span>
+                    </div>
                 )}
             </div>
         </>
