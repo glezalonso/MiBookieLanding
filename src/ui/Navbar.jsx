@@ -38,7 +38,7 @@ function NavBar() {
             <Navbar fluid className="bg-zinc-950  md:p-0  md:h-16  ">
                 <Link
                     to={'/'}
-                    className="flex items-center no-underline text-white  mr-auto md:mt-1.5 xl:ml-3"
+                    className="flex items-center no-underline text-white  mr-auto md:mt-1.5 md:mx-auto"
                 >
                     <img
                         alt="mibookie"
@@ -50,7 +50,7 @@ function NavBar() {
                     </span>
                 </Link>
 
-                <div className="flex p-1 text-white  sm:mt-2.5 sm:order-2 xl:mr-3">
+                <div className="flex p-1 text-white  sm:mt-2.5 sm:order-2 md:mx-auto">
                     {username ? (
                         <Dropdown
                             className="p-1"
@@ -92,7 +92,7 @@ function NavBar() {
                     )}
                     <Navbar.Toggle />
                 </div>
-                <Navbar.Collapse>
+                <Navbar.Collapse className="mx-auto">
                     <Link
                         to={'/'}
                         className="inline-flex sm:mt-3 no-underline text-gray-500 hover:text-gray-200 "
