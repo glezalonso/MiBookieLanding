@@ -23,7 +23,7 @@ const CardStatus = ({ match }) => {
                         En juego
                     </Badge>
                 ) : (
-                    <div className="mb-2">
+                    <div className=" flex gap-1 mb-2">
                         <Clock size={16} className="mt-.5" />
 
                         <span className="block text-sm ">
