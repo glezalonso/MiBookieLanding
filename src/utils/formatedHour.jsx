@@ -3,10 +3,20 @@ export default (formatedHour) => {
     const h = d.getHours()
     const m = d.getMinutes()
     if (h < 10) {
-        const hour = `0${h}:${m}`
-        return hour
+        if (m < 10) {
+            const hour = `0${h}:0${m}`
+            return hour
+        } else {
+            const hour = `0${h}:${m}`
+            return hour
+        }
     } else {
-        const hour = `${h}:${m}`
-        return hour
+        if (m < 10) {
+            const hour = `${h}:0${m}`
+            return hour
+        } else {
+            const hour = `${h}:${m}`
+            return hour
+        }
     }
 }
