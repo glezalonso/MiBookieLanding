@@ -28,7 +28,7 @@ const SectionSeasonsBySport = ({ sport }) => {
     return (
         <>
             <section>
-                <h5 className="mx-2">Temporadas</h5>
+                <h5 className="mt-4 mx-2">Temporadas</h5>
                 <div className="my-2 mx-auto p-1">
                     <TextInput
                         name="sport"

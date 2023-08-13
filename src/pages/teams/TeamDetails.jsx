@@ -32,8 +32,7 @@ const TeamDetails = () => {
                         role="group"
                     >
                         <Button
-                            pill
-                            size="xs"
+                            size="sm"
                             color="gray"
                             className=" text-gray-600"
                             onClick={() => setKey('proximos')}
@@ -42,8 +41,7 @@ const TeamDetails = () => {
                         </Button>
                         {team?.sport?._id !== ID_FUTBOL ? (
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600"
                                 onClick={() => setKey('posiciones')}
@@ -53,8 +51,7 @@ const TeamDetails = () => {
                         ) : null}
 
                         <Button
-                            pill
-                            size="xs"
+                            size="sm"
                             color="gray"
                             className=" text-gray-600"
                             onClick={() => setKey('plantilla')}
@@ -63,8 +60,7 @@ const TeamDetails = () => {
                         </Button>
 
                         <Button
-                            pill
-                            size="xs"
+                            size="sm"
                             color="gray"
                             className=" text-gray-600"
                             onClick={() => setKey('pasados')}

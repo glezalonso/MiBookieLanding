@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { Alert, Badge, TextInput } from 'flowbite-react'
-
-// Section ui
 import Loading from '../../../ui/Loading'
-
 import TableMatche from '../../comuncomponents/TableMatch'
 
 const SectionMatches = ({ league, query }) => {
@@ -26,7 +23,7 @@ const SectionMatches = ({ league, query }) => {
     return (
         <>
             <section>
-                <div className="flex mt-1 mx-2 ">
+                <div className="flex mt-3 mx-2 ">
                     <h5 className="mt-1">Próximos partidos</h5>
                     <Badge
                         size={'sm'}

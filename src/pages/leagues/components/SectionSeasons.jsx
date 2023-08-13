@@ -21,10 +21,10 @@ const SectionSeasons = ({ league }) => {
     return (
         <>
             <section>
-                <h5>Temporadas disponibles</h5>
+                <h5 className="mt-4 mx-2">Temporadas disponibles</h5>
 
                 {seasons?.length > 0 ? (
-                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                    <div className=" bg-white my-2 rounded max-h-3/4 overflow-auto p-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Head>
                                 <Table.HeadCell className="p-1">

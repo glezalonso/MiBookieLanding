@@ -33,8 +33,7 @@ const Leagues = () => {
                             role="group"
                         >
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600"
                                 onClick={() => setKey('proximos')}
@@ -43,8 +42,7 @@ const Leagues = () => {
                             </Button>
 
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600"
                                 onClick={() => setKey('temporadas')}
@@ -53,8 +51,7 @@ const Leagues = () => {
                             </Button>
 
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600"
                                 onClick={() => setKey('ultimos')}

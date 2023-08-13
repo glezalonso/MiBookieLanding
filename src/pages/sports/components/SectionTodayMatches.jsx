@@ -28,7 +28,7 @@ const SectionTodayMatches = ({ sport }) => {
     return (
         <>
             <section>
-                <div className="flex mt-1 mx-2 ">
+                <div className="flex mt-3 mx-2 ">
                     <h5 className="mt-1">Partidos de hoy</h5>
                     <Badge
                         size={'sm'}

@@ -28,7 +28,7 @@ const SectionMatches = ({ round }) => {
     return (
         <>
             <section>
-                <h5 className="mx-1">Partidos</h5>
+                <h5 className="mt-3 mx-2">Partidos</h5>
 
                 <div className="my-1 mx-auto p-1">
                     <TextInput

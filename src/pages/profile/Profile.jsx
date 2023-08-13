@@ -2,43 +2,39 @@ import React, { useState } from 'react'
 import NavBar from '../../ui/Navbar'
 import { Button, Select } from 'flowbite-react'
 import { useParams } from 'react-router-dom'
+import { useGetBookie } from '../../features/users.features'
+import { PeopleFill, PersonCheckFill } from 'react-bootstrap-icons'
+import { useAuthStore } from '../../store/authorization'
 import SectionNext from './components/SectionNext'
 import SectionLast from './components/SectionLast'
 import SectionFollowers from './components/SectionFollowers'
 import SectionFollows from './components/SectionFollows'
 import CardProfile from './components/CardProfile'
-import { useGetBookie } from '../../features/users.features'
-import { PeopleFill, PersonCheckFill } from 'react-bootstrap-icons'
 import SectionRating from './components/SectionRating'
-import { useAuthStore } from '../../store/authorization'
 
 const Profile = () => {
     const { id } = useParams()
-    const userId = useAuthStore((state) => state.profile.id)
-    const { data: user } = useGetBookie(id)
     const [key, setKey] = useState('proximos')
     const [limit, setLimit] = useState(15)
+    const userId = useAuthStore((state) => state.profile.id)
+    const { data: user } = useGetBookie(id)
 
     return (
         <>
             <NavBar />
-            <div
-                style={{ scrollbarGutter: 'stable' }}
-                className="container px-0 mx-auto"
-            >
-                <div className="grid w-full mt-5 sm:grid-cols-5 sm:gap-1 xl:grid-col-4  ">
+            <div className="container mx-auto">
+                <div className="grid w-full mt-3 sm:grid-cols-5 sm:gap-1 xl:grid-col-4  ">
                     <div className=" col-span-5 mx-1 sm:col-span-2">
                         <CardProfile user={user} />
                         <SectionRating user={user} />
                     </div>
                     <div className="col-span-5 mx-1 sm:block sm:col-span-3  ">
                         <div
-                            className="flex gap-3 mt-2 justify-center "
+                            className="flex  mt-2 justify-center "
                             role="group"
                         >
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600 text-sm"
                                 onClick={() => setKey('proximos')}
@@ -46,8 +42,7 @@ const Profile = () => {
                                 Próximos
                             </Button>
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600 text-sm"
                                 onClick={() => setKey('ultimos')}
@@ -57,29 +52,27 @@ const Profile = () => {
                             {id === userId ? (
                                 <>
                                     <Button
-                                        pill
-                                        size="xs"
+                                        smsize="sm"
                                         color="gray"
-                                        className=" text-gray-600"
+                                        className=" text-gray-600 p-0 "
                                         onClick={() => setKey('contactos')}
                                     >
                                         <PeopleFill
                                             color="dark"
-                                            className="mx-1"
+                                            className="mr-1 mt-1 "
                                         />
                                         Contáctos
                                     </Button>
 
                                     <Button
-                                        pill
-                                        size="xs"
+                                        smsize="sm"
                                         color="gray"
-                                        className=" text-gray-600"
+                                        className=" text-gray-600 p-0"
                                         onClick={() => setKey('seguidores')}
                                     >
                                         <PersonCheckFill
                                             color="dark"
-                                            className="mx-1"
+                                            className="mr-1 mt-1"
                                         />
                                         Seguidores
                                     </Button>

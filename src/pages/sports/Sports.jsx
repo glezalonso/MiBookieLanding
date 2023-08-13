@@ -34,12 +34,11 @@ const Sports = () => {
                     <CardSport sport={sport} />
 
                     <div
-                        className="flex gap-5 mt-2 justify-center mx-auto "
+                        className="flex gap-1 mt-4 justify-center mx-auto "
                         role="group"
                     >
                         <Button
-                            pill
-                            size="xs"
+                            size="sm"
                             color="gray"
                             className=" text-gray-600"
                             onClick={() => setKey('hoy')}
@@ -47,8 +46,7 @@ const Sports = () => {
                             Hoy
                         </Button>
                         <Button
-                            pill
-                            size="xs"
+                            size="sm"
                             color="gray"
                             className=" text-gray-600"
                             onClick={() => setKey('ligas')}
@@ -56,8 +54,7 @@ const Sports = () => {
                             Ligas
                         </Button>
                         <Button
-                            pill
-                            size="xs"
+                            size="sm"
                             color="gray"
                             className=" text-gray-600"
                             onClick={() => setKey('temporadas')}
@@ -65,8 +62,7 @@ const Sports = () => {
                             Temporadas
                         </Button>
                         <Button
-                            pill
-                            size="xs"
+                            size="sm"
                             color="gray"
                             className=" text-gray-600"
                             onClick={() => setKey('mas')}

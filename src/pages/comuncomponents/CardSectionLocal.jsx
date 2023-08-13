@@ -1,10 +1,16 @@
 import React from 'react'
 import CardStandingLocal from './CardStandingLocal'
+import { useNavigate } from 'react-router-dom'
 
 const CardSectionLocal = ({ match }) => {
+    const navigate = useNavigate()
+
     return (
         <>
-            <div className="flex items-center  ">
+            <div
+                onClick={() => navigate(`../teams/${match?.local?._id}`)}
+                className="flex items-center hover:cursor-pointer "
+            >
                 <div>
                     <img
                         src={match?.local?.poster}

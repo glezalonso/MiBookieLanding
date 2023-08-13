@@ -5,7 +5,7 @@ import TagOU from './TagOU'
 const CardOdds = ({ match }) => {
     const ID_SOCCER = '648f71dea4ba8860dfe3830f'
     return (
-        <div className=" rounded p-1 border-t-2">
+        <div className=" bg-zinc-950 rounded p-1 border-t-2">
             <div className="flex justify-center gap-2">
                 <TagOdds icon={'1'} match={match?.oddHome} />
                 {match?.sport?._id === ID_SOCCER ? (

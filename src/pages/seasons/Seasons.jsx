@@ -20,7 +20,7 @@ const Seasons = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 auto">
+            <div className="container px-0 mx-auto">
                 <div className="mx-auto">
                     <div className="mx-auto lg:w-3/4">
                         <CardSeason season={season} setKey={setKey} />
@@ -30,8 +30,7 @@ const Seasons = () => {
                             role="group"
                         >
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600"
                                 onClick={() => setKey('posiciones')}
@@ -40,8 +39,7 @@ const Seasons = () => {
                             </Button>
 
                             <Button
-                                pill
-                                size="xs"
+                                size="sm"
                                 color="gray"
                                 className=" text-gray-600"
                                 onClick={() => setKey('rondas')}

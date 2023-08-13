@@ -35,7 +35,7 @@ const SectionMatches = ({ matches }) => {
                     </h5>
                     <div
                         onClick={() => setSearch(!search)}
-                        className="flex mt-3 mr-2 gap-1 hover:cursor-pointer"
+                        className="flex mt-1  mr-2 gap-1 hover:cursor-pointer"
                     >
                         Filtro <IoFilterOutline className=" " size={20} />
                     </div>
@@ -43,14 +43,14 @@ const SectionMatches = ({ matches }) => {
                 {search ? (
                     <div className=" flex justify-between gap-2 my-1 mx-auto p-1">
                         <TextInput
-                            className="w-3/4"
+                            className="w-3/5"
                             name="team"
                             placeholder="Equipo..."
                             onChange={(e) => setFilter(e.target.value)}
                         />
 
                         <Select
-                            className="rounded w-1/4 mx-auto"
+                            className="rounded w-2/5 mx-auto"
                             onChange={(e) => setFilter(e.target.value)}
                         >
                             <option value="6">Todos</option>

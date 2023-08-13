@@ -1,9 +1,16 @@
 import React from 'react'
 import CardStandingAway from './CardStandingAway'
+import { useNavigate } from 'react-router-dom'
+
 const CardSectionAway = ({ match }) => {
+    const navigate = useNavigate()
+
     return (
         <>
-            <div className="flex items-center">
+            <div
+                onClick={() => navigate(`../teams/${match?.away?._id}`)}
+                className="flex items-center"
+            >
                 <div>
                     <img
                         src={match?.away?.poster}

@@ -14,7 +14,7 @@ const CardLineUp = ({ match }) => {
                                     Jugador
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {match?.lineup?.map((away) =>
                                     away?.away?.map((player) => (
                                         <Table.Row key={player?.playerId?._id}>
@@ -40,7 +40,7 @@ const CardLineUp = ({ match }) => {
                                     Jugador
                                 </Table.HeadCell>
                             </Table.Head>
-                            <Table.Body className="divide-y">
+                            <Table.Body>
                                 {match?.lineup?.map((local) =>
                                     local?.local?.map((player) => (
                                         <Table.Row key={player?.playerId?._id}>

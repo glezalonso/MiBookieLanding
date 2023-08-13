@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Table } from 'flowbite-react'
-import { useNavigate } from 'react-router-dom'
+
 import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardConsensus from './CardConsensus'
@@ -18,8 +18,6 @@ const CardMatch = ({ match }) => {
     const [showLineUp, setShowLineUp] = useState(false)
     const [showConsensus, setShowConsensus] = useState(false)
     const [showOdds, setShowOdds] = useState(false)
-
-    const navigate = useNavigate()
 
     const handleComments = () => {
         setShowComments(!showComments)
@@ -51,11 +49,8 @@ const CardMatch = ({ match }) => {
         <>
             <div className="  max-w-full bg-white  border-gray-200 my-1 p-2 rounded-lg hover:shadow-lg">
                 <CardHeader match={match} />
-                <Table className="table-auto my-1 text-xs">
-                    <Table.Body
-                        className="border-b-inherit "
-                        onClick={() => navigate(`../matches/${match?._id}`)}
-                    >
+                <Table className="table-auto mb-1 text-xs">
+                    <Table.Body className="border-b-inherit ">
                         <Table.Row>
                             <Table.Cell className="p-2">
                                 <CardSectionLocal match={match} />

@@ -29,7 +29,7 @@ const SectionRounds = ({ season }) => {
     return (
         <>
             <section>
-                <h5 className="mx-1">Rondas</h5>
+                <h5 className="mt-3 mx-1">Rondas</h5>
                 <div className="my-1 mx-auto p-1">
                     <TextInput
                         name="round"
@@ -77,7 +77,7 @@ const SectionRounds = ({ season }) => {
                         </Table>
                     </div>
                 ) : (
-                    <Alert variant="warning">No hay rondas para mostrar!</Alert>
+                    <Alert color="warning">No hay rondas para mostrar!</Alert>
                 )}
             </section>
         </>

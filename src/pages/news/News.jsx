@@ -27,8 +27,8 @@ const News = () => {
             <NavBar />
             <div className="container px-0 auto">
                 <div className="mx-auto md:w-3/4">
-                    <div className="flex mt-2 justify-between ">
-                        <h5 className="my-2 mx-1">Noticias</h5>
+                    <div className="flex mt-3 justify-between mx-auto ">
+                        <h5 className="my-2 ml-2">Noticias</h5>
 
                         <Select
                             className="rounded w-50"
