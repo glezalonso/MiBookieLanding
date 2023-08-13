@@ -41,10 +41,10 @@ const SectionMatches = ({ matches }) => {
                     </div>
                 </div>
                 {search ? (
-                    <div className=" flex justify-between gap-2 my-1 mx-auto p-1">
+                    <div className="w-full flex justify-between gap-2 my-1 mx-auto ">
                         <TextInput
-                            className="w-3/5 text-base focus:text-base"
-                            name="team"
+                            sizing={'md'}
+                            className="w-3/5 "
                             placeholder="Equipo..."
                             onChange={(e) => setFilter(e.target.value)}
                         />
