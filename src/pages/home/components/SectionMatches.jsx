@@ -28,7 +28,7 @@ const SectionMatches = ({ matches }) => {
                         <div className="mt-1">Partidos</div>
                         <Badge
                             size={'sm'}
-                            className="mx-2 mb-1 bg-zinc-900 text-gray-200 p-1"
+                            className="mx-2 mb-1 bg-zinc-900 text-gray-200"
                         >
                             {matches?.length}
                         </Badge>
