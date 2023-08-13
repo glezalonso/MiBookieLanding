@@ -28,7 +28,7 @@ const SectionMatches = ({ matches }) => {
                         <div className="mt-1">Partidos</div>
                         <Badge
                             size={'sm'}
-                            className="mx-2 mb-1 bg-zinc-900 text-gray-200"
+                            className="mx-2 mb-1 bg-zinc-900 text-gray-200 p-1"
                         >
                             {matches?.length}
                         </Badge>
@@ -41,10 +41,10 @@ const SectionMatches = ({ matches }) => {
                     </div>
                 </div>
                 {search ? (
-                    <div className="w-full flex justify-between gap-2 my-1 mx-auto ">
+                    <div className="w-full flex justify-between gap-2 my-1 mx-auto p-1 ">
                         <TextInput
-                            sizing={'md'}
                             className="w-3/5 "
+                            name="team"
                             placeholder="Equipo..."
                             onChange={(e) => setFilter(e.target.value)}
                         />
