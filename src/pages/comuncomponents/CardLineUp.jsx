@@ -9,14 +9,14 @@ const CardLineUp = ({ match }) => {
                 <div className="flex justify-center ">
                     <div className="mx-auto">
                         <Table hoverable className="table-auto mt-1 text-xs">
-                            <Table.Head className="p-1">
+                            <Table.Head>
                                 <Table.HeadCell className="p-1 text-center">
                                     Jugador
                                 </Table.HeadCell>
                             </Table.Head>
                             <Table.Body>
-                                {match?.lineup?.map((away) =>
-                                    away?.away?.map((player) => (
+                                {match?.lineup?.map((local) =>
+                                    local?.local?.map((player) => (
                                         <Table.Row key={player?.playerId?._id}>
                                             <Table.Cell className="p-1">
                                                 {player?.playerId?.fullName}
@@ -35,14 +35,14 @@ const CardLineUp = ({ match }) => {
                     </div>
                     <div className="mx-auto">
                         <Table hoverable className="table-auto mt-1 text-xs">
-                            <Table.Head>
+                            <Table.Head className="p-1">
                                 <Table.HeadCell className="p-1 text-center">
                                     Jugador
                                 </Table.HeadCell>
                             </Table.Head>
                             <Table.Body>
-                                {match?.lineup?.map((local) =>
-                                    local?.local?.map((player) => (
+                                {match?.lineup?.map((away) =>
+                                    away?.away?.map((player) => (
                                         <Table.Row key={player?.playerId?._id}>
                                             <Table.Cell className="p-1">
                                                 {player?.playerId?.fullName}

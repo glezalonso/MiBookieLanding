@@ -11,11 +11,11 @@ const SectionLineUps = ({ match }) => {
     return (
         <>
             <div className="grid mt-3 sm:grid-cols-4 sm:gap-2 p-2 max-h-2/4  overflow-auto">
-                <section className="my-3 col-span-2">
-                    <h5>{match?.away?.name}</h5>
+                <section className="mt-3 col-span-2">
+                    <h5>{match?.local?.name}</h5>
                     {match?.lineup?.length > 0 ? (
-                        <div className="bg-white rounded">
-                            <TableAway match={match} />
+                        <div className="bg-white rounded ">
+                            <TableLocal match={match} />
                         </div>
                     ) : (
                         <Alert color="warning">
@@ -23,12 +23,11 @@ const SectionLineUps = ({ match }) => {
                         </Alert>
                     )}
                 </section>
-
-                <section className="mt-3 col-span-2">
-                    <h5>{match?.local?.name}</h5>
+                <section className="my-3 col-span-2">
+                    <h5>{match?.away?.name}</h5>
                     {match?.lineup?.length > 0 ? (
-                        <div className="bg-white rounded ">
-                            <TableLocal match={match} />
+                        <div className="bg-white rounded">
+                            <TableAway match={match} />
                         </div>
                     ) : (
                         <Alert color="warning">
