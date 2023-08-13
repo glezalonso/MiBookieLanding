@@ -1,4 +1,5 @@
 import React from 'react'
+import { sport } from '../../const/sportconst'
 
 const CardStandingAway = ({ match }) => {
     const standingAway = match?.season?.standings?.filter(
@@ -8,13 +9,21 @@ const CardStandingAway = ({ match }) => {
     return (
         <>
             {standingAway?.map((team) => (
-                <span
-                    style={{ fontSize: '13px' }}
+                <div
                     key={team?.team}
-                    className="text-gray-400 font-semibold"
+                    className="text-gray-400 text-xs font-semibold"
                 >
-                    {team?.wins}-{team?.loses}
-                </span>
+                    <span>{team?.wins}-</span>
+                    {match?.sport?._id === sport.ID_SOCCER ||
+                        match?.sport?._id === sport?.ID_FUTBOL ? (
+                        <>
+                            <span>{team?.draws}-</span>
+                            <span>{team?.loses}</span>
+                        </>
+                    ) : (
+                        <span>{team?.loses}</span>
+                    )}
+                </div>
             ))}
         </>
     )

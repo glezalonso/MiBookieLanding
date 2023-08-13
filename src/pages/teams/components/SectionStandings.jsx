@@ -1,5 +1,6 @@
 import React from 'react'
 import { Alert, Table } from 'flowbite-react'
+import { sport } from '../../../const/sportconst'
 import { useGetSeasons } from '../../../features/seasons.features'
 import { useNavigate } from 'react-router-dom'
 import Loading from '../../../ui/Loading'
@@ -11,9 +12,6 @@ const SectionStandings = ({ team }) => {
 
     // counter
     let i = 1
-
-    const ID_AMERICANO = '648f71cda4ba8860dfe38309'
-    const ID_SOCCER = '648f71dea4ba8860dfe3830f'
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las posiciones!')
@@ -54,13 +52,13 @@ const SectionStandings = ({ team }) => {
                                 <Table.HeadCell className="p-1 text-center">
                                     Per
                                 </Table.HeadCell>
-                                {season?.sport?._id === ID_SOCCER ||
-                                    season?.sport?._id === ID_AMERICANO ? (
+                                {season?.sport?._id === sport.ID_SOCCER ||
+                                    season?.sport?._id === sport.ID_FUTBOL ? (
                                     <Table.HeadCell className="p-1 text-center">
                                         Emp
                                     </Table.HeadCell>
                                 ) : null}
-                                {season?.sport?._id === ID_SOCCER ? (
+                                {season?.sport?._id === sport.ID_SOCCER ? (
                                     <Table.HeadCell className="p-1 text-center">
                                         Pts
                                     </Table.HeadCell>
@@ -105,14 +103,16 @@ const SectionStandings = ({ team }) => {
                                             <Table.Cell className="p-1 text-center">
                                                 {stands?.loses}
                                             </Table.Cell>
-                                            {team?.sport?._id === ID_SOCCER ||
+                                            {team?.sport?._id ===
+                                                sport.ID_SOCCER ||
                                                 season?.sport?._id ===
-                                                ID_AMERICANO ? (
+                                                sport.ID_FUTBOL ? (
                                                 <Table.Cell className="p-1 text-center">
                                                     {stands?.draws}
                                                 </Table.Cell>
                                             ) : null}
-                                            {team?.sport?._id === ID_SOCCER ? (
+                                            {team?.sport?._id ===
+                                                sport.ID_SOCCER ? (
                                                 <Table.Cell className="p-1 text-center">
                                                     {team?.sport?._id ===
                                                         ID_SOCCER

@@ -3,6 +3,7 @@ import { Button } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import { useGetTeam } from '../../features/teams.features'
+import { sport } from '../../const/sportconst'
 import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
 import CardTeam from './components/CardTeam'
@@ -12,8 +13,6 @@ import SectionRoster from './components/SectionRoster'
 
 const TeamDetails = () => {
     const { id } = useParams()
-
-    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
 
     const [key, setKey] = useState('proximos')
     const { data: team, isLoading, isError } = useGetTeam(id)
@@ -39,7 +38,7 @@ const TeamDetails = () => {
                         >
                             Próximos
                         </Button>
-                        {team?.sport?._id !== ID_FUTBOL ? (
+                        {team?.sport?._id !== sport.ID_SOCCER ? (
                             <Button
                                 size="sm"
                                 color="gray"

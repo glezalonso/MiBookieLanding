@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { Button } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
-import NavBar from '../../ui/Navbar'
-import CardPlayer from './components/CardPlayer'
 import { useGetPlayer } from '../../features/players.features'
 import { useParams } from 'react-router-dom'
+import { sport } from '../../const/sportconst'
+import NavBar from '../../ui/Navbar'
+import CardPlayer from './components/CardPlayer'
 import Loading from '../../ui/Loading'
 import SectionMatches from './components/SectionMatches'
 import SectionStandings from './components/SectionStandings'
 
 const PlayerDetails = () => {
     const { id } = useParams()
-    const ID_FUTBOL = '648f71dea4ba8860dfe3830f'
 
     const [key, setKey] = useState('proximos')
     const { data: player, isLoading, isError } = useGetPlayer(id)
@@ -30,7 +30,7 @@ const PlayerDetails = () => {
                         className="flex gap-1 mt-1 justify-center mx-auto "
                         role="group"
                     >
-                        {player?.sport?._id !== ID_FUTBOL ? (
+                        {player?.sport?._id !== sport.ID_SOCCER ? (
                             <Button
                                 size="sm"
                                 color="gray"
