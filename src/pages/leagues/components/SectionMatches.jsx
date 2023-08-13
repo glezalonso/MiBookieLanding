@@ -4,7 +4,7 @@ import { Alert, Badge, TextInput } from 'flowbite-react'
 import Loading from '../../../ui/Loading'
 import TableMatche from '../../comuncomponents/TableMatch'
 
-const SectionMatches = ({ league, query }) => {
+const SectionMatches = ({ league, query, title }) => {
     const [filter, setFilter] = useState('')
     const { data: matches, isLoading, isError } = query(league?._id)
 
@@ -24,7 +24,7 @@ const SectionMatches = ({ league, query }) => {
         <>
             <section>
                 <div className="flex mt-3 mx-2 ">
-                    <h5 className="mt-1">Próximos partidos</h5>
+                    <h5 className="mt-1">{title} partidos</h5>
                     <Badge
                         size={'sm'}
                         className="mx-2 mb-2 bg-zinc-900 text-gray-200"

@@ -65,12 +65,14 @@ const Leagues = () => {
                             ) : null}
                             {key === 'proximos' ? (
                                 <SectionMatches
+                                    title={'Próximos'}
                                     league={league}
                                     query={useGetMatchesOpenByLeague}
                                 />
                             ) : null}
                             {key === 'ultimos' ? (
                                 <SectionMatches
+                                    title={'Últimos'}
                                     league={league}
                                     query={useGetMatchesClosedByLeague}
                                 />
