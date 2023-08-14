@@ -35,6 +35,7 @@ const SectionLeagues = () => {
                             <Table.Body>
                                 {leaguesByFilter?.map((league) => (
                                     <Table.Row
+                                        className="hover:cursor-pointer"
                                         key={league?._id}
                                         onClick={() =>
                                             navigate(

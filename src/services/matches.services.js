@@ -17,46 +17,46 @@ export const removeComment = ({ id, body }) =>
     axios.put(`/api/matches/removeComment/${id}`, body)
 
 export const getMatchesToday = async (date) => {
-    const { data } = await axios.post('/api/matches/matchestoday', { date })
+    const { data } = await axios.get(`/api/matches/date/${date}`)
     return data
 }
-export const getMatchesByTeam = async (team) => {
-    const { data } = await axios.post('/api/matches/matchesteams', { team })
-    return data
-}
-
-export const getMatchesOpenByLeague = async (league) => {
-    const { data } = await axios.post('/api/matches/matchesopenbyleague', {
-        league,
-    })
+export const getMatchesByTeam = async (team, limit, status) => {
+    const { data } = await axios.get(
+        `/api/matches/team/${team}/${limit}/${status}`
+    )
     return data
 }
 
-export const getMatchesClosedByLeague = async (league) => {
-    const { data } = await axios.post('/api/matches/matchesclosedbyleague', {
-        league,
-    })
+export const getMatchesOpenByLeague = async (league, limit) => {
+    const { data } = await axios.get(
+        `/api/matches/openleague/${league}/${limit}`
+    )
+    return data
+}
+
+export const getMatchesClosedByLeague = async (league, limit) => {
+    const { data } = await axios.get(
+        `/api/matches/closedleague/${league}/${limit}`
+    )
     return data
 }
 
 export const getMatchesByRound = async (round) => {
-    const { data } = await axios.post('/api/matches/matchesbyround', { round })
+    const { data } = await axios.get(`/api/matches/round/${round}`)
     return data
 }
 
 export const getMatchesOpen = async () => {
-    const { data } = await axios.post('/api/matches/matchesopen')
+    const { data } = await axios.get('/api/matches/open')
     return data
 }
 export const getMatchesClosed = async () => {
-    const { data } = await axios.post('/api/matches/matchesclosed')
+    const { data } = await axios.get('/api/matches/closed')
     return data
 }
 
 export const getNextMatchesBySport = async (sport) => {
-    const { data } = await axios.post('api/matches/nextmatchesbysport', {
-        sport,
-    })
+    const { data } = await axios.get(`/nextmatches/sport/${sport}`)
     return data
 }
 
@@ -70,7 +70,7 @@ export const getPicksClosed = async (id, date, limit) => {
 }
 
 export const getPicksOpen = async (id, limit) => {
-    const { data } = await axios.put(
+    const { data } = await axios.get(
         `/api/matches/matchbookieopen/${id}/${limit}`
     )
     return data

@@ -11,6 +11,6 @@ export const getRound = async (id) => {
 }
 
 export const getRoundsBySeason = async (season) => {
-    const { data } = await axios.post('/api/rounds/roundsbyseason', { season })
+    const { data } = await axios.get(`/api/rounds/season/${season}`)
     return data
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import CardStandingAway from './CardStandingAway'
 import { useNavigate } from 'react-router-dom'
+import AwayPitcher from './AwayPitcher'
 
 const CardSectionAway = ({ match }) => {
     const navigate = useNavigate()
@@ -24,8 +25,11 @@ const CardSectionAway = ({ match }) => {
                             {match?.away?.name}
                         </span>
                     </div>
-                    <div className="mx-1">
+                    <div className=" flex gap-1 mx-1">
                         <CardStandingAway match={match} />
+                    </div>
+                    <div className="mx-1">
+                        <AwayPitcher match={match} />
                     </div>
                 </div>
             </div>

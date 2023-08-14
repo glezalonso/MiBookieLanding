@@ -14,7 +14,7 @@ const BookiesFirends = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full mt-14 mx-auto  bg-gray-200 md:w-full md:h-3/4"
+                className="w-full h-full mt-16 mx-auto  bg-gray-200 md:w-full md:h-3/4"
                 popup
                 dismissible
                 onClose={() => handleClose()}

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Table } from 'flowbite-react'
-
-import CardLineUp from './CardLineUp'
+// import CardLineUp from './CardLineUp'
 import CardComments from './CardComments'
 import CardConsensus from './CardConsensus'
 import CardFooter from './CardFooter'
@@ -15,32 +14,32 @@ import CardOdds from './CardOdds'
 
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
-    const [showLineUp, setShowLineUp] = useState(false)
+    // const [showLineUp, setShowLineUp] = useState(false)
     const [showConsensus, setShowConsensus] = useState(false)
     const [showOdds, setShowOdds] = useState(false)
 
     const handleComments = () => {
         setShowComments(!showComments)
-        setShowLineUp(false)
+        // setShowLineUp(false)
         setShowConsensus(false)
         setShowOdds(false)
     }
-    const handleLineUp = () => {
-        setShowComments(false)
-        setShowLineUp(!showLineUp)
-        setShowConsensus(false)
-        setShowOdds(false)
-    }
+    // const handleLineUp = () => {
+    //     setShowComments(false)
+    //     // setShowLineUp(!showLineUp)
+    //     setShowConsensus(false)
+    //     setShowOdds(false)
+    // }
     const handleConsensus = () => {
         setShowComments(false)
-        setShowLineUp(false)
+        // setShowLineUp(false)
         setShowConsensus(!showConsensus)
         setShowOdds(false)
     }
 
     const handleOdds = () => {
         setShowComments(false)
-        setShowLineUp(false)
+        // setShowLineUp(false)
         setShowConsensus(false)
         setShowOdds(!showOdds)
     }
@@ -72,13 +71,13 @@ const CardMatch = ({ match }) => {
                 <CardMenu
                     match={match}
                     handleComments={handleComments}
-                    handleLineUp={handleLineUp}
+                    // handleLineUp={handleLineUp}
                     handleConsensus={handleConsensus}
                     handleOdds={handleOdds}
                 />
                 {showOdds ? <CardOdds match={match} /> : null}
 
-                {showLineUp ? <CardLineUp match={match} /> : null}
+                {/* {showLineUp ? <CardLineUp match={match} /> : null} */}
 
                 {showComments ? <CardComments match={match} /> : null}
 

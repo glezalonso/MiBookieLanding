@@ -1,6 +1,7 @@
 import React from 'react'
 import CardStandingLocal from './CardStandingLocal'
 import { useNavigate } from 'react-router-dom'
+import LocalPitcher from './LocalPitcher'
 
 const CardSectionLocal = ({ match }) => {
     const navigate = useNavigate()
@@ -26,6 +27,9 @@ const CardSectionLocal = ({ match }) => {
                     </div>
                     <div className="mx-1">
                         <CardStandingLocal match={match} />
+                    </div>
+                    <div className="mx-1">
+                        <LocalPitcher match={match} />
                     </div>
                 </div>
             </div>

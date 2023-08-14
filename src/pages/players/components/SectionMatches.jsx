@@ -1,29 +1,25 @@
 import React, { useState } from 'react'
 import { Alert, TextInput } from 'flowbite-react'
-
 import { toast } from 'react-hot-toast'
 import { useGetMatchesByTeam } from '../../../features/matches.features'
-
-// Ui sections
+import SelectFilter from '../../comuncomponents/SelectFilter'
 import Loading from '../../../ui/Loading'
-
 import TableMatche from '../../comuncomponents/TableMatch'
 
-const SectionMatches = ({ player, open, title }) => {
+const SectionMatches = ({ player, status, title }) => {
     const [filter, setFilter] = useState('')
+    const [limit, setLimit] = useState(15)
     const {
         data: matches,
         isLoading,
         isError,
-    } = useGetMatchesByTeam(player?.team?._id)
+    } = useGetMatchesByTeam(player?.team?._id, limit, status)
 
     if (isLoading) return <Loading />
 
     if (isError) return toast.error('Hubo un error al cargar los partidos')
 
-    const nextMatches = matches?.filter((match) => match?.status === open)
-
-    const MatchesByFilter = nextMatches?.filter((matches) => {
+    const MatchesByFilter = matches?.filter((matches) => {
         if (!filter) return matches
         return (
             matches?.away?.name?.toLowerCase().includes(filter.toLowerCase()) ||
@@ -31,18 +27,18 @@ const SectionMatches = ({ player, open, title }) => {
         )
     })
 
-    MatchesByFilter.sort((a, b) => a.date - b.date)
-
     return (
         <>
             <section>
                 <h5>{title}</h5>
-                <div className="my-2 mx-auto p-1">
+                <div className="w-full flex justify-between gap-2 my-1 mx-auto p-1 ">
                     <TextInput
+                        className="w-3/5 text-base focus:text-base active:text-base "
                         name="team"
                         placeholder="Equipos..."
                         onChange={(e) => setFilter(e.target.value)}
                     />
+                    <SelectFilter setLimit={setLimit} />
                 </div>
 
                 {MatchesByFilter?.length > 0 ? (

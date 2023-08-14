@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NavBar from '../../ui/Navbar'
-import { Button, Select } from 'flowbite-react'
+import { Button } from 'flowbite-react'
 import { useParams } from 'react-router-dom'
 import { useGetBookie } from '../../features/users.features'
 import { PeopleFill, PersonCheckFill } from 'react-bootstrap-icons'
@@ -11,6 +11,7 @@ import SectionFollowers from './components/SectionFollowers'
 import SectionFollows from './components/SectionFollows'
 import CardProfile from './components/CardProfile'
 import SectionRating from './components/SectionRating'
+import SelectFilter from '../comuncomponents/SelectFilter'
 
 const Profile = () => {
     const { id } = useParams()
@@ -80,15 +81,8 @@ const Profile = () => {
                             ) : null}
                         </div>
                         <section>
-                            <div className="flex my-1 justify-end">
-                                <Select
-                                    className="rounded w-1/3 cap-1 text-xs"
-                                    onChange={(e) => setLimit(e.target.value)}
-                                >
-                                    <option value="15">Últimos 15</option>
-                                    <option value="30">Últimos 30</option>
-                                    <option value="0">Todos</option>
-                                </Select>
+                            <div className="flex my-1 mx-auto justify-end">
+                                <SelectFilter setLimit={setLimit} />
                             </div>
                             {key === 'proximos' ? (
                                 <SectionNext id={id} limit={limit} />

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Button } from 'flowbite-react'
-import { ChatDots, People, GraphUp, Bank } from 'react-bootstrap-icons'
-
+import { ChatDots, GraphUp, Bank } from 'react-bootstrap-icons'
+// import { People } from 'react-bootstrap-icons'
 const CardMenu = ({
     match,
     handleComments,
     handleConsensus,
-    handleLineUp,
+    // handleLineUp,
     handleOdds,
 }) => {
     return (
@@ -36,7 +36,7 @@ const CardMenu = ({
                 >
                     <GraphUp className="mr-1" /> Votos
                 </Button>
-                {match?.lineup?.length > 0 ? (
+                {/* {match?.lineup?.length > 0 ? (
                     <Button
                         pill
                         size="xs"
@@ -46,7 +46,7 @@ const CardMenu = ({
                     >
                         <People className="mr-1" /> Alineación
                     </Button>
-                ) : null}
+                ) : null} */}
                 {match?.oddHome?.length && match?.oddAway?.length > 0 ? (
                     <Button
                         pill

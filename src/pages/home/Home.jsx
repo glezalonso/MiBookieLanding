@@ -51,13 +51,30 @@ const Home = () => {
     return (
         <>
             <NavBar />
-            <div className="container mx-auto">
+
+            <main className="container mx-auto">
                 <div className="sm:grid sm:grid-cols-4 sm:gap-2 ">
                     <div className="sm:col-span-3 sm:ml-1">
                         <div
                             className="flex gap-.5 mt-4 justify-center mx-auto sm:gap-2 "
                             role="group"
                         >
+                            <Button
+                                size="sm"
+                                color="gray"
+                                className=" text-gray-600 py-0 px-0  sm:px-4 "
+                                onClick={() => setKey('ayer')}
+                            >
+                                <div className="flex">
+                                    <div>
+                                        <IoMdCalendar className="h-5 w-5" />
+                                    </div>
+                                    <div className="my-0.5">
+                                        <span className="ml-.5">Ayer</span>
+                                    </div>
+                                </div>
+                            </Button>
+
                             <Button
                                 size="sm"
                                 color="gray"
@@ -86,21 +103,6 @@ const Home = () => {
                                     </div>
                                     <div className="my-0.5">
                                         <span className="ml-.5">Mañana</span>
-                                    </div>
-                                </div>
-                            </Button>
-                            <Button
-                                size="sm"
-                                color="gray"
-                                className=" text-gray-600 py-0 px-0  sm:px-4 "
-                                onClick={() => setKey('ayer')}
-                            >
-                                <div className="flex">
-                                    <div>
-                                        <IoMdCalendar className="h-5 w-5" />
-                                    </div>
-                                    <div className="my-0.5">
-                                        <span className="ml-.5">Ayer</span>
                                     </div>
                                 </div>
                             </Button>
@@ -176,7 +178,7 @@ const Home = () => {
                 {isLogged ? (
                     <SectionTop show={showTop} handleClose={handleCloseTop} />
                 ) : null}
-            </div>
+            </main>
         </>
     )
 }

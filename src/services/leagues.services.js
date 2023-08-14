@@ -11,6 +11,6 @@ export const getLeague = async (id) => {
 }
 
 export const getLeaguesBySport = async (sport) => {
-    const { data } = await axios.post(`/api/leagues/leaguesbysport`, { sport })
+    const { data } = await axios.get(`/api/leagues/sport/${sport}`)
     return data
 }

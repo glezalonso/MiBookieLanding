@@ -11,13 +11,11 @@ export const getSeason = async (id) => {
 }
 
 export const getSeasonsBySport = async (sport) => {
-    const { data } = await axios.post('/api/seasons/seasonsbysport', { sport })
+    const { data } = await axios.get(`/api/seasons/sport/${sport}`)
     return data
 }
 
 export const getSeasonsByLeague = async (league) => {
-    const { data } = await axios.post('/api/seasons/seasonsbyleague', {
-        league,
-    })
+    const { data } = await axios.get(`/api/seasons/league/${league}`)
     return data
 }

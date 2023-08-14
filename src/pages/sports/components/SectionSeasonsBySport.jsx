@@ -70,7 +70,7 @@ const SectionSeasonsBySport = ({ sport }) => {
                         </Table>
                     </div>
                 ) : (
-                    <Alert variant="warning">
+                    <Alert color="warning">
                         No hay temporadas para mostrar!
                     </Alert>
                 )}

@@ -7,7 +7,8 @@ import { IoMdMedal } from 'react-icons/io'
 
 const SectionTop = ({ show, handleClose }) => {
     let i = 0
-    const { data: users } = useGetTopBookies()
+    const limit = 10
+    const { data: users } = useGetTopBookies(limit)
     const navigate = useNavigate()
     const topUsers = users?.sort(
         (a, b) => (b?.success * 100) / b?.total - (a?.success * 100) / a?.total
@@ -17,7 +18,7 @@ const SectionTop = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full mt-14 mx-auto bg-gray-200 md:w-full md:h-3/4"
+                className="w-full h-full mt-16 mx-auto bg-gray-200 md:w-full md:h-3/4"
                 popup
                 dismissible
                 onClose={() => handleClose()}

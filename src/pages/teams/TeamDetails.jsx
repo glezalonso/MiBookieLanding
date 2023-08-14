@@ -13,7 +13,7 @@ import SectionRoster from './components/SectionRoster'
 
 const TeamDetails = () => {
     const { id } = useParams()
-
+    const [status, setStatus] = useState(true)
     const [key, setKey] = useState('proximos')
     const { data: team, isLoading, isError } = useGetTeam(id)
 
@@ -34,7 +34,10 @@ const TeamDetails = () => {
                             size="sm"
                             color="gray"
                             className=" text-gray-600"
-                            onClick={() => setKey('proximos')}
+                            onClick={() => {
+                                setStatus(true)
+                                setKey('proximos')
+                            }}
                         >
                             Próximos
                         </Button>
@@ -62,7 +65,10 @@ const TeamDetails = () => {
                             size="sm"
                             color="gray"
                             className=" text-gray-600"
-                            onClick={() => setKey('pasados')}
+                            onClick={() => {
+                                setStatus(false)
+                                setKey('pasados')
+                            }}
                         >
                             Últimos
                         </Button>
@@ -77,14 +83,14 @@ const TeamDetails = () => {
                         {key === 'proximos' ? (
                             <SectionMatches
                                 team={team}
-                                open={true}
+                                status={status}
                                 title={'Próximos Partidos'}
                             />
                         ) : null}
                         {key === 'pasados' ? (
                             <SectionMatches
                                 team={team}
-                                open={false}
+                                status={status}
                                 title={'Últimos Partidos'}
                             />
                         ) : null}

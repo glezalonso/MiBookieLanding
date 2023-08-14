@@ -12,7 +12,7 @@ import SectionStandings from './components/SectionStandings'
 
 const PlayerDetails = () => {
     const { id } = useParams()
-
+    const [status, setStatus] = useState(true)
     const [key, setKey] = useState('proximos')
     const { data: player, isLoading, isError } = useGetPlayer(id)
 
@@ -45,7 +45,10 @@ const PlayerDetails = () => {
                             size="sm"
                             color="gray"
                             className=" text-gray-600"
-                            onClick={() => setKey('proximos')}
+                            onClick={() => {
+                                setStatus(true)
+                                setKey('proximos')
+                            }}
                         >
                             Póximos
                         </Button>
@@ -53,7 +56,10 @@ const PlayerDetails = () => {
                             size="sm"
                             color="gray"
                             className=" text-gray-600"
-                            onClick={() => setKey('pasados')}
+                            onClick={() => {
+                                setStatus(false)
+                                setKey('pasados')
+                            }}
                         >
                             Úlimos Partidos
                         </Button>
@@ -64,14 +70,14 @@ const PlayerDetails = () => {
                     {key === 'proximos' ? (
                         <SectionMatches
                             player={player}
-                            open={true}
+                            status={status}
                             title={'Próximos Partidos'}
                         />
                     ) : null}
                     {key === 'pasados' ? (
                         <SectionMatches
                             player={player}
-                            open={false}
+                            status={status}
                             title={'Últimos Partidos'}
                         />
                     ) : null}

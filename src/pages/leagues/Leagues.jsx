@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { useGetLeague } from '../../features/leagues.features'
-import { toast } from 'react-hot-toast'
-import NavBar from '../../ui/Navbar'
-import Loading from '../../ui/Loading'
-import { Button } from 'flowbite-react'
-import SectionLeague from './components/SectionLeague'
-import SectionSeasons from './components/SectionSeasons'
-import SectionMatches from './components/SectionMatches'
 import {
     useGetMatchesOpenByLeague,
     useGetMatchesClosedByLeague,
 } from '../../features/matches.features'
+import { useParams } from 'react-router-dom'
+import { useGetLeague } from '../../features/leagues.features'
+import { toast } from 'react-hot-toast'
+import { Button } from 'flowbite-react'
+import NavBar from '../../ui/Navbar'
+import Loading from '../../ui/Loading'
+import SectionLeague from './components/SectionLeague'
+import SectionSeasons from './components/SectionSeasons'
+import SectionMatches from './components/SectionMatches'
 
 const Leagues = () => {
     const { id } = useParams()
     const [key, setKey] = useState('proximos')
+
     const { data: league, isLoading, isError } = useGetLeague(id)
 
     if (isLoading) return <Loading />

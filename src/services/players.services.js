@@ -11,6 +11,6 @@ export const getPlayer = async (id) => {
 }
 
 export const getPlayersBySport = async (sport) => {
-    const { data } = await axios.post('/api/players/playersbysport', { sport })
+    const { data } = await axios.get(`/api/players/sport/${sport}`)
     return data
 }

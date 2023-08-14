@@ -35,7 +35,7 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar fluid className="bg-zinc-950  md:p-0  md:h-16  ">
+            <Navbar fluid className="bg-zinc-950   lg:p-0  lg:h-16  ">
                 <Link
                     to={'/'}
                     className="flex items-center no-underline text-white  mr-auto md:mt-1.5 md:mx-auto"
@@ -92,36 +92,40 @@ function NavBar() {
                     )}
                     <Navbar.Toggle />
                 </div>
-                <Navbar.Collapse className="mx-auto">
+                <Navbar.Collapse className="m-0 ">
                     <Link
                         to={'/'}
-                        className="inline-flex sm:mt-3 no-underline text-gray-500 hover:text-gray-200 "
+                        className="inline-flex no-underline text-gray-500 hover:text-gray-200  sm:mt-3 md:hidden xl:block "
                     >
-                        <div>
-                            <HouseDoor
-                                color="grey"
-                                className="w-5 h-5 mr-1 sm:mr-0 2xl:mr-1"
-                            />
-                        </div>
-                        <div>
-                            <span> Inicio</span>
+                        <div className="flex gap-1">
+                            <div>
+                                <HouseDoor
+                                    color="grey"
+                                    className="w-5 h-5 mr-1 sm:mr-0 2xl:mr-1"
+                                />
+                            </div>
+                            <div>
+                                <span> Inicio</span>
+                            </div>
                         </div>
                     </Link>
                     {sports?.map((sport) => (
                         <Link
                             to={`../sports/${sport?._id}`}
                             key={sport?._id}
-                            className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200  "
+                            className="block  mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200  "
                         >
-                            <div>
-                                <img
-                                    className="w-5 h-5 mr-1 sm:mr-0 lg:mr-1"
-                                    src={sport?.poster}
-                                    alt={sport?.sport}
-                                />
-                            </div>
-                            <div>
-                                <span>{sport?.sport}</span>
+                            <div className="flex gap-1 ">
+                                <div>
+                                    <img
+                                        className="w-5 h-5 mr-1 sm:mr-0 lg:mr-1"
+                                        src={sport?.poster}
+                                        alt={sport?.sport}
+                                    />
+                                </div>
+                                <div>
+                                    <span>{sport?.sport}</span>
+                                </div>
                             </div>
                         </Link>
                     ))}
@@ -129,14 +133,16 @@ function NavBar() {
                         to={'../news'}
                         className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200 "
                     >
-                        <div>
-                            <Newspaper
-                                color="grey"
-                                className="h-5 w-5  mr-1 sm:mr-0 lg:mr-1"
-                            />
-                        </div>
-                        <div>
-                            <span> Noticias</span>
+                        <div className="flex gap-1 ">
+                            <div>
+                                <Newspaper
+                                    color="grey"
+                                    className="h-5 w-5  mr-1 sm:mr-0 lg:mr-1"
+                                />
+                            </div>
+                            <div>
+                                <span> Noticias</span>
+                            </div>
                         </div>
                     </Link>
                 </Navbar.Collapse>

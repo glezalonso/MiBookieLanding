@@ -65,25 +65,25 @@ export const useGetMatchesToday = (date) => {
     })
     return { data, isLoading, isError }
 }
-export const useGetMatchesByTeam = (team) => {
+export const useGetMatchesByTeam = (team, limit, status) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', team],
-        queryFn: () => getMatchesByTeam(team),
+        queryKey: ['matches', limit, status],
+        queryFn: () => getMatchesByTeam(team, limit, status),
     })
     return { data, isLoading, isError }
 }
-export const useGetMatchesOpenByLeague = (league) => {
+export const useGetMatchesOpenByLeague = (league, limit) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', league],
-        queryFn: () => getMatchesOpenByLeague(league),
+        queryKey: ['matches', limit],
+        queryFn: () => getMatchesOpenByLeague(league, limit),
     })
     return { data, isLoading, isError }
 }
 
-export const useGetMatchesClosedByLeague = (league) => {
+export const useGetMatchesClosedByLeague = (league, limit) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', league],
-        queryFn: () => getMatchesClosedByLeague(league),
+        queryKey: ['matches', limit],
+        queryFn: () => getMatchesClosedByLeague(league, limit),
     })
     return { data, isLoading, isError }
 }
