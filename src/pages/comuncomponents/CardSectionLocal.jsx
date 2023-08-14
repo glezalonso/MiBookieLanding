@@ -8,10 +8,7 @@ const CardSectionLocal = ({ match }) => {
 
     return (
         <>
-            <div
-                onClick={() => navigate(`../teams/${match?.local?._id}`)}
-                className="flex items-center hover:cursor-pointer "
-            >
+            <div className="flex items-center">
                 <div>
                     <img
                         src={match?.local?.poster}
@@ -19,7 +16,10 @@ const CardSectionLocal = ({ match }) => {
                         className="h-9 w-9"
                     />
                 </div>
-                <div className="mx-1 ">
+                <div
+                    onClick={() => navigate(`../teams/${match?.local?._id}`)}
+                    className="mx-1 hover:cursor-pointer "
+                >
                     <div>
                         <span className="font-bold mx-1 text-gray-600 text-base">
                             {match?.local?.name}
