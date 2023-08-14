@@ -25,10 +25,8 @@ const CardSectionLocal = ({ match }) => {
                             {match?.local?.name}
                         </span>
                     </div>
-                    <div className="mx-1">
+                    <div className=" flex gap-2 mx-1">
                         <CardStandingLocal match={match} />
-                    </div>
-                    <div className="mx-1">
                         <LocalPitcher match={match} />
                     </div>
                 </div>

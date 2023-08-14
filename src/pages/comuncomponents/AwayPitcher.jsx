@@ -14,14 +14,7 @@ const AwayPitcher = ({ match }) => {
                         >
                             Lanzador: {player?.playerId?.fullName}
                         </span>
-                    ) : (
-                        <span
-                            className=" text-xs font-semibold"
-                            key={player?.playerId?._id}
-                        >
-                            Sin asignar
-                        </span>
-                    )
+                    ) : null
                 )
             )}
         </>
