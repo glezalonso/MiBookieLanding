@@ -11,7 +11,7 @@ const LocalPitcher = ({ match }) => {
                             className=" text-xs font-semibold"
                             key={player?.playerId?._id}
                         >
-                            Lanzador: {player?.playerId?.fullName}
+                            (L) {player?.playerId?.fullName}
                         </span>
                     ) : null
                 )
