@@ -9,7 +9,7 @@ const CardComments = ({ match }) => {
 
     return (
         <>
-            <div className="max-h-56 overflow-auto bg-zinc-950 rounded border-t-2 p-1">
+            <div className="max-h-56 overflow-auto bg-zinc-950 mt-1 rounded border-t-2 p-1">
                 {match?.comments?.length > 0 ? (
                     match?.comments?.map((comment) =>
                         comment?.username?._id === id ? (

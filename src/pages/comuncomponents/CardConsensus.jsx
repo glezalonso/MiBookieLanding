@@ -38,7 +38,7 @@ const CardConsensus = ({ match }) => {
 
     return (
         <>
-            <div className="rounded text-white p-1 border-t-2">
+            <div className="rounded text-white p-1 mt-1 border-t-2">
                 <Table hoverable className="table-auto mt-2 text-xs">
                     <Table.Body>
                         <Table.Row>

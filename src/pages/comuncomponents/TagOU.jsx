@@ -3,7 +3,7 @@ import React from 'react'
 const TagOU = ({ match }) => {
     return (
         <>
-            <div className="flex bg-white justify-between mb-1 w-2/4 mx-auto p-1 rounded-md border-2 border-gray-200 text-sm">
+            <div className="flex bg-white justify-between mb-1 w-2/4 mx-auto p-1 rounded-md border-2 border-gray-200 text-sm lg:w-1/4">
                 <div>
                     <span className="justify-start-start text-sm text-gray-500">
                         Total: {match?.oddOverUnder?.split(' ', 1)}

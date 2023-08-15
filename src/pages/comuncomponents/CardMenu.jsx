@@ -11,7 +11,7 @@ const CardMenu = ({
 }) => {
     return (
         <>
-            <div className="flex justify-start gap-1 border-t-2 ">
+            <div className="flex justify-start gap-1  border-t-2 ">
                 <Button
                     pill
                     size="xs"
