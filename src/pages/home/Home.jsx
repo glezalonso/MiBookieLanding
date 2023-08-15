@@ -52,8 +52,8 @@ const Home = () => {
         <>
             <NavBar />
 
-            <main className="container mx-auto">
-                <div className="sm:grid sm:grid-cols-4 sm:gap-2 ">
+            <main className="container mx-auto lg:w-3/4">
+                <div className="sm:grid sm:grid-cols-4 sm:gap-2   ">
                     <div className="sm:col-span-3 sm:ml-1">
                         <div
                             className="flex gap-.5 mt-4 justify-center mx-auto sm:gap-2 "

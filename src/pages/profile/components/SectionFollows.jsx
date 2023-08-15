@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, Alert } from 'flowbite-react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useRemoveFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
 import { PersonDash, PeopleFill, PersonCircle } from 'react-bootstrap-icons'
@@ -68,7 +68,11 @@ const SectionFollows = ({ user, setKey }) => {
                     </div>
                 ) : (
                     <Alert color="warning" className="my-2">
-                        No cuentas con seguidores
+                        No estas siguiendo a ningun bookie. Busca bookie y sigue
+                        sus pronósticos{' '}
+                        <Link className="font-bold underline" to={'../bookies'}>
+                            Buscar
+                        </Link>
                     </Alert>
                 )}
             </section>

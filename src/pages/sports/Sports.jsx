@@ -29,8 +29,8 @@ const Sports = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 mx:auto ">
-                <div className="mx-auto lg:w-3/4">
+            <main className="container mx-auto px-0 flex justify-center">
+                <div className="w-full mx-auto lg:w-3/4">
                     <CardSport sport={sport} />
 
                     <div
@@ -103,7 +103,7 @@ const Sports = () => {
                         ) : null}
                     </section>
                 </div>
-            </div>
+            </main>
         </>
     )
 }
