@@ -16,7 +16,7 @@ const CardMenu = ({
                     pill
                     size="xs"
                     color="gray"
-                    className=" text-gray-600 my-1"
+                    className=" text-gray-600 mt-1.5"
                     onClick={() => handleComments()}
                 >
                     <div className="flex items-center">
@@ -31,7 +31,7 @@ const CardMenu = ({
                     pill
                     size="xs"
                     color="gray"
-                    className=" text-gray-600 my-1"
+                    className=" text-gray-600 mt-1.5"
                     onClick={() => handleConsensus()}
                 >
                     <GraphUp className="mr-1" /> Votos
@@ -41,7 +41,7 @@ const CardMenu = ({
                         pill
                         size="xs"
                         color="gray"
-                        className=" text-gray-600 my-1"
+                        className=" text-gray-600 mt-1.5"
                         onClick={() => handleLineUp()}
                     >
                         <People className="mr-1" /> Alineación
@@ -52,7 +52,7 @@ const CardMenu = ({
                         pill
                         size="xs"
                         color="gray"
-                        className=" text-gray-600 my-1"
+                        className=" text-gray-600 mt-1.5"
                         onClick={() => handleOdds()}
                     >
                         <Bank className="mr-1" /> Cuotas

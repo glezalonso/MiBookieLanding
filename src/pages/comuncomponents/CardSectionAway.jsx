@@ -25,7 +25,7 @@ const CardSectionAway = ({ match }) => {
                             {match?.away?.name}
                         </span>
                     </div>
-                    <div className=" flex gap-2 mx-1">
+                    <div className=" flex gap-1 mx-1">
                         <CardStandingAway match={match} />
                         <AwayPitcher match={match} />
                     </div>

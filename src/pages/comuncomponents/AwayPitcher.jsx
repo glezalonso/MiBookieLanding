@@ -5,18 +5,20 @@ const AwayPitcher = ({ match }) => {
 
     return (
         <>
-            {match?.lineup?.map((away) =>
-                away?.away?.map((player) =>
-                    player?.playerId?.position === postion ? (
-                        <span
-                            className="text-gray-400 text-xs font-semibold"
-                            key={player?.playerId?._id}
-                        >
-                            (L) {player?.playerId?.fullName}
-                        </span>
-                    ) : null
-                )
-            )}
+            <div>
+                {match?.lineup?.map((away) =>
+                    away?.away?.map((player) =>
+                        player?.playerId?.position === postion ? (
+                            <span
+                                className="text-gray-400 text-xs font-semibold"
+                                key={player?.playerId?._id}
+                            >
+                                (L) {player?.playerId?.fullName}
+                            </span>
+                        ) : null
+                    )
+                )}
+            </div>
         </>
     )
 }

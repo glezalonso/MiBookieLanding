@@ -12,6 +12,7 @@ import LocalScore from './LocalScore'
 import CardMenu from './CardMenu'
 import CardOdds from './CardOdds'
 
+// Disable tag LineUp
 const CardMatch = ({ match }) => {
     const [showComments, setShowComments] = useState(false)
     // const [showLineUp, setShowLineUp] = useState(false)
@@ -48,7 +49,7 @@ const CardMatch = ({ match }) => {
         <>
             <div className="  max-w-full bg-white  border-gray-200 my-1 p-2 rounded-lg hover:shadow-lg">
                 <CardHeader match={match} />
-                <Table className="table-auto mb-1 text-xs">
+                <Table className="table-auto mb-2 text-xs">
                     <Table.Body className="border-b-inherit ">
                         <Table.Row>
                             <Table.Cell className="p-2">
