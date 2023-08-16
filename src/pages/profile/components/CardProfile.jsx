@@ -26,10 +26,10 @@ const CardProfile = ({ id, user }) => {
         <>
             <div className="  max-w-full bg-white  border-gray-200 my-1 p-2 rounded-lg hover:shadow-lg">
                 <div className="flex justify-between">
-                    <div className="flex justify-center">
+                    <div className="flex mx-2 justify-start items-center">
                         <img
                             src={user?.avatar || avatar}
-                            className="h-14 w-14"
+                            className="h-11 w-11"
                         />
                         <h4 className="mx-1 my-3">{user?.username}</h4>
                     </div>
