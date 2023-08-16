@@ -65,8 +65,9 @@ const Home = () => {
                         >
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600 py-0 px-0  sm:px-4 "
+                                className=" text-gray-600 p-0 px-0  sm:px-4 "
                                 onClick={() => setKey('ayer')}
                             >
                                 <div className="flex">
@@ -85,6 +86,7 @@ const Home = () => {
 
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
                                 className=" text-gray-600 py-0 px-0  sm:px-4 "
                                 onClick={() => setKey('hoy')}
@@ -105,6 +107,7 @@ const Home = () => {
 
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
                                 className=" text-gray-600 py-0 px-0  sm:px-4 "
                                 onClick={() => setKey('mañana')}
@@ -127,6 +130,7 @@ const Home = () => {
                                 <>
                                     <Button
                                         size="sm"
+                                        pill
                                         color="gray"
                                         className=" text-gray-600 py-0 px-0  sm:px-4 "
                                         onClick={() => handleShowTop()}
@@ -147,6 +151,7 @@ const Home = () => {
 
                                     <Button
                                         size="sm"
+                                        pill
                                         color="gray"
                                         className=" text-gray-600 py-0 px-0  sm:px-4 "
                                         onClick={() => handleShow()}

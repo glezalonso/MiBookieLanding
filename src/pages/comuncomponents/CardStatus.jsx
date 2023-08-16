@@ -14,14 +14,10 @@ const CardStatus = ({ match }) => {
             <div className="flex  mb-2 gap-1 text-sm">
                 {!match?.status ? (
                     <>
-                        <Badge className="  bg-red-800 text-white">
-                            Terminado
-                        </Badge>
+                        <Badge color={'failure'}>Terminado</Badge>
                     </>
                 ) : match?.date < fullDate ? (
-                    <Badge className="  bg-green-800 text-white">
-                        En juego
-                    </Badge>
+                    <Badge color={'success'}>En juego</Badge>
                 ) : (
                     <div className="flex items-center gap-1">
                         <img src={clock} alt="clock" className="h-4 w-4 " />

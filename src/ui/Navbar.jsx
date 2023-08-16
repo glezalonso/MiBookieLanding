@@ -56,7 +56,7 @@ function NavBar() {
                     </span>
                 </Link>
 
-                <div className="flex p-1 text-white  sm:mt-2.5 sm:order-2 md:mx-auto">
+                <div className="flex p-1 text-white mr-1 sm:mt-2.5 sm:order-2 md:mx-auto">
                     {username ? (
                         <Dropdown
                             className="p-1"
