@@ -18,12 +18,12 @@ const SectionTop = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full mt-16 mx-auto bg-gray-200 md:w-full md:h-3/4"
+                className="w-full h-full mt-20 mx-auto bg-gray-200 md:w-full md:h-3/4"
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-zinc-950 p-2 flex items-center">
+                <Modal.Header className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black  p-2 flex items-center">
                     <div className="flex justify-start items-center">
                         <div className="my-1">
                             <img
@@ -33,7 +33,7 @@ const SectionTop = ({ show, handleClose }) => {
                             />
                         </div>
                         <div>
-                            <h3 className="text-lg mt-1.5 text-gray-500 font-medium">
+                            <h3 className="text-lg mt-1.5 text-gray-300 font-medium">
                                 Top 10
                             </h3>
                         </div>
