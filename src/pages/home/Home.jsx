@@ -56,11 +56,11 @@ const Home = () => {
         <>
             <NavBar />
 
-            <main className="container mx-auto lg:w-3/4">
-                <div className="sm:grid sm:grid-cols-4 sm:gap-2   ">
-                    <div className="sm:col-span-3 sm:ml-1">
+            <main className="container mx-auto  lg:w-3/4">
+                <div className="sm:grid sm:grid-cols-4 sm:gap-5   ">
+                    <div className="sm:col-span-3 sm:ml-1 ">
                         <div
-                            className="flex gap-.5 mt-4 justify-center mx-auto sm:gap-2 "
+                            className="flex gap-.5 mt-5 justify-center mx-auto sm:gap-2 "
                             role="group"
                         >
                             <Button
@@ -188,7 +188,7 @@ const Home = () => {
                             ) : null}
                         </section>
                     </div>
-                    <div className="hidden sm:block sm:col-span-1 sm:mt-5 sm:mx-2">
+                    <div className="hidden sm:block sm:col-span-1 sm:mt-6 sm:mx-2">
                         <SectionLeagues />
                     </div>
                 </div>

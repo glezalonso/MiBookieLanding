@@ -18,7 +18,7 @@ const CardSectionAway = ({ match }) => {
                 </div>
                 <div
                     onClick={() => navigate(`../teams/${match?.away?._id}`)}
-                    className="mx-1 hover:cursor-pointer "
+                    className="mx-1 hover:cursor-pointer hover:scale-105 hover:mx-2 "
                 >
                     <div>
                         <span className="font-bold mx-1 text-gray-600 text-base">

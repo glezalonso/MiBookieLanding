@@ -24,8 +24,8 @@ const SectionMatches = ({ matches }) => {
     return (
         <>
             <section>
-                <div className="flex justify-between mt-1 mx-2 ">
-                    <h5 className=" flex mt-1">
+                <div className="flex justify-between  mx-2 ">
+                    <h5 className=" flex mt-3">
                         <div className="flex mt-1 mb-2">
                             <img
                                 src={matchIcon}
@@ -43,7 +43,7 @@ const SectionMatches = ({ matches }) => {
                     </h5>
                     <div
                         onClick={() => setSearch(!search)}
-                        className="flex mt-3  mr-2 gap-1 hover:cursor-pointer"
+                        className="flex  mt-6  mr-2 gap-1 hover:cursor-pointer"
                     >
                         Filtro{' '}
                         <img src={filters} alt="Filtro" className="h-5 w-5" />
