@@ -3,17 +3,19 @@ import { Dropdown, Navbar, Avatar, Button } from 'flowbite-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
 import { useGetSports } from '../features/sports.features'
+import { useGetBookie } from '../features/users.features'
 import Login from '../pages/home/components/Login'
 import Register from '../pages/home/components/Register'
 import logo from '../assets/mibookie.png'
-import user from '../assets/user.png'
+import avatar from '../icons/avatar.svg'
 import newspaper from '../icons/newspaper.svg'
 import home from '../icons/home.svg'
 
 function NavBar() {
     const { username, id } = useAuthStore((state) => state.profile)
-    const logOut = useAuthStore((state) => state.logOut)
+    const { logOut } = useAuthStore((state) => state)
     const { data: sports } = useGetSports()
+    const { data: user } = useGetBookie(id)
     const navigate = useNavigate()
 
     const [show, setShow] = useState(false)
@@ -61,7 +63,7 @@ function NavBar() {
                                     size={'sm'}
                                     className=" sm:mt-1.5 sm:h-9"
                                     alt={username}
-                                    img={user}
+                                    img={user?.avatar || avatar}
                                 />
                             }
                         >

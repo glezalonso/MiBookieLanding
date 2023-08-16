@@ -3,7 +3,8 @@ import { Table, Alert } from 'flowbite-react'
 import { useNavigate, Link } from 'react-router-dom'
 import { useRemoveFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
-import { PersonDash, PeopleFill, PersonCircle } from 'react-bootstrap-icons'
+import { PersonDash, PersonCircle } from 'react-bootstrap-icons'
+import follow from '../../../icons/follow.svg'
 
 const SectionFollows = ({ user, setKey }) => {
     const userId = useAuthStore((state) => state.profile.id)
@@ -25,12 +26,12 @@ const SectionFollows = ({ user, setKey }) => {
     return (
         <>
             <section className=" bg-white rounded p-2 my-3">
-                <div className="flex mx-2">
-                    <PeopleFill size={'20px'} color="dark" />
-                    <span className="mx-1">Contáctos</span>
+                <div className="flex  items-center gap-1 ml-2">
+                    <img src={follow} alt="follow" className="h-5 w-5" />
+                    <span className="">Contáctos</span>
                 </div>
                 {user?.follow?.length > 0 ? (
-                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                    <div className=" bg-white rounded py-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Body>
                                 {user?.follow?.map((follower) => (

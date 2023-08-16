@@ -1,7 +1,8 @@
 import React from 'react'
 import { Table, Alert } from 'flowbite-react'
-import { PersonFillCheck, Person } from 'react-bootstrap-icons'
+import { Person } from 'react-bootstrap-icons'
 import { useNavigate } from 'react-router-dom'
+import followers from '../../../icons/followers.svg'
 
 const SectionFollowers = ({ user, setKey }) => {
     const navigate = useNavigate()
@@ -13,12 +14,12 @@ const SectionFollowers = ({ user, setKey }) => {
     return (
         <>
             <section className=" bg-white rounded p-2 my-3">
-                <div className="flex mx-2">
-                    <PersonFillCheck size={'20px'} color="dark" />
-                    <span className="mx-1">Seguidores</span>
+                <div className="flex ml-2 gap-1 items-center">
+                    <img src={followers} className="w-5 h-5" />
+                    <span>Seguidores</span>
                 </div>
                 {user?.followers?.length > 0 ? (
-                    <div className=" bg-white rounded max-h-3/4 overflow-auto p-1 mb-3">
+                    <div className=" bg-white rounded py-1 mb-3">
                         <Table hoverable className="table-auto mt-1 text-sm">
                             <Table.Body>
                                 {user?.followers?.map((follower) => (

@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Button } from 'flowbite-react'
 import { useAddFollow } from '../../../features/users.features'
 import { useAuthStore } from '../../../store/authorization'
-import avatar from '../../../assets/user.png'
-import { GearFill } from 'react-bootstrap-icons'
+import avatar from '../../../icons/avatar.svg'
+import edit from '../../../icons/edit.svg'
 import ChangePicture from './ChangePicture'
 
 const CardProfile = ({ id, user }) => {
@@ -49,9 +49,10 @@ const CardProfile = ({ id, user }) => {
                             </h5>
                         ) : null}
                         {user?._id === userId ? (
-                            <GearFill
-                                color="grey"
-                                className="mx-1"
+                            <img
+                                src={edit}
+                                alt="Edit"
+                                className="mx-1 h-5 w-5"
                                 onClick={handleShow}
                             />
                         ) : null}

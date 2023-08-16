@@ -3,7 +3,6 @@ import NavBar from '../../ui/Navbar'
 import { Button } from 'flowbite-react'
 import { useParams } from 'react-router-dom'
 import { useGetBookie } from '../../features/users.features'
-import { PeopleFill, PersonCheckFill } from 'react-bootstrap-icons'
 import { useAuthStore } from '../../store/authorization'
 import SectionNext from './components/SectionNext'
 import SectionLast from './components/SectionLast'
@@ -12,6 +11,8 @@ import SectionFollows from './components/SectionFollows'
 import CardProfile from './components/CardProfile'
 import SectionRating from './components/SectionRating'
 import SelectFilter from '../comuncomponents/SelectFilter'
+import follow from '../../icons/follow.svg'
+import followers from '../../icons/followers.svg'
 
 const Profile = () => {
     const { id } = useParams()
@@ -24,12 +25,12 @@ const Profile = () => {
         <>
             <NavBar />
             <div className="container mx-auto">
-                <div className="grid w-full mt-3 sm:grid-cols-5 sm:gap-1 xl:grid-col-4  ">
-                    <div className=" col-span-5 mx-1 sm:col-span-2">
+                <div className="grid w-full mt-3 sm:grid-cols-5 sm:gap-3  ">
+                    <div className=" col-span-5  sm:col-span-2">
                         <CardProfile user={user} />
                         <SectionRating user={user} />
                     </div>
-                    <div className="col-span-5 mx-1 sm:block sm:col-span-3  ">
+                    <div className="col-span-5  sm:block sm:col-span-3  ">
                         <div
                             className="flex  mt-2 justify-center "
                             role="group"
@@ -55,12 +56,13 @@ const Profile = () => {
                                     <Button
                                         smsize="sm"
                                         color="gray"
-                                        className=" text-gray-600 p-0 "
+                                        className="text-gray-600 p-0 "
                                         onClick={() => setKey('contactos')}
                                     >
-                                        <PeopleFill
-                                            color="dark"
-                                            className="mr-1 mt-1 "
+                                        <img
+                                            src={follow}
+                                            alt="contacto"
+                                            className="w-4 h-4  "
                                         />
                                         Contáctos
                                     </Button>
@@ -68,13 +70,16 @@ const Profile = () => {
                                     <Button
                                         smsize="sm"
                                         color="gray"
-                                        className=" text-gray-600 p-0"
+                                        className="text-gray-600 p-0"
                                         onClick={() => setKey('seguidores')}
                                     >
-                                        <PersonCheckFill
-                                            color="dark"
-                                            className="mr-1 mt-1"
-                                        />
+                                        <div>
+                                            <img
+                                                src={followers}
+                                                alt="seguidores"
+                                                className=" w-4 h-4 mr-1"
+                                            />
+                                        </div>
                                         Seguidores
                                     </Button>
                                 </>
