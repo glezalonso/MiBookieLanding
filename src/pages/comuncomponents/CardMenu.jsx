@@ -2,6 +2,10 @@ import React from 'react'
 import { Button } from 'flowbite-react'
 import { ChatDots, GraphUp, Bank } from 'react-bootstrap-icons'
 // import { People } from 'react-bootstrap-icons'
+import comments from '../../icons/comments.svg'
+import votes from '../../icons/votes.svg'
+import odds from '../../icons/odds.svg'
+
 const CardMenu = ({
     match,
     handleComments,
@@ -16,12 +20,16 @@ const CardMenu = ({
                     pill
                     size="xs"
                     color="gray"
-                    className=" text-gray-600 mt-1.5"
+                    className=" text-gray-700 mt-1.5"
                     onClick={() => handleComments()}
                 >
                     <div className="flex items-center">
-                        <ChatDots size={15} className="mr-1" />
-                        <div className="mt-.5">
+                        <img
+                            src={comments}
+                            alt="comments"
+                            className=" h-4 w-4"
+                        />
+                        <div className="ml-1">
                             {match?.comments?.length}
                             <span className="ml-1">Comentario(s)</span>
                         </div>
@@ -34,7 +42,8 @@ const CardMenu = ({
                     className=" text-gray-600 mt-1.5"
                     onClick={() => handleConsensus()}
                 >
-                    <GraphUp className="mr-1" /> Votos
+                    <img src={votes} alt="vote" className=" h-4 w-4 mr-1" />
+                    Votos
                 </Button>
                 {/* {match?.lineup?.length > 0 ? (
                     <Button
@@ -55,7 +64,8 @@ const CardMenu = ({
                         className=" text-gray-600 mt-1.5"
                         onClick={() => handleOdds()}
                     >
-                        <Bank className="mr-1" /> Cuotas
+                        <img src={odds} alt="odds" className=" h-4 w-4 mr-1" />
+                        Cuotas
                     </Button>
                 ) : null}
             </div>

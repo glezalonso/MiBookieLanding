@@ -1,8 +1,8 @@
 import React from 'react'
-import { Clock } from 'react-bootstrap-icons'
 import { Badge } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import formatedHour from '../../utils/formatedHour'
+import clock from '../../icons/clock.svg'
 
 const CardStatus = ({ match }) => {
     const date = formatedDate()
@@ -11,24 +11,22 @@ const CardStatus = ({ match }) => {
 
     return (
         <>
-            <div className="flex align-center gap-1 text-sm">
+            <div className="flex  mb-2 gap-1 text-sm">
                 {!match?.status ? (
                     <>
-                        <Badge className=" mb-2 bg-red-800 text-white">
+                        <Badge className="  bg-red-800 text-white">
                             Terminado
                         </Badge>
                     </>
                 ) : match?.date < fullDate ? (
-                    <Badge className=" mb-2 bg-green-800 text-white">
+                    <Badge className="  bg-green-800 text-white">
                         En juego
                     </Badge>
                 ) : (
-                    <div className=" flex gap-1 mb-2">
-                        <Clock size={16} className="mt-.5" />
+                    <div className="flex items-center gap-1">
+                        <img src={clock} alt="clock" className="h-4 w-4 " />
 
-                        <span className="block text-sm ">
-                            {match?.date?.split('T')[1]}
-                        </span>
+                        <span>{match?.date?.split('T')[1]}</span>
                     </div>
                 )}
             </div>
