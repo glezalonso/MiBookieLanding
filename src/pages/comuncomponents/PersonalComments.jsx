@@ -27,30 +27,29 @@ const PersonalComments = ({ match, comment }) => {
         <>
             <div className="flex p-1 justify-end  mb-1 overflow-auto ">
                 <div className="p-1  text-xs  bg-gray-900  rounded-md  text-end">
-                    <div
-                        onClick={() => handleNavigate(comment?.username?._id)}
-                        className="flex justify-between gap-2 "
-                    >
+                    <div className="flex justify-between gap-2 text-white font-bold text-xs">
                         <div
                             onClick={() =>
-                                handleRemove(
-                                    comment?.comment,
-                                    comment?.hour,
-                                    comment?._id,
-                                    match?._id
-                                )
+                                handleNavigate(comment?.username?._id)
                             }
-                            className="mr-1 hover:cursor-pointer"
+                            className="ml-1 hover:cursor-pointer  "
                         >
-                            <span className="flex justify-between gap-1  text-white font-bold text-xs">
-                                <div className="ml-2">
-                                    <span>{comment?.username?.username}</span>
-                                </div>
-                                <div className="flex ml-1 text-xs text-gray-500">
-                                    {comment?.hour}
-                                    <XCircleFill color="red" className="ml-1" />
-                                </div>
-                            </span>
+                            {comment?.username?.username}
+                        </div>
+                        <div className="flex gap-1 text-xs text-gray-500">
+                            {comment?.hour}
+                            <XCircleFill
+                                color="red"
+                                onClick={() =>
+                                    handleRemove(
+                                        comment?.comment,
+                                        comment?.hour,
+                                        comment?._id,
+                                        match?._id
+                                    )
+                                }
+                                className="hover:cursor-pointer"
+                            />
                         </div>
                     </div>
                     <div className="p-1 text-end">
