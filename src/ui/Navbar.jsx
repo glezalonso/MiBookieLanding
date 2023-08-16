@@ -38,7 +38,10 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar fluid className="bg-zinc-950   lg:p-0  lg:h-16  ">
+            <Navbar
+                fluid
+                className="bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black  lg:p-0  lg:h-16  "
+            >
                 <Link
                     to={'/'}
                     className="flex items-center no-underline text-white  mr-auto md:mt-1.5 md:mx-auto"
@@ -98,7 +101,7 @@ function NavBar() {
                 <Navbar.Collapse>
                     <Link
                         to={'/'}
-                        className="inline-flex no-underline text-gray-500 hover:text-gray-200  sm:mt-3 md:hidden xl:block "
+                        className="inline-flex no-underline text-gray-400 hover:text-gray-200  sm:mt-3 md:hidden xl:block "
                     >
                         <div className="flex items-center gap-1">
                             <div>
@@ -117,7 +120,7 @@ function NavBar() {
                         <Link
                             to={`../sports/${sport?._id}`}
                             key={sport?._id}
-                            className="block  mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200  "
+                            className="block  mt-2.5 sm:mt-3 no-underline text-gray-400 hover:text-gray-200  "
                         >
                             <div className="flex items-center gap-1 ">
                                 <div>
@@ -135,7 +138,7 @@ function NavBar() {
                     ))}
                     <Link
                         to={'../news'}
-                        className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200 "
+                        className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-400 hover:text-gray-200 "
                     >
                         <div className="flex items-center gap-1 ">
                             <div>
