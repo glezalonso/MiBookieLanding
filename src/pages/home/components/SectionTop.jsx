@@ -3,7 +3,7 @@ import { Modal, Table } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom'
 import { useGetTopBookies } from '../../../features/users.features'
 import { PersonCircle } from 'react-bootstrap-icons'
-import { IoMdMedal } from 'react-icons/io'
+import medalwhite from '../../../icons/medalwhite.svg'
 
 const SectionTop = ({ show, handleClose }) => {
     let i = 0
@@ -23,13 +23,17 @@ const SectionTop = ({ show, handleClose }) => {
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-zinc-950 pb-1">
-                    <div className="flex justify-start">
+                <Modal.Header className="bg-zinc-950 p-2 flex items-center">
+                    <div className="flex justify-start items-center">
                         <div className="my-1">
-                            <IoMdMedal className="mx-2 h-8 w-8 text-yellow-400" />
+                            <img
+                                src={medalwhite}
+                                alt="medal"
+                                className="mx-2 h-8 w-8"
+                            />
                         </div>
                         <div>
-                            <h3 className="text-xl mt-1.5 text-gray-500 font-medium">
+                            <h3 className="text-lg mt-1.5 text-gray-500 font-medium">
                                 Top 10
                             </h3>
                         </div>

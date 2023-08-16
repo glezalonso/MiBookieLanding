@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Dropdown, Navbar, Avatar, Button } from 'flowbite-react'
-import { HouseDoor, Newspaper } from 'react-bootstrap-icons'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
 import { useGetSports } from '../features/sports.features'
@@ -8,6 +7,8 @@ import Login from '../pages/home/components/Login'
 import Register from '../pages/home/components/Register'
 import logo from '../assets/mibookie.png'
 import user from '../assets/user.png'
+import newspaper from '../icons/newspaper.svg'
+import home from '../icons/home.svg'
 
 function NavBar() {
     const { username, id } = useAuthStore((state) => state.profile)
@@ -92,20 +93,21 @@ function NavBar() {
                     )}
                     <Navbar.Toggle />
                 </div>
-                <Navbar.Collapse className="m-0 ">
+                <Navbar.Collapse>
                     <Link
                         to={'/'}
                         className="inline-flex no-underline text-gray-500 hover:text-gray-200  sm:mt-3 md:hidden xl:block "
                     >
-                        <div className="flex gap-1">
+                        <div className="flex items-center gap-1">
                             <div>
-                                <HouseDoor
-                                    color="grey"
-                                    className="w-5 h-5 mr-1 sm:mr-0 2xl:mr-1"
+                                <img
+                                    src={home}
+                                    alt="home"
+                                    className="w-5 h-5 "
                                 />
                             </div>
                             <div>
-                                <span> Inicio</span>
+                                <span>Inicio</span>
                             </div>
                         </div>
                     </Link>
@@ -115,10 +117,10 @@ function NavBar() {
                             key={sport?._id}
                             className="block  mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200  "
                         >
-                            <div className="flex gap-1 ">
+                            <div className="flex items-center gap-1 ">
                                 <div>
                                     <img
-                                        className="w-5 h-5 mr-1 sm:mr-0 lg:mr-1"
+                                        className="w-5 h-5 "
                                         src={sport?.poster}
                                         alt={sport?.sport}
                                     />
@@ -133,11 +135,12 @@ function NavBar() {
                         to={'../news'}
                         className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-500 hover:text-gray-200 "
                     >
-                        <div className="flex gap-1 ">
+                        <div className="flex items-center gap-1 ">
                             <div>
-                                <Newspaper
-                                    color="grey"
-                                    className="h-5 w-5  mr-1 sm:mr-0 lg:mr-1"
+                                <img
+                                    src={newspaper}
+                                    alt="newspaper"
+                                    className="h-5 w-5"
                                 />
                             </div>
                             <div>

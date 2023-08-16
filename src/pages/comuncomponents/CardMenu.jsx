@@ -1,6 +1,5 @@
 import React from 'react'
 import { Button } from 'flowbite-react'
-import { ChatDots, GraphUp, Bank } from 'react-bootstrap-icons'
 // import { People } from 'react-bootstrap-icons'
 import comments from '../../icons/comments.svg'
 import votes from '../../icons/votes.svg'
@@ -20,7 +19,7 @@ const CardMenu = ({
                     pill
                     size="xs"
                     color="gray"
-                    className=" text-gray-700 mt-1.5"
+                    className=" text-gray-600 mt-1.5"
                     onClick={() => handleComments()}
                 >
                     <div className="flex items-center">
