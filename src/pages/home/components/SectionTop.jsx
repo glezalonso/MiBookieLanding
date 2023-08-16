@@ -33,7 +33,7 @@ const SectionTop = ({ show, handleClose }) => {
                             />
                         </div>
                         <div>
-                            <h3 className="text-lg mt-1.5 text-gray-300 font-medium">
+                            <h3 className="text-lg mt-1.5  text-white font-medium">
                                 Top 10
                             </h3>
                         </div>

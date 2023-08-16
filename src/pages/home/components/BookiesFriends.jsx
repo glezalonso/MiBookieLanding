@@ -29,7 +29,7 @@ const BookiesFirends = ({ show, handleClose }) => {
                             />
                         </div>
                         <div>
-                            <h3 className="text-lg mt-1.5 text-gray-300 font-medium">
+                            <h3 className="text-lg mt-1.5 text-white font-medium">
                                 Mis Bookies
                             </h3>
                         </div>
@@ -59,7 +59,7 @@ const BookiesFirends = ({ show, handleClose }) => {
                         </Table>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className="bg-zinc-950 text-white p-3 justify-end">
+                <Modal.Footer className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black text-white p-3 justify-end">
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?
