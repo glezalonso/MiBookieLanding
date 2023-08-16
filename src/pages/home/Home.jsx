@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useGetMatchesToday } from '../../features/matches.features'
 import { useAuthStore } from '../../store/authorization'
 import { toast } from 'react-hot-toast'
-import { IoMdCalendar, IoMdMedal, IoMdPeople } from 'react-icons/io'
 import { Button } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
@@ -13,6 +12,11 @@ import BookiesFirends from './components/BookiesFriends'
 import SectionMatches from './components/SectionMatches'
 import SectionLeagues from './components/SectionLeagues'
 import SectionTop from './components/SectionTop'
+import calendarToday from '../../icons/calendarToday.svg'
+import calendarYesterday from '../../icons/calendarYesterday.svg'
+import calendarTomorrow from '../../icons/calendarTomorrow.svg'
+import medal from '../../icons/medal.svg'
+import bookies from '../../icons/bookies.svg'
 
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)
@@ -67,10 +71,14 @@ const Home = () => {
                             >
                                 <div className="flex">
                                     <div>
-                                        <IoMdCalendar className="h-5 w-5" />
+                                        <img
+                                            src={calendarYesterday}
+                                            alt="Ayer"
+                                            className="h-5 w-5"
+                                        />
                                     </div>
-                                    <div className="my-0.5">
-                                        <span className="ml-.5">Ayer</span>
+                                    <div className="ml-1">
+                                        <span>Ayer</span>
                                     </div>
                                 </div>
                             </Button>
@@ -83,10 +91,14 @@ const Home = () => {
                             >
                                 <div className="flex">
                                     <div>
-                                        <IoMdCalendar className="h-5 w-5" />
+                                        <img
+                                            src={calendarToday}
+                                            alt="Hoy"
+                                            className="h-5 w-5"
+                                        />
                                     </div>
-                                    <div className="my-0.5">
-                                        <span className="ml-.5">Hoy</span>
+                                    <div className="ml-1">
+                                        <span>Hoy</span>
                                     </div>
                                 </div>
                             </Button>
@@ -99,10 +111,14 @@ const Home = () => {
                             >
                                 <div className="flex">
                                     <div>
-                                        <IoMdCalendar className="h-5 w-5" />
+                                        <img
+                                            src={calendarTomorrow}
+                                            alt="Mañana"
+                                            className="h-5 w-5"
+                                        />
                                     </div>
-                                    <div className="my-0.5">
-                                        <span className="ml-.5">Mañana</span>
+                                    <div className="ml-1">
+                                        <span>Mañana</span>
                                     </div>
                                 </div>
                             </Button>
@@ -117,12 +133,14 @@ const Home = () => {
                                     >
                                         <div className="flex">
                                             <div>
-                                                <IoMdMedal className="h-5 w-5" />
+                                                <img
+                                                    src={medal}
+                                                    alt="Top"
+                                                    className="h-5 w-5"
+                                                />
                                             </div>
-                                            <div className="my-0.5">
-                                                <span className="ml-.5">
-                                                    Top
-                                                </span>
+                                            <div className="ml-1">
+                                                <span>Top</span>
                                             </div>
                                         </div>
                                     </Button>
@@ -135,12 +153,14 @@ const Home = () => {
                                     >
                                         <div className="flex">
                                             <div>
-                                                <IoMdPeople className="h-5 w-5" />
+                                                <img
+                                                    src={bookies}
+                                                    alt="Bookies"
+                                                    className="h-5 w-5"
+                                                />
                                             </div>
-                                            <div className="my-0.5">
-                                                <span className="ml-.5">
-                                                    Bookies
-                                                </span>
+                                            <div className="ml-1">
+                                                <span>Bookies</span>
                                             </div>
                                         </div>
                                     </Button>

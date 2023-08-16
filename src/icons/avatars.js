@@ -19,4 +19,14 @@ export const avatars = [
         name: 'avatar 4',
         url: 'https://res.cloudinary.com/dei46qlds/image/upload/v1692144338/ronaldo-removebg-preview_juseqs.png',
     },
+    {
+        id: 5,
+        name: 'avatar 5',
+        url: 'https://res.cloudinary.com/dei46qlds/image/upload/v1692148172/avatar-removebg-preview_rg8kx4.png',
+    },
+    {
+        id: 6,
+        name: 'avatar 6',
+        url: 'https://res.cloudinary.com/dei46qlds/image/upload/v1692148172/avatar-removebg-preview_rg8kx4.png',
+    },
 ]

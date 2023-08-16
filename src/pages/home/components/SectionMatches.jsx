@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { Select, Alert, Badge, TextInput } from 'flowbite-react'
 import { useGetSports } from '../../../features/sports.features'
 import CardMatch from '../../comuncomponents/CardMatch'
-import { IoFilterOutline } from 'react-icons/io5'
+import filters from '../../../icons/filter.svg'
+import matchIcon from '../../../icons/match.svg'
 
 const SectionMatches = ({ matches }) => {
     const { data: sports } = useGetSports()
@@ -25,19 +26,27 @@ const SectionMatches = ({ matches }) => {
             <section>
                 <div className="flex justify-between mt-1 mx-2 ">
                     <h5 className=" flex mt-1">
-                        <div className="mt-1">Partidos</div>
+                        <div className="flex mt-1 mb-2">
+                            <img
+                                src={matchIcon}
+                                alt="partidos"
+                                className="w-7 h-7 mb- ml-1"
+                            />
+                            <span className="block mx-1 mt-1 ">Partidos</span>
+                        </div>
                         <Badge
                             size={'sm'}
-                            className="mx-2 mb-1 bg-zinc-900 text-gray-200 p-1"
+                            className="mx-2 mt-1 bg-zinc-900 text-gray-200 p-1"
                         >
                             {matches?.length}
                         </Badge>
                     </h5>
                     <div
                         onClick={() => setSearch(!search)}
-                        className="flex mt-1  mr-2 gap-1 hover:cursor-pointer"
+                        className="flex mt-3  mr-2 gap-1 hover:cursor-pointer"
                     >
-                        Filtro <IoFilterOutline className=" " size={20} />
+                        Filtro{' '}
+                        <img src={filters} alt="Filtro" className="h-5 w-5" />
                     </div>
                 </div>
                 {search ? (
