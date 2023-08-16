@@ -19,19 +19,20 @@ const PeopleComments = ({ comment }) => {
                 key={comment?._id}
             >
                 <div className="p-1  text-xs  bg-gray-900  rounded-md  text-end">
-                    <div
-                        onClick={() => handleNavigate(comment?.username?._id)}
-                        className="mr-1 hover:cursor-pointer"
-                    >
-                        <span className="flex justify-between gap-1  text-white font-bold text-xs">
-                            <div className="ml-1">
-                                {comment?.username?.username}
-                            </div>
-                            <div className="flex ml-1 text-xs text-gray-500">
-                                {comment?.hour}
-                            </div>
-                        </span>
+                    <div className="flex justify-between gap-1 text-white font-bold text-xs">
+                        <div
+                            onClick={() =>
+                                handleNavigate(comment?.username?._id)
+                            }
+                            className="ml-1 hover:cursor-pointer hover:scale-x-110"
+                        >
+                            <span>{comment?.username?.username}</span>
+                        </div>
+                        <div className="flex ml-1 text-xs text-gray-500">
+                            {comment?.hour}
+                        </div>
                     </div>
+
                     <div className="p-1 text-start ">
                         <p className=" text-gray-200">{comment?.comment}</p>
                     </div>

@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import { Button, Modal, Select } from 'flowbite-react'
 import { useAddAvatar } from '../../../features/users.features'
+import { avatars } from '../../../icons/avatars'
 
 const ChangePicture = ({ user, show, handleClose }) => {
     const addAvatar = useAddAvatar()
-    const urlAvatar1 =
-        'https://res.cloudinary.com/dei46qlds/image/upload/v1691075725/user_dnd0kp.png'
-    const urlAvatar2 =
-        'https://res.cloudinary.com/dei46qlds/image/upload/v1691058927/womenavatar.png'
-    const [avatar, setAvatar] = useState(urlAvatar1)
+    const [avatar, setAvatar] = useState()
 
     const handleAdd = (id, avatar) => {
         const sure = confirm('Esta seguro que quiere colocar este avatar?')
@@ -35,7 +32,13 @@ const ChangePicture = ({ user, show, handleClose }) => {
                         </h3>
                     </div>
                     <div className="flex justify-center">
-                        <img className="h-24 q-24" src={avatar} alt="Avatar" />
+                        {avatar && (
+                            <img
+                                className="h-24 q-24"
+                                src={avatar}
+                                alt="Avatar"
+                            />
+                        )}
                     </div>
 
                     <Select
@@ -43,8 +46,12 @@ const ChangePicture = ({ user, show, handleClose }) => {
                         size="sm"
                         onChange={(e) => setAvatar(e.target.value)}
                     >
-                        <option value={urlAvatar1}>Hombre</option>
-                        <option value={urlAvatar2}>Mujer</option>
+                        <option>Selecciona un avatar</option>
+                        {avatars?.map((avatar) => (
+                            <option key={avatar.id} value={avatar.url}>
+                                {avatar.name}
+                            </option>
+                        ))}
                     </Select>
                 </Modal.Body>
                 <Modal.Footer className="flex justify-end">
