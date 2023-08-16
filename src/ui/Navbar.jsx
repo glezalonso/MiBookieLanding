@@ -40,7 +40,7 @@ function NavBar() {
         <>
             <Navbar
                 fluid
-                className="bg-[radial-gradient(ellipse_at_top_left,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black  lg:p-0  lg:h-16  "
+                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black lg:p-0  lg:h-16  "
             >
                 <Link
                     to={'/'}
@@ -56,7 +56,7 @@ function NavBar() {
                     </span>
                 </Link>
 
-                <div className="flex p-1 text-white mr-1 sm:mt-2.5 sm:order-2 md:mx-auto">
+                <div className="flex p-1 text-white gap-2 sm:mt-2.5 sm:order-2 md:mx-auto">
                     {username ? (
                         <Dropdown
                             className="p-1"
