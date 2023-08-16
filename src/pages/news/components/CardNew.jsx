@@ -7,7 +7,7 @@ const CardNew = ({ content }) => {
     const [seeMore, setSeeMore] = useState(false)
     return (
         <>
-            <section className="bg-white rounded p-1">
+            <section className="bg-white rounded p-1 hover:shadow-xl">
                 <Table hoverable className="table-auto mt-1 text-sm">
                     <Table.Body>
                         <Table.Row>

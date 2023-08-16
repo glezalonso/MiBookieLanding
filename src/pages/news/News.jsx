@@ -25,34 +25,30 @@ const News = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 auto">
-                <div className="mx-auto md:w-3/4">
-                    <div className="flex mt-3 justify-between mx-auto ">
-                        <h5 className="my-2 ml-2">Noticias</h5>
+            <div className="container mx-auto  lg:w-3/4">
+                <div className="flex mt-3 justify-between mx-auto ">
+                    <h5 className="my-2 ml-2">Noticias</h5>
 
-                        <Select
-                            className="rounded w-50"
-                            onChange={(e) => setFilter(e.target.value)}
-                        >
-                            <option value="6">Todos</option>
+                    <Select
+                        className="rounded w-50"
+                        onChange={(e) => setFilter(e.target.value)}
+                    >
+                        <option value="6">Todos</option>
 
-                            {sports?.map((sport) => (
-                                <option key={sport?._id} value={sport?._id}>
-                                    {sport?.sport}
-                                </option>
-                            ))}
-                        </Select>
-                    </div>
-                    {filterNews?.length > 0 ? (
-                        filterNews?.map((content) => (
-                            <CardNew key={content?._id} content={content} />
-                        ))
-                    ) : (
-                        <Alert color="warning">
-                            No hay noticias para mostrar!
-                        </Alert>
-                    )}
+                        {sports?.map((sport) => (
+                            <option key={sport?._id} value={sport?._id}>
+                                {sport?.sport}
+                            </option>
+                        ))}
+                    </Select>
                 </div>
+                {filterNews?.length > 0 ? (
+                    filterNews?.map((content) => (
+                        <CardNew key={content?._id} content={content} />
+                    ))
+                ) : (
+                    <Alert color="warning">No hay noticias para mostrar!</Alert>
+                )}
             </div>
         </>
     )
