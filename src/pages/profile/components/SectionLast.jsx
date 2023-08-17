@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useGetPicksClosed } from '../../../features/matches.features'
 import { toast } from 'react-hot-toast'
-import { Alert } from 'flowbite-react'
+import { Alert, Button } from 'flowbite-react'
 import Loading from '../../../ui/Loading'
 import CardPick from './CardPick'
 import formatedDate from '../../../utils/formatedDate'
 import SectionStadistics from './SectionStadistics'
+import { BarChartFill } from 'react-bootstrap-icons'
 
 const SectionLast = ({ id, limit }) => {
     const date = formatedDate().slice(0, 7)
+    const [stats, setStats] = useState(false)
 
     const {
         data: matchesClosed,
@@ -23,7 +25,19 @@ const SectionLast = ({ id, limit }) => {
     return (
         <>
             <section>
-                <SectionStadistics match={matchesClosed} id={id} />
+                <Button
+                    size="sm"
+                    pill
+                    color={'dark'}
+                    onClick={() => setStats(!stats)}
+                    className="p-0 "
+                >
+                    <BarChartFill color="white" className="mt-0.5" />
+                    Estadísticas
+                </Button>
+                {stats ? (
+                    <SectionStadistics match={matchesClosed} id={id} />
+                ) : null}
                 {matchesClosed?.length > 0 ? (
                     matchesClosed?.map((match) => (
                         <CardPick match={match} key={match?._id} id={id} />

@@ -32,7 +32,7 @@ const SectionStadistics = ({ match, id }) => {
 
     return (
         <>
-            <section className=" bg-white w-3/4 mx-auto rounded p-2 my-3">
+            <section className=" bg-white mx-auto rounded p-2 my-3 shadow-xl">
                 <div className="flex mx-2 justify-between border-b-2">
                     <div className="flex mt-1">
                         <BarChartFill color="dark" size={'20px'} />
