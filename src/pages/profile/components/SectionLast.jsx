@@ -26,13 +26,13 @@ const SectionLast = ({ id, limit }) => {
         <>
             <section>
                 <Button
-                    size="sm"
+                    size="xs"
                     pill
-                    color={'dark'}
+                    color="dark"
                     onClick={() => setStats(!stats)}
-                    className="p-0 "
+                    className="p-0 mr-auto "
                 >
-                    <BarChartFill color="white" className="mt-0.5" />
+                    <BarChartFill color="white" className="mt-0.5 mr-0.5" />
                     Estadísticas
                 </Button>
                 {stats ? (

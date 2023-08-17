@@ -24,7 +24,7 @@ const Profile = () => {
     return (
         <>
             <NavBar />
-            <div className="container mx-auto">
+            <div className="container mx-auto p-1">
                 <div className="grid w-full mt-3 sm:grid-cols-5 sm:gap-3  ">
                     <div className=" col-span-5  sm:col-span-2">
                         <CardProfile user={user} />
