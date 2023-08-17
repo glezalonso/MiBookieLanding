@@ -39,7 +39,7 @@ function NavBar() {
         <>
             <Navbar
                 fluid
-                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black lg:p-0  lg:h-16  "
+                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-gray-800 via-gray-900 to-black lg:p-0  lg:h-16  "
             >
                 <Link
                     to={'/'}

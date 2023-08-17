@@ -1,7 +1,8 @@
-import React, { useState, Suspense, lazy } from 'react'
+import React, { useState } from 'react'
 import { Select, Alert, Badge, TextInput } from 'flowbite-react'
 import { useGetSports } from '../../../features/sports.features'
-import Loading from '../../../ui/Loading'
+import CardMatch from '../../comuncomponents/CardMatch'
+// import Loading from '../../../ui/Loading'
 import filters from '../../../icons/filter.svg'
 import matchIcon from '../../../icons/match.svg'
 
@@ -9,8 +10,6 @@ const SectionMatches = ({ matches }) => {
     const { data: sports } = useGetSports()
     const [search, setSearch] = useState(false)
     const [filter, setFilter] = useState('')
-
-    const CardMatch = lazy(() => import('../../comuncomponents/CardMatch'))
 
     matches?.sort((a, b) => b.status - a.status)
 
@@ -75,17 +74,16 @@ const SectionMatches = ({ matches }) => {
                         </Select>
                     </div>
                 ) : null}
-                <Suspense fallback={<Loading />}>
-                    {matchFilter?.length > 0 ? (
-                        matchFilter?.map((match) => (
-                            <CardMatch key={match?._id} match={match} />
-                        ))
-                    ) : (
-                        <Alert color={'warning'}>
-                            No hay partidos para mostrar!
-                        </Alert>
-                    )}
-                </Suspense>
+
+                {matchFilter?.length > 0 ? (
+                    matchFilter?.map((match) => (
+                        <CardMatch key={match?._id} match={match} />
+                    ))
+                ) : (
+                    <Alert color={'warning'}>
+                        No hay partidos para mostrar!
+                    </Alert>
+                )}
             </section>
         </>
     )

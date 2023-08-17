@@ -35,7 +35,7 @@ const CardConsensus = ({ match }) => {
         if (!id) return toast.error('Debes iniciar sesión para comentar')
         addVote.mutate({ body: { option, match, userId: id } })
     }
-
+    const existVote = match?.votes?.find((vote) => vote?.username === id)
     return (
         <>
             <div className="rounded text-white p-1 mt-1 border-t-2">
@@ -48,7 +48,7 @@ const CardConsensus = ({ match }) => {
                             <Table.Cell className="p-1 m">
                                 <LocalVotes match={match} />
                             </Table.Cell>
-                            {match?.date > fullDate ? (
+                            {match?.date > fullDate && !existVote ? (
                                 <Table.Cell className="p-1 m">
                                     <LocalVote
                                         match={match}
@@ -66,7 +66,7 @@ const CardConsensus = ({ match }) => {
                                 <Table.Cell className="p-1 m">
                                     <DrawVotes match={match} />
                                 </Table.Cell>
-                                {match?.date > fullDate ? (
+                                {match?.date > fullDate && !existVote ? (
                                     <Table.Cell className="p-1 m">
                                         <DrawVote
                                             match={match}
@@ -83,7 +83,7 @@ const CardConsensus = ({ match }) => {
                             <Table.Cell className="p-1 m">
                                 <AwayVotes match={match} />
                             </Table.Cell>
-                            {match?.date > fullDate ? (
+                            {match?.date > fullDate && !existVote ? (
                                 <Table.Cell className="p-1 m">
                                     <AwayVote
                                         match={match}

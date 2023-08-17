@@ -25,7 +25,7 @@ const News = () => {
     return (
         <>
             <NavBar />
-            <div className="container mx-auto  lg:w-3/4">
+            <div className="container mx-auto p-1  lg:w-3/4">
                 <div className="flex mt-3 justify-between mx-auto ">
                     <h5 className="my-2 ml-2">Noticias</h5>
 

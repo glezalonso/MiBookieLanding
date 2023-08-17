@@ -24,7 +24,7 @@ const Leagues = () => {
     return (
         <>
             <NavBar />
-            <div className="container px-0 mx-auto">
+            <div className="container p-1 mx-auto">
                 <div className="mx-auto">
                     <div className="mx-auto lg:w-3/4">
                         <SectionLeague league={league} />

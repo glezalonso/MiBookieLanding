@@ -19,7 +19,7 @@ const Bookies = () => {
     return (
         <>
             <NavBar />
-            <div className="container mx-auto px-0 flex justify-center">
+            <div className="container mx-auto p-1 flex justify-center">
                 <div className=" w-full mt-2 lg:w-3/4  ">
                     <div className="flex mt-1 mx-2 ">
                         <h5 className="mt-1">Bookies</h5>
