@@ -1,11 +1,11 @@
 import React from 'react'
 import { useGetPicksClosed } from '../../../features/matches.features'
-import Loading from '../../../ui/Loading'
 import { toast } from 'react-hot-toast'
-import CardPick from './CardPick'
 import { Alert } from 'flowbite-react'
-
+import Loading from '../../../ui/Loading'
+import CardPick from './CardPick'
 import formatedDate from '../../../utils/formatedDate'
+import SectionStadistics from './SectionStadistics'
 
 const SectionLast = ({ id, limit }) => {
     const date = formatedDate().slice(0, 7)
@@ -23,6 +23,7 @@ const SectionLast = ({ id, limit }) => {
     return (
         <>
             <section>
+                <SectionStadistics match={matchesClosed} id={id} />
                 {matchesClosed?.length > 0 ? (
                     matchesClosed?.map((match) => (
                         <CardPick match={match} key={match?._id} id={id} />

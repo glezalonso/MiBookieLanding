@@ -6,7 +6,7 @@ import { useGetSport } from '../../features/sports.features'
 import { sport as ids } from '../../const/sportconst'
 
 //  UI sections
-import Loading from '../../ui/Loading'
+// import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
 import caledarToday from '../../icons/calendarToday.svg'
 import leagues from '../../icons/leagues.svg'
@@ -24,9 +24,8 @@ import SectionTeams from './components/SectionTeams'
 const Sports = () => {
     const { id } = useParams()
     const [key, setKey] = useState('hoy')
-    const { data: sport, isLoading, isError } = useGetSport(id)
+    const { data: sport, isError } = useGetSport(id)
 
-    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los deportes!')
 
     return (

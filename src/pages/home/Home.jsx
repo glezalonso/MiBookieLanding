@@ -6,7 +6,6 @@ import { Button } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import yesterdayDate from '../../utils/yesterdayDate'
-import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
 import BookiesFirends from './components/BookiesFriends'
 import SectionMatches from './components/SectionMatches'
@@ -45,11 +44,10 @@ const Home = () => {
         setShow(false)
     }
 
-    const { data: matchesToday, isLoading, isError } = useGetMatchesToday(date)
+    const { data: matchesToday, isError } = useGetMatchesToday(date)
     const { data: matchesTomorrow } = useGetMatchesToday(dateTomorrow)
     const { data: matchesYesterday } = useGetMatchesToday(dateYestadary)
 
-    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
     return (
@@ -172,6 +170,7 @@ const Home = () => {
                                 </>
                             ) : null}
                         </div>
+
                         <section>
                             {key === 'hoy' ? (
                                 <SectionMatches
