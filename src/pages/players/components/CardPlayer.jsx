@@ -5,8 +5,8 @@ import { Table } from 'flowbite-react'
 const CardPlayer = ({ player }) => {
     return (
         <>
-            <section className="my-3">
-                <Table hoverable className="table-auto  text-sm">
+            <section className="my-3 p-2">
+                <Table hoverable className="table-auto   text-sm">
                     <Table.Body>
                         <Table.Row>
                             <Table.Cell className="p-1 text-base font-bold">

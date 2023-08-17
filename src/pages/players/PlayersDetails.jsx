@@ -33,8 +33,9 @@ const PlayerDetails = () => {
                         {player?.sport?._id !== sport.ID_SOCCER ? (
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600"
+                                className="p-0 text-gray-600"
                                 onClick={() => setKey('posiciones')}
                             >
                                 Posiciones
@@ -43,8 +44,9 @@ const PlayerDetails = () => {
 
                         <Button
                             size="sm"
+                            pill
                             color="gray"
-                            className=" text-gray-600"
+                            className="p-0 text-gray-600"
                             onClick={() => {
                                 setStatus(true)
                                 setKey('proximos')
@@ -54,8 +56,9 @@ const PlayerDetails = () => {
                         </Button>
                         <Button
                             size="sm"
+                            pill
                             color="gray"
-                            className=" text-gray-600"
+                            className="p-0 text-gray-600"
                             onClick={() => {
                                 setStatus(false)
                                 setKey('pasados')

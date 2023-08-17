@@ -32,21 +32,23 @@ const Profile = () => {
                     </div>
                     <div className="col-span-5  sm:block sm:col-span-3  ">
                         <div
-                            className="flex  mt-2 justify-center "
+                            className="flex gap-1  mt-2 justify-center "
                             role="group"
                         >
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600 text-sm"
+                                className="p-0"
                                 onClick={() => setKey('proximos')}
                             >
                                 Próximos
                             </Button>
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600 text-sm"
+                                className="p-0"
                                 onClick={() => setKey('ultimos')}
                             >
                                 Últimos
@@ -54,9 +56,10 @@ const Profile = () => {
                             {id === userId ? (
                                 <>
                                     <Button
-                                        smsize="sm"
+                                        size="sm"
+                                        pill
                                         color="gray"
-                                        className="text-gray-600 p-0 "
+                                        className="p-0"
                                         onClick={() => setKey('contactos')}
                                     >
                                         <img
@@ -68,9 +71,10 @@ const Profile = () => {
                                     </Button>
 
                                     <Button
-                                        smsize="sm"
+                                        size="sm"
+                                        pill
                                         color="gray"
-                                        className="text-gray-600 p-0"
+                                        className="p-0 "
                                         onClick={() => setKey('seguidores')}
                                     >
                                         <div>

@@ -5,23 +5,19 @@ const CardRound = ({ round }) => {
         <>
             <section>
                 <div className=" mt-2 text-black">
-                    <h4 className="flex mx-1">
+                    <h4 className="flex items-center mx-1">
                         <div className="mt-1">
                             <img
-                                className="h-12 w-12"
+                                className="h-14 w-14"
                                 src={round?.league?.poster}
                             />
                         </div>
                         <div>
-                            <div className="mx-1 mt-1">
-                                <span className=" mx-1 text-base">
-                                    {round?.round}
-                                </span>
+                            <div className="mx-2  text-base">
+                                <span>{round?.round}</span>
                             </div>
-                            <div className="mx-1 ">
-                                <span className=" mx-1 text-sm">
-                                    Temporada: {round?.season?.season}
-                                </span>
+                            <div className="mx-2 text-sm ">
+                                <span>Temporada: {round?.season?.season}</span>
                             </div>
                         </div>
                     </h4>

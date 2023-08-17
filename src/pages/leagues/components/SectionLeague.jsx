@@ -5,12 +5,12 @@ const SectionLeague = ({ league }) => {
         <>
             <section>
                 <div className=" mt-2 text-black">
-                    <h4 className="flex mx-1">
-                        <div className="my-1">
-                            <img className="h-12 w-12" src={league?.poster} />
+                    <h4 className="flex items-center mx-1">
+                        <div className="">
+                            <img className="h-14 w-h-14" src={league?.poster} />
                         </div>
-                        <div className="mt-3.5 mx-1">
-                            <span className=" mx-1">{league?.league}</span>
+                        <div className=" mx-2">
+                            <span>{league?.league}</span>
                         </div>
                     </h4>
                 </div>

@@ -35,8 +35,9 @@ const Leagues = () => {
                         >
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600"
+                                className="p-0 text-gray-600"
                                 onClick={() => setKey('proximos')}
                             >
                                 Próximos partidos
@@ -44,8 +45,9 @@ const Leagues = () => {
 
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600"
+                                className="p-0 text-gray-600"
                                 onClick={() => setKey('temporadas')}
                             >
                                 Temporadas
@@ -53,8 +55,9 @@ const Leagues = () => {
 
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600"
+                                className="p-0 text-gray-600"
                                 onClick={() => setKey('ultimos')}
                             >
                                 Últimos partidos

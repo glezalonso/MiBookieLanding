@@ -8,6 +8,9 @@ import { sport as ids } from '../../const/sportconst'
 //  UI sections
 import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
+import caledarToday from '../../icons/calendarToday.svg'
+import leagues from '../../icons/leagues.svg'
+import teams from '../../icons/teams.svg'
 
 // Section
 import CardSport from './components/CardSport'
@@ -34,40 +37,65 @@ const Sports = () => {
                     <CardSport sport={sport} />
 
                     <div
-                        className="flex gap-1 mt-4 justify-center mx-auto "
+                        className="flex gap-0.5 mt-4 justify-center mx-auto "
                         role="group"
                     >
                         <Button
                             size="sm"
+                            pill
                             color="gray"
-                            className=" text-gray-600"
+                            className="p-0.5 text-gray-600"
                             onClick={() => setKey('hoy')}
                         >
+                            <img
+                                src={caledarToday}
+                                alt="today"
+                                className="w-5 h-5 mr-1"
+                            />
                             Hoy
                         </Button>
                         <Button
                             size="sm"
+                            pill
                             color="gray"
-                            className=" text-gray-600"
+                            className="p-0.5 text-gray-600 "
                             onClick={() => setKey('ligas')}
                         >
+                            <img
+                                src={leagues}
+                                alt="leagues"
+                                className="w-5 h-5 mr-1 "
+                            />
                             Ligas
                         </Button>
                         <Button
                             size="sm"
+                            pill
                             color="gray"
-                            className=" text-gray-600"
+                            className=" p-0.5 text-gray-600"
                             onClick={() => setKey('temporadas')}
                         >
+                            <img
+                                src={sport?.poster}
+                                alt="seasons"
+                                className="w-5 h-5 mr-1 "
+                            />
                             Temporadas
                         </Button>
                         <Button
                             size="sm"
+                            pill
                             color="gray"
-                            className=" text-gray-600"
+                            className="p-0.5 flex items-center text-gray-600"
                             onClick={() => setKey('mas')}
                         >
-                            Equipos y jugadores
+                            <img
+                                src={teams}
+                                alt="teams"
+                                className="w-5 h-5 mr-1 "
+                            />
+
+                            <span>Equipos</span>
                         </Button>
                     </div>
 

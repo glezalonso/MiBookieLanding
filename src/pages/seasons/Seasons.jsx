@@ -31,8 +31,9 @@ const Seasons = () => {
                         >
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600"
+                                className="p-0 text-gray-600"
                                 onClick={() => setKey('posiciones')}
                             >
                                 Clasificación
@@ -40,8 +41,9 @@ const Seasons = () => {
 
                             <Button
                                 size="sm"
+                                pill
                                 color="gray"
-                                className=" text-gray-600"
+                                className="p-0 text-gray-600"
                                 onClick={() => setKey('rondas')}
                             >
                                 Rondas

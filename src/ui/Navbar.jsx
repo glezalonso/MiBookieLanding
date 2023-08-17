@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
-import { Dropdown, Navbar, Avatar, Button } from 'flowbite-react'
+import { Navbar, Button } from 'flowbite-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authorization'
 import { useGetSports } from '../features/sports.features'
-import { useGetBookie } from '../features/users.features'
 import Login from '../pages/home/components/Login'
 import Register from '../pages/home/components/Register'
 import logo from '../assets/mibookie.png'
-import avatar from '../icons/avatar.svg'
+import DropdownUser from './DropdownUser'
 import newspaper from '../icons/newspaper.svg'
 import home from '../icons/home.svg'
 
@@ -15,7 +14,7 @@ function NavBar() {
     const { username, id } = useAuthStore((state) => state.profile)
     const { logOut } = useAuthStore((state) => state)
     const { data: sports } = useGetSports()
-    const { data: user } = useGetBookie(id)
+
     const navigate = useNavigate()
 
     const [show, setShow] = useState(false)
@@ -58,34 +57,11 @@ function NavBar() {
 
                 <div className="flex p-1 text-white gap-2 sm:mt-2.5 sm:order-2 md:mx-auto">
                     {username ? (
-                        <Dropdown
-                            className="p-1"
-                            inline
-                            label={
-                                <Avatar
-                                    size={'sm'}
-                                    className=" sm:mt-1.5 sm:h-9"
-                                    alt={username}
-                                    img={user?.avatar || avatar}
-                                />
-                            }
-                        >
-                            <Dropdown.Item>
-                                <Link
-                                    className="text-sm text-gray-600 hover:underline hover:text-black"
-                                    to={`../profile/${id}`}
-                                >
-                                    {username}
-                                </Link>
-                            </Dropdown.Item>
-                            <Dropdown.Item
-                                size="xs"
-                                className="bg-yellow-400 rounded text-white text-sm p-1 mx-auto border-0 hover:bg-yellow-300 hover:text-black"
-                                onClick={() => handleLogOut()}
-                            >
-                                Cerrar Sesión
-                            </Dropdown.Item>
-                        </Dropdown>
+                        <DropdownUser
+                            username={username}
+                            id={id}
+                            handleLogOut={handleLogOut}
+                        />
                     ) : (
                         <Button
                             size="xs"

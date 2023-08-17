@@ -11,7 +11,7 @@ const CardStatus = ({ match }) => {
 
     return (
         <>
-            <div className="flex  mb-2 gap-1 text-sm">
+            <div className="flex  gap-1 text-sm">
                 {!match?.status ? (
                     <>
                         <Badge color={'failure'}>Terminado</Badge>

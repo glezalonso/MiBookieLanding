@@ -5,16 +5,16 @@ const CardSeason = ({ season }) => {
         <>
             <section>
                 <div className=" mt-2 text-black">
-                    <h4 className="flex mx-1">
-                        <div className="mt-1">
+                    <h4 className="flex items-center mx-1">
+                        <div>
                             <img
-                                className="h-12 w-12"
+                                className="h-14 w-h-14"
                                 src={season.league?.poster}
                             />
                         </div>
                         <div>
-                            <div className="mx-1 mt-1">
-                                <span className=" mx-1 text-base">
+                            <div className="mx-2 ">
+                                <span className=" text-base">
                                     {season?.season}
                                 </span>
                             </div>

@@ -56,11 +56,11 @@ const Home = () => {
         <>
             <NavBar />
 
-            <main className="container mx-auto  lg:w-3/4">
-                <div className="sm:grid sm:grid-cols-4 sm:gap-5   ">
-                    <div className="sm:col-span-3 sm:ml-1 ">
+            <main className="container mx-auto p-1 lg:w-3/4">
+                <div className="sm:grid sm:grid-cols-4 sm:gap-5    ">
+                    <div className="sm:col-span-3 sm:ml-1  ">
                         <div
-                            className="flex gap-.5 mt-5 justify-center mx-auto sm:gap-2 "
+                            className="flex gap-0.5 mt-5 justify-center mx-auto sm:gap-2 "
                             role="group"
                         >
                             <Button
@@ -88,7 +88,7 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className=" text-gray-600 py-0 px-0  sm:px-4 "
+                                className=" text-gray-600 p-0  sm:px-4 "
                                 onClick={() => setKey('hoy')}
                             >
                                 <div className="flex">
@@ -109,7 +109,7 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className=" text-gray-600 py-0 px-0  sm:px-4 "
+                                className=" text-gray-600 p-0  sm:px-4 "
                                 onClick={() => setKey('mañana')}
                             >
                                 <div className="flex">
@@ -132,7 +132,7 @@ const Home = () => {
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className=" text-gray-600 py-0 px-0  sm:px-4 "
+                                        className=" text-gray-600 p-0 sm:px-4 "
                                         onClick={() => handleShowTop()}
                                     >
                                         <div className="flex">
@@ -153,7 +153,7 @@ const Home = () => {
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className=" text-gray-600 py-0 px-0  sm:px-4 "
+                                        className=" text-gray-600 p-0  sm:px-4 "
                                         onClick={() => handleShow()}
                                     >
                                         <div className="flex">
