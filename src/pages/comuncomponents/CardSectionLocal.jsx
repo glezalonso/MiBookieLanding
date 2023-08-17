@@ -9,15 +9,14 @@ const CardSectionLocal = ({ match }) => {
     return (
         <>
             <div className="flex items-center ">
-                {match?.local?.poster ? (
-                    <div>
-                        <img
-                            src={match?.local?.poster || match?.sport?.poster}
-                            alt={match?.local?.name}
-                            className="h-9 w-9"
-                        />
-                    </div>
-                ) : null}
+                <div>
+                    <img
+                        src={match?.local?.poster || match?.sport?.poster}
+                        alt={match?.local?.name}
+                        className="h-9 w-9"
+                    />
+                </div>
+
                 <div
                     onClick={() => navigate(`../teams/${match?.local?._id}`)}
                     className="mx-1 hover:cursor-pointer hover:scale-105 hover:mx-2 "

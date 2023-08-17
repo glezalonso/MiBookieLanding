@@ -9,15 +9,14 @@ const CardSectionAway = ({ match }) => {
     return (
         <>
             <div className="flex items-center">
-                {match?.away?.poster ? (
-                    <div>
-                        <img
-                            src={match?.away?.poster || match?.sport?.poster}
-                            alt={match?.away?.name}
-                            className="h-9 w-9"
-                        />
-                    </div>
-                ) : null}
+                <div>
+                    <img
+                        src={match?.away?.poster || match?.sport?.poster}
+                        alt={match?.away?.name}
+                        className="h-9 w-9"
+                    />
+                </div>
+
                 <div
                     onClick={() => navigate(`../teams/${match?.away?._id}`)}
                     className="mx-1 hover:cursor-pointer hover:scale-105 hover:mx-2 "
