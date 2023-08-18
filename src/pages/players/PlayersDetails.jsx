@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom'
 import { sport } from '../../const/sportconst'
 import NavBar from '../../ui/Navbar'
 import CardPlayer from './components/CardPlayer'
-import Loading from '../../ui/Loading'
+
 import SectionMatches from './components/SectionMatches'
 import SectionStandings from './components/SectionStandings'
 
@@ -14,9 +14,8 @@ const PlayerDetails = () => {
     const { id } = useParams()
     const [status, setStatus] = useState(true)
     const [key, setKey] = useState('proximos')
-    const { data: player, isLoading, isError } = useGetPlayer(id)
+    const { data: player, isError } = useGetPlayer(id)
 
-    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los jugadores!')
     return (
         <>

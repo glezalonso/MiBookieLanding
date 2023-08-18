@@ -31,105 +31,103 @@ const Sports = () => {
     return (
         <>
             <NavBar />
-            <main className="container mx-auto p-1 flex justify-center">
-                <div className="w-full mx-auto lg:w-3/4">
-                    <CardSport sport={sport} />
+            <main className="container mx-auto lg:w-8/12 p-1">
+                <CardSport sport={sport} />
 
-                    <div
-                        className="flex gap-0.5 mt-4 justify-center mx-auto "
-                        role="group"
+                <div
+                    className="flex gap-0.5 mt-4 justify-center mx-auto "
+                    role="group"
+                >
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0.5 text-gray-600"
+                        onClick={() => setKey('hoy')}
                     >
-                        <Button
-                            size="sm"
-                            pill
-                            color="gray"
-                            className="p-0.5 text-gray-600"
-                            onClick={() => setKey('hoy')}
-                        >
-                            <img
-                                src={caledarToday}
-                                alt="today"
-                                className="w-5 h-5 mr-1"
-                            />
-                            Hoy
-                        </Button>
-                        <Button
-                            size="sm"
-                            pill
-                            color="gray"
-                            className="p-0.5 text-gray-600 "
-                            onClick={() => setKey('ligas')}
-                        >
-                            <img
-                                src={leagues}
-                                alt="leagues"
-                                className="w-5 h-5 mr-1 "
-                            />
-                            Ligas
-                        </Button>
-                        <Button
-                            size="sm"
-                            pill
-                            color="gray"
-                            className=" p-0.5 text-gray-600"
-                            onClick={() => setKey('temporadas')}
-                        >
-                            <img
-                                src={sport?.poster}
-                                alt="seasons"
-                                className="w-5 h-5 mr-1 "
-                            />
-                            Temporadas
-                        </Button>
-                        <Button
-                            size="sm"
-                            pill
-                            color="gray"
-                            className="p-0.5 flex items-center text-gray-600"
-                            onClick={() => setKey('mas')}
-                        >
-                            <img
-                                src={teams}
-                                alt="teams"
-                                className="w-5 h-5 mr-1 "
-                            />
+                        <img
+                            src={caledarToday}
+                            alt="today"
+                            className="w-5 h-5 mr-1"
+                        />
+                        Hoy
+                    </Button>
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0.5 text-gray-600 "
+                        onClick={() => setKey('ligas')}
+                    >
+                        <img
+                            src={leagues}
+                            alt="leagues"
+                            className="w-5 h-5 mr-1 "
+                        />
+                        Ligas
+                    </Button>
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className=" p-0.5 text-gray-600"
+                        onClick={() => setKey('temporadas')}
+                    >
+                        <img
+                            src={sport?.poster}
+                            alt="seasons"
+                            className="w-5 h-5 mr-1 "
+                        />
+                        Temporadas
+                    </Button>
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0.5 flex items-center text-gray-600"
+                        onClick={() => setKey('mas')}
+                    >
+                        <img
+                            src={teams}
+                            alt="teams"
+                            className="w-5 h-5 mr-1 "
+                        />
 
-                            <span>Equipos</span>
-                        </Button>
-                    </div>
-
-                    <section>
-                        {key === 'ligas' ? (
-                            <SectionLeaguesBySport sport={sport} />
-                        ) : null}
-
-                        {key === 'temporadas' ? (
-                            <SectionSeasonsBySport sport={sport} />
-                        ) : null}
-
-                        {key === 'hoy' ? (
-                            <SectionTodayMatches sport={sport} />
-                        ) : null}
-
-                        {key === 'mas' ? (
-                            <div className="grid sm:grid-cols-2 sm:gap-4 sm:mx-auto  ">
-                                {sport?._id !== ids.ID_TENNIS ? (
-                                    <div>
-                                        <SectionTeams sport={sport} />
-                                    </div>
-                                ) : null}
-
-                                <div>
-                                    {sport?._id === ids.ID_TENNIS ? (
-                                        <SectionPlayersTennis sport={sport} />
-                                    ) : (
-                                        <SectionPlayersBySport sport={sport} />
-                                    )}
-                                </div>
-                            </div>
-                        ) : null}
-                    </section>
+                        <span>Equipos</span>
+                    </Button>
                 </div>
+
+                <section>
+                    {key === 'ligas' ? (
+                        <SectionLeaguesBySport sport={sport} />
+                    ) : null}
+
+                    {key === 'temporadas' ? (
+                        <SectionSeasonsBySport sport={sport} />
+                    ) : null}
+
+                    {key === 'hoy' ? (
+                        <SectionTodayMatches sport={sport} />
+                    ) : null}
+
+                    {key === 'mas' ? (
+                        <div className="grid sm:grid-cols-2 sm:gap-4 sm:mx-auto  ">
+                            {sport?._id !== ids.ID_TENNIS ? (
+                                <div>
+                                    <SectionTeams sport={sport} />
+                                </div>
+                            ) : null}
+
+                            <div>
+                                {sport?._id === ids.ID_TENNIS ? (
+                                    <SectionPlayersTennis sport={sport} />
+                                ) : (
+                                    <SectionPlayersBySport sport={sport} />
+                                )}
+                            </div>
+                        </div>
+                    ) : null}
+                </section>
             </main>
         </>
     )

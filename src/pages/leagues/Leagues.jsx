@@ -24,67 +24,63 @@ const Leagues = () => {
     return (
         <>
             <NavBar />
-            <div className="container p-1 mx-auto">
-                <div className="mx-auto">
-                    <div className="mx-auto lg:w-3/4">
-                        <SectionLeague league={league} />
+            <main className="container  mx-auto p-1  lg:w-8/12">
+                <SectionLeague league={league} />
 
-                        <div
-                            className="flex gap-1 mt-1 justify-center mx-auto "
-                            role="group"
-                        >
-                            <Button
-                                size="sm"
-                                pill
-                                color="gray"
-                                className="p-0 text-gray-600"
-                                onClick={() => setKey('proximos')}
-                            >
-                                Próximos partidos
-                            </Button>
+                <div
+                    className="flex gap-1 mt-1 justify-center mx-auto "
+                    role="group"
+                >
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0 text-gray-600"
+                        onClick={() => setKey('proximos')}
+                    >
+                        Próximos partidos
+                    </Button>
 
-                            <Button
-                                size="sm"
-                                pill
-                                color="gray"
-                                className="p-0 text-gray-600"
-                                onClick={() => setKey('temporadas')}
-                            >
-                                Temporadas
-                            </Button>
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0 text-gray-600"
+                        onClick={() => setKey('temporadas')}
+                    >
+                        Temporadas
+                    </Button>
 
-                            <Button
-                                size="sm"
-                                pill
-                                color="gray"
-                                className="p-0 text-gray-600"
-                                onClick={() => setKey('ultimos')}
-                            >
-                                Últimos partidos
-                            </Button>
-                        </div>
-                        <section>
-                            {key === 'temporadas' ? (
-                                <SectionSeasons league={league} />
-                            ) : null}
-                            {key === 'proximos' ? (
-                                <SectionMatches
-                                    title={'Próximos'}
-                                    league={league}
-                                    query={useGetMatchesOpenByLeague}
-                                />
-                            ) : null}
-                            {key === 'ultimos' ? (
-                                <SectionMatches
-                                    title={'Últimos'}
-                                    league={league}
-                                    query={useGetMatchesClosedByLeague}
-                                />
-                            ) : null}
-                        </section>
-                    </div>
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0 text-gray-600"
+                        onClick={() => setKey('ultimos')}
+                    >
+                        Últimos partidos
+                    </Button>
                 </div>
-            </div>
+                <section>
+                    {key === 'temporadas' ? (
+                        <SectionSeasons league={league} />
+                    ) : null}
+                    {key === 'proximos' ? (
+                        <SectionMatches
+                            title={'Próximos'}
+                            league={league}
+                            query={useGetMatchesOpenByLeague}
+                        />
+                    ) : null}
+                    {key === 'ultimos' ? (
+                        <SectionMatches
+                            title={'Últimos'}
+                            league={league}
+                            query={useGetMatchesClosedByLeague}
+                        />
+                    ) : null}
+                </section>
+            </main>
         </>
     )
 }

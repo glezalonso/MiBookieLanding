@@ -9,7 +9,7 @@ const CardSeason = ({ season }) => {
                         <div>
                             <img
                                 className="h-14 w-h-14"
-                                src={season.league?.poster}
+                                src={season?.league?.poster}
                             />
                         </div>
                         <div>

@@ -54,7 +54,7 @@ const Home = () => {
         <>
             <NavBar />
 
-            <main className="container mx-auto p-1 lg:w-3/4">
+            <main className="container mx-auto p-1 lg:w-8/12">
                 <div className="sm:grid sm:grid-cols-4 sm:gap-5    ">
                     <div className="sm:col-span-3 sm:ml-1  ">
                         <div

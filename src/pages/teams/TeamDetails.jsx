@@ -4,7 +4,6 @@ import { toast } from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import { useGetTeam } from '../../features/teams.features'
 import { sport } from '../../const/sportconst'
-import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
 import CardTeam from './components/CardTeam'
 import SectionStandings from './components/SectionStandings'
@@ -15,9 +14,8 @@ const TeamDetails = () => {
     const { id } = useParams()
     const [status, setStatus] = useState(true)
     const [key, setKey] = useState('proximos')
-    const { data: team, isLoading, isError } = useGetTeam(id)
+    const { data: team, isError } = useGetTeam(id)
 
-    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los equipos!')
     return (
         <>

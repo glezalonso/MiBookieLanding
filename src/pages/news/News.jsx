@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Loading from '../../ui/Loading'
+
 import { Alert, Select } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import { useGetNews } from '../../features/news.features'
@@ -8,11 +8,10 @@ import CardNew from './components/CardNew'
 import NavBar from '../../ui/Navbar'
 
 const News = () => {
-    const { data: news, isLoading, isError } = useGetNews()
+    const { data: news, isError } = useGetNews()
     const { data: sports } = useGetSports()
     const [filter, setFilter] = useState('')
 
-    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las notcias!')
 
     const filterNews = news?.filter((content) => {
@@ -25,7 +24,7 @@ const News = () => {
     return (
         <>
             <NavBar />
-            <div className="container mx-auto p-1  lg:w-3/4">
+            <div className="container mx-auto p-1  lg:w-8/12">
                 <div className="flex mt-3 justify-between mx-auto ">
                     <h5 className="my-2 ml-2">Noticias</h5>
 

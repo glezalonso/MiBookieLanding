@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import Loading from '../../ui/Loading'
 import NavBar from '../../ui/Navbar'
 import { Button } from 'flowbite-react'
 import { useGetSeason } from '../../features/seasons.features'
@@ -11,55 +10,50 @@ import SectionStandings from './components/SectionStandings'
 
 const Seasons = () => {
     const { id } = useParams()
-    const { data: season, isLoading, isError } = useGetSeason(id)
+    const { data: season, isError } = useGetSeason(id)
     const [key, setKey] = useState('posiciones')
 
-    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las temporadas')
 
     return (
         <>
             <NavBar />
-            <div className="container p-1 mx-auto">
-                <div className="mx-auto">
-                    <div className="mx-auto lg:w-3/4">
-                        <CardSeason season={season} setKey={setKey} />
+            <main className="container mx-auto lg:w-8/12 p-1">
+                <CardSeason season={season} setKey={setKey} />
 
-                        <div
-                            className="flex gap-1 mt-1 justify-center mx-auto "
-                            role="group"
-                        >
-                            <Button
-                                size="sm"
-                                pill
-                                color="gray"
-                                className="p-0 text-gray-600"
-                                onClick={() => setKey('posiciones')}
-                            >
-                                Clasificación
-                            </Button>
+                <div
+                    className="flex gap-1 mt-1 justify-center mx-auto "
+                    role="group"
+                >
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0 text-gray-600"
+                        onClick={() => setKey('posiciones')}
+                    >
+                        Clasificación
+                    </Button>
 
-                            <Button
-                                size="sm"
-                                pill
-                                color="gray"
-                                className="p-0 text-gray-600"
-                                onClick={() => setKey('rondas')}
-                            >
-                                Rondas
-                            </Button>
-                        </div>
-                        <section>
-                            {key === 'posiciones' ? (
-                                <SectionStandings season={season} />
-                            ) : null}
-                            {key === 'rondas' ? (
-                                <SectionRounds season={season} />
-                            ) : null}
-                        </section>
-                    </div>
+                    <Button
+                        size="sm"
+                        pill
+                        color="gray"
+                        className="p-0 text-gray-600"
+                        onClick={() => setKey('rondas')}
+                    >
+                        Rondas
+                    </Button>
                 </div>
-            </div>
+                <section>
+                    {key === 'posiciones' ? (
+                        <SectionStandings season={season} />
+                    ) : null}
+                    {key === 'rondas' ? (
+                        <SectionRounds season={season} />
+                    ) : null}
+                </section>
+            </main>
         </>
     )
 }
