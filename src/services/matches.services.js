@@ -62,9 +62,9 @@ export const getNextMatchesBySport = async (sport) => {
 
 export const pickEm = ({ body }) => axios.post(`/api/matches/pickem/`, body)
 
-export const getPicksClosed = async (id, date, limit) => {
+export const getPicksClosed = async (id, limit) => {
     const { data } = await axios.get(
-        `/api/matches/matchbookieclosed/${id}/${date}/${limit}`
+        `/api/matches/matchbookieclosed/${id}/${limit}`
     )
     return data
 }

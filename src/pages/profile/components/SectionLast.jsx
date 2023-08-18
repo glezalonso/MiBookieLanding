@@ -4,12 +4,10 @@ import { toast } from 'react-hot-toast'
 import { Alert, Button } from 'flowbite-react'
 import Loading from '../../../ui/Loading'
 import CardPick from './CardPick'
-import formatedDate from '../../../utils/formatedDate'
 import SectionStadistics from './SectionStadistics'
 import { BarChartFill } from 'react-bootstrap-icons'
 
 const SectionLast = ({ id, limit }) => {
-    const date = formatedDate().slice(0, 7)
     const [stats, setStats] = useState(false)
 
     const {
@@ -17,7 +15,7 @@ const SectionLast = ({ id, limit }) => {
         isError,
         isLoading,
         isFetching,
-    } = useGetPicksClosed(id, date, limit)
+    } = useGetPicksClosed(id, limit)
     if (isLoading || isFetching) return <Loading />
 
     if (isError) return toast.error('Hubo un error al cargar los picks!')
