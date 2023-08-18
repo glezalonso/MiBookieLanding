@@ -7,7 +7,7 @@ const AwayVote = ({ match, handleVote }) => {
             <div className="flex justify-end">
                 <Button
                     size="xs"
-                    color="warning"
+                    className="bg-cyan-950"
                     onClick={() => handleVote('away', match?._id)}
                 >
                     Votar

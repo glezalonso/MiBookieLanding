@@ -7,7 +7,7 @@ const DrawVote = ({ match, handleVote }) => {
             <div className="flex justify-end">
                 <Button
                     size="xs"
-                    color="warning"
+                    className="bg-cyan-950"
                     onClick={() => handleVote('draw', match?._id)}
                 >
                     Votar

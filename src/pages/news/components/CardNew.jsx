@@ -20,9 +20,9 @@ const CardNew = ({ content }) => {
                                         />
                                     </div>
                                     <div className="mt-1">
-                                        <span className=" text-gray-600 font-bold  ">
+                                        <p className=" break-all w-14 text-gray-600 font-bold  ">
                                             {content?.league?.league}
-                                        </span>
+                                        </p>
                                     </div>
                                 </div>
                             </Table.Cell>
