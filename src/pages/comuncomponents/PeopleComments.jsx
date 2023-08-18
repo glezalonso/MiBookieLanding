@@ -15,7 +15,7 @@ const PeopleComments = ({ comment }) => {
     return (
         <>
             <div
-                className="flex p-1 justify-start mt-1 w-2/4 overflow-auto"
+                className="flex  p-1 justify-start mt-1 w-2/4 overflow-auto"
                 key={comment?._id}
             >
                 <div className="p-1  text-xs bg-gray-800  rounded-md  text-end">
@@ -33,8 +33,10 @@ const PeopleComments = ({ comment }) => {
                         </div>
                     </div>
 
-                    <div className="p-1 text-start ">
-                        <p className=" text-gray-200">{comment?.comment}</p>
+                    <div className="p-1 text-start  ">
+                        <p className=" max-w-sm break-all text-gray-200">
+                            {comment?.comment}
+                        </p>
                     </div>
                 </div>
             </div>

@@ -11,7 +11,7 @@ const CardNew = ({ content }) => {
                 <Table hoverable className="table-auto mt-1 text-sm">
                     <Table.Body>
                         <Table.Row>
-                            <Table.Cell className="flex items-center">
+                            <Table.Cell className="flex items-center text-center">
                                 <div className="mt-3 ">
                                     <div className="w-14 h-14">
                                         <img
@@ -20,7 +20,7 @@ const CardNew = ({ content }) => {
                                         />
                                     </div>
                                     <div className="mt-1">
-                                        <span className="flex text-gray-600 font-bold  text-justify  ">
+                                        <span className=" text-gray-600 font-bold  ">
                                             {content?.league?.league}
                                         </span>
                                     </div>

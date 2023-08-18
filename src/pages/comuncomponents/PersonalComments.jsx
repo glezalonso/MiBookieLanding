@@ -53,7 +53,9 @@ const PersonalComments = ({ match, comment }) => {
                         </div>
                     </div>
                     <div className="p-1 text-end">
-                        <p className=" text-gray-200">{comment?.comment}</p>
+                        <p className=" max-w-sm break-all text-gray-200">
+                            {comment?.comment}
+                        </p>
                     </div>
                 </div>
             </div>
