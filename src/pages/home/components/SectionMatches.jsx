@@ -30,7 +30,7 @@ const SectionMatches = ({ date }) => {
     return (
         <>
             <section className="min-h-fit">
-                <div className="w-full flex justify-between items-center mt-6  ">
+                <div className="w-full flex justify-between items-center my-4  ">
                     <div className="flex justify-between items-center">
                         <div className=" mx-2 flex gap-1">
                             <img
@@ -54,6 +54,7 @@ const SectionMatches = ({ date }) => {
                             className="rounded w-50"
                             onChange={(e) => setSport(e.target.value)}
                         >
+                            <option value={sport}>Deporte</option>
                             <option value="all">Todos</option>
                             {sports?.map((sport) => (
                                 <option key={sport?._id} value={sport?._id}>
