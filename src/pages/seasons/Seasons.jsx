@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import NavBar from '../../ui/Navbar'
 import { Button } from 'flowbite-react'
 import { useGetSeason } from '../../features/seasons.features'
+import NavBar from '../../ui/Navbar'
+import Loading from '../../ui/Loading'
 import CardSeason from './components/CardSeason'
 import SectionRounds from './components/SectionRounds'
 import SectionStandings from './components/SectionStandings'
 
 const Seasons = () => {
     const { id } = useParams()
-    const { data: season, isError } = useGetSeason(id)
+    const { data: season, isLoading, isError } = useGetSeason(id)
     const [key, setKey] = useState('posiciones')
 
     if (isError) return toast.error('Hubo un error al cargar las temporadas')
@@ -18,6 +19,7 @@ const Seasons = () => {
     return (
         <>
             <NavBar />
+            {isLoading ? <Loading /> : null}
             <main className="container mx-auto lg:w-8/12 p-1">
                 <CardSeason season={season} setKey={setKey} />
 

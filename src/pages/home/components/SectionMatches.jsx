@@ -12,8 +12,14 @@ const SectionMatches = ({ date }) => {
     const [sport, setSport] = useState('all')
     const { ref, inView } = useInView()
     const { data: sports } = useGetSports()
-    const { data, isError, isLoading, hasNextPage, fetchNextPage } =
-        useGetMatchesToday(date, sport)
+    const {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    } = useGetMatchesToday(date, sport)
 
     useEffect(() => {
         if (inView && hasNextPage) {
@@ -23,7 +29,6 @@ const SectionMatches = ({ date }) => {
 
     const matches =
         data?.pages?.reduce((prev, pages) => prev.concat(pages.data), []) ?? []
-
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
@@ -74,7 +79,7 @@ const SectionMatches = ({ date }) => {
                     </Alert>
                 )}
             </section>
-            <div ref={ref}></div>
+            <div ref={ref}>{isFetchingNextPage ? <Loading /> : null}</div>
         </>
     )
 }

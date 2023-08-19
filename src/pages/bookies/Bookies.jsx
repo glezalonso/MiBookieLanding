@@ -5,10 +5,11 @@ import { useGetBookies } from '../../features/users.features'
 import { toast } from 'react-hot-toast'
 import SectionBookies from './components/SectionBookies'
 import { useAuthStore } from '../../store/authorization'
+import Loading from '../../ui/Loading'
 
 const Bookies = () => {
     const { id } = useAuthStore((state) => state.profile)
-    const { data, isError } = useGetBookies()
+    const { data, isLoading, isError } = useGetBookies()
 
     const users = data?.filter((user) => user?._id !== id)
 
@@ -17,6 +18,7 @@ const Bookies = () => {
     return (
         <>
             <NavBar />
+            {isLoading ? <Loading /> : null}
             <main className="container mx-auto lg:w-8/12 p-1">
                 <div className="flex mt-3 mx-2 ">
                     <h5 className="mt-1">Bookies</h5>

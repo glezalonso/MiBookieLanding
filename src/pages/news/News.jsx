@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-
 import { Alert, Select } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import { useGetNews } from '../../features/news.features'
 import { useGetSports } from '../../features/sports.features'
 import CardNew from './components/CardNew'
 import NavBar from '../../ui/Navbar'
+import Loading from '../../ui/Loading'
 
 const News = () => {
-    const { data: news, isError } = useGetNews()
+    const { data: news, isLoading, isError } = useGetNews()
     const { data: sports } = useGetSports()
     const [filter, setFilter] = useState('')
 
@@ -24,6 +24,7 @@ const News = () => {
     return (
         <>
             <NavBar />
+            {isLoading ? <Loading /> : null}
             <div className="container mx-auto p-1  lg:w-8/12">
                 <div className="flex mt-3 justify-between mx-auto ">
                     <h5 className="my-2 ml-2">Noticias</h5>

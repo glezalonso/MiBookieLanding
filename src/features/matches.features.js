@@ -65,23 +65,36 @@ export const useRemoveComment = (id) => {
 }
 
 export const useGetMatchesToday = (date, sport) => {
-    const { data, isError, isLoading, hasNextPage, fetchNextPage } =
-        useInfiniteQuery(
-            ['matchToday', sport],
-            async ({ pageParam = 1 }) => {
-                const { data } = await axios.get(
-                    `/api/matches/today/${pageParam}/${date}/${sport}`
-                )
-                return data
+    const {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    } = useInfiniteQuery(
+        ['matchToday', sport],
+        async ({ pageParam = 1 }) => {
+            const { data } = await axios.get(
+                `/api/matches/today/${pageParam}/${date}/${sport}`
+            )
+            return data
+        },
+        {
+            getNextPageParam: (lastPage) => {
+                if (lastPage.page === lastPage.totalPages) return false
+                return lastPage.page + 1
             },
-            {
-                getNextPageParam: (lastPage) => {
-                    if (lastPage.page === lastPage.totalPages) return false
-                    return lastPage.page + 1
-                },
-            }
-        )
-    return { data, isError, isLoading, hasNextPage, fetchNextPage }
+        }
+    )
+    return {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    }
 }
 
 export const useGetMatchesTodaySport = (sport, date) => {
