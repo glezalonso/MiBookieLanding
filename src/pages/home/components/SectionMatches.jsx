@@ -34,7 +34,7 @@ const SectionMatches = ({ date }) => {
     return (
         <>
             <section className="min-h-fit">
-                <div className="w-full flex justify-between items-center mt-10  ">
+                <div className="w-full flex justify-between items-center mt-6  ">
                     <div className="flex justify-between items-center">
                         <div className=" mx-2 flex gap-1">
                             <img
