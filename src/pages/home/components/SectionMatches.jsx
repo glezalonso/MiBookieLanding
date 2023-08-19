@@ -53,7 +53,7 @@ const SectionMatches = ({ date }) => {
                             </Badge>
                         </div>
                     </div>
-                    <div className="self-end">
+                    {/* <div className="self-end">
                         <TextInput
                             sizing={'md'}
                             className="text-base focus:text-base active:text-base "
@@ -61,7 +61,7 @@ const SectionMatches = ({ date }) => {
                             placeholder="Deporte"
                             onChange={(e) => setFilter(e.target.value)}
                         />
-                    </div>
+                    </div> */}
                 </div>
                 {matchFilter?.length > 0 ? (
                     matchFilter?.map((match) => (
