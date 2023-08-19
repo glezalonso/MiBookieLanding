@@ -64,13 +64,13 @@ export const useRemoveComment = (id) => {
     return mutationRemove
 }
 
-export const useGetMatchesToday = (date) => {
+export const useGetMatchesToday = (date, sport) => {
     const { data, isError, isLoading, hasNextPage, fetchNextPage } =
         useInfiniteQuery(
-            ['matchToday', date],
+            ['matchToday', sport],
             async ({ pageParam = 1 }) => {
                 const { data } = await axios.get(
-                    `/api/matches/today/${pageParam}/${date}`
+                    `/api/matches/today/${pageParam}/${date}/${sport}`
                 )
                 return data
             },

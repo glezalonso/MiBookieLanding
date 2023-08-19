@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import { useGetMatchesToday } from '../../../features/matches.features'
-import { Alert, Badge, TextInput } from 'flowbite-react'
+import { Alert, Badge, Select } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import CardMatch from '../../comuncomponents/CardMatch'
 import Loading from '../../../ui/Loading'
 import matchIcon from '../../../icons/match.svg'
 import { useInView } from 'react-intersection-observer'
+import { useGetSports } from '../../../features/sports.features'
 
 const SectionMatches = ({ date }) => {
+    const [sport, setSport] = useState('all')
     const { ref, inView } = useInView()
+    const { data: sports } = useGetSports()
     const { data, isError, isLoading, hasNextPage, fetchNextPage } =
-        useGetMatchesToday(date)
+        useGetMatchesToday(date, sport)
 
     useEffect(() => {
         if (inView && hasNextPage) {
@@ -21,15 +24,8 @@ const SectionMatches = ({ date }) => {
     const matches =
         data?.pages?.reduce((prev, pages) => prev.concat(pages.data), []) ?? []
 
-    const [filter, setFilter] = useState('')
-
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos!')
-
-    const matchFilter = matches?.filter((match) => {
-        if (!filter) return match
-        return match?.sport?.sport?.toLowerCase().includes(filter.toLowerCase())
-    })
 
     return (
         <>
@@ -53,18 +49,22 @@ const SectionMatches = ({ date }) => {
                             </Badge>
                         </div>
                     </div>
-                    {/* <div className="self-end">
-                        <TextInput
-                            sizing={'md'}
-                            className="text-base focus:text-base active:text-base "
-                            name="sport"
-                            placeholder="Deporte"
-                            onChange={(e) => setFilter(e.target.value)}
-                        />
-                    </div> */}
+                    <div className="self-end">
+                        <Select
+                            className="rounded w-50"
+                            onChange={(e) => setSport(e.target.value)}
+                        >
+                            <option value="all">Todos</option>
+                            {sports?.map((sport) => (
+                                <option key={sport?._id} value={sport?._id}>
+                                    {sport?.sport}
+                                </option>
+                            ))}
+                        </Select>
+                    </div>
                 </div>
-                {matchFilter?.length > 0 ? (
-                    matchFilter?.map((match) => (
+                {matches?.length > 0 ? (
+                    matches?.map((match) => (
                         <CardMatch key={match?._id} match={match} />
                     ))
                 ) : (
