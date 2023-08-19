@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Alert, TextInput, Badge } from 'flowbite-react'
-import { useGetMatchesToday } from '../../../features/matches.features'
+import { useGetMatchesTodaySport } from '../../../features/matches.features'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import formatedDate from '../../../utils/formatedDate'
@@ -9,7 +9,10 @@ import TableMatch from '../../comuncomponents/TableMatch'
 const SectionTodayMatches = ({ sport }) => {
     const [filter, setFilter] = useState('')
     const date = formatedDate()
-    const { data, isLoading, isError } = useGetMatchesToday(date)
+    const { data, isLoading, isError } = useGetMatchesTodaySport(
+        sport?._id,
+        date
+    )
 
     if (isLoading) return <Loading />
 

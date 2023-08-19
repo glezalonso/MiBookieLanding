@@ -4,7 +4,7 @@ import { Spinner } from 'flowbite-react'
 const Loading = () => {
     return (
         <>
-            <div className="flex justify-center my-5">
+            <div className="flex justify-center mx-auto mt-48">
                 <Spinner color="warning" />
             </div>
         </>

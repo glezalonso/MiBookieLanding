@@ -1,17 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useGetMatchesToday } from '../../../features/matches.features'
 import { Select, Alert, Badge, TextInput } from 'flowbite-react'
 import { useGetSports } from '../../../features/sports.features'
+import { toast } from 'react-hot-toast'
 import CardMatch from '../../comuncomponents/CardMatch'
-// import Loading from '../../../ui/Loading'
+import Loading from '../../../ui/Loading'
 import filters from '../../../icons/filter.svg'
 import matchIcon from '../../../icons/match.svg'
+import { useInView } from 'react-intersection-observer'
 
-const SectionMatches = ({ matches }) => {
+const SectionMatches = ({ date }) => {
+    const { ref, inView } = useInView()
+    const { data, isError, isLoading, hasNextPage, fetchNextPage } =
+        useGetMatchesToday(date)
+
+    useEffect(() => {
+        if (inView && hasNextPage) {
+            fetchNextPage()
+        }
+    }, [inView])
+
+    const matches =
+        data?.pages?.reduce((prev, pages) => prev.concat(pages.data), []) ?? []
+
     const { data: sports } = useGetSports()
+
     const [search, setSearch] = useState(false)
     const [filter, setFilter] = useState('')
 
     matches?.sort((a, b) => b.status - a.status)
+    if (isLoading) return <Loading />
+    if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
     const matchFilter = matches?.filter((match) => {
         if (!filter) return match
@@ -24,7 +43,7 @@ const SectionMatches = ({ matches }) => {
 
     return (
         <>
-            <section>
+            <section className="  min-h-screen">
                 <div className="flex justify-between  mx-2 ">
                     <h5 className=" flex mt-3">
                         <div className="flex mt-1 mb-2">
@@ -39,19 +58,19 @@ const SectionMatches = ({ matches }) => {
                             size={'sm'}
                             className=" mt-1.5 bg-zinc-900 text-gray-200 p-1"
                         >
-                            {matches?.length}
+                            {data?.pages[0]?.total}
                         </Badge>
                     </h5>
                     <div
                         onClick={() => setSearch(!search)}
                         className="flex  mt-6  mr-2 gap-1 hover:cursor-pointer"
                     >
-                        Filtro{' '}
+                        Filtro
                         <img src={filters} alt="Filtro" className="h-5 w-5" />
                     </div>
                 </div>
                 {search ? (
-                    <div className="w-full flex justify-between gap-2 my-1 mx-auto p-1 ">
+                    <div className="w-full flex justify-between gap-2 my-1 mx-auto p-1  ">
                         <TextInput
                             sizing={'md'}
                             className="w-3/5 text-base focus:text-base active:text-base "
@@ -80,11 +99,10 @@ const SectionMatches = ({ matches }) => {
                         <CardMatch key={match?._id} match={match} />
                     ))
                 ) : (
-                    <Alert color={'warning'}>
-                        No hay partidos para mostrar!
-                    </Alert>
+                    <Alert></Alert>
                 )}
             </section>
+            <div ref={ref}></div>
         </>
     )
 }

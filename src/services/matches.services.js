@@ -16,8 +16,15 @@ export const addComment = ({ id, body }) =>
 export const removeComment = ({ id, body }) =>
     axios.put(`/api/matches/removeComment/${id}`, body)
 
-export const getMatchesToday = async (date) => {
-    const { data } = await axios.get(`/api/matches/date/${date}`)
+export const getMatchesToday = async ({ pageParam = 1, date }) => {
+    const { data } = await axios.get(`/api/matches/today/${pageParam}/${date}`)
+    return data
+}
+
+export const getMatchesTodaySport = async (sport, date) => {
+    const { data } = await axios.get(
+        `/api/matches/todaybysport/${sport}/${date}`
+    )
     return data
 }
 export const getMatchesByTeam = async (team, limit, status) => {

@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import { useGetMatchesToday } from '../../features/matches.features'
 import { useAuthStore } from '../../store/authorization'
-import { toast } from 'react-hot-toast'
 import { Button } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
@@ -44,17 +42,10 @@ const Home = () => {
         setShow(false)
     }
 
-    const { data: matchesToday, isError } = useGetMatchesToday(date)
-    const { data: matchesTomorrow } = useGetMatchesToday(dateTomorrow)
-    const { data: matchesYesterday } = useGetMatchesToday(dateYestadary)
-
-    if (isError) return toast.error('Hubo un error al cargar los partidos!')
-
     return (
         <>
             <NavBar />
-
-            <main className="container mx-auto p-1 lg:w-8/12">
+            <main className="container mx-auto p-1 lg:w-3/4">
                 <div className="sm:grid sm:grid-cols-4 sm:gap-5    ">
                     <div className="sm:col-span-3 sm:ml-1  ">
                         <div
@@ -173,20 +164,14 @@ const Home = () => {
 
                         <section>
                             {key === 'hoy' ? (
-                                <SectionMatches
-                                    matches={matchesToday}
-                                    key={key}
-                                />
+                                <SectionMatches date={date} key={key} />
                             ) : null}
                             {key === 'mañana' ? (
-                                <SectionMatches
-                                    matches={matchesTomorrow}
-                                    key={key}
-                                />
+                                <SectionMatches date={dateTomorrow} key={key} />
                             ) : null}
                             {key === 'ayer' ? (
                                 <SectionMatches
-                                    matches={matchesYesterday}
+                                    date={dateYestadary}
                                     key={key}
                                 />
                             ) : null}
