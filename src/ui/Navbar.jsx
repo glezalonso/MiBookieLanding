@@ -39,9 +39,9 @@ function NavBar() {
         <>
             <Navbar
                 fluid
-                className="bg-gradient-to-b from-zinc-950 to-neutral-900 p-2 "
+                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black p-2 "
             >
-                <div className="w-full flex flex-wrap mx-auto justify-center items-center md:w-4/5 lg:w-11/12 ">
+                <div className="w-full flex flex-wrap mx-auto justify-center items-center md:w-4/5 lg:w- ">
                     <div className="flex mr-auto">
                         <Link
                             to={'/'}

@@ -18,7 +18,7 @@ const SectionTop = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full mt-20 mx-auto bg-gray-200 md:w-full md:h-3/4"
+                className="w-full h-full  mt-28 mx-auto bg-gray-200 md:w-full md:h-3/4"
                 popup
                 dismissible
                 onClose={() => handleClose()}
