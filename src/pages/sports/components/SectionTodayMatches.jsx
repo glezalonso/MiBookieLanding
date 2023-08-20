@@ -24,8 +24,7 @@ const SectionTodayMatches = ({ sport, date }) => {
         }
     }, [inView])
 
-    const matches =
-        data?.pages?.reduce((prev, pages) => prev.concat(pages.data), []) ?? []
+    const matches = data?.pages?.flatMap((pages) => pages.data) ?? []
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos!')
@@ -47,7 +46,7 @@ const SectionTodayMatches = ({ sport, date }) => {
                             size={'sm'}
                             className=" mt-1.5 bg-zinc-900 text-gray-200 p-1"
                         >
-                            {matches?.length}
+                            {data?.pages[0]?.total}
                         </Badge>
                     </div>
                 </div>

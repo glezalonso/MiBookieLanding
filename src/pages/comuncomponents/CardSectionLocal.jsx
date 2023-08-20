@@ -13,7 +13,7 @@ const CardSectionLocal = ({ match }) => {
                     <img
                         src={match?.local?.poster || match?.sport?.poster}
                         alt={match?.local?.name}
-                        className="h-9 w-9"
+                        className="h-8 w-8"
                     />
                 </div>
 
@@ -22,7 +22,7 @@ const CardSectionLocal = ({ match }) => {
                     className="mx-1 hover:cursor-pointer hover:scale-105 hover:mx-2 "
                 >
                     <div>
-                        <span className="font-bold mx-1 text-gray-600 text-base  ">
+                        <span className="font-bold mx-1 text-gray-600 text-sm  ">
                             {match?.local?.name}
                         </span>
                     </div>

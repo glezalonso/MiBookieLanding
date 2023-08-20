@@ -42,14 +42,14 @@ const CardConsensus = ({ match }) => {
                 <Table hoverable className="table-auto mt-2 text-xs">
                     <Table.Body>
                         <Table.Row>
-                            <Table.Cell className="p-1 m">
+                            <Table.Cell className="p-1 ">
                                 <LocalSection match={match} />
                             </Table.Cell>
-                            <Table.Cell className="p-1 m">
+                            <Table.Cell className="p-1 ">
                                 <LocalVotes match={match} />
                             </Table.Cell>
                             {match?.date > fullDate && !existVote ? (
-                                <Table.Cell className="p-1 m">
+                                <Table.Cell className="p-1 ">
                                     <LocalVote
                                         match={match}
                                         handleVote={handleVote}
@@ -60,14 +60,14 @@ const CardConsensus = ({ match }) => {
 
                         {match?.sport?._id === ID_SOCCER ? (
                             <Table.Row>
-                                <Table.Cell className="p-1 m">
+                                <Table.Cell className="p-1 ">
                                     <DrawSection />
                                 </Table.Cell>
-                                <Table.Cell className="p-1 m">
+                                <Table.Cell className="p-1 ">
                                     <DrawVotes match={match} />
                                 </Table.Cell>
                                 {match?.date > fullDate && !existVote ? (
-                                    <Table.Cell className="p-1 m">
+                                    <Table.Cell className="p-1 ">
                                         <DrawVote
                                             match={match}
                                             handleVote={handleVote}

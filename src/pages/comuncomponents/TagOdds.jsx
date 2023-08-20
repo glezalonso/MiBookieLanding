@@ -7,7 +7,7 @@ const TagOdds = ({ match, icon }) => {
                     <span className="text-xs text-gray-500">{icon}</span>
                 </div>
                 <div className="justify-end">
-                    <span className="text-sm font-bold mx-1 text-gray-600">
+                    <span className="text-xs font-bold mx-1 text-gray-600">
                         {match}
                     </span>
                 </div>
