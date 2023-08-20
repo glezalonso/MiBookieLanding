@@ -161,7 +161,7 @@ export const useAddPickEm = () => {
         mutationFn: pickEm,
         onSuccess: () => {
             toast.success('Voto agregado')
-            queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
+            queryClient.invalidateQueries({ queryKey: ['matchToday'] })
             queryClient.invalidateQueries({ queryKey: ['match'] })
         },
         onError: () => toast.error('Ya se ha colocado su voto'),

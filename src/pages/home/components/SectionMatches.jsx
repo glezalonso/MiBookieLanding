@@ -26,8 +26,8 @@ const SectionMatches = ({ date }) => {
         }
     }, [inView])
 
-    const matches =
-        data?.pages?.reduce((prev, pages) => prev.concat(pages.data), []) ?? []
+    const matches = data?.pages?.flatMap((pages) => pages.data) ?? []
+
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los partidos!')
 
