@@ -81,21 +81,6 @@ const Sports = () => {
                         />
                         Temporadas
                     </Button>
-                    <Button
-                        size="sm"
-                        pill
-                        color="gray"
-                        className="p-0.5 flex items-center text-gray-600"
-                        onClick={() => setKey('mas')}
-                    >
-                        <img
-                            src={teams}
-                            alt="teams"
-                            className="w-5 h-5 mr-1 "
-                        />
-
-                        <span>Equipos</span>
-                    </Button>
                 </div>
 
                 <section>
@@ -109,24 +94,6 @@ const Sports = () => {
 
                     {key === 'hoy' ? (
                         <SectionTodayMatches sport={sport} />
-                    ) : null}
-
-                    {key === 'mas' ? (
-                        <div className="grid sm:grid-cols-2 sm:gap-4 sm:mx-auto  ">
-                            {sport?._id !== ids.ID_TENNIS ? (
-                                <div>
-                                    <SectionTeams sport={sport} />
-                                </div>
-                            ) : null}
-
-                            <div>
-                                {sport?._id === ids.ID_TENNIS ? (
-                                    <SectionPlayersTennis sport={sport} />
-                                ) : (
-                                    <SectionPlayersBySport sport={sport} />
-                                )}
-                            </div>
-                        </div>
                     ) : null}
                 </section>
             </main>

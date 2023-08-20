@@ -9,17 +9,19 @@ import CardTeam from './components/CardTeam'
 import SectionStandings from './components/SectionStandings'
 import SectionMatches from './components/SectionMatches'
 import SectionRoster from './components/SectionRoster'
+import Loading from '../../ui/Loading'
 
 const TeamDetails = () => {
     const { id } = useParams()
     const [status, setStatus] = useState(true)
     const [key, setKey] = useState('proximos')
-    const { data: team, isError } = useGetTeam(id)
+    const { data: team, isLoading, isError } = useGetTeam(id)
 
     if (isError) return toast.error('Hubo un error al cargar los equipos!')
     return (
         <>
             <NavBar />
+            {isLoading ? <Loading /> : null}
             <div className="container p-1 mx-auto ">
                 <div className="mx-auto lg:w-3/4">
                     <CardTeam team={team} setKey={setKey} />
