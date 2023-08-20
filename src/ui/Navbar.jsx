@@ -78,7 +78,7 @@ function NavBar() {
                     </div>
                 </div>
 
-                <div className="w-full flex mx-auto justify-center items-center gap-1.5 mt-2  text-gray-400 lg:w-3/4 lg:mx-auto lg:gap-7 lg:my-2  ">
+                <div className="w-full flex mx-auto justify-between items-center py-1  mt-2  text-gray-400 lg:w-3/4 lg:mx-auto lg:gap-7 lg:my-2  ">
                     <Link
                         to={'/'}
                         className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
