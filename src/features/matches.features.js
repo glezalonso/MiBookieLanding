@@ -75,7 +75,7 @@ export const useGetMatchesToday = (date, sport) => {
         isFetchingNextPage,
         fetchNextPage,
     } = useInfiniteQuery(
-        ['matchToday', sport],
+        ['matchToday', sport, date],
         async ({ pageParam = 1 }) => {
             const { data } = await axios.get(
                 `/api/matches/today/${pageParam}/${date}/${sport}`
