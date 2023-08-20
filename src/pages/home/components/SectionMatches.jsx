@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useGetMatchesToday } from '../../../features/matches.features'
-import { Alert, Badge, Select } from 'flowbite-react'
+import { Alert, Badge } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import CardMatch from '../../comuncomponents/CardMatch'
 import Loading from '../../../ui/Loading'
 import matchIcon from '../../../icons/match.svg'
 import { useInView } from 'react-intersection-observer'
-import { useGetSports } from '../../../features/sports.features'
 
 const SectionMatches = ({ date }) => {
-    const [sport, setSport] = useState('all')
+    const sports = 'all'
     const { ref, inView } = useInView()
-    const { data: sports } = useGetSports()
+
     const {
         data,
         isError,
@@ -19,7 +18,7 @@ const SectionMatches = ({ date }) => {
         hasNextPage,
         isFetchingNextPage,
         fetchNextPage,
-    } = useGetMatchesToday(date, sport)
+    } = useGetMatchesToday(date, sports)
 
     useEffect(() => {
         if (inView && hasNextPage) {
@@ -35,38 +34,24 @@ const SectionMatches = ({ date }) => {
     return (
         <>
             <section className="min-h-fit">
-                <div className="w-full flex justify-between items-center my-4  ">
-                    <div className="flex justify-between items-center">
-                        <div className=" mx-2 flex gap-1">
-                            <img
-                                src={matchIcon}
-                                alt="partidos"
-                                className=" block w-7 h-7 mb- ml-1"
-                            />
-                            <span className="block mx-1 mt-1 ">Partidos</span>
-                        </div>
-                        <div>
-                            <Badge
-                                size={'sm'}
-                                className=" mt-1.5 bg-zinc-900 text-gray-200 p-1"
-                            >
-                                {data?.pages[0]?.total}
-                            </Badge>
-                        </div>
+                <div className="w-full flex  items-center my-4  ">
+                    <div className=" mx-2 flex gap-1">
+                        <img
+                            src={matchIcon}
+                            alt="partidos"
+                            className=" block w-7 h-7 mb- ml-1"
+                        />
+                        <span className="block mx-1 mt-1 ">
+                            Todos los partidos
+                        </span>
                     </div>
-                    <div className="self-end">
-                        <Select
-                            className="rounded w-50"
-                            onChange={(e) => setSport(e.target.value)}
+                    <div>
+                        <Badge
+                            size={'sm'}
+                            className=" mt-1.5 bg-zinc-900 text-gray-200 p-1"
                         >
-                            <option value={sport}>Deporte</option>
-                            <option value="all">Todos</option>
-                            {sports?.map((sport) => (
-                                <option key={sport?._id} value={sport?._id}>
-                                    {sport?.sport}
-                                </option>
-                            ))}
-                        </Select>
+                            {data?.pages[0]?.total}
+                        </Badge>
                     </div>
                 </div>
                 {matches?.length > 0 ? (

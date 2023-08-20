@@ -41,7 +41,7 @@ function NavBar() {
                 fluid
                 className="bg-gradient-to-b from-zinc-950 to-neutral-900 p-2 "
             >
-                <div className="w-full flex mx-auto justify-center items-center lg:w-3/4 ">
+                <div className="w-full flex flex-wrap mx-auto justify-center items-center md:w-4/5 lg:w-11/12 ">
                     <div className="flex mr-auto">
                         <Link
                             to={'/'}
@@ -57,8 +57,49 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
+                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center py-1  mt-2  text-gray-400 lg:w-2/3 lg:mx-auto lg:gap-7 lg:my-2   ">
+                        <Link
+                            to={'/'}
+                            className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
+                        >
+                            <img
+                                src={home}
+                                alt="home"
+                                className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                            />
+                            <span>Inicio</span>
+                        </Link>
 
-                    <div className="ml-auto  flex p-1 text-white gap-2 ">
+                        {sports?.map((sport) => (
+                            <Link
+                                to={`../sports/${sport?._id}`}
+                                key={sport?._id}
+                                className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105  "
+                            >
+                                <img
+                                    className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                                    src={sport?.poster}
+                                    alt={sport?.sport}
+                                />
+
+                                <span>{sport?.sport?.slice(0, 9)}</span>
+                            </Link>
+                        ))}
+                        <Link
+                            to={'../news'}
+                            className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
+                        >
+                            <img
+                                src={newspaper}
+                                alt="newspaper"
+                                className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                            />
+
+                            <span>Noticias</span>
+                        </Link>
+                    </div>
+
+                    <div className=" ml-auto lg:order-3     flex p-1 text-white gap-2 ">
                         {username ? (
                             <DropdownUser
                                 username={username}
@@ -76,48 +117,6 @@ function NavBar() {
                             </Button>
                         )}
                     </div>
-                </div>
-
-                <div className="w-full flex mx-auto justify-between items-center py-1  mt-2  text-gray-400 lg:w-3/4 lg:mx-auto lg:gap-7 lg:my-2  ">
-                    <Link
-                        to={'/'}
-                        className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
-                    >
-                        <img
-                            src={home}
-                            alt="home"
-                            className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
-                        />
-                        <span>Inicio</span>
-                    </Link>
-
-                    {sports?.map((sport) => (
-                        <Link
-                            to={`../sports/${sport?._id}`}
-                            key={sport?._id}
-                            className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105  "
-                        >
-                            <img
-                                className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
-                                src={sport?.poster}
-                                alt={sport?.sport}
-                            />
-
-                            <span>{sport?.sport?.slice(0, 9)}</span>
-                        </Link>
-                    ))}
-                    <Link
-                        to={'../news'}
-                        className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
-                    >
-                        <img
-                            src={newspaper}
-                            alt="newspaper"
-                            className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
-                        />
-
-                        <span>Noticias</span>
-                    </Link>
                 </div>
             </Navbar>
             <Register show={showRegister} handleClose={handleCloseRegister} />

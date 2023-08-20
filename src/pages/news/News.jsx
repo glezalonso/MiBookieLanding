@@ -12,6 +12,7 @@ const News = () => {
     const { data: sports } = useGetSports()
     const [filter, setFilter] = useState('')
 
+    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las notcias!')
 
     const filterNews = news?.filter((content) => {
@@ -24,11 +25,9 @@ const News = () => {
     return (
         <>
             <NavBar />
-            {isLoading ? <Loading /> : null}
-            <div className="container mx-auto p-1  lg:w-8/12">
+            <main className="container mx-auto p-1 lg:w-3/4">
                 <div className="flex mt-3 justify-between mx-auto ">
                     <h5 className="my-2 ml-2">Noticias</h5>
-
                     <Select
                         className="rounded w-50"
                         onChange={(e) => setFilter(e.target.value)}
@@ -49,7 +48,7 @@ const News = () => {
                 ) : (
                     <Alert color="warning">No hay noticias para mostrar!</Alert>
                 )}
-            </div>
+            </main>
         </>
     )
 }

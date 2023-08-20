@@ -16,12 +16,12 @@ const TeamDetails = () => {
     const [status, setStatus] = useState(true)
     const [key, setKey] = useState('proximos')
     const { data: team, isLoading, isError } = useGetTeam(id)
-
+    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los equipos!')
     return (
         <>
             <NavBar />
-            {isLoading ? <Loading /> : null}
+
             <div className="container p-1 mx-auto ">
                 <div className="mx-auto lg:w-3/4">
                     <CardTeam team={team} setKey={setKey} />
