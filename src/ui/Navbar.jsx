@@ -39,97 +39,86 @@ function NavBar() {
         <>
             <Navbar
                 fluid
-                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-gray-800 via-gray-900 to-black lg:p-0  lg:h-16  "
+                className="bg-gradient-to-b from-zinc-950 to-neutral-900 p-2 "
             >
-                <Link
-                    to={'/'}
-                    className="flex items-center no-underline text-white  mr-auto md:mt-1.5 md:mx-auto"
-                >
-                    <img
-                        alt="mibookie"
-                        className="mr-1 h-8 w-8 sm:mt-1.5 sm:h-9"
-                        src={logo}
-                    />
-                    <span className="text-lg mt-1 sm:mt-2.5 font-semibol">
-                        Mi Bookie
-                    </span>
-                </Link>
-
-                <div className="flex p-1 text-white gap-2 sm:mt-2.5 sm:order-2 md:mx-auto">
-                    {username ? (
-                        <DropdownUser
-                            username={username}
-                            id={id}
-                            handleLogOut={handleLogOut}
-                        />
-                    ) : (
-                        <Button
-                            size="xs"
-                            color="warning"
-                            className="text-sm mt-1.5 mx-1.5 border-0"
-                            onClick={() => handleShow()}
+                <div className="w-full flex mx-auto justify-center items-center lg:w-3/4 ">
+                    <div className="flex mr-auto">
+                        <Link
+                            to={'/'}
+                            className="flex items-center no-underline text-white hover:scale-105 hover:mb-1  "
                         >
-                            Iniciar Sesión
-                        </Button>
-                    )}
-                    <Navbar.Toggle />
+                            <img
+                                alt="mibookie"
+                                className="mx-1 h-9 w-9 sm:mt-1.5 sm:h-9"
+                                src={logo}
+                            />
+                            <span className="text-xl mt-1 sm:mt-2.5 font-semibol">
+                                Mi Bookie
+                            </span>
+                        </Link>
+                    </div>
+
+                    <div className="ml-auto  flex p-1 text-white gap-2 ">
+                        {username ? (
+                            <DropdownUser
+                                username={username}
+                                id={id}
+                                handleLogOut={handleLogOut}
+                            />
+                        ) : (
+                            <Button
+                                size="xs"
+                                color="warning"
+                                className="text-sm mt-1.5 mx-1.5 border-0"
+                                onClick={() => handleShow()}
+                            >
+                                Iniciar Sesión
+                            </Button>
+                        )}
+                    </div>
                 </div>
-                <Navbar.Collapse>
+
+                <div className="w-full flex mx-auto justify-center items-center gap-1.5 mt-2  text-gray-400 lg:w-3/4 lg:mx-auto lg:gap-7 lg:my-2  ">
                     <Link
                         to={'/'}
-                        className="inline-flex no-underline text-gray-400 hover:text-gray-200  sm:mt-3 md:hidden xl:block "
+                        className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
                     >
-                        <div className="flex items-center gap-1">
-                            <div>
-                                <img
-                                    src={home}
-                                    alt="home"
-                                    className="w-5 h-5 "
-                                />
-                            </div>
-                            <div>
-                                <span>Inicio</span>
-                            </div>
-                        </div>
+                        <img
+                            src={home}
+                            alt="home"
+                            className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                        />
+                        <span>Inicio</span>
                     </Link>
+
                     {sports?.map((sport) => (
                         <Link
                             to={`../sports/${sport?._id}`}
                             key={sport?._id}
-                            className="block  mt-2.5 sm:mt-3 no-underline text-gray-400 hover:text-gray-200  "
+                            className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105  "
                         >
-                            <div className="flex items-center gap-1 ">
-                                <div>
-                                    <img
-                                        className="w-5 h-5 "
-                                        src={sport?.poster}
-                                        alt={sport?.sport}
-                                    />
-                                </div>
-                                <div>
-                                    <span>{sport?.sport}</span>
-                                </div>
-                            </div>
+                            <img
+                                className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                                src={sport?.poster}
+                                alt={sport?.sport}
+                            />
+
+                            <span>{sport?.sport?.slice(0, 9)}</span>
                         </Link>
                     ))}
                     <Link
                         to={'../news'}
-                        className="inline-flex mt-2.5 sm:mt-3 no-underline text-gray-400 hover:text-gray-200 "
+                        className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
                     >
-                        <div className="flex items-center gap-1 ">
-                            <div>
-                                <img
-                                    src={newspaper}
-                                    alt="newspaper"
-                                    className="h-5 w-5"
-                                />
-                            </div>
-                            <div>
-                                <span> Noticias</span>
-                            </div>
-                        </div>
+                        <img
+                            src={newspaper}
+                            alt="newspaper"
+                            className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                        />
+
+                        <span>Noticias</span>
                     </Link>
-                </Navbar.Collapse>
+                </div>
             </Navbar>
             <Register show={showRegister} handleClose={handleCloseRegister} />
             <Login

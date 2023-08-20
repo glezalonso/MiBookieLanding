@@ -47,6 +47,7 @@ export const useAddComment = () => {
             toast.success('Comentario agregado')
             queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
             queryClient.invalidateQueries({ queryKey: ['match'] })
+            queryClient.invalidateQueries({ queryKey: ['matchToday'] })
         },
     })
     return mutationAdd
@@ -59,6 +60,7 @@ export const useRemoveComment = (id) => {
         onSuccess: () => {
             toast.success('Comentario eliminado')
             queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
+            queryClient.invalidateQueries({ queryKey: ['matchToday'] })
         },
     })
     return mutationRemove

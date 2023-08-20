@@ -47,7 +47,7 @@ const CardMatch = ({ match }) => {
 
     return (
         <>
-            <div className="  max-w-full bg-white  border-gray-200 mt-2  p-2 rounded-lg hover:shadow-xl ">
+            <div className=" max-w-full bg-white mt-2 p-2 rounded-lg hover:shadow-xl ">
                 <CardHeader match={match} />
                 <Table className="table-auto mb-2 text-xs">
                     <Table.Body className="border-b-inherit ">

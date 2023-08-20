@@ -14,7 +14,7 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                 label={
                     <Avatar
                         size={'sm'}
-                        className=" sm:mt-1.5 sm:h-9"
+                        className="sm:mt-1.5 sm:h-9"
                         alt={username}
                         img={user?.avatar || avatar}
                     />
