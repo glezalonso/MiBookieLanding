@@ -49,10 +49,10 @@ function NavBar() {
                         >
                             <img
                                 alt="mibookie"
-                                className="mx-1 h-9 w-9 sm:mt-1.5 sm:h-9"
+                                className="mr-1 h-8 w-8 sm:mt-1.5 sm:h-9"
                                 src={logo}
                             />
-                            <span className="text-xl mt-1 sm:mt-2.5 font-semibol">
+                            <span className="text-lg mt-1 sm:mt-2.5 font-semibol">
                                 Mi Bookie
                             </span>
                         </Link>
