@@ -49,70 +49,52 @@ const Home = () => {
                 <div className="sm:grid sm:grid-cols-4 sm:gap-5    ">
                     <div className="sm:col-span-3 sm:ml-1  ">
                         <div
-                            className="flex gap-0.5 mt-2.5 justify-center mx-auto sm:gap-2 "
+                            className="flex gap-0.5 justify-center  mt-2.5  mx-auto sm:gap-2 "
                             role="group"
                         >
                             <Button
                                 size="sm"
                                 pill
                                 color="gray"
-                                className=" text-gray-600 p-0 px-0  sm:px-4 "
+                                className="p-0 px-0  sm:px-4 "
                                 onClick={() => setKey('ayer')}
                             >
-                                <div className="flex">
-                                    <div>
-                                        <img
-                                            src={calendarYesterday}
-                                            alt="Ayer"
-                                            className="h-5 w-5"
-                                        />
-                                    </div>
-                                    <div className="ml-1">
-                                        <span>Ayer</span>
-                                    </div>
-                                </div>
+                                <img
+                                    src={calendarYesterday}
+                                    alt="yesterday"
+                                    className="h-4 w-4 mr-0.5 mt-0.5"
+                                />
+                                Ayer
                             </Button>
 
                             <Button
                                 size="sm"
                                 pill
                                 color="gray"
-                                className=" text-gray-600 p-0  sm:px-4 "
+                                className="p-0 px-0 flex items-center  sm:px-4 "
                                 onClick={() => setKey('hoy')}
                             >
-                                <div className="flex">
-                                    <div>
-                                        <img
-                                            src={calendarToday}
-                                            alt="Hoy"
-                                            className="h-5 w-5"
-                                        />
-                                    </div>
-                                    <div className="ml-1">
-                                        <span>Hoy</span>
-                                    </div>
-                                </div>
+                                <img
+                                    src={calendarToday}
+                                    alt="today"
+                                    className="h-4 w-4 mr-0.5 mt-0.5"
+                                />
+                                Hoy
                             </Button>
 
                             <Button
                                 size="sm"
                                 pill
                                 color="gray"
-                                className=" text-gray-600 p-0  sm:px-4 "
+                                className="p-0 px-0 flex items-center  sm:px-4 "
                                 onClick={() => setKey('mañana')}
                             >
-                                <div className="flex">
-                                    <div>
-                                        <img
-                                            src={calendarTomorrow}
-                                            alt="Mañana"
-                                            className="h-5 w-5"
-                                        />
-                                    </div>
-                                    <div className="ml-1">
-                                        <span>Mañana</span>
-                                    </div>
-                                </div>
+                                <img
+                                    src={calendarTomorrow}
+                                    alt="Mañana"
+                                    className="h-4 w-4 mr-0.5 mt-0.5"
+                                />
+                                Mañana
                             </Button>
 
                             {isLogged ? (
@@ -121,42 +103,30 @@ const Home = () => {
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className=" text-gray-600 p-0 sm:px-4 "
+                                        className="p-0 px-0 flex items-center  sm:px-4 "
                                         onClick={() => handleShowTop()}
                                     >
-                                        <div className="flex">
-                                            <div>
-                                                <img
-                                                    src={medal}
-                                                    alt="Top"
-                                                    className="h-5 w-5"
-                                                />
-                                            </div>
-                                            <div>
-                                                <span>Top</span>
-                                            </div>
-                                        </div>
+                                        <img
+                                            src={medal}
+                                            alt="Top"
+                                            className="h-4 w-4 mr-0.5 mt-0.5"
+                                        />
+                                        Top
                                     </Button>
 
                                     <Button
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className=" text-gray-600 p-0  sm:px-4 "
+                                        className="p-0 px-0 flex items-center sm:px-4 "
                                         onClick={() => handleShow()}
                                     >
-                                        <div className="flex">
-                                            <div>
-                                                <img
-                                                    src={bookies}
-                                                    alt="Bookies"
-                                                    className="h-5 w-5"
-                                                />
-                                            </div>
-                                            <div className="ml-1">
-                                                <span>Bookies</span>
-                                            </div>
-                                        </div>
+                                        <img
+                                            src={bookies}
+                                            alt="Bookies"
+                                            className="h-4 w-4 mr-0.5 mt-0.5"
+                                        />
+                                        Bookies
                                     </Button>
                                 </>
                             ) : null}
