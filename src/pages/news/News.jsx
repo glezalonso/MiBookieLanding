@@ -23,7 +23,7 @@ const News = () => {
 
     return (
         <>
-            <main className="container mx-auto p-1 lg:w-3/4">
+            <main className="container mx-auto p-1 lg:w-3/5">
                 <div className="flex mt-3 justify-between mx-auto ">
                     <h5 className="my-2 ml-2">Noticias</h5>
                     <Select

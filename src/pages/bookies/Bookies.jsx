@@ -16,7 +16,7 @@ const Bookies = () => {
 
     return (
         <>
-            <main className="container mx-auto lg:w-8/12 p-1">
+            <main className="container mx-auto p-1 lg:w-3/5">
                 <div className="flex mt-3 mx-2 ">
                     <h5 className="mt-1">Bookies</h5>
                     <Badge

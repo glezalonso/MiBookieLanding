@@ -15,7 +15,7 @@ const Rounds = () => {
 
     return (
         <>
-            <main className="container mx-auto p-1 lg:w-8/12">
+            <main className="container mx-auto p-1 lg:w-3/5">
                 <CardRound round={round} />
                 <SectionMatches round={round} />
             </main>

@@ -17,7 +17,7 @@ const Matches = () => {
 
     return (
         <>
-            <main className="container mx-auto lg:w-8/12 p-1">
+            <main className="container mx-auto p-1 lg:w-3/5">
                 <CardMatch match={match} />
                 <SectionLineUps match={match} />
             </main>

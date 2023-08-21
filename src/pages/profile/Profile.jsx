@@ -26,7 +26,7 @@ const Profile = () => {
     if (isError) return toast.error('Ha ocurrido un error al cargar el perfil')
     return (
         <>
-            <main className="container mx-auto lg:w-3/4 p-1">
+            <main className="container mx-auto p-1 lg:w-3/5">
                 <div className="grid w-full mt-2.5 sm:grid-cols-5 sm:gap-3  ">
                     <div className=" col-span-5  sm:col-span-2">
                         <CardProfile user={user} />

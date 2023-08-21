@@ -41,7 +41,7 @@ function NavBar() {
                 fluid
                 className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black p-2 "
             >
-                <div className="w-full flex flex-wrap mx-auto justify-center items-center md:w-4/5 lg:w- ">
+                <div className="w-full flex flex-wrap mx-auto justify-center items-center  lg:w-3/4 ">
                     <div className="flex mr-auto">
                         <Link
                             to={'/'}
@@ -49,7 +49,7 @@ function NavBar() {
                         >
                             <img
                                 alt="mibookie"
-                                className="mr-1 h-8 w-8 sm:mt-1.5 sm:h-9"
+                                className="mr-1 h-8 w-8 sm:mt-1.5 lg:h-9 lg:w-9"
                                 src={logo}
                             />
                             <span className="text-lg mt-1 sm:mt-2.5 font-semibol">
@@ -57,7 +57,7 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center py-1  mt-2  text-gray-400 lg:w-2/3 lg:mx-auto lg:gap-7 lg:my-2   ">
+                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center py-1  mt-1 lg:mt-3   text-gray-400 lg:w-2/3 lg:mx-auto lg:gap-7 lg:my-2   ">
                         <Link
                             to={'/'}
                             className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
