@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import NavBar from '../../ui/Navbar'
 import { Button } from 'flowbite-react'
 import { useParams } from 'react-router-dom'
 import { useGetBookie } from '../../features/users.features'
@@ -13,19 +12,22 @@ import SectionRating from './components/SectionRating'
 import SelectFilter from '../comuncomponents/SelectFilter'
 import follow from '../../icons/follow.svg'
 import followers from '../../icons/followers.svg'
+import Loading from '../../ui/Loading'
+import { toast } from 'react-hot-toast'
 
 const Profile = () => {
     const { id } = useParams()
     const [key, setKey] = useState('proximos')
     const [limit, setLimit] = useState(15)
     const userId = useAuthStore((state) => state.profile.id)
-    const { data: user } = useGetBookie(id)
+    const { data: user, isLoading, isError } = useGetBookie(id)
 
+    if (isLoading) return <Loading />
+    if (isError) return toast.error('Ha ocurrido un error al cargar el perfil')
     return (
         <>
-            <NavBar />
             <main className="container mx-auto lg:w-3/4 p-1">
-                <div className="grid w-full mt-3 sm:grid-cols-5 sm:gap-3  ">
+                <div className="grid w-full mt-2.5 sm:grid-cols-5 sm:gap-3  ">
                     <div className=" col-span-5  sm:col-span-2">
                         <CardProfile user={user} />
                         <SectionRating user={user} />
@@ -39,7 +41,7 @@ const Profile = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0"
+                                className="p-0 sm:px-4 "
                                 onClick={() => setKey('proximos')}
                             >
                                 Próximos
@@ -48,7 +50,7 @@ const Profile = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0"
+                                className="p-0 sm:px-4 "
                                 onClick={() => setKey('ultimos')}
                             >
                                 Últimos
@@ -59,13 +61,13 @@ const Profile = () => {
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className="p-0"
+                                        className="p-0 sm:px-4 "
                                         onClick={() => setKey('contactos')}
                                     >
                                         <img
                                             src={follow}
                                             alt="contacto"
-                                            className="w-4 h-4  "
+                                            className="h-4 w-4 mr-0.5 mt-0.5"
                                         />
                                         Contáctos
                                     </Button>
@@ -74,14 +76,14 @@ const Profile = () => {
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className="p-0 "
+                                        className="p-0 sm:px-4 "
                                         onClick={() => setKey('seguidores')}
                                     >
                                         <div>
                                             <img
                                                 src={followers}
                                                 alt="seguidores"
-                                                className=" w-4 h-4 mr-1"
+                                                className="h-4 w-4 mr-0.5 mt-0.5"
                                             />
                                         </div>
                                         Seguidores

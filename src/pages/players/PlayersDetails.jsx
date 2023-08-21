@@ -4,24 +4,21 @@ import { toast } from 'react-hot-toast'
 import { useGetPlayer } from '../../features/players.features'
 import { useParams } from 'react-router-dom'
 import { sport } from '../../const/sportconst'
-import NavBar from '../../ui/Navbar'
 import CardPlayer from './components/CardPlayer'
-
 import SectionMatches from './components/SectionMatches'
 import SectionStandings from './components/SectionStandings'
+import Loading from '../../ui/Loading'
 
 const PlayerDetails = () => {
     const { id } = useParams()
     const [status, setStatus] = useState(true)
     const [key, setKey] = useState('proximos')
-    const { data: player, isError } = useGetPlayer(id)
-
+    const { data: player, isLoading, isError } = useGetPlayer(id)
+    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los jugadores!')
     return (
         <>
-            <NavBar />
-
-            <div className="container p-1 mx-auto ">
+            <main className="container p-1 mx-auto ">
                 <div className="mx-auto lg:w-3/4">
                     <CardPlayer player={player} setKey={setKey} />
 
@@ -34,7 +31,7 @@ const PlayerDetails = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0 text-gray-600"
+                                className="p-0 sm:px-4 "
                                 onClick={() => setKey('posiciones')}
                             >
                                 Posiciones
@@ -45,7 +42,7 @@ const PlayerDetails = () => {
                             size="sm"
                             pill
                             color="gray"
-                            className="p-0 text-gray-600"
+                            className="p-0 sm:px-4 "
                             onClick={() => {
                                 setStatus(true)
                                 setKey('proximos')
@@ -57,7 +54,7 @@ const PlayerDetails = () => {
                             size="sm"
                             pill
                             color="gray"
-                            className="p-0 text-gray-600"
+                            className="p-0 sm:px-4 "
                             onClick={() => {
                                 setStatus(false)
                                 setKey('pasados')
@@ -84,7 +81,7 @@ const PlayerDetails = () => {
                         />
                     ) : null}
                 </div>
-            </div>
+            </main>
         </>
     )
 }

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
 import { Button } from 'flowbite-react'
 import { useGetSeason } from '../../features/seasons.features'
-import NavBar from '../../ui/Navbar'
+
 import Loading from '../../ui/Loading'
 import CardSeason from './components/CardSeason'
 import SectionRounds from './components/SectionRounds'
@@ -14,15 +14,13 @@ const Seasons = () => {
     const { data: season, isLoading, isError } = useGetSeason(id)
     const [key, setKey] = useState('posiciones')
 
+    if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las temporadas')
 
     return (
         <>
-            <NavBar />
-            {isLoading ? <Loading /> : null}
             <main className="container mx-auto lg:w-8/12 p-1">
                 <CardSeason season={season} setKey={setKey} />
-
                 <div
                     className="flex gap-1 mt-1 justify-center mx-auto "
                     role="group"
@@ -31,7 +29,7 @@ const Seasons = () => {
                         size="sm"
                         pill
                         color="gray"
-                        className="p-0 text-gray-600"
+                        className="p-0 sm:px-4 "
                         onClick={() => setKey('posiciones')}
                     >
                         Clasificación
@@ -41,7 +39,7 @@ const Seasons = () => {
                         size="sm"
                         pill
                         color="gray"
-                        className="p-0 text-gray-600"
+                        className="p-0 sm:px-4 "
                         onClick={() => setKey('rondas')}
                     >
                         Rondas

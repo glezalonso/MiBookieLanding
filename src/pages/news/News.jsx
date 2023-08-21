@@ -4,7 +4,6 @@ import { toast } from 'react-hot-toast'
 import { useGetNews } from '../../features/news.features'
 import { useGetSports } from '../../features/sports.features'
 import CardNew from './components/CardNew'
-import NavBar from '../../ui/Navbar'
 import Loading from '../../ui/Loading'
 
 const News = () => {
@@ -24,7 +23,6 @@ const News = () => {
 
     return (
         <>
-            <NavBar />
             <main className="container mx-auto p-1 lg:w-3/4">
                 <div className="flex mt-3 justify-between mx-auto ">
                     <h5 className="my-2 ml-2">Noticias</h5>

@@ -4,7 +4,6 @@ import { Button } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import yesterdayDate from '../../utils/yesterdayDate'
-import NavBar from '../../ui/Navbar'
 import BookiesFirends from './components/BookiesFriends'
 import SectionMatches from './components/SectionMatches'
 import SectionLeagues from './components/SectionLeagues'
@@ -44,7 +43,6 @@ const Home = () => {
 
     return (
         <>
-            <NavBar />
             <main className="container mx-auto p-1 lg:w-3/4">
                 <div className="sm:grid sm:grid-cols-4 sm:gap-5    ">
                     <div className="sm:col-span-3 sm:ml-1  ">
@@ -56,7 +54,7 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0 px-0  sm:px-4 "
+                                className="p-0 sm:px-4 "
                                 onClick={() => setKey('ayer')}
                             >
                                 <img
@@ -66,12 +64,11 @@ const Home = () => {
                                 />
                                 Ayer
                             </Button>
-
                             <Button
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0 px-0 flex items-center  sm:px-4 "
+                                className="p-0 sm:px-4 "
                                 onClick={() => setKey('hoy')}
                             >
                                 <img
@@ -81,12 +78,11 @@ const Home = () => {
                                 />
                                 Hoy
                             </Button>
-
                             <Button
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0 px-0 flex items-center  sm:px-4 "
+                                className="p-0 sm:px-4 "
                                 onClick={() => setKey('mañana')}
                             >
                                 <img
@@ -96,14 +92,13 @@ const Home = () => {
                                 />
                                 Mañana
                             </Button>
-
                             {isLogged ? (
                                 <>
                                     <Button
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className="p-0 px-0 flex items-center  sm:px-4 "
+                                        className="p-0  sm:px-4 "
                                         onClick={() => handleShowTop()}
                                     >
                                         <img
@@ -113,12 +108,11 @@ const Home = () => {
                                         />
                                         Top
                                     </Button>
-
                                     <Button
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className="p-0 px-0 flex items-center sm:px-4 "
+                                        className="p-0 sm:px-4 "
                                         onClick={() => handleShow()}
                                     >
                                         <img
@@ -131,7 +125,6 @@ const Home = () => {
                                 </>
                             ) : null}
                         </div>
-
                         <section>
                             {key === 'hoy' ? (
                                 <SectionMatches date={date} key={key} />

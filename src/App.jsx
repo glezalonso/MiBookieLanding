@@ -21,6 +21,7 @@ import News from './pages/news/News'
 
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
+import NavBar from './ui/Navbar'
 
 const App = () => {
     const token = useAuthStore((state) => state.auth)
@@ -33,6 +34,7 @@ const App = () => {
     return (
         <>
             <BrowserRouter>
+                <NavBar />
                 <Toaster position="top-center" reverseOrder={false} />
                 <Routes>
                     <Route path="/" element={<Home />} />

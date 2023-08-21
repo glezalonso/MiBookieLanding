@@ -7,7 +7,6 @@ import { useParams } from 'react-router-dom'
 import { useGetLeague } from '../../features/leagues.features'
 import { toast } from 'react-hot-toast'
 import { Button } from 'flowbite-react'
-import NavBar from '../../ui/Navbar'
 import Loading from '../../ui/Loading'
 import SectionLeague from './components/SectionLeague'
 import SectionSeasons from './components/SectionSeasons'
@@ -23,10 +22,8 @@ const Leagues = () => {
     if (isError) return toast.error('Hubo un error al cargar la liga!')
     return (
         <>
-            <NavBar />
             <main className="container  mx-auto p-1  lg:w-8/12">
                 <SectionLeague league={league} />
-
                 <div
                     className="flex gap-1 mt-1 justify-center mx-auto "
                     role="group"
@@ -35,7 +32,7 @@ const Leagues = () => {
                         size="sm"
                         pill
                         color="gray"
-                        className="p-0 text-gray-600"
+                        className="p-0 sm:px-4 "
                         onClick={() => setKey('proximos')}
                     >
                         Próximos partidos
@@ -45,7 +42,7 @@ const Leagues = () => {
                         size="sm"
                         pill
                         color="gray"
-                        className="p-0 text-gray-600"
+                        className="p-0 sm:px-4 "
                         onClick={() => setKey('temporadas')}
                     >
                         Temporadas
@@ -55,7 +52,7 @@ const Leagues = () => {
                         size="sm"
                         pill
                         color="gray"
-                        className="p-0 text-gray-600"
+                        className="p-0 sm:px-4 "
                         onClick={() => setKey('ultimos')}
                     >
                         Últimos partidos
