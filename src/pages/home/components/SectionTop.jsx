@@ -18,22 +18,22 @@ const SectionTop = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full  mt-28 mx-auto bg-gray-200 md:w-full md:h-3/4"
+                className="w-full h-full mx-auto bg-gray-100 flex-row p-3"
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black  p-2 flex items-center">
+                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900   p-2 flex items-center">
                     <div className="flex justify-start items-center">
                         <div className="my-1">
                             <img
                                 src={medalwhite}
                                 alt="medal"
-                                className="mx-2 h-8 w-8"
+                                className="mx-2 h-6 w-6"
                             />
                         </div>
                         <div>
-                            <h3 className="text-lg mt-1.5  text-white font-medium">
+                            <h3 className="text-lg  text-white font-medium">
                                 Top 10
                             </h3>
                         </div>
@@ -55,7 +55,9 @@ const SectionTop = ({ show, handleClose }) => {
                                 Aciertos
                             </Table.HeadCell>
 
-                            <Table.HeadCell>Efect.</Table.HeadCell>
+                            <Table.HeadCell className="px-1 text-center">
+                                Efect.
+                            </Table.HeadCell>
                         </Table.Head>
                         <Table.Body>
                             {topUsers?.map((users) => (

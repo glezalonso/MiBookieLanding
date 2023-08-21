@@ -14,18 +14,18 @@ const BookiesFirends = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full mt-28 mx-auto  bg-gray-100 md:w-full md:h-3/4"
+                className="w-full h-full mx-auto bg-gray-100 flex-row p-3"
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black  p-2 flex items-center ">
+                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2 flex-row items-center ">
                     <div className="flex justify-start items-center">
                         <div className="my-1  ">
                             <img
                                 src={bookieswhite}
                                 alt="bookies"
-                                className="mx-2 h-8 w-8"
+                                className="mx-2 h-6 w-6"
                             />
                         </div>
                         <div>
@@ -59,7 +59,7 @@ const BookiesFirends = ({ show, handleClose }) => {
                         </Table>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black text-white p-3 justify-end">
+                <Modal.Footer className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 text-white p-3 justify-end">
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?

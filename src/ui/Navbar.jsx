@@ -39,10 +39,10 @@ function NavBar() {
         <>
             <Navbar
                 fluid
-                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black p-2 "
+                className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2 "
             >
-                <div className="w-full flex flex-wrap mx-auto justify-center items-center  lg:w-3/4 ">
-                    <div className="flex mr-auto">
+                <div className="w-full flex flex-wrap justify-between items-center lg:w-3/4 lg:mx-auto lg:gap-6 ">
+                    <div className="flex mr-auto lg:ml-auto">
                         <Link
                             to={'/'}
                             className="flex items-center no-underline text-white hover:scale-105 hover:mb-1  "
@@ -57,15 +57,15 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center py-1  mt-1 lg:mt-3   text-gray-400 lg:w-2/3 lg:mx-auto lg:gap-7 lg:my-2   ">
+                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center py-1  mt-1 lg:mt-3  text-gray-400 lg:w-max lg:mx-auto lg:gap-3 lg:my-2   ">
                         <Link
                             to={'/'}
-                            className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
+                            className="text-xs sm:flex sm:text-sm sm:gap-1 hover:text-white hover:scale-105 "
                         >
                             <img
                                 src={home}
                                 alt="home"
-                                className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                                className="w-5 h-5 mx-auto "
                             />
                             <span>Inicio</span>
                         </Link>
@@ -74,10 +74,10 @@ function NavBar() {
                             <Link
                                 to={`../sports/${sport?._id}`}
                                 key={sport?._id}
-                                className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105  "
+                                className="text-xs sm:flex sm:text-sm sm:gap-1 hover:text-white hover:scale-105  "
                             >
                                 <img
-                                    className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                                    className="w-5 h-5 mx-auto "
                                     src={sport?.poster}
                                     alt={sport?.sport}
                                 />
@@ -87,19 +87,19 @@ function NavBar() {
                         ))}
                         <Link
                             to={'../news'}
-                            className="text-xs sm:flex sm:text-base sm:gap-1 hover:text-white hover:scale-105 "
+                            className="text-xs sm:flex sm:text-sm sm:gap-1 hover:text-white hover:scale-105 "
                         >
                             <img
                                 src={newspaper}
                                 alt="newspaper"
-                                className="w-5 h-5 mx-auto sm:w-6 sm:h-6"
+                                className="w-5 h-5 mx-auto "
                             />
 
                             <span>Noticias</span>
                         </Link>
                     </div>
 
-                    <div className=" ml-auto lg:order-3     flex p-1 text-white gap-2 ">
+                    <div className="ml-auto lg:mr-auto lg:order-3 flex p-1 text-white gap-2 ">
                         {username ? (
                             <DropdownUser
                                 username={username}

@@ -44,7 +44,7 @@ const Home = () => {
     return (
         <>
             <main className="container mx-auto p-1 lg:w-3/5">
-                <div className="sm:grid sm:grid-cols-4 sm:gap-5">
+                <div className="sm:grid sm:grid-cols-4 sm:gap-2">
                     <div className="sm:col-span-3 sm:ml-1  ">
                         <div
                             className="flex gap-0.5 justify-center  mt-2.5  mx-auto sm:gap-2 "
@@ -140,7 +140,7 @@ const Home = () => {
                             ) : null}
                         </section>
                     </div>
-                    <div className="hidden sm:block sm:col-span-1 sm:mt-6 sm:mx-2">
+                    <div className="hidden sm:block sm:col-span-1 sm:mt-2 sm:mx-2">
                         <SectionLeagues />
                     </div>
                 </div>

@@ -8,7 +8,7 @@ const CardSectionAway = ({ match }) => {
 
     return (
         <>
-            <div className="flex items-center">
+            <div className="flex items-center hover:scale-105 hover:ml-3">
                 <div>
                     <img
                         src={match?.away?.poster || match?.sport?.poster}
@@ -19,7 +19,7 @@ const CardSectionAway = ({ match }) => {
 
                 <div
                     onClick={() => navigate(`../teams/${match?.away?._id}`)}
-                    className="mx-1 hover:cursor-pointer hover:scale-105  "
+                    className="mx-1 hover:cursor-pointer"
                 >
                     <div>
                         <span className="font-bold mx-1 text-gray-600 text-sm">
