@@ -19,7 +19,7 @@ const CardSectionLocal = ({ match }) => {
 
                 <div
                     onClick={() => navigate(`../teams/${match?.local?._id}`)}
-                    className="mx-1 hover:cursor-pointer hover:scale-105 hover:mx-2 "
+                    className="mx-1 hover:cursor-pointer hover:scale-105 "
                 >
                     <div>
                         <span className="font-bold mx-1 text-gray-600 text-sm  ">

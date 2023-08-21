@@ -49,7 +49,7 @@ const CardMatch = ({ match }) => {
         <>
             <div className=" max-w-full bg-white mt-2 p-2 rounded-lg hover:shadow-xl ">
                 <CardHeader match={match} />
-                <Table className="table-auto mb-2 text-xs">
+                <Table className="table-auto mb-0.5 text-xs">
                     <Table.Body className="border-b-inherit ">
                         <Table.Row>
                             <Table.Cell className="p-2">
