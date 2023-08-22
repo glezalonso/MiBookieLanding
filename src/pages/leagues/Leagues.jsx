@@ -28,7 +28,7 @@ const Leagues = () => {
             <main className="container  mx-auto p-1 min-h-screen lg:w-3/5">
                 <SectionLeague league={league} />
                 <div
-                    className="flex gap-1 mt-1 justify-center mx-auto "
+                    className="flex gap-0.5 justify-center  mt-2.5  mx-auto sm:gap-2 "
                     role="group"
                 >
                     <Button
@@ -43,7 +43,7 @@ const Leagues = () => {
                             alt="next"
                             className="h-4 w-4 mr-0.5 mt-0.5"
                         />
-                        Próximos partidos
+                        Próximos
                     </Button>
 
                     <Button
@@ -73,7 +73,7 @@ const Leagues = () => {
                             alt="back"
                             className="h-4 w-4 mr-0.5 mt-0.5"
                         />
-                        Últimos partidos
+                        Últimos
                     </Button>
                 </div>
                 <section>
