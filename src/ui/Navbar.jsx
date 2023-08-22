@@ -39,10 +39,10 @@ function NavBar() {
         <>
             <Navbar
                 fluid
-                className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2 "
+                className="bg-gradient-to-t from-gray-900 via-gray-950 to-zinc-950 p-2 "
             >
-                <div className="w-full flex flex-wrap justify-between items-center lg:w-3/4 lg:mx-auto lg:gap-6 ">
-                    <div className="flex mr-auto lg:ml-auto">
+                <div className="w-full flex flex-wrap justify-between items-center  lg:w-3/4 lg:mx-auto lg:gap-6 ">
+                    <div className="flex items-center">
                         <Link
                             to={'/'}
                             className="flex items-center no-underline text-white hover:scale-105 hover:mb-1  "
@@ -52,12 +52,12 @@ function NavBar() {
                                 className="mr-1 h-8 w-8 sm:mt-1.5 lg:h-9 lg:w-9"
                                 src={logo}
                             />
-                            <span className="text-lg mt-1 sm:mt-2.5 font-semibol">
+                            <span className="self-center mt- text-lg whitespace-nowrap sm:mt-2.5 font-semibol">
                                 Mi Bookie
                             </span>
                         </Link>
                     </div>
-                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center py-1  mt-1 lg:mt-3  text-gray-400 lg:w-max lg:mx-auto lg:gap-3 lg:my-2   ">
+                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center  mt-1 lg:mt-2  text-gray-400 lg:w-max lg:mx-auto lg:gap-4  ">
                         <Link
                             to={'/'}
                             className="text-xs sm:flex sm:text-sm sm:gap-1 hover:text-white hover:scale-105 "

@@ -22,7 +22,7 @@ const Leagues = () => {
     if (isError) return toast.error('Hubo un error al cargar la liga!')
     return (
         <>
-            <main className="container  mx-auto p-1  lg:w-3/5">
+            <main className="container  mx-auto p-1 min-h-screen lg:w-3/5">
                 <SectionLeague league={league} />
                 <div
                     className="flex gap-1 mt-1 justify-center mx-auto "

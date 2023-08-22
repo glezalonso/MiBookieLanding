@@ -33,7 +33,7 @@ const Sports = () => {
 
     return (
         <>
-            <main className="w-full container mx-auto p-1 lg:w-3/5 ">
+            <main className="w-full container min-h-screen mx-auto p-1 lg:w-3/5 ">
                 <div
                     className="flex gap-0.5 mt-2.5 justify-center mx-auto "
                     role="group"

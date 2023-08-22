@@ -18,9 +18,9 @@ const SectionLeagues = () => {
 
     return (
         <>
-            <section className="p-1">
+            <section>
                 <h5 className="mx-1">Ligas</h5>
-                <div className="my-2 mx-auto p-1">
+                <div className="mt-2 mx-auto p-1">
                     <TextInput
                         sizing={'sm'}
                         name="league"
@@ -31,7 +31,7 @@ const SectionLeagues = () => {
                 {leaguesByFilter?.length > 0 ? (
                     <Table
                         hoverable
-                        className="table-auto bg-transparent  text-sm"
+                        className="table-auto bg-transparent text-sm"
                     >
                         <Table.Body>
                             {leaguesByFilter?.map((league) => (

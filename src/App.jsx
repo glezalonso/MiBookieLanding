@@ -22,6 +22,7 @@ import News from './pages/news/News'
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
 import NavBar from './ui/Navbar'
+import SectionFoter from './ui/SectionFooter'
 
 const App = () => {
     const token = useAuthStore((state) => state.auth)
@@ -58,6 +59,7 @@ const App = () => {
                     <Route path="/matches/:id" element={<Matches />} />
                     <Route path="*" element={<h1>Página no encontrada</h1>} />
                 </Routes>
+                <SectionFoter />
             </BrowserRouter>
         </>
     )
