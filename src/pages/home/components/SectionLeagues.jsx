@@ -57,7 +57,7 @@ const SectionLeagues = () => {
                         </Table.Body>
                     </Table>
                 ) : (
-                    <Alert variant="warning">No hay ligas para mostrar!</Alert>
+                    <Alert color="warning">No hay ligas para mostrar!</Alert>
                 )}
             </section>
         </>

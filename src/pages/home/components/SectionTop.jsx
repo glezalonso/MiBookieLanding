@@ -7,12 +7,16 @@ import medalwhite from '../../../icons/medalwhite.svg'
 
 const SectionTop = ({ show, handleClose }) => {
     let i = 0
-    const limit = 10
+    const limit = 0
     const { data: users } = useGetTopBookies(limit)
     const navigate = useNavigate()
-    const topUsers = users?.sort(
-        (a, b) => (b?.success * 100) / b?.total - (a?.success * 100) / a?.total
-    )
+
+    const topUsers = users
+        ?.sort(
+            (a, b) =>
+                (b?.success * 100) / b?.total - (a?.success * 100) / a?.total
+        )
+        .slice(0, 10)
 
     return (
         <>
