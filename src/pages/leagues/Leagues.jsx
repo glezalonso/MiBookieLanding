@@ -11,6 +11,9 @@ import Loading from '../../ui/Loading'
 import SectionLeague from './components/SectionLeague'
 import SectionSeasons from './components/SectionSeasons'
 import SectionMatches from './components/SectionMatches'
+import next from '../../icons/next.svg'
+import back from '../../icons/back.svg'
+import leagues from '../../icons/leagues.svg'
 
 const Leagues = () => {
     const { id } = useParams()
@@ -35,6 +38,11 @@ const Leagues = () => {
                         className="p-0 sm:px-4 "
                         onClick={() => setKey('proximos')}
                     >
+                        <img
+                            src={next}
+                            alt="next"
+                            className="h-4 w-4 mr-0.5 mt-0.5"
+                        />
                         Próximos partidos
                     </Button>
 
@@ -45,6 +53,11 @@ const Leagues = () => {
                         className="p-0 sm:px-4 "
                         onClick={() => setKey('temporadas')}
                     >
+                        <img
+                            src={leagues}
+                            alt="leagues"
+                            className="h-4 w-4 mr-0.5 mt-0.5"
+                        />
                         Temporadas
                     </Button>
 
@@ -55,6 +68,11 @@ const Leagues = () => {
                         className="p-0 sm:px-4 "
                         onClick={() => setKey('ultimos')}
                     >
+                        <img
+                            src={back}
+                            alt="back"
+                            className="h-4 w-4 mr-0.5 mt-0.5"
+                        />
                         Últimos partidos
                     </Button>
                 </div>

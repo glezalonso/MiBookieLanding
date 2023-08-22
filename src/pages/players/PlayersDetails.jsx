@@ -8,6 +8,9 @@ import CardPlayer from './components/CardPlayer'
 import SectionMatches from './components/SectionMatches'
 import SectionStandings from './components/SectionStandings'
 import Loading from '../../ui/Loading'
+import next from '../../icons/next.svg'
+import back from '../../icons/back.svg'
+import trophy from '../../icons/trophy.svg'
 
 const PlayerDetails = () => {
     const { id } = useParams()
@@ -34,6 +37,11 @@ const PlayerDetails = () => {
                                 className="p-0 sm:px-4 "
                                 onClick={() => setKey('posiciones')}
                             >
+                                <img
+                                    src={trophy}
+                                    alt="trophy"
+                                    className="h-4 w-4 mr-0.5 mt-0.5"
+                                />
                                 Posiciones
                             </Button>
                         ) : null}
@@ -48,6 +56,11 @@ const PlayerDetails = () => {
                                 setKey('proximos')
                             }}
                         >
+                            <img
+                                src={next}
+                                alt="next"
+                                className="h-4 w-4 mr-0.5 mt-0.5"
+                            />
                             Póximos
                         </Button>
                         <Button
@@ -60,6 +73,11 @@ const PlayerDetails = () => {
                                 setKey('pasados')
                             }}
                         >
+                            <img
+                                src={back}
+                                alt="back"
+                                className="h-4 w-4 mr-0.5 mt-0.5"
+                            />
                             Úlimos Partidos
                         </Button>
                     </div>

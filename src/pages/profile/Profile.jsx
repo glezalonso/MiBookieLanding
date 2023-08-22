@@ -12,6 +12,8 @@ import SectionRating from './components/SectionRating'
 import SelectFilter from '../comuncomponents/SelectFilter'
 import follow from '../../icons/follow.svg'
 import followers from '../../icons/followers.svg'
+import next from '../../icons/next.svg'
+import back from '../../icons/back.svg'
 import Loading from '../../ui/Loading'
 import { toast } from 'react-hot-toast'
 
@@ -44,6 +46,11 @@ const Profile = () => {
                                 className="p-0 sm:px-4 "
                                 onClick={() => setKey('proximos')}
                             >
+                                <img
+                                    src={next}
+                                    alt="next"
+                                    className="h-4 w-4 mr-0.5 mt-0.5"
+                                />
                                 Próximos
                             </Button>
                             <Button
@@ -53,6 +60,11 @@ const Profile = () => {
                                 className="p-0 sm:px-4 "
                                 onClick={() => setKey('ultimos')}
                             >
+                                <img
+                                    src={back}
+                                    alt="back"
+                                    className="h-4 w-4 mr-0.5 mt-0.5"
+                                />
                                 Últimos
                             </Button>
                             {id === userId ? (
