@@ -21,7 +21,6 @@ const CardStatus = ({ match }) => {
                 ) : (
                     <div className="flex items-center gap-1">
                         <img src={clock} alt="clock" className="h-4 w-4 " />
-
                         <span>{match?.date?.split('T')[1]}</span>
                     </div>
                 )}

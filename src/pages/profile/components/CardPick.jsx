@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import { Table } from 'flowbite-react'
 import CardSectionAway from '../../comuncomponents/CardSectionAway'
 import AwayScore from '../../comuncomponents/AwayScore'
@@ -9,7 +8,6 @@ import CardHeader from '../../comuncomponents/CardHeader'
 
 const CardPick = ({ match, id }) => {
     let result = ''
-    const navigate = useNavigate()
 
     const prediction = match?.votes?.filter(
         (vote) => vote?.username?._id === id
@@ -33,10 +31,7 @@ const CardPick = ({ match, id }) => {
                 </div>
                 <div>
                     <Table className="table-auto text-xs">
-                        <Table.Body
-                            className="border-b-inherit "
-                            onClick={() => navigate(`../matches/${match?._id}`)}
-                        >
+                        <Table.Body className="border-b-inherit ">
                             <Table.Row>
                                 <Table.Cell className="p-2">
                                     <CardSectionLocal match={match} />
@@ -64,6 +59,9 @@ const CardPick = ({ match, id }) => {
                         >
                             <div>
                                 <span className="text-gray-500 text-xs">
+                                    {!match?.status
+                                        ? match?.date?.split('T')[0]
+                                        : null}{' '}
                                     Tu pronóstico:
                                     <strong className="mx-1">
                                         {votes?.option === 'local' ? (
