@@ -34,7 +34,7 @@ const PeopleComments = ({ comment }) => {
                     </div>
 
                     <div className="p-1 text-start  ">
-                        <p className=" max-w-sm break-all text-gray-200">
+                        <p className=" max-w-sm break-words break-all text-gray-200">
                             {comment?.comment}
                         </p>
                     </div>
