@@ -25,8 +25,8 @@ const PersonalComments = ({ match, comment }) => {
     }
     return (
         <>
-            <div className="flex p-1 justify-end  mb-1 overflow-auto ">
-                <div className="p-1  text-xs  bg-gray-800  rounded-md  text-end">
+            <div className="flex p-1 justify-end   mb-1 overflow-auto ">
+                <div className="p-1  text-xs  bg-gray-800  rounded-md w-2/4 text-end">
                     <div className="flex justify-between gap-2 text-white font-bold text-xs">
                         <div
                             onClick={() =>
@@ -53,7 +53,12 @@ const PersonalComments = ({ match, comment }) => {
                         </div>
                     </div>
                     <div className="p-1 text-end">
-                        <p className=" max-w-sm break-words break-all text-gray-200">
+                        <p
+                            className={`max-w-sm ${comment?.comment?.includes(' ')
+                                    ? 'break-words'
+                                    : 'break-all'
+                                } text-gray-200`}
+                        >
                             {comment?.comment}
                         </p>
                     </div>
