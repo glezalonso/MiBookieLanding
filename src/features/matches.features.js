@@ -20,6 +20,7 @@ import {
     getPicksOpen,
     getPicksClosed,
     getMatchesTodaySport,
+    getHeadToHead,
 } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
 
@@ -182,4 +183,12 @@ export const useGetPicksClosed = (id, limit) => {
         queryFn: () => getPicksClosed(id, limit),
     })
     return { data, isLoading, isError, isFetching }
+}
+
+export const useGetHeadtoHead = (local, away) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['headtohead', local, away],
+        queryFn: () => getHeadToHead(local, away),
+    })
+    return { data, isLoading, isError }
 }

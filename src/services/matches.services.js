@@ -82,3 +82,8 @@ export const getPicksOpen = async (id, limit) => {
     )
     return data
 }
+
+export const getHeadToHead = async (local, away) => {
+    const { data } = await axios.get(`/api/matches/headtohead/${local}/${away}`)
+    return data
+}

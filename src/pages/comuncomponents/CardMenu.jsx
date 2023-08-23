@@ -4,6 +4,7 @@ import { Button } from 'flowbite-react'
 import comments from '../../icons/comments.svg'
 import votes from '../../icons/votes.svg'
 import odds from '../../icons/odds.svg'
+import h2h from '../../icons/h2h.svg'
 
 const CardMenu = ({
     match,
@@ -11,6 +12,7 @@ const CardMenu = ({
     handleConsensus,
     // handleLineUp,
     handleOdds,
+    handleH2h,
 }) => {
     return (
         <>
@@ -67,6 +69,16 @@ const CardMenu = ({
                         Cuotas
                     </Button>
                 ) : null}
+                <Button
+                    pill
+                    size="xs"
+                    color="gray"
+                    className=" text-gray-600 mt-1.5"
+                    onClick={() => handleH2h()}
+                >
+                    <img src={h2h} alt="vs" className=" h-4 w-4 mr-1" />
+                    Versus
+                </Button>
             </div>
         </>
     )

@@ -11,6 +11,7 @@ import AwayScore from './AwayScore'
 import LocalScore from './LocalScore'
 import CardMenu from './CardMenu'
 import CardOdds from './CardOdds'
+import CardVersus from './CardVersus'
 
 // Disable tag LineUp
 const CardMatch = ({ match }) => {
@@ -18,24 +19,28 @@ const CardMatch = ({ match }) => {
     // const [showLineUp, setShowLineUp] = useState(false)
     const [showConsensus, setShowConsensus] = useState(false)
     const [showOdds, setShowOdds] = useState(false)
+    const [showH2h, setShowH2h] = useState(false)
 
     const handleComments = () => {
         setShowComments(!showComments)
         // setShowLineUp(false)
         setShowConsensus(false)
         setShowOdds(false)
+        setShowH2h(false)
     }
     // const handleLineUp = () => {
     //     setShowComments(false)
-    //     // setShowLineUp(!showLineUp)
+    //     setShowLineUp(!showLineUp)
     //     setShowConsensus(false)
     //     setShowOdds(false)
+    //     setShowH2h(false)
     // }
     const handleConsensus = () => {
         setShowComments(false)
         // setShowLineUp(false)
         setShowConsensus(!showConsensus)
         setShowOdds(false)
+        setShowH2h(false)
     }
 
     const handleOdds = () => {
@@ -43,6 +48,14 @@ const CardMatch = ({ match }) => {
         // setShowLineUp(false)
         setShowConsensus(false)
         setShowOdds(!showOdds)
+        setShowH2h(false)
+    }
+    const handleH2h = () => {
+        setShowComments(false)
+        // setShowLineUp(false)
+        setShowConsensus(false)
+        setShowOdds(false)
+        setShowH2h(!showH2h)
     }
 
     return (
@@ -75,6 +88,7 @@ const CardMatch = ({ match }) => {
                     // handleLineUp={handleLineUp}
                     handleConsensus={handleConsensus}
                     handleOdds={handleOdds}
+                    handleH2h={handleH2h}
                 />
                 {showOdds ? <CardOdds match={match} /> : null}
 
@@ -85,6 +99,8 @@ const CardMatch = ({ match }) => {
                 {showConsensus ? <CardConsensus match={match} /> : null}
 
                 {showComments ? <CardFooter match={match} /> : null}
+
+                {showH2h ? <CardVersus match={match} /> : null}
             </div>
         </>
     )
