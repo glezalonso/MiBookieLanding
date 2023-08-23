@@ -5,7 +5,7 @@ import { avatars } from '../../../icons/avatars'
 
 const ChangePicture = ({ user, show, handleClose }) => {
     const addAvatar = useAddAvatar()
-    const [avatar, setAvatar] = useState()
+    const [avatar, setAvatar] = useState(user?.avatar)
 
     const handleAdd = (id, avatar) => {
         const sure = confirm('Esta seguro que quiere colocar este avatar?')
@@ -46,7 +46,6 @@ const ChangePicture = ({ user, show, handleClose }) => {
                         size="sm"
                         onChange={(e) => setAvatar(e.target.value)}
                     >
-                        <option>Selecciona un avatar</option>
                         {avatars?.map((avatar) => (
                             <option key={avatar.id} value={avatar.url}>
                                 {avatar.name}
