@@ -8,7 +8,7 @@ const CardSectionAway = ({ match }) => {
 
     return (
         <>
-            <div className="flex items-center hover:scale-105 hover:ml-3">
+            <div className="flex items-center">
                 <div>
                     <img
                         src={match?.away?.poster || match?.sport?.poster}

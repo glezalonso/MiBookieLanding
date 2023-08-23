@@ -21,7 +21,7 @@ const PlayerDetails = () => {
     if (isError) return toast.error('Hubo un error al cargar los jugadores!')
     return (
         <>
-            <main className="container p-1 mx-auto lg:w-3/5 ">
+            <main className="container p-1  min-h-screen mx-auto lg:w-3/5 ">
                 <div className="mx-auto lg:w-3/4">
                     <CardPlayer player={player} setKey={setKey} />
 
