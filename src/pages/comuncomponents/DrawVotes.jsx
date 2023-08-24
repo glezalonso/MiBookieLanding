@@ -13,7 +13,7 @@ const DrawVotes = ({ match }) => {
         <>
             <p className="my-1">
                 {match?.votes?.length > 0 ? (
-                    <span>
+                    <span className="font-bold">
                         ({votesdraw?.length})
                         {` ${Math.round((votesdraw?.length * 100) / total)} %`}
                     </span>

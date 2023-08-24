@@ -13,7 +13,7 @@ const LocalVotes = ({ match }) => {
         <>
             <p className="my-1">
                 {match?.votes?.length > 0 ? (
-                    <span>
+                    <span className="font-bold">
                         ({voteslocal?.length})
                         {` ${Math.round((voteslocal?.length * 100) / total)} %`}
                     </span>

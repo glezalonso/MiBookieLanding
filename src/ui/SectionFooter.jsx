@@ -6,9 +6,9 @@ const SectionFooter = () => {
         <>
             <Footer
                 container
-                className="flex mx-auto bg-transparent justify-center my-3 p-2"
+                className="flex mx-auto bg-transparent justify-center mt-3 p-2"
             >
-                <Footer.Copyright by="Mi Bookie™" year={2023} />
+                <Footer.Copyright by="www.mibookie.app" year={2023} />
             </Footer>
         </>
     )
