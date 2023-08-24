@@ -11,7 +11,7 @@ const CardStandingLocal = ({ match }) => {
             {standingAway?.map((team) => (
                 <div
                     key={team?.team}
-                    className="text-gray-400 text-xs font-semibold"
+                    className="text-gray-500 text-xs font-semibold"
                 >
                     <span>{team?.wins}-</span>
                     {match?.sport?._id === sport.ID_SOCCER ||

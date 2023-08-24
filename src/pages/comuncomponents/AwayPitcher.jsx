@@ -10,7 +10,7 @@ const AwayPitcher = ({ match }) => {
                     away?.away?.map((player) =>
                         player?.playerId?.position === postion ? (
                             <span
-                                className="text-gray-400 text-xs font-semibold"
+                                className="text-gray-400 text-xs"
                                 key={player?.playerId?._id}
                             >
                                 (L) {player?.playerId?.fullName}
