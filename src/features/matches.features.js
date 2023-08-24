@@ -103,7 +103,7 @@ export const useGetMatchesToday = (date, sport) => {
 
 export const useGetMatchesTodaySport = (sport, date) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matchestoday', sport],
+        queryKey: ['matchestoday', sport, date],
         queryFn: () => getMatchesTodaySport(sport, date),
     })
     return { data, isLoading, isError }
@@ -111,14 +111,14 @@ export const useGetMatchesTodaySport = (sport, date) => {
 
 export const useGetMatchesByTeam = (team, limit, status) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', limit, status],
+        queryKey: ['matches', team, limit, status],
         queryFn: () => getMatchesByTeam(team, limit, status),
     })
     return { data, isLoading, isError }
 }
 export const useGetMatchesOpenByLeague = (league, limit) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', limit],
+        queryKey: ['matches', league, limit],
         queryFn: () => getMatchesOpenByLeague(league, limit),
     })
     return { data, isLoading, isError }
@@ -126,7 +126,7 @@ export const useGetMatchesOpenByLeague = (league, limit) => {
 
 export const useGetMatchesClosedByLeague = (league, limit) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', limit],
+        queryKey: ['matches', league, limit],
         queryFn: () => getMatchesClosedByLeague(league, limit),
     })
     return { data, isLoading, isError }
@@ -171,7 +171,7 @@ export const useAddPickEm = () => {
 }
 export const useGetPicksOpen = (id, limit) => {
     const { data, isLoading, isError, isFetching } = useQuery({
-        queryKey: ['query', limit],
+        queryKey: ['query', id, limit],
         queryFn: () => getPicksOpen(id, limit),
     })
     return { data, isLoading, isError, isFetching }
@@ -179,7 +179,7 @@ export const useGetPicksOpen = (id, limit) => {
 
 export const useGetPicksClosed = (id, limit) => {
     const { data, isLoading, isError, isFetching } = useQuery({
-        queryKey: ['query', limit],
+        queryKey: ['query', id, limit],
         queryFn: () => getPicksClosed(id, limit),
     })
     return { data, isLoading, isError, isFetching }
