@@ -33,17 +33,16 @@ const CardNew = ({ content }) => {
                                 <p className="text-gray-600">
                                     {seeMore
                                         ? content?.content
-                                        : `${content?.content?.slice(
-                                            0,
-                                            150
-                                        )}.......`}
+                                        : content?.content?.slice(0, 150)}
 
-                                    <Link
-                                        className=" text-blue-500 mx-1 : hover:underline"
-                                        onClick={() => setSeeMore(!seeMore)}
-                                    >
-                                        {seeMore ? `Ver menos` : `Ver más`}
-                                    </Link>
+                                    {content?.content?.length > 150 ? (
+                                        <Link
+                                            className=" text-blue-500 mx-1 : hover:underline"
+                                            onClick={() => setSeeMore(!seeMore)}
+                                        >
+                                            {seeMore ? ` Ver menos` : `Ver más`}
+                                        </Link>
+                                    ) : null}
                                 </p>
                                 <div className="flex mt-2.5 justify-end text-gray-600">
                                     <Clock className="my-1 mx-1" />
