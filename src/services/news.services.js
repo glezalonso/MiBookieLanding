@@ -1,7 +1,7 @@
 import axios from '../libs/axios'
 
-export const getNews = async () => {
-    const { data } = await axios.get('/api/news/')
+export const getNews = async (page) => {
+    const { data } = await axios.get(`/api/news/page/${page}`)
     return data
 }
 

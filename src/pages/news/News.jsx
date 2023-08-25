@@ -1,52 +1,48 @@
-import React, { useState } from 'react'
-import { Alert, Select } from 'flowbite-react'
+import React, { useEffect } from 'react'
+import { Alert } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import { useGetNews } from '../../features/news.features'
-import { useGetSports } from '../../features/sports.features'
 import CardNew from './components/CardNew'
 import Loading from '../../ui/Loading'
+import { useInView } from 'react-intersection-observer'
 
 const News = () => {
-    const { data: news, isLoading, isError } = useGetNews()
-    const { data: sports } = useGetSports()
-    const [filter, setFilter] = useState('')
+    const { ref, inView } = useInView()
+    const {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    } = useGetNews()
+
+    const news = data?.pages?.flatMap((pages) => pages.data) ?? []
+
+    useEffect(() => {
+        if (inView && hasNextPage) {
+            fetchNextPage()
+        }
+    }, [inView])
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar las notcias!')
-
-    const filterNews = news?.filter((content) => {
-        if (!filter) return content
-        return content?.league?.sport
-            ?.toLowerCase()
-            .includes(filter.toLowerCase())
-    })
 
     return (
         <>
             <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
                 <div className="flex mt-3 justify-between mx-auto ">
                     <h5 className="my-2 ml-2">Noticias</h5>
-                    <Select
-                        className="rounded w-50"
-                        onChange={(e) => setFilter(e.target.value)}
-                    >
-                        <option value="6">Todos</option>
-
-                        {sports?.map((sport) => (
-                            <option key={sport?._id} value={sport?._id}>
-                                {sport?.sport}
-                            </option>
-                        ))}
-                    </Select>
                 </div>
-                {filterNews?.length > 0 ? (
-                    filterNews?.map((content) => (
+                {news?.length > 0 ? (
+                    news?.map((content) => (
                         <CardNew key={content?._id} content={content} />
                     ))
                 ) : (
                     <Alert color="warning">No hay noticias para mostrar!</Alert>
                 )}
             </main>
+            <div ref={ref}>{isFetchingNextPage ? <Loading /> : null}</div>
         </>
     )
 }
