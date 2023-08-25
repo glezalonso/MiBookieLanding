@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import { useLogin } from '../../../features/users.features'
 import { Link } from 'react-router-dom'
 import { validateLogin } from '../../../helpers/validations'
+import logo from '../../../assets/mibookie.png'
 
 const Login = ({ show, handleClose, handleRegister }) => {
     const login = useLogin()
@@ -25,13 +26,13 @@ const Login = ({ show, handleClose, handleRegister }) => {
     return (
         <>
             <Modal show={show} popup dismissible onClose={() => handleClose()}>
-                <Modal.Header />
-                <Modal.Body>
-                    <div className="space-y-6">
-                        <h3 className="text-xl font-medium text-gray-900">
-                            Iniciar Sesión
-                        </h3>
+                <Modal.Header className="w-full flex ">
+                    <div className="flex w-full items-center mx-4 gap-2 ">
+                        <img src={logo} alt="mibookie" className="w-20 h-20 " />
+                        <span> Iniciar Sesión</span>
                     </div>
+                </Modal.Header>
+                <Modal.Body>
                     <form onSubmit={formik.handleSubmit}>
                         <div>
                             <div className="mb-2 block">
@@ -69,17 +70,23 @@ const Login = ({ show, handleClose, handleRegister }) => {
                         </div>
                     </form>
 
-                    <div className="flex justify-between mt-3   gap-1 text-sm font-medium">
+                    <div className="flex justify-between mt-3 gap-1 text-sm font-medium">
                         <div className=" justify-start">
-                            <Link to={'../generate'}>
+                            <Link
+                                to={'../generate'}
+                                className="text-cyan-950 underline   hover:text-cyan-700"
+                            >
                                 Olvidaste tu contraseña?
                             </Link>
                         </div>
 
-                        <div className="">
-                            No eres miembro?{' '}
-                            <Link onClick={() => handleRegister()}>
-                                Crea un cuenta{' '}
+                        <div>
+                            No eres miembro?
+                            <Link
+                                onClick={() => handleRegister()}
+                                className="text-cyan-950 underline mx-1  hover:text-cyan-700"
+                            >
+                                Crea un cuenta
                             </Link>
                         </div>
                     </div>

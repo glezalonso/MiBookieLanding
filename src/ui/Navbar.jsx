@@ -39,7 +39,7 @@ function NavBar() {
         <>
             <Navbar
                 fluid
-                className="bg-gradient-to-t from-gray-900 via-gray-950 to-zinc-950 p-2 "
+                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black p-2 "
             >
                 <div className="w-full flex flex-wrap justify-between items-center  lg:w-3/4 lg:mx-auto lg:gap-6 ">
                     <div className="flex items-center">
@@ -57,7 +57,7 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly items-center  mt-3 lg:mt-2  text-gray-400 lg:w-max lg:mx-auto lg:gap-4  ">
+                    <div className="order-1 w-full flex mx-auto gap-1 justify-evenly mb-1 items-center  mt-3 lg:mt-2  text-gray-400 lg:w-max lg:mx-auto lg:gap-4  ">
                         <Link
                             to={'/'}
                             className="text-xs sm:flex sm:text-sm sm:gap-1 hover:text-white hover:scale-105 "

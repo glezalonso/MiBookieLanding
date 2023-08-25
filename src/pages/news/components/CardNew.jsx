@@ -11,26 +11,21 @@ const CardNew = ({ content }) => {
                 <Table hoverable className="table-auto mt-1 text-sm">
                     <Table.Body>
                         <Table.Row>
-                            <Table.Cell className="flex items-center text-center">
-                                <div className="mt-3 ">
-                                    <div className="w-14 h-14">
-                                        <img
-                                            className=""
-                                            src={content?.league?.poster}
-                                        />
-                                    </div>
-                                    <div className="mt-1">
-                                        <p className=" break-all w-14 text-gray-600 font-bold  ">
-                                            {content?.league?.league}
-                                        </p>
-                                    </div>
-                                </div>
+                            <Table.Cell className="items-center text-center">
+                                <img
+                                    src={content?.league?.poster}
+                                    className="w-14 h-w-14"
+                                />
+
+                                <p className=" w-14 mt-2 text-gray-600 font-bold text-xs">
+                                    {content?.league?.league}
+                                </p>
                             </Table.Cell>
                             <Table.Cell>
                                 <h5 className="font-bold text-gray-800 ">
                                     {content?.title}
                                 </h5>
-                                <p className="text-gray-600">
+                                <p className="text-gray-600 break-words">
                                     {seeMore
                                         ? content?.content
                                         : content?.content?.slice(0, 150)}

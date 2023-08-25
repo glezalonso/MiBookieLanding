@@ -32,18 +32,18 @@ const SectionTodayMatches = ({ sport, date }) => {
     return (
         <>
             <section className="min-h-fit">
-                <div className="w-full flex  items-center my-4  ">
-                    <div className=" mx-2 flex gap-1">
+                <div className="w-full flex  items-center my-3">
+                    <div className=" mx-2 flex gap-0.5">
                         <img
                             src={sport?.poster}
                             alt="partidos"
-                            className=" block w-7 h-7 mb- ml-1"
+                            className="w-7 h-7 ml-1"
                         />
-                        <span className="block mx-1 mt-1 ">Partidos</span>
+                        <span className="mt-1">Partidos</span>
                     </div>
                     <div>
                         <Badge
-                            size={'sm'}
+                            size={'xs'}
                             className=" mt-1.5 bg-zinc-900 text-gray-200 p-1"
                         >
                             {data?.pages[0]?.total}
