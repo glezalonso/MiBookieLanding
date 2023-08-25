@@ -36,6 +36,7 @@ const CardConsensus = ({ match }) => {
         addVote.mutate({ body: { option, match, userId: id } })
     }
     const existVote = match?.votes?.find((vote) => vote?.username === id)
+
     return (
         <>
             <div className="rounded text-white p-1 mt-1 border-t-2">
@@ -48,7 +49,9 @@ const CardConsensus = ({ match }) => {
                             <Table.Cell className="p-1 ">
                                 <LocalVotes match={match} />
                             </Table.Cell>
-                            {match?.date > fullDate && !existVote ? (
+                            {match?.date > fullDate &&
+                                !existVote &&
+                                match?.status ? (
                                 <Table.Cell className="p-1 ">
                                     <LocalVote
                                         match={match}
@@ -66,7 +69,9 @@ const CardConsensus = ({ match }) => {
                                 <Table.Cell className="p-1 ">
                                     <DrawVotes match={match} />
                                 </Table.Cell>
-                                {match?.date > fullDate && !existVote ? (
+                                {match?.date > fullDate &&
+                                    !existVote &&
+                                    match?.status ? (
                                     <Table.Cell className="p-1 ">
                                         <DrawVote
                                             match={match}
@@ -83,7 +88,9 @@ const CardConsensus = ({ match }) => {
                             <Table.Cell className="p-1 m">
                                 <AwayVotes match={match} />
                             </Table.Cell>
-                            {match?.date > fullDate && !existVote ? (
+                            {match?.date > fullDate &&
+                                !existVote &&
+                                match?.status ? (
                                 <Table.Cell className="p-1 m">
                                     <AwayVote
                                         match={match}
