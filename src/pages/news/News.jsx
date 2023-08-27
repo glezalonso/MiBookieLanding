@@ -30,7 +30,7 @@ const News = () => {
 
     return (
         <>
-            <main className="container mx-auto min-h-screen p-2 lg:w-3/5">
+            <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
                 {news?.length > 0 ? (
                     news?.map((content) => (
                         <CardNew key={content?._id} content={content} />

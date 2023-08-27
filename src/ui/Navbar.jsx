@@ -45,7 +45,7 @@ function NavBar() {
                     <div className="flex items-center">
                         <Link
                             to={'/'}
-                            className="flex items-center no-underline text-white hover:scale-105 hover:mb-1  "
+                            className="flex items-center no-underline text-white hover:scale-105 "
                         >
                             <img
                                 alt="mibookie"

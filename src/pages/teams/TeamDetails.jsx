@@ -25,7 +25,7 @@ const TeamDetails = () => {
 
     return (
         <>
-            <main className="container p-1 mx-auto lg:w-3/5 ">
+            <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
                 <div className="mx-auto lg:w-3/4">
                     <CardTeam team={team} setKey={setKey} />
 

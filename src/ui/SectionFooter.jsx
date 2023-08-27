@@ -8,7 +8,7 @@ const SectionFooter = () => {
         <>
             <Footer
                 container
-                className=" w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black rounded-none mt-3 p-2"
+                className="w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black rounded-none mt-3 p-2"
             >
                 <div className="w-full flex justify-between items-center lg:w-3/4 mx-auto">
                     <div className="flex items-center ml-1">
