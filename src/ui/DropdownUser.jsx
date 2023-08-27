@@ -20,9 +20,9 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                     />
                 }
             >
-                <Dropdown.Item>
+                <Dropdown.Item className="">
                     <Link
-                        className="text-sm text-gray-600 hover:underline hover:text-black"
+                        className="text-sm text-gray-600 hover:underline hover:text-cyan-500"
                         to={`../profile/${id}`}
                     >
                         {username}

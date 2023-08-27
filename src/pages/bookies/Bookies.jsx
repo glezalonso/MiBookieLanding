@@ -17,11 +17,11 @@ const Bookies = () => {
     return (
         <>
             <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
-                <div className="flex mt-3 mx-2 ">
+                <div className="flex my-2 mx-2 items-center gap-0.5">
                     <h5 className="mt-1">Bookies</h5>
                     <Badge
-                        size={'sm'}
-                        className="mx-2 mb-2 bg-zinc-900 text-gray-200"
+                        size={'xs'}
+                        className=" mt-1.5 bg-zinc-900 text-gray-200 "
                     >
                         {users?.length}
                     </Badge>

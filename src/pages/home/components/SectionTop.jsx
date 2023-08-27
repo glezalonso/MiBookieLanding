@@ -27,8 +27,8 @@ const SectionTop = ({ show, handleClose }) => {
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900   p-2 flex items-center">
-                    <div className="flex justify-start items-center">
+                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2 flex items-center">
+                    <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img
                                 src={medalwhite}

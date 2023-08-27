@@ -30,10 +30,7 @@ const News = () => {
 
     return (
         <>
-            <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
-                <div className="flex mt-3 justify-between mx-auto ">
-                    <h5 className="my-2 ml-2">Noticias</h5>
-                </div>
+            <main className="container mx-auto min-h-screen p-2 lg:w-3/5">
                 {news?.length > 0 ? (
                     news?.map((content) => (
                         <CardNew key={content?._id} content={content} />
