@@ -21,6 +21,8 @@ export const getPicks = async (username) => {
     return data
 }
 
+export const sendMessage = (values) => axios.post('/api/contact', values)
+
 export const getBookie = async (id) => {
     const { data } = await axios.get(`/api/bookies/${id}`)
     return data

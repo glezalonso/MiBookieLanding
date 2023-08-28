@@ -40,7 +40,7 @@ const Login = ({ show, handleClose, handleRegister }) => {
                             </div>
                             <TextInput
                                 {...formik.getFieldProps('username')}
-                                type="username"
+                                type="text"
                                 name="username"
                                 id="username"
                                 placeholder="Ingresa tu usuario"

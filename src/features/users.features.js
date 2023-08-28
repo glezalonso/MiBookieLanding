@@ -12,6 +12,7 @@ import {
     getBookies,
     addAvatar,
     getTopBookies,
+    sendMessage,
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -49,6 +50,15 @@ export const useRegister = () => {
         onError: (data) => toast.error(`${data.response.data.error}`),
     })
     return mutationRegister
+}
+
+export const useSendMessage = () => {
+    const mutationSendMessage = useMutation({
+        mutationFn: sendMessage,
+        onSuccess: () => toast.success('Se ha enviado el comentario'),
+        onError: () => toast.error('No se pudo enviar el mensaje'),
+    })
+    return mutationSendMessage
 }
 
 export const useGenerateCode = () => {

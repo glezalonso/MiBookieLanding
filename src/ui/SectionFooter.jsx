@@ -28,10 +28,16 @@ const SectionFooter = () => {
                         />
                     </div>
                     <div className="flex justify-center gap-5 text-gray-500 text-sm mr-3">
-                        <Link className="hover:text-gray-300 hover:underline">
+                        <Link
+                            to={'../about'}
+                            className="hover:text-gray-300 hover:underline"
+                        >
                             Condiciones de uso
                         </Link>
-                        <Link className="hover:text-gray-300 hover:underline">
+                        <Link
+                            to={'../contact'}
+                            className="hover:text-gray-300 hover:underline"
+                        >
                             Contácto
                         </Link>
                     </div>

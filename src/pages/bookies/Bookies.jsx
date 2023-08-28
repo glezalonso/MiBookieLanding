@@ -1,9 +1,9 @@
 import React from 'react'
-import { Badge } from 'flowbite-react'
 import { useGetBookies } from '../../features/users.features'
+import { useAuthStore } from '../../store/authorization'
+import { Badge } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import SectionBookies from './components/SectionBookies'
-import { useAuthStore } from '../../store/authorization'
 import Loading from '../../ui/Loading'
 
 const Bookies = () => {

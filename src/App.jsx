@@ -23,6 +23,8 @@ import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
 import NavBar from './ui/Navbar'
 import SectionFoter from './ui/SectionFooter'
+import About from './pages/about/About'
+import Contact from './pages/contact/Contact'
 
 const App = () => {
     const token = useAuthStore((state) => state.auth)
@@ -44,7 +46,8 @@ const App = () => {
                         <Route path="/bookies" element={<Bookies />} />
                     </Route>
                     <Route path="/news" element={<News />} />
-
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
                     <Route path="/generate" element={<GenerateCode />} />
                     <Route path="/verify" element={<VerifyCode />} />
                     <Route path="/reset" element={<ResetPassword />} />
