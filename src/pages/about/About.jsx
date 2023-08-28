@@ -4,8 +4,8 @@ const About = () => {
     return (
         <>
             <main className="container mx-auto min-h-screen p-1 lg:w-4/6">
-                <article className="max-w-full bg-white my-3 p-4 rounded-lg hover:shadow-xl ">
-                    <h1 className="text-gray-950 font-bold my-2 font-sans text-lg">
+                <article className="max-w-full bg-white my-2 p-4 rounded-lg hover:shadow-xl text-sm ">
+                    <h1 className="text-gray-950 font-bold my-1 font-sans text-lg">
                         Condiciones de uso.
                     </h1>
                     <p className="text-gray-600 break-words">
