@@ -50,7 +50,8 @@ const TeamDetails = () => {
                             />
                             Próximos
                         </Button>
-                        {team?.sport?._id !== sport.ID_SOCCER ? (
+                        {team?.sport?._id !== sport.ID_SOCCER &&
+                            team?.sport?._id !== sport.ID_TENNIS ? (
                             <Button
                                 size="sm"
                                 pill
@@ -67,21 +68,22 @@ const TeamDetails = () => {
                             </Button>
                         ) : null}
 
-                        <Button
-                            size="sm"
-                            pill
-                            color="gray"
-                            className="p-0 text-gray-600"
-                            onClick={() => setKey('plantilla')}
-                        >
-                            <img
-                                src={strategy}
-                                alt="strategy"
-                                className="h-4 w-4 mr-0.5 mt-0.5"
-                            />
-                            Plantilla
-                        </Button>
-
+                        {team?.sport?._id !== sport.ID_TENNIS ? (
+                            <Button
+                                size="sm"
+                                pill
+                                color="gray"
+                                className="p-0 text-gray-600"
+                                onClick={() => setKey('plantilla')}
+                            >
+                                <img
+                                    src={strategy}
+                                    alt="strategy"
+                                    className="h-4 w-4 mr-0.5 mt-0.5"
+                                />
+                                Plantilla
+                            </Button>
+                        ) : null}
                         <Button
                             size="sm"
                             pill
