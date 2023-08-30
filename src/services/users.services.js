@@ -42,8 +42,8 @@ export const removeFollow = ({ id, body }) =>
 export const addAvatar = ({ id, body }) =>
     axios.put(`/api/bookies/avatar/${id}`, body)
 
-export const getTopBookies = async (limit) => {
-    const { data } = await axios.get(`/api/bookies/top/${limit}`)
+export const getTopBookies = async () => {
+    const { data } = await axios.put('/api/bookies/top/')
     return data
 }
 

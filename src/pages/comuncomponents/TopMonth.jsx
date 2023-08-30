@@ -17,16 +17,6 @@ const TopMonth = () => {
             </div>
         )
 
-    const topUsers = users
-        ?.sort(
-            (a, b) =>
-                (b?.matchesSuccess?.length * 100) /
-                (b?.matchesSuccess?.length + b?.matchesFailure?.length) -
-                (a?.matchesSuccess?.length * 100) /
-                (a?.matchesSuccess?.length + a?.matchesFailure?.length)
-        )
-        .slice(0, 10)
-
     return (
         <>
             <Table hoverable className="table-auto mt-1 text-sm">
@@ -49,7 +39,7 @@ const TopMonth = () => {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body>
-                    {topUsers?.map((users) => (
+                    {users?.map((users) => (
                         <Table.Row
                             className="hover:cursor-pointer"
                             style={

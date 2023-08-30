@@ -6,9 +6,9 @@ import { PersonCircle } from 'react-bootstrap-icons'
 
 const TopGlobal = () => {
     let i = 0
-    const limit = 0
+
     const navigate = useNavigate()
-    const { data: users, isLoading } = useGetTopBookies(limit)
+    const { data: users, isLoading } = useGetTopBookies()
 
     if (isLoading)
         return (
@@ -17,12 +17,6 @@ const TopGlobal = () => {
             </div>
         )
 
-    const topUsers = users
-        ?.sort(
-            (a, b) =>
-                (b?.success * 100) / b?.total - (a?.success * 100) / a?.total
-        )
-        .slice(0, 10)
 
     return (
         <>
@@ -46,7 +40,7 @@ const TopGlobal = () => {
                     </Table.HeadCell>
                 </Table.Head>
                 <Table.Body>
-                    {topUsers?.map((users) => (
+                    {users?.map((users) => (
                         <Table.Row
                             className="hover:cursor-pointer"
                             style={

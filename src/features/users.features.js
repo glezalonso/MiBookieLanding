@@ -177,10 +177,10 @@ export const useAddAvatar = () => {
     return mutationAdd
 }
 
-export const useGetTopBookies = (limit) => {
+export const useGetTopBookies = () => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['top', limit],
-        queryFn: () => getTopBookies(limit),
+        queryKey: ['top'],
+        queryFn:getTopBookies,
     })
 
     return { data, isLoading, isError }
