@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useGetTopMonth } from '../../features/users.features'
-import { Table, Spinner } from 'flowbite-react'
+import { Table, Spinner, Alert } from 'flowbite-react'
 import { PersonCircle } from 'react-bootstrap-icons'
 
 const TopMonth = () => {
@@ -19,7 +19,7 @@ const TopMonth = () => {
 
     return (
         <>
-            <Table hoverable className="table-auto mt-1 text-sm">
+            {users?.length > 0 ? <Table hoverable className="table-auto mt-1 text-sm">
                 <Table.Head>
                     <Table.HeadCell className="px-1 text-center">
                         #
@@ -79,7 +79,8 @@ const TopMonth = () => {
                         </Table.Row>
                     ))}
                 </Table.Body>
-            </Table>
+            </Table> : <Alert color={'warning'}>No hay top aún</Alert>}
+
         </>
     )
 }
