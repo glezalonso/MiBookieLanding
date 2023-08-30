@@ -32,7 +32,7 @@ const SectionTodayMatches = ({ sport, date }) => {
     return (
         <>
             <section className="min-h-fit">
-                <div className="w-full flex mx-1 my-3 items-center gap-1">
+                <div className="w-full flex mx-2 my-4 items-center gap-1">
                     <img
                         src={sport?.poster}
                         alt="partidos"
