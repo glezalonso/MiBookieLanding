@@ -54,7 +54,10 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0 sm:px-4 "
+                                className={`${key === 'ayer'
+                                    ? 'bg-gray-200 border-slate-300'
+                                    : 'bg-white'
+                                    } p-0 sm:px-4 `}
                                 onClick={() => setKey('ayer')}
                             >
                                 <img
@@ -68,7 +71,10 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0 sm:px-4 "
+                                className={`${key === 'hoy'
+                                    ? 'bg-gray-200 border-slate-300'
+                                    : 'bg-white'
+                                    } p-0 sm:px-4 `}
                                 onClick={() => setKey('hoy')}
                             >
                                 <img
@@ -82,7 +88,10 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="gray"
-                                className="p-0 sm:px-4 "
+                                className={`${key === 'mañana'
+                                    ? 'bg-gray-200 border-slate-300'
+                                    : 'bg-white'
+                                    } p-0 sm:px-4 `}
                                 onClick={() => setKey('mañana')}
                             >
                                 <img
@@ -98,7 +107,7 @@ const Home = () => {
                                         size="sm"
                                         pill
                                         color="gray"
-                                        className="p-0  sm:px-4 "
+                                        className="p-0 sm:px-4 "
                                         onClick={() => handleShowTop()}
                                     >
                                         <img

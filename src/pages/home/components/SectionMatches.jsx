@@ -34,7 +34,7 @@ const SectionMatches = ({ date }) => {
     return (
         <>
             <section className="min-h-fit">
-                <div className="w-full flex mx-2 my-4 items-center gap-1">
+                <div className="w-full flex mx-2 mt-4 mb-3 items-center gap-1">
                     <img src={matchIcon} alt="partidos" className="w-7 h-7 " />
                     <span>Top partidos</span>
                     <Badge size={'xs'} className="bg-zinc-900 text-gray-200 ">

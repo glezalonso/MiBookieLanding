@@ -1,22 +1,13 @@
-import React from 'react'
-import { Modal, Table } from 'flowbite-react'
-import { useNavigate } from 'react-router-dom'
-import { useGetTopBookies } from '../../../features/users.features'
-import { PersonCircle } from 'react-bootstrap-icons'
+import React, { useState } from 'react'
+import { Modal, Button } from 'flowbite-react'
 import medalwhite from '../../../icons/medalwhite.svg'
+import TopMonth from '../../comuncomponents/TopMonth'
+import TopGlobal from '../../comuncomponents/TopGlobal'
+import global from '../../../icons/global.svg'
+import calendarToday from '../../../icons/calendarToday.svg'
 
 const SectionTop = ({ show, handleClose }) => {
-    let i = 0
-    const limit = 0
-    const { data: users } = useGetTopBookies(limit)
-    const navigate = useNavigate()
-
-    const topUsers = users
-        ?.sort(
-            (a, b) =>
-                (b?.success * 100) / b?.total - (a?.success * 100) / a?.total
-        )
-        .slice(0, 10)
+    const [key, setKey] = useState('month')
 
     return (
         <>
@@ -44,67 +35,47 @@ const SectionTop = ({ show, handleClose }) => {
                     </div>
                 </Modal.Header>
                 <Modal.Body className="px-1">
-                    <Table hoverable className="table-auto mt-3 text-sm">
-                        <Table.Head>
-                            <Table.HeadCell className="px-1 text-center">
-                                #
-                            </Table.HeadCell>
-                            <Table.HeadCell className="px-1 text-center">
-                                Bookie
-                            </Table.HeadCell>
-                            <Table.HeadCell className="px-1 text-center">
-                                Juegos
-                            </Table.HeadCell>
-                            <Table.HeadCell className="px-1 text-center">
-                                Aciertos
-                            </Table.HeadCell>
-
-                            <Table.HeadCell className="px-1 text-center">
-                                Efect.
-                            </Table.HeadCell>
-                        </Table.Head>
-                        <Table.Body>
-                            {topUsers?.map((users) => (
-                                <Table.Row
-                                    className="hover:cursor-pointer"
-                                    style={
-                                        i === 2
-                                            ? { borderBottom: '1px solid grey' }
-                                            : null
-                                    }
-                                    onClick={() =>
-                                        navigate(`../profile/${users?._id}`)
-                                    }
-                                    key={users?._id}
-                                >
-                                    <Table.Cell className="p-1 text-center ">
-                                        {++i}
-                                    </Table.Cell>
-                                    <Table.Cell className="p-1 flex text-center ">
-                                        <PersonCircle
-                                            color="dark"
-                                            className="mx-1 mt-1"
-                                        />
-                                        {users?.username}
-                                    </Table.Cell>
-                                    <Table.Cell className="p-1 text-center ">
-                                        {users?.total}
-                                    </Table.Cell>
-                                    <Table.Cell className="p-1 text-center ">
-                                        {users?.success}
-                                    </Table.Cell>
-
-                                    <Table.Cell className="p-1 text-center text-gray-500 font-bold ">
-                                        {Math.round(
-                                            (users?.success * 100) /
-                                            users?.total
-                                        )}
-                                        %
-                                    </Table.Cell>
-                                </Table.Row>
-                            ))}
-                        </Table.Body>
-                    </Table>
+                    <div
+                        className="flex gap-0.5 justify-center  mt-2.5  mx-auto sm:gap-2 "
+                        role="group"
+                    >
+                        <Button
+                            size="sm"
+                            pill
+                            color="gray"
+                            className={`${key === 'month'
+                                ? 'bg-gray-200 border-slate-300'
+                                : 'bg-white'
+                                } p-0 sm:px-4 `}
+                            onClick={() => setKey('month')}
+                        >
+                            <img
+                                src={calendarToday}
+                                alt="yesterday"
+                                className="h-4 w-4 mr-0.5 mt-0.5"
+                            />
+                            Mensual
+                        </Button>
+                        <Button
+                            size="sm"
+                            pill
+                            color="gray"
+                            className={`${key === 'global'
+                                ? 'bg-gray-200 border-slate-300'
+                                : 'bg-white'
+                                } p-0 sm:px-4 `}
+                            onClick={() => setKey('global')}
+                        >
+                            <img
+                                src={global}
+                                alt="today"
+                                className="h-4 w-4 mr-0.5 mt-0.5"
+                            />
+                            Global
+                        </Button>
+                    </div>
+                    {key === 'month' ? <TopMonth /> : null}
+                    {key === 'global' ? <TopGlobal /> : null}
                 </Modal.Body>
             </Modal>
         </>

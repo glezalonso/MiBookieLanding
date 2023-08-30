@@ -13,6 +13,7 @@ import {
     addAvatar,
     getTopBookies,
     sendMessage,
+    getTopMonth,
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -182,5 +183,13 @@ export const useGetTopBookies = (limit) => {
         queryFn: () => getTopBookies(limit),
     })
 
+    return { data, isLoading, isError }
+}
+
+export const useGetTopMonth = (date) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['topmonth', date],
+        queryFn: () => getTopMonth(date),
+    })
     return { data, isLoading, isError }
 }

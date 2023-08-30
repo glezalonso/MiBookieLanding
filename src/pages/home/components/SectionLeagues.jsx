@@ -20,7 +20,7 @@ const SectionLeagues = () => {
         <>
             <section>
                 <h5 className="mx-1">Ligas</h5>
-                <div className="mt-2 mx-auto p-1">
+                <div className="my-1 mx-auto p-1">
                     <TextInput
                         sizing={'sm'}
                         name="league"
@@ -29,33 +29,35 @@ const SectionLeagues = () => {
                     />
                 </div>
                 {leaguesByFilter?.length > 0 ? (
-                    <Table
-                        hoverable
-                        className="table-auto bg-transparent text-sm"
-                    >
-                        <Table.Body>
-                            {leaguesByFilter?.map((league) => (
-                                <Table.Row
-                                    className="hover:cursor-pointer"
-                                    key={league?._id}
-                                    onClick={() =>
-                                        navigate(`../leagues/${league?._id}`)
-                                    }
-                                >
-                                    <Table.Cell className=" flex p-1">
-                                        <img
-                                            className="h-4 w-4"
-                                            src={league?.poster}
-                                            alt={league?.league}
-                                        />
-                                        <span className="mx-1">
-                                            {league?.league}
-                                        </span>
-                                    </Table.Cell>
-                                </Table.Row>
-                            ))}
-                        </Table.Body>
-                    </Table>
+                    <div className='bg-white p-1 rounded'>
+                        <Table
+                            hoverable
+                            className="table-auto text-sm"
+                        >
+                            <Table.Body>
+                                {leaguesByFilter?.map((league) => (
+                                    <Table.Row
+                                        className="hover:cursor-pointer"
+                                        key={league?._id}
+                                        onClick={() =>
+                                            navigate(`../leagues/${league?._id}`)
+                                        }
+                                    >
+                                        <Table.Cell className=" flex p-1">
+                                            <img
+                                                className="h-4 w-4"
+                                                src={league?.poster}
+                                                alt={league?.league}
+                                            />
+                                            <span className="mx-1">
+                                                {league?.league}
+                                            </span>
+                                        </Table.Cell>
+                                    </Table.Row>
+                                ))}
+                            </Table.Body>
+                        </Table>
+                    </div>
                 ) : (
                     <Alert color="warning">No hay ligas para mostrar!</Alert>
                 )}
