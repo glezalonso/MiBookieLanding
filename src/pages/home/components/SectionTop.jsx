@@ -22,12 +22,12 @@ const SectionTop = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-full mx-auto bg-gray-100 flex-row p-3"
+                className="w-full h-3/4 m-auto bg-transparent flex-row p-3 "
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2 flex items-center">
+                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2  flex items-center">
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img

@@ -1,8 +1,7 @@
 import React from 'react'
 import { useGetHeadtoHead } from '../../features/matches.features'
 import { toast } from 'react-hot-toast'
-import Loading from '../../ui/Loading'
-import { Table, Alert } from 'flowbite-react'
+import { Table, Alert, Spinner } from 'flowbite-react'
 
 const CardVersus = ({ match }) => {
     const {
@@ -11,7 +10,12 @@ const CardVersus = ({ match }) => {
         isError,
     } = useGetHeadtoHead(match?.local?._id, match?.away?._id)
 
-    if (isLoading) return <Loading />
+    if (isLoading)
+        return (
+            <div className="flex justify-center items-center m-3">
+                <Spinner color="warning" />
+            </div>
+        )
     if (isError) return toast.error('Hubo un error al cargar el head to head')
 
     return (

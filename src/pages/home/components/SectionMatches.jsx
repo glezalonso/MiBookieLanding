@@ -34,19 +34,10 @@ const SectionMatches = ({ date }) => {
     return (
         <>
             <section className="min-h-fit">
-                <div className="w-full flex items-center my-3">
-                    <div className=" mx-2 flex items-center gap-0.5">
-                        <img
-                            src={matchIcon}
-                            alt="partidos"
-                            className="w-7 h-7 mx-1"
-                        />
-                        <span className="mt-1">Top partidos</span>
-                    </div>
-                    <Badge
-                        size={'xs'}
-                        className=" mt-1.5 bg-zinc-900 text-gray-200 "
-                    >
+                <div className="w-full flex mx-1 my-3 items-center gap-1">
+                    <img src={matchIcon} alt="partidos" className="w-7 h-7 " />
+                    <span>Top partidos</span>
+                    <Badge size={'xs'} className="bg-zinc-900 text-gray-200 ">
                         {data?.pages[0]?.total}
                     </Badge>
                 </div>
