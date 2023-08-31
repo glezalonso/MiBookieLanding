@@ -6,9 +6,7 @@ import { useGetSport } from '../../features/sports.features'
 
 //  UI sections
 import Loading from '../../ui/Loading'
-import calendarToday from '../../icons/calendarToday.svg'
-import calendarYesterday from '../../icons/calendarYesterday.svg'
-import calendarTomorrow from '../../icons/calendarTomorrow.svg'
+import calendar from '../../icons/calendar.svg'
 import leagues from '../../icons/leagues.svg'
 
 // Section
@@ -41,15 +39,15 @@ const Sports = () => {
                     <Button
                         size="sm"
                         pill
-                        color="gray"
+                        color="light"
                         className={`${key === 'ayer'
-                            ? 'bg-gray-200 border-slate-300'
+                            ? 'bg-gray-800 text-gray-400'
                             : 'bg-white'
                             } p-0 sm:px-4 `}
                         onClick={() => setKey('ayer')}
                     >
                         <img
-                            src={calendarYesterday}
+                            src={calendar}
                             alt="Ayer"
                             className="h-4 w-4 mr-0.5 mt-0.5"
                         />
@@ -58,15 +56,15 @@ const Sports = () => {
                     <Button
                         size="sm"
                         pill
-                        color="gray"
+                        color="light"
                         className={`${key === 'hoy'
-                            ? 'bg-gray-200 border-slate-300'
+                            ? 'bg-gray-800 text-gray-400'
                             : 'bg-white'
                             } p-0 sm:px-4 `}
                         onClick={() => setKey('hoy')}
                     >
                         <img
-                            src={calendarToday}
+                            src={calendar}
                             alt="Hoy"
                             className="h-4 w-4 mr-0.5 mt-0.5"
                         />
@@ -75,15 +73,15 @@ const Sports = () => {
                     <Button
                         size="sm"
                         pill
-                        color="gray"
+                        color="light"
                         className={`${key === 'mañana'
-                            ? 'bg-gray-200 border-slate-300'
+                            ? 'bg-gray-800 text-gray-400'
                             : 'bg-white'
                             } p-0 sm:px-4 `}
                         onClick={() => setKey('mañana')}
                     >
                         <img
-                            src={calendarTomorrow}
+                            src={calendar}
                             alt="Mañana"
                             className="h-4 w-4 mr-0.5 mt-0.5"
                         />
@@ -92,9 +90,9 @@ const Sports = () => {
                     <Button
                         size="sm"
                         pill
-                        color="gray"
+                        color="light"
                         className={`${key === 'ligas'
-                            ? 'bg-gray-200 border-slate-300'
+                            ? 'bg-gray-800 text-gray-400'
                             : 'bg-white'
                             } p-0 sm:px-4 `}
                         onClick={() => setKey('ligas')}

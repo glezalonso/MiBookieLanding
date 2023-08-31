@@ -8,9 +8,8 @@ import BookiesFirends from './components/BookiesFriends'
 import SectionMatches from './components/SectionMatches'
 import SectionLeagues from './components/SectionLeagues'
 import SectionTop from './components/SectionTop'
-import calendarToday from '../../icons/calendarToday.svg'
-import calendarYesterday from '../../icons/calendarYesterday.svg'
-import calendarTomorrow from '../../icons/calendarTomorrow.svg'
+import calendar from '../../icons/calendar.svg'
+
 import medal from '../../icons/medal.svg'
 import bookies from '../../icons/bookies.svg'
 
@@ -53,15 +52,15 @@ const Home = () => {
                             <Button
                                 size="sm"
                                 pill
-                                color="gray"
+                                color="light"
                                 className={`${key === 'ayer'
-                                    ? 'bg-gray-200 border-slate-300'
+                                    ? 'bg-gray-800 text-gray-400'
                                     : 'bg-white'
                                     } p-0 sm:px-4 `}
                                 onClick={() => setKey('ayer')}
                             >
                                 <img
-                                    src={calendarYesterday}
+                                    src={calendar}
                                     alt="yesterday"
                                     className="h-4 w-4 mr-0.5 mt-0.5"
                                 />
@@ -70,15 +69,15 @@ const Home = () => {
                             <Button
                                 size="sm"
                                 pill
-                                color="gray"
+                                color="light"
                                 className={`${key === 'hoy'
-                                    ? 'bg-gray-200 border-slate-300'
+                                    ? 'bg-gray-800 text-gray-400'
                                     : 'bg-white'
                                     } p-0 sm:px-4 `}
                                 onClick={() => setKey('hoy')}
                             >
                                 <img
-                                    src={calendarToday}
+                                    src={calendar}
                                     alt="today"
                                     className="h-4 w-4 mr-0.5 mt-0.5"
                                 />
@@ -87,15 +86,15 @@ const Home = () => {
                             <Button
                                 size="sm"
                                 pill
-                                color="gray"
+                                color="light"
                                 className={`${key === 'mañana'
-                                    ? 'bg-gray-200 border-slate-300'
+                                    ? 'bg-gray-800 text-gray-400'
                                     : 'bg-white'
                                     } p-0 sm:px-4 `}
                                 onClick={() => setKey('mañana')}
                             >
                                 <img
-                                    src={calendarTomorrow}
+                                    src={calendar}
                                     alt="Mañana"
                                     className="h-4 w-4 mr-0.5 mt-0.5"
                                 />
@@ -106,8 +105,8 @@ const Home = () => {
                                     <Button
                                         size="sm"
                                         pill
-                                        color="gray"
-                                        className="p-0 sm:px-4 "
+                                        color="light"
+                                        className="p-0 sm:px-4 bg-white "
                                         onClick={() => handleShowTop()}
                                     >
                                         <img
@@ -120,8 +119,8 @@ const Home = () => {
                                     <Button
                                         size="sm"
                                         pill
-                                        color="gray"
-                                        className="p-0 sm:px-4 "
+                                        color="light"
+                                        className="p-0 sm:px-4 bg-white "
                                         onClick={() => handleShow()}
                                     >
                                         <img

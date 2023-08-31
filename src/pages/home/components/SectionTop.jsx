@@ -4,7 +4,7 @@ import medalwhite from '../../../icons/medalwhite.svg'
 import TopMonth from '../../comuncomponents/TopMonth'
 import TopGlobal from '../../comuncomponents/TopGlobal'
 import global from '../../../icons/global.svg'
-import calendarToday from '../../../icons/calendarToday.svg'
+import calendar from '../../../icons/calendar.svg'
 
 const SectionTop = ({ show, handleClose }) => {
     const [key, setKey] = useState('month')
@@ -42,15 +42,15 @@ const SectionTop = ({ show, handleClose }) => {
                         <Button
                             size="sm"
                             pill
-                            color="gray"
+                            color="light"
                             className={`${key === 'month'
-                                ? 'bg-gray-200 border-slate-300'
+                                ? 'bg-gray-800 text-gray-400'
                                 : 'bg-white'
                                 } p-0 sm:px-4 `}
                             onClick={() => setKey('month')}
                         >
                             <img
-                                src={calendarToday}
+                                src={calendar}
                                 alt="yesterday"
                                 className="h-4 w-4 mr-0.5 mt-0.5"
                             />
@@ -59,9 +59,9 @@ const SectionTop = ({ show, handleClose }) => {
                         <Button
                             size="sm"
                             pill
-                            color="gray"
+                            color="light"
                             className={`${key === 'global'
-                                ? 'bg-gray-200 border-slate-300'
+                                ? 'bg-gray-800 text-gray-400'
                                 : 'bg-white'
                                 } p-0 sm:px-4 `}
                             onClick={() => setKey('global')}
