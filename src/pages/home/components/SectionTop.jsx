@@ -11,14 +11,15 @@ const SectionTop = ({ show, handleClose }) => {
 
     return (
         <>
+
             <Modal
                 show={show}
-                className="w-full h-3/4 m-auto bg-transparent flex-row p-3 "
+                className="w-full h-4/5 my-auto bg-transparent flex-row p-3 "
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2  flex items-center">
+                <Modal.Header className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-gray-800 via-gray-900 to-black p-2  flex items-center">
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img
@@ -78,6 +79,7 @@ const SectionTop = ({ show, handleClose }) => {
                     {key === 'global' ? <TopGlobal /> : null}
                 </Modal.Body>
             </Modal>
+
         </>
     )
 }

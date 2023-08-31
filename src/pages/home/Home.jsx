@@ -39,7 +39,6 @@ const Home = () => {
         setShow(false)
     }
 
-    console.log(dateYestadary)
 
     return (
         <>

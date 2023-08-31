@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { useGetTopMonth } from '../../features/users.features'
 import { Table, Spinner, Alert } from 'flowbite-react'
 import { PersonCircle } from 'react-bootstrap-icons'
+import formatedDate from '../../utils/formatedDate'
 
 const TopMonth = () => {
-    const date = new Date().toISOString().slice(0, 7)
+    const fulldate = formatedDate()
+    const date = fulldate.slice(0, 7)
     const { data: users, isLoading } = useGetTopMonth(date)
     let i = 0
     const navigate = useNavigate()

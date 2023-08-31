@@ -4,7 +4,7 @@ const CardTeam = ({ team }) => {
     return (
         <>
             <section className="flex justify-center  text-black my-3">
-                <div className="w-3/4  gap-1 flex my-2 justify-start">
+                <div className="w-3/4  gap-1 flex my-2 items-center justify-start">
                     <div>
                         <img
                             className="w-24 h-24"

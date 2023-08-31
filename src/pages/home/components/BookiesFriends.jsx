@@ -14,12 +14,12 @@ const BookiesFirends = ({ show, handleClose }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-3/4 m-auto bg-transparent flex-row p-3 "
+                className="w-full h-4/5 my-auto bg-transparent flex-row p-3 "
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 p-2 flex-row items-center ">
+                <Modal.Header className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black p-2 flex-row items-center ">
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1  ">
                             <img
@@ -35,9 +35,9 @@ const BookiesFirends = ({ show, handleClose }) => {
                         </div>
                     </div>
                 </Modal.Header>
-                <Modal.Body className="max-h-screen overflow-auto px-1">
+                <Modal.Body className="max-h-screen overflow-auto p-1">
                     <div>
-                        <Table hoverable className="table-auto mt-3 text-sm">
+                        <Table hoverable className="table-auto my-1 text-sm">
                             <Table.Body>
                                 {user?.follow?.map((users) => (
                                     <Table.Row key={users?._id}>
@@ -59,7 +59,7 @@ const BookiesFirends = ({ show, handleClose }) => {
                         </Table>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className="bg-gradient-to-t from-gray-900 via-slate-900 to-gray-900 text-white p-3 justify-end">
+                <Modal.Footer className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black text-white p-3 justify-end">
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?
