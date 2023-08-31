@@ -9,9 +9,8 @@ import SectionMatches from './components/SectionMatches'
 import SectionLeagues from './components/SectionLeagues'
 import SectionTop from './components/SectionTop'
 import calendar from '../../icons/calendar.svg'
-
-import medal from '../../icons/medal.svg'
-import bookies from '../../icons/bookies.svg'
+import medalwhite from '../../icons/medalwhite.svg'
+import bookieswhite from '../../icons/bookieswhite.svg'
 
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)
@@ -110,7 +109,7 @@ const Home = () => {
                                         onClick={() => handleShowTop()}
                                     >
                                         <img
-                                            src={medal}
+                                            src={medalwhite}
                                             alt="Top"
                                             className="h-4 w-4 mr-0.5 mt-0.5"
                                         />
@@ -124,7 +123,7 @@ const Home = () => {
                                         onClick={() => handleShow()}
                                     >
                                         <img
-                                            src={bookies}
+                                            src={bookieswhite}
                                             alt="Bookies"
                                             className="h-4 w-4 mr-0.5 mt-0.5"
                                         />
