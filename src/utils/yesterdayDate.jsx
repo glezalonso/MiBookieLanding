@@ -6,7 +6,7 @@ export default (tomorrowDate) => {
         if (day - 1 < 10) {
             const date = `${year}-0${month + 1}-0${day - 1}`
             return date
-        } else if (day + 1 > 31) {
+        } else if (day + 1 > 32) {
             const date = `${year}-0${month + 2}-${'01'}`
             return date
         } else {

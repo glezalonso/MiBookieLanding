@@ -39,6 +39,8 @@ const Home = () => {
         setShow(false)
     }
 
+    console.log(dateYestadary)
+
     return (
         <>
             <main className="container mx-auto min-h-screen p-1 lg:w-4/6">
