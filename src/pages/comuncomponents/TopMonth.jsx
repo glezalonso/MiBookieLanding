@@ -20,6 +20,7 @@ const TopMonth = () => {
             </div>
         )
 
+    users?.sort((a, b) => b?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date)).length - a?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date)).length)
 
     return (
         <>
