@@ -8,6 +8,7 @@ import formatedDate from '../../utils/formatedDate'
 const TopMonth = () => {
     const fulldate = formatedDate()
     const date = fulldate.slice(0, 7)
+
     const { data: users, isLoading } = useGetTopMonth(date)
     let i = 0
     const navigate = useNavigate()
@@ -81,7 +82,7 @@ const TopMonth = () => {
                         </Table.Row>
                     ))}
                 </Table.Body>
-            </Table> : <Alert color={'warning'}>No hay top aún</Alert>}
+            </Table> : <Alert className='mt-2 text-center' color={'warning'}>{fulldate.slice(-2) == '01' ? 'Nuevo mes' : 'No hay top aún'}</Alert>}
 
         </>
     )
