@@ -22,10 +22,10 @@ const CardNew = ({ content }) => {
                                 </p>
                             </Table.Cell>
                             <Table.Cell>
-                                <h5 className="font-bold text-gray-800 ">
+                                <h5 className="font-bold text-gray-800 mb-1 text-base ">
                                     {content?.title}
                                 </h5>
-                                <p className="text-gray-600 break-words">
+                                <p className="text-gray-600 break-words  whitespace-pre-line ">
                                     {seeMore
                                         ? content?.content
                                         : content?.content?.slice(0, 150)}
