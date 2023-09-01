@@ -25,7 +25,7 @@ const CardNew = ({ content }) => {
                                 <h5 className="font-bold text-gray-800 mb-1 text-base ">
                                     {content?.title}
                                 </h5>
-                                <p className="text-gray-600 break-words  whitespace-pre-line ">
+                                <p className="text-gray-600 break-words whitespace-pre-line">
                                     {seeMore
                                         ? content?.content
                                         : content?.content?.slice(0, 150)}
@@ -39,7 +39,7 @@ const CardNew = ({ content }) => {
                                         </Link>
                                     ) : null}
                                 </p>
-                                <div className="flex mt-2.5 justify-end text-gray-600">
+                                <div className="flex mt-2.5 justify-end items-center text-gray-800">
                                     <Clock className="my-1 mx-1" />
                                     {content?.date
                                         ?.split('T', 3)
