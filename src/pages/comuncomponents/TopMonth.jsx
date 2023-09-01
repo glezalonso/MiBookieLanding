@@ -20,6 +20,7 @@ const TopMonth = () => {
             </div>
         )
 
+
     return (
         <>
             {users?.length > 0 ? <Table hoverable className="table-auto mt-1 text-sm">
@@ -64,18 +65,18 @@ const TopMonth = () => {
                                 {users?.username}
                             </Table.Cell>
                             <Table.Cell className="p-1 text-center ">
-                                {users?.matchesSuccess?.length +
-                                    users?.matchesFailure?.length}
+                                {users?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date))?.length +
+                                    users?.matchesFailure?.filter(match => (match?.date?.slice(0, 7) === date))?.length}
                             </Table.Cell>
                             <Table.Cell className="p-1 text-center ">
-                                {users?.matchesSuccess?.length}
+                                {users?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date))?.length}
                             </Table.Cell>
 
                             <Table.Cell className="p-1 text-center text-gray-500 font-bold ">
                                 {Math.round(
-                                    (users?.matchesSuccess?.length * 100) /
-                                    (users?.matchesSuccess?.length +
-                                        users?.matchesFailure?.length)
+                                    (users?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date))?.length * 100) /
+                                    (users?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date))?.length +
+                                        users?.matchesFailure?.filter(match => (match?.date?.slice(0, 7) === date))?.length)
                                 )}
                                 %
                             </Table.Cell>
