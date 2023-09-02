@@ -1,10 +1,11 @@
 import React from 'react'
 import { Modal, Table } from 'flowbite-react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { PersonCircle } from 'react-bootstrap-icons'
 import bookieswhite from '../../../icons/bookieswhite.svg'
 
 const BookiesFirends = ({ show, handleClose, user }) => {
+    const navigate = useNavigate()
 
     return (
         <>
@@ -59,12 +60,15 @@ const BookiesFirends = ({ show, handleClose, user }) => {
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?
-                            <Link
-                                to={'../bookies'}
+                            <button
+                                onClick={() => {
+                                    handleClose()
+                                    navigate('../bookies')
+                                }}
                                 className="text-yellow-300 text-decoration-none mx-1 hover:underline"
                             >
                                 Buscar
-                            </Link>
+                            </button>
                         </div>
                     </div>
                 </Modal.Footer>

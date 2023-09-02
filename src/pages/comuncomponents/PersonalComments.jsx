@@ -32,7 +32,7 @@ const PersonalComments = ({ match, comment }) => {
                             onClick={() =>
                                 handleNavigate(comment?.username?._id)
                             }
-                            className="ml-1 hover:cursor-pointer  "
+                            className="ml-1 hover:cursor-pointer"
                         >
                             {comment?.username?.username}
                         </div>
@@ -54,10 +54,11 @@ const PersonalComments = ({ match, comment }) => {
                     </div>
                     <div className="p-1">
                         <p
-                            className={`max-w-sm ${comment?.comment?.includes(' ')
+                            className={`max-w-sm ${
+                                comment?.comment?.includes(' ')
                                     ? 'break-words'
                                     : 'break-all'
-                                } text-gray-200`}
+                            } text-gray-200`}
                         >
                             {comment?.comment}
                         </p>

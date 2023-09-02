@@ -10,12 +10,11 @@ import SectionTop from './components/SectionTop'
 import calendar from '../../icons/calendar.svg'
 import medalwhite from '../../icons/medalwhite.svg'
 
-
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)
+
     const [key, setKey] = useState('hoy')
     const [show, setShow] = useState(false)
-
 
     const date = formatedDate()
     const dateTomorrow = tomorrowDate()
@@ -38,10 +37,11 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="light"
-                                className={`${key === 'ayer'
-                                    ? 'bg-gray-800 text-gray-400'
-                                    : 'bg-white'
-                                    } p-0 sm:px-4 `}
+                                className={`${
+                                    key === 'ayer'
+                                        ? 'bg-gray-800 text-gray-400'
+                                        : 'bg-white'
+                                } p-0 sm:px-4 `}
                                 onClick={() => setKey('ayer')}
                             >
                                 <img
@@ -55,10 +55,11 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="light"
-                                className={`${key === 'hoy'
-                                    ? 'bg-gray-800 text-gray-400'
-                                    : 'bg-white'
-                                    } p-0 sm:px-4 `}
+                                className={`${
+                                    key === 'hoy'
+                                        ? 'bg-gray-800 text-gray-400'
+                                        : 'bg-white'
+                                } p-0 sm:px-4 `}
                                 onClick={() => setKey('hoy')}
                             >
                                 <img
@@ -72,10 +73,11 @@ const Home = () => {
                                 size="sm"
                                 pill
                                 color="light"
-                                className={`${key === 'mañana'
-                                    ? 'bg-gray-800 text-gray-400'
-                                    : 'bg-white'
-                                    } p-0 sm:px-4 `}
+                                className={`${
+                                    key === 'mañana'
+                                        ? 'bg-gray-800 text-gray-400'
+                                        : 'bg-white'
+                                } p-0 sm:px-4 `}
                                 onClick={() => setKey('mañana')}
                             >
                                 <img
@@ -101,7 +103,6 @@ const Home = () => {
                                         />
                                         Top
                                     </Button>
-
                                 </>
                             ) : null}
                         </div>

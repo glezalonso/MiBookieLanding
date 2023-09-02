@@ -28,20 +28,25 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                     />
                 }
             >
-                <Dropdown.Item className='p-1 mb-1 mx-auto flex justify-center' >
+                <Dropdown.Item className="p-1 mb-1 mx-auto flex ">
                     <Link
-                        className="text-sm flex gap-1 text-gray-600 hover:underline hover:text-cyan-500"
+                        className="flex gap-1 text-sm text-gray-600 hover:underline hover:text-cyan-500"
                         to={`../profile/${id}`}
                     >
-                        <PersonCircle className='h-4 w-4' /> {username}
+                        <PersonCircle className="h-4 w-4" /> {username}
                     </Link>
                 </Dropdown.Item>
-                <Dropdown.Item className='p-1 mb-1 mx-auto flex justify-center' >
+                <Dropdown.Item className="p-1 mb-1  mx-auto flex">
                     <Link
                         className="flex gap-1 text-sm text-gray-600 hover:underline hover:text-cyan-500"
                         onClick={() => handleShow()}
                     >
-                        <img src={bookieswhite} alt='Bookies icon' className='h-4 w-4' />  Bookies
+                        <img
+                            src={bookieswhite}
+                            alt="Bookies icon"
+                            className="h-4 w-4"
+                        />
+                        Bookies
                     </Link>
                 </Dropdown.Item>
                 <Dropdown.Item
@@ -49,7 +54,7 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                     className="bg-yellow-400 rounded text-white flex justify-center text-sm p-1 mx-auto border-0 hover:bg-yellow-300 hover:text-black"
                     onClick={() => handleLogOut()}
                 >
-                    <span className='text-center'> Cerrar Sesión</span>
+                    <span className="text-center"> Cerrar Sesión</span>
                 </Dropdown.Item>
             </Dropdown>
             <BookiesFirends user={user} show={show} handleClose={handleClose} />
