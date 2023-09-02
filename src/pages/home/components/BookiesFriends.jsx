@@ -39,8 +39,13 @@ const BookiesFirends = ({ show, handleClose, user }) => {
                                 {user?.follow?.map((users) => (
                                     <Table.Row key={users?._id}>
                                         <Table.Cell className="py-1">
-                                            <Link
-                                                to={`../profile/${users?._id}`}
+                                            <button
+                                                onClick={() => {
+                                                    handleClose()
+                                                    navigate(
+                                                        `../profile/${users?._id}`
+                                                    )
+                                                }}
                                                 className="text-gray-500 flex no-underline hover:text-gray-900 hover:underline hover:cursor-pointer "
                                             >
                                                 <PersonCircle
@@ -48,7 +53,7 @@ const BookiesFirends = ({ show, handleClose, user }) => {
                                                     className="mr-2 mt-1"
                                                 />
                                                 {users?.username}
-                                            </Link>
+                                            </button>
                                         </Table.Cell>
                                     </Table.Row>
                                 ))}
