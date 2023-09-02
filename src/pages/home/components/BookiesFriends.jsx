@@ -1,14 +1,10 @@
 import React from 'react'
 import { Modal, Table } from 'flowbite-react'
 import { Link } from 'react-router-dom'
-import { useAuthStore } from '../../../store/authorization'
-import { useGetBookie } from '../../../features/users.features'
 import { PersonCircle } from 'react-bootstrap-icons'
 import bookieswhite from '../../../icons/bookieswhite.svg'
 
-const BookiesFirends = ({ show, handleClose }) => {
-    const { id } = useAuthStore((state) => state.profile)
-    const { data: user } = useGetBookie(id)
+const BookiesFirends = ({ show, handleClose, user }) => {
 
     return (
         <>

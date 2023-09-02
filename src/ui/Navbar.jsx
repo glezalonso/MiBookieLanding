@@ -18,13 +18,16 @@ function NavBar() {
     const navigate = useNavigate()
 
     const [show, setShow] = useState(false)
+    const [showRegister, setShowRegister] = useState(false)
+
 
     const handleClose = () => setShow(false)
     const handleShow = () => setShow(true)
 
-    const [showRegister, setShowRegister] = useState(false)
+
 
     const handleCloseRegister = () => setShowRegister(false)
+
 
     const handleRegister = () => {
         setShowRegister(true)

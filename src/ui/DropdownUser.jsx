@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Dropdown, Avatar } from 'flowbite-react'
 import { useGetBookie } from '../features/users.features'
+import BookiesFirends from '../pages/home/components/BookiesFriends'
 import avatar from '../icons/avatar.svg'
+import bookieswhite from '../icons/bookieswhite.svg'
+import { PersonCircle } from 'react-bootstrap-icons'
 
 const DropdownUser = ({ username, id, handleLogOut }) => {
     const { data: user } = useGetBookie(id)
+    const [show, setShow] = useState(false)
+
+    const handleShow = () => setShow(true)
+    const handleClose = () => setShow(false)
+
     return (
         <>
             <Dropdown
-                className="p-1"
+                className="p-2 "
                 inline
                 label={
                     <Avatar
@@ -20,22 +28,31 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                     />
                 }
             >
-                <Dropdown.Item className="">
+                <Dropdown.Item className='p-1 mb-1 mx-auto flex justify-center' >
                     <Link
-                        className="text-sm text-gray-600 hover:underline hover:text-cyan-500"
+                        className="text-sm flex gap-1 text-gray-600 hover:underline hover:text-cyan-500"
                         to={`../profile/${id}`}
                     >
-                        {username}
+                        <PersonCircle className='h-4 w-4' /> {username}
+                    </Link>
+                </Dropdown.Item>
+                <Dropdown.Item className='p-1 mb-1 mx-auto flex justify-center' >
+                    <Link
+                        className="flex gap-1 text-sm text-gray-600 hover:underline hover:text-cyan-500"
+                        onClick={() => handleShow()}
+                    >
+                        <img src={bookieswhite} alt='Bookies icon' className='h-4 w-4' />  Bookies
                     </Link>
                 </Dropdown.Item>
                 <Dropdown.Item
                     size="xs"
-                    className="bg-yellow-400 rounded text-white text-sm p-1 mx-auto border-0 hover:bg-yellow-300 hover:text-black"
+                    className="bg-yellow-400 rounded text-white flex justify-center text-sm p-1 mx-auto border-0 hover:bg-yellow-300 hover:text-black"
                     onClick={() => handleLogOut()}
                 >
-                    Cerrar Sesión
+                    <span className='text-center'> Cerrar Sesión</span>
                 </Dropdown.Item>
             </Dropdown>
+            <BookiesFirends user={user} show={show} handleClose={handleClose} />
         </>
     )
 }

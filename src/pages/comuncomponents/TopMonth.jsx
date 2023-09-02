@@ -19,12 +19,33 @@ const TopMonth = () => {
                 <Spinner color="warning" />
             </div>
         )
-
-    users?.sort((a, b) => b?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date)).length - a?.matchesSuccess?.filter(match => (match?.date?.slice(0, 7) === date)).length)
+    //big percentage
+    users?.sort((a, b) =>
+        (b?.matchesSuccess?.filter(
+            (match) => match?.date?.slice(0, 7) === date
+        )?.length *
+            100) /
+        (b?.matchesSuccess?.filter(
+            (match) => match?.date?.slice(0, 7) === date
+        )?.length +
+            b?.matchesFailure?.filter(
+                (match) => match?.date?.slice(0, 7) === date
+            )?.length) -
+        (a?.matchesSuccess?.filter(
+            (match) => match?.date?.slice(0, 7) === date
+        )?.length *
+            100) /
+        (a?.matchesSuccess?.filter(
+            (match) => match?.date?.slice(0, 7) === date
+        )?.length +
+            a?.matchesFailure?.filter(
+                (match) => match?.date?.slice(0, 7) === date
+            )?.length)
+    )
 
     return (
         <>
-            {users?.length > 0 ? <Table hoverable className="table-auto mt-1 text-sm">
+            {users?.length > 0 ? <Table hoverable className="table-auto mt-1 ">
                 <Table.Head>
                     <Table.HeadCell className="px-1 text-center">
                         #

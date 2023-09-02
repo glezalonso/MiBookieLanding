@@ -4,41 +4,26 @@ import { Button } from 'flowbite-react'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import yesterdayDate from '../../utils/yesterdayDate'
-import BookiesFirends from './components/BookiesFriends'
 import SectionMatches from './components/SectionMatches'
 import SectionLeagues from './components/SectionLeagues'
 import SectionTop from './components/SectionTop'
 import calendar from '../../icons/calendar.svg'
 import medalwhite from '../../icons/medalwhite.svg'
-import bookieswhite from '../../icons/bookieswhite.svg'
+
 
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)
     const [key, setKey] = useState('hoy')
     const [show, setShow] = useState(false)
-    const [showTop, setShowTop] = useState(false)
+
 
     const date = formatedDate()
     const dateTomorrow = tomorrowDate()
     const dateYestadary = yesterdayDate()
 
-    const handleShow = () => {
-        setShow(true)
-    }
-    const handleClose = () => {
-        setKey('hoy')
-        setShow(false)
-    }
-    const handleShowTop = () => {
-        setShowTop(true)
-        setShow(false)
-    }
-    const handleCloseTop = () => {
-        setShowTop(false)
-        setKey('hoy')
-        setShow(false)
-    }
+    const handleShow = () => setShow(true)
 
+    const handleClose = () => setShow(false)
 
     return (
         <>
@@ -107,7 +92,7 @@ const Home = () => {
                                         pill
                                         color="light"
                                         className="p-0 sm:px-4 bg-white "
-                                        onClick={() => handleShowTop()}
+                                        onClick={() => handleShow()}
                                     >
                                         <img
                                             src={medalwhite}
@@ -116,20 +101,7 @@ const Home = () => {
                                         />
                                         Top
                                     </Button>
-                                    <Button
-                                        size="sm"
-                                        pill
-                                        color="light"
-                                        className="p-0 sm:px-4 bg-white "
-                                        onClick={() => handleShow()}
-                                    >
-                                        <img
-                                            src={bookieswhite}
-                                            alt="Bookies"
-                                            className="h-4 w-4 mr-0.5 mt-0.5"
-                                        />
-                                        Bookies
-                                    </Button>
+
                                 </>
                             ) : null}
                         </div>
@@ -153,10 +125,7 @@ const Home = () => {
                     </div>
                 </div>
                 {isLogged ? (
-                    <BookiesFirends show={show} handleClose={handleClose} />
-                ) : null}
-                {isLogged ? (
-                    <SectionTop show={showTop} handleClose={handleCloseTop} />
+                    <SectionTop show={show} handleClose={handleClose} />
                 ) : null}
             </main>
         </>
