@@ -17,10 +17,9 @@ const TopGlobal = () => {
             </div>
         )
 
-
     return (
         <>
-            <Table hoverable className="table-auto mt-1 text-sm">
+            <Table hoverable className="table-auto text-xs mt-1 ">
                 <Table.Head>
                     <Table.HeadCell className="px-1 text-center">
                         #

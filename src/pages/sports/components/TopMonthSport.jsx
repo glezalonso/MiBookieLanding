@@ -1,15 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useGetTopMonth } from '../../features/users.features'
+import { useGetTopMonthSport } from '../../../features/users.features'
 import { Table, Spinner, Alert } from 'flowbite-react'
 import { PersonCircle } from 'react-bootstrap-icons'
-import formatedDate from '../../utils/formatedDate'
+import formatedDate from '../../../utils/formatedDate'
 
-const TopMonth = () => {
+const TopMonthSport = ({ sport }) => {
     const fulldate = formatedDate()
     const date = fulldate.slice(0, 7)
 
-    const { data: users, isLoading } = useGetTopMonth(date)
+    const { data, isLoading } = useGetTopMonthSport(date, sport?._id)
     let i = 0
     const navigate = useNavigate()
 
@@ -19,30 +19,56 @@ const TopMonth = () => {
                 <Spinner color="warning" />
             </div>
         )
-    //big percentage
-    users?.sort(
-        (a, b) =>
-            (b?.matchesSuccess?.filter(
-                (match) => match?.date?.slice(0, 7) === date
-            )?.length *
-                100) /
-                (b?.matchesSuccess?.filter(
-                    (match) => match?.date?.slice(0, 7) === date
-                )?.length +
-                    b?.matchesFailure?.filter(
-                        (match) => match?.date?.slice(0, 7) === date
-                    )?.length) -
-            (a?.matchesSuccess?.filter(
-                (match) => match?.date?.slice(0, 7) === date
-            )?.length *
-                100) /
-                (a?.matchesSuccess?.filter(
-                    (match) => match?.date?.slice(0, 7) === date
-                )?.length +
-                    a?.matchesFailure?.filter(
-                        (match) => match?.date?.slice(0, 7) === date
-                    )?.length)
-    )
+
+    const users = data
+        ?.sort(
+            (a, b) =>
+                (Number(
+                    b?.matchesSuccess?.filter(
+                        (match) =>
+                            match?.date?.slice(0, 7) === date &&
+                            match?.sport === sport?._id
+                    )?.length
+                ) *
+                    100) /
+                    (Number(
+                        b?.matchesSuccess?.filter(
+                            (match) =>
+                                match?.date?.slice(0, 7) === date &&
+                                match?.sport === sport?._id
+                        )?.length
+                    ) +
+                        Number(
+                            b?.matchesFailure?.filter(
+                                (match) =>
+                                    match?.date?.slice(0, 7) === date &&
+                                    match?.sport === sport?._id
+                            )?.length
+                        )) -
+                (Number(
+                    a?.matchesSuccess?.filter(
+                        (match) =>
+                            match?.date?.slice(0, 7) === date &&
+                            match?.sport === sport?._id
+                    )?.length
+                ) *
+                    100) /
+                    (Number(
+                        a?.matchesSuccess?.filter(
+                            (match) =>
+                                match?.date?.slice(0, 7) === date &&
+                                match?.sport === sport?._id
+                        )?.length
+                    ) +
+                        Number(
+                            a?.matchesFailure?.filter(
+                                (match) =>
+                                    match?.date?.slice(0, 7) === date &&
+                                    match?.sport === sport?._id
+                            )?.length
+                        ))
+        )
+        .slice(0, 10)
 
     return (
         <>
@@ -93,45 +119,60 @@ const TopMonth = () => {
                                 <Table.Cell className="p-1 text-center ">
                                     {users?.matchesSuccess?.filter(
                                         (match) =>
-                                            match?.date?.slice(0, 7) === date
+                                            match?.date?.slice(0, 7) === date &&
+                                            match?.sport === sport?._id
                                     )?.length +
                                         users?.matchesFailure?.filter(
                                             (match) =>
                                                 match?.date?.slice(0, 7) ===
-                                                date
-                                        )?.length}
+                                                    date &&
+                                                match?.sport === sport?._id
+                                        )?.length || 0}
                                 </Table.Cell>
                                 <Table.Cell className="p-1 text-center ">
                                     {
                                         users?.matchesSuccess?.filter(
                                             (match) =>
                                                 match?.date?.slice(0, 7) ===
-                                                date
+                                                    date &&
+                                                match?.sport === sport?._id
                                         )?.length
                                     }
                                 </Table.Cell>
 
                                 <Table.Cell className="p-1 text-center text-gray-500 font-bold ">
                                     {Math.round(
-                                        (users?.matchesSuccess?.filter(
-                                            (match) =>
-                                                match?.date?.slice(0, 7) ===
-                                                date
-                                        )?.length *
-                                            100) /
-                                            (users?.matchesSuccess?.filter(
+                                        Number(
+                                            users?.matchesSuccess?.filter(
                                                 (match) =>
                                                     match?.date?.slice(0, 7) ===
-                                                    date
-                                            )?.length +
-                                                users?.matchesFailure?.filter(
+                                                        date &&
+                                                    match?.sport === sport?._id
+                                            )?.length * 100
+                                        ) /
+                                            Number(
+                                                users?.matchesSuccess?.filter(
                                                     (match) =>
                                                         match?.date?.slice(
                                                             0,
                                                             7
-                                                        ) === date
-                                                )?.length)
-                                    )}
+                                                        ) === date &&
+                                                        match?.sport ===
+                                                            sport?._id
+                                                )?.length +
+                                                    Number(
+                                                        users?.matchesFailure?.filter(
+                                                            (match) =>
+                                                                match?.date?.slice(
+                                                                    0,
+                                                                    7
+                                                                ) === date &&
+                                                                match?.sport ===
+                                                                    sport?._id
+                                                        )?.length
+                                                    )
+                                            )
+                                    ) || 0}
                                     %
                                 </Table.Cell>
                             </Table.Row>
@@ -149,4 +190,4 @@ const TopMonth = () => {
     )
 }
 
-export default TopMonth
+export default TopMonthSport

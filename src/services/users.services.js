@@ -51,3 +51,8 @@ export const getTopMonth = async (date) => {
     const { data } = await axios.get(`/api/bookies/topmonth/${date}`)
     return data
 }
+
+export const getTopMonthSport = async (date,sport) => {
+    const { data } = await axios.get(`/api/bookies/topmonthsport/${date}/${sport}`)
+    return data
+}
