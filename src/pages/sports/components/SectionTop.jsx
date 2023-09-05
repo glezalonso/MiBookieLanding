@@ -24,7 +24,7 @@ const SectionTopSport = ({ show, handleClose, sport }) => {
                         </div>
                         <div>
                             <h3 className="text-lg  text-white font-medium">
-                                Top 10
+                                Top 10 {sport?.sport?.toLowerCase()}
                             </h3>
                         </div>
                     </div>
