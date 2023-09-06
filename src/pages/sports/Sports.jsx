@@ -6,6 +6,7 @@ import { useGetSport } from '../../features/sports.features'
 import { useAuthStore } from '../../store/authorization'
 
 //  UI sections
+import ButtonPill from '../comuncomponents/ButtonPill'
 import Loading from '../../ui/Loading'
 import calendar from '../../icons/calendar.svg'
 import leagues from '../../icons/leagues.svg'
@@ -43,99 +44,48 @@ const Sports = () => {
         <>
             <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
                 <div
-                    className="flex gap-0.5 mt-2.5 justify-center mx-auto "
+                    className="flex gap-1 mt-2.5 justify-center mx-auto "
                     role="group"
                 >
-                    <Button
-                        size="sm"
-                        pill
-                        color="light"
-                        className={`${
-                            key === 'ayer'
-                                ? 'bg-gray-800 text-gray-400'
-                                : 'bg-white'
-                        } p-0 sm:px-4 `}
+                    <ButtonPill
+                        active={key === 'ayer'}
+                        img={calendar}
                         onClick={() => setKey('ayer')}
                     >
-                        <img
-                            src={calendar}
-                            alt="Ayer"
-                            className="h-4 w-4 mr-0.5 mt-0.5"
-                        />
                         Ayer
-                    </Button>
-                    <Button
-                        size="sm"
-                        pill
-                        color="light"
-                        className={`${
-                            key === 'hoy'
-                                ? 'bg-gray-800 text-gray-400'
-                                : 'bg-white'
-                        } p-0 sm:px-4 `}
+                    </ButtonPill>
+                    <ButtonPill
+                        active={key === 'hoy'}
+                        img={calendar}
                         onClick={() => setKey('hoy')}
                     >
-                        <img
-                            src={calendar}
-                            alt="Hoy"
-                            className="h-4 w-4 mr-0.5 mt-0.5"
-                        />
                         Hoy
-                    </Button>
-                    <Button
-                        size="sm"
-                        pill
-                        color="light"
-                        className={`${
-                            key === 'mañana'
-                                ? 'bg-gray-800 text-gray-400'
-                                : 'bg-white'
-                        } p-0 sm:px-4 `}
+                    </ButtonPill>
+                    <ButtonPill
+                        active={key === 'mañana'}
+                        img={calendar}
                         onClick={() => setKey('mañana')}
                     >
-                        <img
-                            src={calendar}
-                            alt="Mañana"
-                            className="h-4 w-4 mr-0.5 mt-0.5"
-                        />
                         Mañana
-                    </Button>
+                    </ButtonPill>
                     {isLogged ? (
                         <>
-                            <Button
-                                size="sm"
-                                pill
-                                color="light"
-                                className="p-0 sm:px-4 bg-white "
+                            <ButtonPill
+                                active={false}
+                                img={medalwhite}
                                 onClick={() => handleShow()}
                             >
-                                <img
-                                    src={medalwhite}
-                                    alt="Top"
-                                    className="h-4 w-4 mr-0.5 mt-0.5"
-                                />
                                 Top
-                            </Button>
+                            </ButtonPill>
                         </>
                     ) : null}
-                    <Button
-                        size="sm"
-                        pill
-                        color="light"
-                        className={`${
-                            key === 'ligas'
-                                ? 'bg-gray-800 text-gray-400'
-                                : 'bg-white'
-                        } p-0 sm:px-4 `}
+                    <ButtonPill
+                        active={false}
+                        img={leagues}
                         onClick={() => setKey('ligas')}
                     >
-                        <img
-                            src={leagues}
-                            alt="leagues"
-                            className="h-4 w-4 mr-0.5 mt-0.5"
-                        />
                         Ligas
-                    </Button>
+                    </ButtonPill>
                 </div>
                 <section>
                     {key === 'ligas' ? (

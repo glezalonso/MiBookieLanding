@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useAuthStore } from '../../store/authorization'
-import { Button } from 'flowbite-react'
+import ButtonPill from '../comuncomponents/ButtonPill'
 import formatedDate from '../../utils/formatedDate'
 import tomorrowDate from '../../utils/tomorrowDate'
 import yesterdayDate from '../../utils/yesterdayDate'
@@ -30,79 +30,38 @@ const Home = () => {
                 <div className="sm:grid sm:grid-cols-4 sm:gap-5">
                     <div className="sm:col-span-3 sm:ml-1  ">
                         <div
-                            className="flex gap-0.5 justify-center  mt-2.5  mx-auto sm:gap-2 "
+                            className="flex gap-1 justify-center  mt-2.5  mx-auto sm:gap-2 "
                             role="group"
                         >
-                            <Button
-                                size="sm"
-                                pill
-                                color="light"
-                                className={`${
-                                    key === 'ayer'
-                                        ? 'bg-gray-800 text-gray-400'
-                                        : 'bg-white'
-                                } p-0 sm:px-4 `}
+                            <ButtonPill
+                                active={key === 'ayer'}
+                                img={calendar}
                                 onClick={() => setKey('ayer')}
                             >
-                                <img
-                                    src={calendar}
-                                    alt="yesterday"
-                                    className="h-4 w-4 mr-0.5 mt-0.5"
-                                />
                                 Ayer
-                            </Button>
-                            <Button
-                                size="sm"
-                                pill
-                                color="light"
-                                className={`${
-                                    key === 'hoy'
-                                        ? 'bg-gray-800 text-gray-400'
-                                        : 'bg-white'
-                                } p-0 sm:px-4 `}
+                            </ButtonPill>
+                            <ButtonPill
+                                active={key === 'hoy'}
+                                img={calendar}
                                 onClick={() => setKey('hoy')}
                             >
-                                <img
-                                    src={calendar}
-                                    alt="today"
-                                    className="h-4 w-4 mr-0.5 mt-0.5"
-                                />
                                 Hoy
-                            </Button>
-                            <Button
-                                size="sm"
-                                pill
-                                color="light"
-                                className={`${
-                                    key === 'mañana'
-                                        ? 'bg-gray-800 text-gray-400'
-                                        : 'bg-white'
-                                } p-0 sm:px-4 `}
+                            </ButtonPill>
+                            <ButtonPill
+                                active={key === 'mañana'}
+                                img={calendar}
                                 onClick={() => setKey('mañana')}
                             >
-                                <img
-                                    src={calendar}
-                                    alt="Mañana"
-                                    className="h-4 w-4 mr-0.5 mt-0.5"
-                                />
                                 Mañana
-                            </Button>
+                            </ButtonPill>
                             {isLogged ? (
                                 <>
-                                    <Button
-                                        size="sm"
-                                        pill
-                                        color="light"
-                                        className="p-0 sm:px-4 bg-white "
+                                    <ButtonPill
+                                        img={medalwhite}
                                         onClick={() => handleShow()}
                                     >
-                                        <img
-                                            src={medalwhite}
-                                            alt="Top"
-                                            className="h-4 w-4 mr-0.5 mt-0.5"
-                                        />
                                         Top
-                                    </Button>
+                                    </ButtonPill>
                                 </>
                             ) : null}
                         </div>

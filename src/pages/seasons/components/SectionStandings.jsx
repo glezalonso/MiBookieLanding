@@ -1,6 +1,7 @@
 import React from 'react'
 import { Table, Alert } from 'flowbite-react'
 import { useNavigate } from 'react-router-dom'
+import medal from '../../../icons/medal.svg'
 
 const SectionStandings = ({ season }) => {
     const navigate = useNavigate()
@@ -40,7 +41,7 @@ const SectionStandings = ({ season }) => {
                                     Per
                                 </Table.HeadCell>
                                 {season?.sport?._id === ID_SOCCER ||
-                                    season?.sport?._id === ID_AMERICANO ? (
+                                season?.sport?._id === ID_AMERICANO ? (
                                     <Table.HeadCell className="px-1 text-center">
                                         Emp
                                     </Table.HeadCell>
@@ -63,17 +64,27 @@ const SectionStandings = ({ season }) => {
                                         }
                                     >
                                         <Table.Cell className="p-1">
-                                            {i++}
+                                            <div className="flex gap-1">
+                                                {!season?.status && i === 1 ? (
+                                                    <img
+                                                        className="h-5 w-5 order-1"
+                                                        src={medal}
+                                                        alt={'campeon'}
+                                                    />
+                                                ) : null}
+                                                {i++}
+                                            </div>
                                         </Table.Cell>
-                                        <Table.Cell className=" flex p-1">
-                                            <img
-                                                className="h-5 w-5"
-                                                src={stands.team?.poster}
-                                                alt={stands.team?.name}
-                                            />
-                                            <span className="mx-1">
+                                        <Table.Cell className=" p-1">
+                                            <div className="flex gap-1">
+                                                <img
+                                                    className="h-5 w-5"
+                                                    src={stands.team?.poster}
+                                                    alt={stands.team?.name}
+                                                />
+
                                                 {stands.team?.name}
-                                            </span>
+                                            </div>
                                         </Table.Cell>
                                         <Table.Cell className="p-1 text-center">
                                             {stands?.wins}
@@ -82,7 +93,7 @@ const SectionStandings = ({ season }) => {
                                             {stands?.loses}
                                         </Table.Cell>
                                         {season?.sport?._id === ID_SOCCER ||
-                                            season?.sport?._id === ID_AMERICANO ? (
+                                        season?.sport?._id === ID_AMERICANO ? (
                                             <Table.Cell className="p-1 text-center">
                                                 {stands?.draws}
                                             </Table.Cell>
@@ -90,9 +101,9 @@ const SectionStandings = ({ season }) => {
                                         {season?.sport?._id === ID_SOCCER ? (
                                             <Table.Cell className="p-1 text-center">
                                                 {season?.sport?._id ===
-                                                    ID_SOCCER
+                                                ID_SOCCER
                                                     ? stands?.wins * 3 +
-                                                    stands?.draws
+                                                      stands?.draws
                                                     : null}
                                             </Table.Cell>
                                         ) : null}

@@ -6,7 +6,7 @@ import avatar from '../../../icons/avatar.svg'
 import edit from '../../../icons/edit.svg'
 import ChangePicture from './ChangePicture'
 
-const CardProfile = ({ id, user }) => {
+const CardProfile = ({ user }) => {
     const [show, setShow] = useState(false)
     const userId = useAuthStore((state) => state.profile.id)
     const addFollow = useAddFollow()
@@ -34,7 +34,7 @@ const CardProfile = ({ id, user }) => {
                         <h4 className="mx-1 my-3">{user?.username}</h4>
                     </div>
                     <div className="flex justify-end">
-                        {id !== userId && exist?.length === 0 ? (
+                        {user?._id !== userId && exist?.length < 1 ? (
                             <h5>
                                 <Button
                                     size="xs"
