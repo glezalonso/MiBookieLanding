@@ -1,4 +1,5 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import axios from '../libs/axios'
+import { useMutation, useQuery, useQueryClient, useInfiniteQuery } from '@tanstack/react-query'
 import {
     loginBookie,
     registerBookie,
@@ -9,7 +10,6 @@ import {
     getBookie,
     addFollow,
     removeFollow,
-    getBookies,
     addAvatar,
     getTopBookies,
     sendMessage,
@@ -125,15 +125,6 @@ export const useGetPicks = (username) => {
     return { data, isLoading, isError }
 }
 
-export const useGetBookies = () => {
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ['bookies'],
-        queryFn: getBookies,
-    })
-
-    return { data, isLoading, isError }
-}
-
 export const useGetBookie = (id) => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['bookie', id],
@@ -200,4 +191,38 @@ export const useGetTopMonthSport = (date, sport) => {
         queryFn: () => getTopMonthSport(date, sport),
     })
     return { data, isLoading, isError }
+}
+
+export const useGetBookies = () => {
+    const {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    } = useInfiniteQuery(
+        ['bookies'],
+        async ({ pageParam = 1 }) => {
+            const { data } = await axios.get(
+                `/api/bookies/page/${pageParam}/`
+            )
+            return data
+        },
+
+        {
+            getNextPageParam: (lastPage) => {
+                if (lastPage.page === lastPage.totalPages) return false
+                return lastPage.page + 1
+            },
+        }
+    )
+    return {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    }
 }

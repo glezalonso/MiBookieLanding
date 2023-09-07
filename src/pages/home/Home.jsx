@@ -9,6 +9,7 @@ import SectionLeagues from './components/SectionLeagues'
 import SectionTop from './components/SectionTop'
 import calendar from '../../icons/calendar.svg'
 import medalwhite from '../../icons/medalwhite.svg'
+import SectionFollows from './components/SectionFollows'
 
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)
@@ -80,8 +81,9 @@ const Home = () => {
                             ) : null}
                         </section>
                     </div>
-                    <div className="hidden sm:block sm:col-span-1 sm:mt-2 sm:mx-2">
+                    <div className="hidden sm:block sm:space-y-3 sm:col-span-1 sm:mt-2 sm:mx-2">
                         <SectionLeagues />
+                        <SectionFollows />
                     </div>
                 </div>
                 {isLogged ? (

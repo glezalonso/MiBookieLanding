@@ -29,18 +29,17 @@ const SectionLeagues = () => {
                     />
                 </div>
                 {leaguesByFilter?.length > 0 ? (
-                    <div className='bg-white p-1 rounded'>
-                        <Table
-                            hoverable
-                            className="table-auto text-sm"
-                        >
+                    <div className="bg-white p-1 rounded">
+                        <Table hoverable className="table-auto text-sm">
                             <Table.Body>
                                 {leaguesByFilter?.map((league) => (
                                     <Table.Row
                                         className="hover:cursor-pointer"
                                         key={league?._id}
                                         onClick={() =>
-                                            navigate(`../leagues/${league?._id}`)
+                                            navigate(
+                                                `../leagues/${league?._id}`
+                                            )
                                         }
                                     >
                                         <Table.Cell className=" flex p-1">

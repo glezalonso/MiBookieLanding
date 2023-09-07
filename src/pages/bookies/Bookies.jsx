@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useGetBookies } from '../../features/users.features'
-import { useAuthStore } from '../../store/authorization'
+import { useInView } from 'react-intersection-observer'
 import { Badge } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import SectionBookies from './components/SectionBookies'
 import Loading from '../../ui/Loading'
 
 const Bookies = () => {
-    const { id } = useAuthStore((state) => state.profile)
-    const { data, isLoading, isError } = useGetBookies()
+    const { ref, inView } = useInView()
+    const {
+        data,
+        isLoading,
+        isError,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    } = useGetBookies()
 
-    const users = data?.filter((user) => user?._id !== id)
+    const users = data?.pages?.flatMap((pages) => pages.data) ?? []
+
+    useEffect(() => {
+        if (inView && hasNextPage) {
+            fetchNextPage()
+        }
+    }, [inView])
+
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los Bookies!')
 
@@ -23,13 +37,14 @@ const Bookies = () => {
                         size={'xs'}
                         className=" mt-1.5 bg-zinc-900 text-gray-200 "
                     >
-                        {users?.length}
+                        {data?.pages[0]?.total}
                     </Badge>
                 </div>
                 {users?.map((user) => (
                     <SectionBookies key={user?._id} user={user} />
                 ))}
             </main>
+            <div ref={ref}>{isFetchingNextPage ? <Loading /> : null}</div>
         </>
     )
 }

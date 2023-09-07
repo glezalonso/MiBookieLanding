@@ -37,8 +37,9 @@ const App = () => {
     return (
         <>
             <BrowserRouter>
-                <NavBar />
                 <Toaster position="top-center" reverseOrder={false} />
+                <NavBar />
+
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route element={<Protected isLogged={isLogged} />}>
