@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useGetBookies } from '../../features/users.features'
 import { useInView } from 'react-intersection-observer'
-import { Badge } from 'flowbite-react'
+import { Badge, Spinner } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import SectionBookies from './components/SectionBookies'
 import Loading from '../../ui/Loading'
@@ -44,7 +44,13 @@ const Bookies = () => {
                     <SectionBookies key={user?._id} user={user} />
                 ))}
             </main>
-            <div ref={ref}>{isFetchingNextPage ? <Loading /> : null}</div>
+            <div ref={ref}>
+                {isFetchingNextPage ? (
+                    <div className="flex justify-center items-center m-3">
+                        <Spinner color="warning" />
+                    </div>
+                ) : null}
+            </div>
         </>
     )
 }

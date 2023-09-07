@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Alert } from 'flowbite-react'
+import { Alert, Spinner } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import { useGetNews } from '../../features/news.features'
 import CardNew from './components/CardNew'
@@ -39,7 +39,13 @@ const News = () => {
                     <Alert color="warning">No hay noticias para mostrar!</Alert>
                 )}
             </main>
-            <div ref={ref}>{isFetchingNextPage ? <Loading /> : null}</div>
+            <div ref={ref}>
+                {isFetchingNextPage ? (
+                    <div className="flex justify-center items-center m-3">
+                        <Spinner color="warning" />
+                    </div>
+                ) : null}
+            </div>
         </>
     )
 }

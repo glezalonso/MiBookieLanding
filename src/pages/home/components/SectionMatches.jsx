@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useGetMatchesToday } from '../../../features/matches.features'
-import { Alert, Badge } from 'flowbite-react'
+import { Alert, Badge, Spinner } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 import CardMatch from '../../comuncomponents/CardMatch'
 import Loading from '../../../ui/Loading'
@@ -51,7 +51,13 @@ const SectionMatches = ({ date }) => {
                     </Alert>
                 )}
             </section>
-            <div ref={ref}>{isFetchingNextPage ? <Loading /> : null}</div>
+            <div ref={ref}>
+                {isFetchingNextPage ? (
+                    <div className="flex justify-center items-center m-3">
+                        <Spinner color="warning" />
+                    </div>
+                ) : null}
+            </div>
         </>
     )
 }
