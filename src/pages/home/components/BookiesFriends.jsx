@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal, Table } from 'flowbite-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { PersonCircle } from 'react-bootstrap-icons'
 import bookieswhite from '../../../icons/bookieswhite.svg'
 

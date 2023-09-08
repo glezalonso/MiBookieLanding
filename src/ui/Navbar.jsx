@@ -74,25 +74,26 @@ function NavBar() {
                             Inicio
                         </Link>
 
-                        {sports?.map((sport) => (
-                            <Link
-                                to={`../sports/${sport?._id}`}
-                                key={sport?._id}
-                                className={`${
-                                    pathname === `/sports/${sport?._id}`
-                                        ? 'text-white scale-105'
-                                        : ' text-gray-400'
-                                } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-105`}
-                            >
-                                <img
-                                    className="w-5 h-5 mx-auto "
-                                    src={sport?.poster}
-                                    alt={sport?.sport}
-                                />
+                        {sports &&
+                            sports?.map((sport) => (
+                                <Link
+                                    to={`../sports/${sport?._id}`}
+                                    key={sport?._id}
+                                    className={`${
+                                        pathname === `/sports/${sport?._id}`
+                                            ? 'text-white scale-105'
+                                            : ' text-gray-400'
+                                    } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-105`}
+                                >
+                                    <img
+                                        className="w-5 h-5 mx-auto "
+                                        src={sport?.poster}
+                                        alt={sport?.sport}
+                                    />
 
-                                {sport?.sport?.slice(0, 9)}
-                            </Link>
-                        ))}
+                                    {sport?.sport?.slice(0, 9)}
+                                </Link>
+                            ))}
                         <Link
                             to={'../news'}
                             className={`${
