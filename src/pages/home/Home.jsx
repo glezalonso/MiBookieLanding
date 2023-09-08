@@ -83,7 +83,7 @@ const Home = () => {
                     </div>
                     <div className="hidden sm:block sm:space-y-3 sm:col-span-1 sm:mt-2 sm:mx-2">
                         <SectionLeagues />
-                        <SectionFollows />
+                        {isLogged ? <SectionFollows /> : null}
                     </div>
                 </div>
                 {isLogged ? (
