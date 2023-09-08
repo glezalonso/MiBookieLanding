@@ -13,7 +13,7 @@ import home from '../icons/home.svg'
 function NavBar() {
     const { username, id } = useAuthStore((state) => state.profile)
     const { logOut } = useAuthStore((state) => state)
-    const { data: sports } = useGetSports()
+    const { data: sports, isLoading } = useGetSports()
 
     const navigate = useNavigate()
     const { pathname } = useLocation()
@@ -30,7 +30,7 @@ function NavBar() {
         setShowRegister(true)
         handleClose()
     }
-
+    if (isLoading) return <div>Cargando..</div>
     const handleLogOut = () => {
         logOut()
         navigate('/')
