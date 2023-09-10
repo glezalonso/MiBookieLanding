@@ -18,6 +18,7 @@ import VerifyCode from './pages/home/components/VerifyCode'
 import ResetPassword from './pages/home/components/ResetPassword'
 import Bookies from './pages/bookies/Bookies'
 import News from './pages/news/News'
+import Tournaments from './pages/tournaments/Tournaments'
 
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
@@ -45,6 +46,7 @@ const App = () => {
                     <Route element={<Protected isLogged={isLogged} />}>
                         <Route path="/profile/:id" element={<Profile />} />
                         <Route path="/bookies" element={<Bookies />} />
+                        <Route path="/tournaments" element={<Tournaments />} />
                     </Route>
                     <Route path="/news" element={<News />} />
                     <Route path="/about" element={<About />} />

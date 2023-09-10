@@ -50,7 +50,7 @@ const TeamDetails = () => {
                             />
                             Próximos
                         </Button>
-                        {team?.sport?._id !== sport.ID_SOCCER &&
+                        {/* {team?.sport?._id !== sport.ID_SOCCER &&
                             team?.sport?._id !== sport.ID_TENNIS ? (
                             <Button
                                 size="sm"
@@ -66,9 +66,9 @@ const TeamDetails = () => {
                                 />
                                 Calificación
                             </Button>
-                        ) : null}
+                        ) : null} */}
 
-                        {team?.sport?._id !== sport.ID_TENNIS ? (
+                        {/* {team?.sport?._id !== sport.ID_TENNIS ? (
                             <Button
                                 size="sm"
                                 pill
@@ -83,7 +83,7 @@ const TeamDetails = () => {
                                 />
                                 Plantilla
                             </Button>
-                        ) : null}
+                        ) : null} */}
                         <Button
                             size="sm"
                             pill

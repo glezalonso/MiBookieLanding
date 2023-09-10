@@ -14,7 +14,8 @@ import {
     getTopBookies,
     sendMessage,
     getTopMonth,
-    getTopMonthSport
+    getTopMonthSport,
+    getTournamentWinner
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -189,6 +190,14 @@ export const useGetTopMonthSport = (date, sport) => {
     const { data, isLoading, isError } = useQuery({
         queryKey: ['topmonthsport', date, sport],
         queryFn: () => getTopMonthSport(date, sport),
+    })
+    return { data, isLoading, isError }
+}
+
+export const useGetTournamentWinner= (season) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['tournament', season],
+        queryFn: () => getTournamentWinner(season),
     })
     return { data, isLoading, isError }
 }

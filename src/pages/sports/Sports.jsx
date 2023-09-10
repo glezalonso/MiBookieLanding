@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { toast } from 'react-hot-toast'
-import { Button } from 'flowbite-react'
 import { useGetSport } from '../../features/sports.features'
 import { useAuthStore } from '../../store/authorization'
 
