@@ -37,7 +37,7 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar fluid className="bg-gray-800 p-2 rounded-b-md  ">
+            <Navbar fluid className="bg-gray-900 p-2 rounded-b-md  ">
                 <div className="w-full flex flex-wrap justify-between items-center sm:flex-1">
                     <div className="flex items-center sm:mx-auto">
                         <Link

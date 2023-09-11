@@ -18,7 +18,7 @@ const PeopleComments = ({ comment }) => {
                 className="flex  p-1 justify-start mt-1 overflow-auto"
                 key={comment?._id}
             >
-                <div className="p-1  text-xs bg-gray-700 w-2/4 rounded-md  text-end">
+                <div className="p-1  text-xs bg-gray-800 w-2/4 rounded-md  text-end">
                     <div className="flex justify-between gap-1 text-white font-bold text-xs">
                         <div
                             onClick={() =>

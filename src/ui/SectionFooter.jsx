@@ -6,10 +6,7 @@ import { Link } from 'react-router-dom'
 const SectionFooter = () => {
     return (
         <>
-            <Footer
-                container
-                className="w-full bg-gray-800 rounded-t-md mt-3 p-2"
-            >
+            <Footer container className="w-full bg-gray-900 rounded-t mt-3 p-2">
                 <div className="w-full flex justify-between items-center lg:w-3/4 mx-auto">
                     <div className="flex items-center ml-1">
                         <Footer.Brand
