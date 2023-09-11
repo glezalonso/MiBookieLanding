@@ -17,8 +17,6 @@ import {
     getMatchesByTeam,
     getNextMatchesBySport,
     pickEm,
-    getPicksOpen,
-    getPicksClosed,
     getMatchesTodaySport,
     getHeadToHead,
 } from '../services/matches.services'
@@ -169,20 +167,40 @@ export const useAddPickEm = () => {
     })
     return mutationAddPickEm
 }
-export const useGetPicksOpen = (id, limit) => {
-    const { data, isLoading, isError, isFetching } = useQuery({
-        queryKey: ['query', id, limit],
-        queryFn: () => getPicksOpen(id, limit),
-    })
-    return { data, isLoading, isError, isFetching }
-}
 
-export const useGetPicksClosed = (id, limit) => {
-    const { data, isLoading, isError, isFetching } = useQuery({
-        queryKey: ['query', id, limit],
-        queryFn: () => getPicksClosed(id, limit),
-    })
-    return { data, isLoading, isError, isFetching }
+
+export const useGetMatchesBookie = (id,status) => {
+    const {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    } = useInfiniteQuery(
+        ['predictions', id, status],
+        async ({ pageParam = 1 }) => {
+            const { data } = await axios.get(
+                `/api/matches/matchbookie/${id}/${status}/${pageParam}`
+            )
+            return data
+        },
+
+        {
+            getNextPageParam: (lastPage) => {
+                if (lastPage.page === lastPage.totalPages) return false
+                return lastPage.page + 1
+            },
+        }
+    )
+    return {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    }
 }
 
 export const useGetHeadtoHead = (local, away) => {

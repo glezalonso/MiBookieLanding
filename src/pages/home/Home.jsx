@@ -27,7 +27,7 @@ const Home = () => {
 
     return (
         <>
-            <main className="container mx-auto min-h-screen p-1 lg:w-4/6">
+            <main className="container mx-auto min-h-screen p-1 xl:w-4/5">
                 <div className="sm:grid sm:grid-cols-4 sm:gap-5">
                     <div className="sm:col-span-3 sm:ml-1  ">
                         <div

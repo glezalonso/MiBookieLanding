@@ -26,7 +26,7 @@ const PersonalComments = ({ match, comment }) => {
     return (
         <>
             <div className="flex p-1 justify-end   mb-1 overflow-auto ">
-                <div className="p-1  text-xs  bg-gray-800  rounded-md w-2/4 text-start">
+                <div className="p-1  text-xs  bg-gray-700  rounded-md w-2/4 text-start">
                     <div className="flex justify-between gap-2 text-white font-bold text-xs">
                         <div
                             onClick={() =>

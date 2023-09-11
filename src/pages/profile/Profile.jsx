@@ -1,27 +1,23 @@
 import React, { useState } from 'react'
-import { Alert, Button } from 'flowbite-react'
+import { Alert } from 'flowbite-react'
+import { toast } from 'react-hot-toast'
 import { useParams } from 'react-router-dom'
 import { useGetBookie } from '../../features/users.features'
 import { useAuthStore } from '../../store/authorization'
-import SectionNext from './components/SectionNext'
 import ButtonPill from '../comuncomponents/ButtonPill'
-import SectionLast from './components/SectionLast'
 import SectionFollowers from './components/SectionFollowers'
 import SectionFollows from './components/SectionFollows'
 import CardProfile from './components/CardProfile'
 import SectionRating from './components/SectionRating'
-import SelectFilter from '../comuncomponents/SelectFilter'
 import follow from '../../icons/follow.svg'
 import followers from '../../icons/followers.svg'
-import next from '../../icons/next.svg'
-import back from '../../icons/back.svg'
 import Loading from '../../ui/Loading'
-import { toast } from 'react-hot-toast'
+import field from '../../icons/filed.svg'
+import SectionMatches from './components/SectionMatches'
 
 const Profile = () => {
     const { id } = useParams()
-    const [key, setKey] = useState('proximos')
-    const [limit, setLimit] = useState(15)
+    const [key, setKey] = useState('partidos')
     const userId = useAuthStore((state) => state.profile.id)
     const { data: user, isLoading, isError } = useGetBookie(id)
 
@@ -34,13 +30,12 @@ const Profile = () => {
 
     return (
         <>
-            <main className="container w-full mx-auto min-h-screen p-1 xl:w-3/5">
+            <main className="container w-full mx-auto min-h-screen p-1 xl:w-4/5">
                 <div className="grid w-full mt-2.5 sm:grid-cols-5 sm:gap-3  ">
                     <div className=" col-span-5  sm:col-span-2">
                         <CardProfile user={user} />
                         <SectionRating user={user} />
                     </div>
-
                     <div className="w-full col-span-5 justify-center mx-auto sm:col-span-3 ">
                         {id === userId || exist?.length > 0 ? (
                             <>
@@ -49,19 +44,13 @@ const Profile = () => {
                                     role="group"
                                 >
                                     <ButtonPill
-                                        active={key === 'proximos'}
-                                        img={next}
-                                        onClick={() => setKey('proximos')}
+                                        active={key === 'partidos'}
+                                        img={field}
+                                        onClick={() => setKey('partidos')}
                                     >
-                                        Próximos
+                                        Mis partidos
                                     </ButtonPill>
-                                    <ButtonPill
-                                        active={key === 'ultimos'}
-                                        img={back}
-                                        onClick={() => setKey('ultimos')}
-                                    >
-                                        Últimos
-                                    </ButtonPill>
+
                                     {id === userId ? (
                                         <>
                                             <ButtonPill
@@ -86,15 +75,10 @@ const Profile = () => {
                                     ) : null}
                                 </div>
                                 <section>
-                                    <div className="flex my-1 mx-auto justify-end">
-                                        <SelectFilter setLimit={setLimit} />
-                                    </div>
-                                    {key === 'proximos' ? (
-                                        <SectionNext id={id} limit={limit} />
+                                    {key === 'partidos' ? (
+                                        <SectionMatches user={user} />
                                     ) : null}
-                                    {key === 'ultimos' ? (
-                                        <SectionLast id={id} limit={limit} />
-                                    ) : null}
+
                                     {key === 'contactos' ? (
                                         <SectionFollows
                                             user={user}

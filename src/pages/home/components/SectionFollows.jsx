@@ -15,7 +15,7 @@ const SectionFollows = () => {
             <section>
                 <h5 className="mx-1">Contáctos</h5>
                 {user?.follow?.length > 0 ? (
-                    <div className="bg-white p-1 rounded mt-2">
+                    <div className="bg-white p-1 rounded mt-2 shadow-lg">
                         <Table hoverable className="table-auto text-sm">
                             <Table.Body>
                                 {user?.follow?.map((follow) => (

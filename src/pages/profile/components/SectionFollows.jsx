@@ -19,13 +19,13 @@ const SectionFollows = ({ user, setKey }) => {
     }
 
     const handleNavigate = (follower) => {
-        setKey('proximos')
+        setKey('partidos')
         navigate(`../profile/${follower?._id}`)
     }
 
     return (
         <>
-            <section className=" bg-white rounded p-2 my-3">
+            <section className=" bg-white rounded-md p-2 my-3 shadow-lg border">
                 <div className="flex  items-center gap-1 ml-2">
                     <img src={follow} alt="follow" className="h-5 w-5" />
                     <span className="">Contáctos</span>
@@ -44,7 +44,7 @@ const SectionFollows = ({ user, setKey }) => {
                                         >
                                             <PersonCircle
                                                 color="dark"
-                                                className="mx-1"
+                                                className="mx-1 h-4 w-4"
                                             />
                                             {follower?.username}
                                         </Table.Cell>
@@ -52,7 +52,7 @@ const SectionFollows = ({ user, setKey }) => {
                                             <div className="flex justify-end">
                                                 <PersonDash
                                                     color="red"
-                                                    className="hover:cursor-pointer h-5 w-5"
+                                                    className="hover:cursor-pointer h-6 w-6 mx-3"
                                                     onClick={() =>
                                                         handleRemove(
                                                             follower?._id,

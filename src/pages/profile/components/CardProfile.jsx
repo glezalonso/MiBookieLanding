@@ -24,7 +24,7 @@ const CardProfile = ({ user }) => {
 
     return (
         <>
-            <div className="  max-w-full bg-white  border-gray-200 my-1 p-2 rounded-lg hover:shadow-lg">
+            <div className="  max-w-full bg-white  border-gray-200 my-1 p-2 rounded-lg shadow-lg">
                 <div className="flex justify-between">
                     <div className="flex mx-2 justify-start items-center">
                         <img

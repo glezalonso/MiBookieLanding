@@ -37,15 +37,12 @@ function NavBar() {
     }
     return (
         <>
-            <Navbar
-                fluid
-                className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 via-gray-900 to-black p-2 "
-            >
+            <Navbar fluid className="bg-gray-800 p-2 rounded-b-md  ">
                 <div className="w-full flex flex-wrap justify-between items-center sm:flex-1">
-                    <div className="flex items-center sm:ml-auto">
+                    <div className="flex items-center sm:mx-auto">
                         <Link
                             to={'/'}
-                            className="flex items-center no-underline text-white hover:scale-105 "
+                            className="flex items-center no-underline text-white hover:scale-110 "
                         >
                             <img
                                 alt="mibookie"
@@ -57,14 +54,14 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="w-full flex justify-evenly gap-1  items-center order-1 mx-auto mt-3 mb-1 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
+                    <div className="w-full flex justify-evenly gap-1 items-center order-1 mx-auto mt-3 mb-1 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
                         <Link
                             to={'/'}
                             className={`${
                                 pathname === '/'
-                                    ? 'text-white scale-105'
+                                    ? 'text-white scale-110'
                                     : ' text-gray-400'
-                            } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-105`}
+                            } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
                         >
                             <img
                                 src={home}
@@ -80,9 +77,9 @@ function NavBar() {
                                 key={sport?._id}
                                 className={`${
                                     pathname === `/sports/${sport?._id}`
-                                        ? 'text-white scale-105'
+                                        ? 'text-white  scale-110'
                                         : ' text-gray-400'
-                                } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-105`}
+                                } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
                             >
                                 <img
                                     className="w-5 h-5 mx-auto "
@@ -97,9 +94,9 @@ function NavBar() {
                             to={'../news'}
                             className={`${
                                 pathname === '/news'
-                                    ? 'text-white scale-105'
+                                    ? 'text-white  scale-110'
                                     : ' text-gray-400'
-                            } text-xs items-center lg:flex  lg:gap-1 lg:text-sm  hover:text-white hover:scale-105`}
+                            } text-xs items-center lg:flex  lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
                         >
                             <img
                                 src={newspaper}
@@ -110,7 +107,7 @@ function NavBar() {
                         </Link>
                     </div>
 
-                    <div className="flex p-1 text-white ml-auto sm:ml-auto lg:mr-auto  sm:order-3 ">
+                    <div className="flex p-1 text-white ml-auto sm:ml-auto lg:mx-auto  sm:order-3 ">
                         {username ? (
                             <DropdownUser
                                 username={username}

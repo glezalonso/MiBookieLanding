@@ -29,7 +29,7 @@ const SectionLeagues = () => {
                     />
                 </div>
                 {leaguesByFilter?.length > 0 ? (
-                    <div className="bg-white p-1 rounded">
+                    <div className="bg-white p-1 rounded shadow-lg">
                         <Table hoverable className="table-auto text-sm">
                             <Table.Body>
                                 {leaguesByFilter?.map((league) => (

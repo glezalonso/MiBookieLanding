@@ -19,7 +19,7 @@ const SectionTop = ({ show, handleClose }) => {
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))]  from-gray-800 via-gray-900 to-black p-2  flex items-center">
+                <Modal.Header className="bg-gray-900 p-2  flex items-center">
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img

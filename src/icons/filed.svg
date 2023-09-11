@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg2490"
+   xml:space="preserve"
+   width="682.66669"
+   height="682.66669"
+   viewBox="0 0 682.66669 682.66669"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs2494"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2504"><path
+         d="M 0,512 H 512 V 0 H 0 Z"
+         id="path2502" /></clipPath></defs><g
+     id="g2496"
+     transform="matrix(1.3333333,0,0,-1.3333333,0,682.66667)"><g
+       id="g2498"><g
+         id="g2500"
+         clip-path="url(#clipPath2504)"><path
+           d="M 502,176.128 H 422.489 V 335.872 H 502 Z"
+           style="fill:none;stroke:gray;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path2506" /><path
+           d="M 89.511,176.128 H 10 v 159.744 h 79.511 z"
+           style="fill:none;stroke:gray;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path2508" /><path
+           d="M 502,78.498 H 10 v 355.004 h 492 z"
+           style="fill:none;stroke:gray;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+           id="path2510" /><g
+           id="g2512"
+           transform="translate(331.9785,256)"><path
+             d="m 0,0 c 0,-41.962 -34.017,-75.979 -75.979,-75.979 -41.961,0 -75.978,34.017 -75.978,75.979 0,41.962 34.017,75.979 75.978,75.979 C -34.017,75.979 0,41.962 0,0 Z"
+             style="fill:none;stroke:gray;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             id="path2514" /></g><g
+           id="g2516"
+           transform="translate(256,431.2295)"><path
+             d="M 0,0 V -350.459"
+             style="fill:none;stroke:gray;stroke-width:20;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+             id="path2518" /></g></g></g></g></svg>

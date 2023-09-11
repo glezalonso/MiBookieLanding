@@ -6,7 +6,7 @@ import CardSectionLocal from '../../comuncomponents/CardSectionLocal'
 import LocalScore from '../../comuncomponents/LocalScore'
 import CardHeader from '../../comuncomponents/CardHeader'
 
-const CardPick = ({ match, id }) => {
+const CardOpen = ({ match, id }) => {
     let result = ''
 
     const prediction = match?.votes?.filter(
@@ -25,7 +25,7 @@ const CardPick = ({ match, id }) => {
 
     return (
         <>
-            <div className="max-w-full bg-white  border-gray-200 my-2 p-2 rounded-lg hover:shadow-lg">
+            <div className="max-w-full bg-white border-gray-200 my-2 p-2 rounded-lg border-2 shadow-lg">
                 <div>
                     <CardHeader match={match} />
                 </div>
@@ -95,4 +95,4 @@ const CardPick = ({ match, id }) => {
         </>
     )
 }
-export default CardPick
+export default CardOpen

@@ -8,19 +8,22 @@ const SectionFollowers = ({ user, setKey }) => {
     const navigate = useNavigate()
 
     const handleNavigate = (follower) => {
-        setKey('proximos')
+        setKey('partidos')
         navigate(`../profile/${follower?._id}`)
     }
     return (
         <>
-            <section className=" bg-white rounded p-2 my-3">
+            <section className=" bg-white rounded-md p-2 my-3 shadow-lg border">
                 <div className="flex ml-2 gap-1 items-center">
                     <img src={followers} className="w-5 h-5" />
                     <span>Seguidores</span>
                 </div>
                 {user?.followers?.length > 0 ? (
-                    <div className=" bg-white rounded py-1 mb-3">
-                        <Table hoverable className="table-auto mt-1 text-sm">
+                    <div className=" bg-white rounded p-1 mb-3">
+                        <Table
+                            hoverable
+                            className="table-auto mt-1 mx-1 text-sm"
+                        >
                             <Table.Body>
                                 {user?.followers?.map((follower) => (
                                     <Table.Row
@@ -28,10 +31,10 @@ const SectionFollowers = ({ user, setKey }) => {
                                         onClick={() => handleNavigate(follower)}
                                         key={follower?._id}
                                     >
-                                        <Table.Cell className=" flex p-1">
+                                        <Table.Cell className="flex items-center p-1">
                                             <Person
                                                 color="dark"
-                                                className="mx-1"
+                                                className="mx-1 h-4 w-4"
                                             />
                                             {follower?.username}
                                         </Table.Cell>

@@ -1,57 +1,47 @@
 import React from 'react'
-import { useGetSeason } from '../../features/seasons.features'
-import { Table, Alert } from 'flowbite-react'
+import { Alert } from 'flowbite-react'
+import { useGetTournaments } from '../../features/tournaments.features'
 import trophytour from '../../icons/trophytour.svg'
-import { useGetTournamentWinner } from '../../features/users.features'
 import BookieSection from './components/BookiesSection'
 import StandingSection from './components/StandingSection'
+import Loading from '../../ui/Loading'
+import { toast } from 'react-hot-toast'
+import medal from '../../icons/medal.svg'
 
 const Tournaments = () => {
-    const season = '64dfeffe7e9c648a00f7666a'
-    const { data, isLoading, isError } = useGetSeason(season)
-    const { data: users } = useGetTournamentWinner(season)
+    const { data: tournaments, isLoading, isError } = useGetTournaments()
 
-    const winner = users
-        ?.sort((a, b) => {
-            return (
-                (b?.matchesSuccess?.filter((match) => match?.season === season)
-                    ?.length *
-                    100) /
-                    (b?.matchesSuccess?.filter(
-                        (match) => match?.season === season
-                    )?.length +
-                        b?.matchesFailure?.filter(
-                            (match) => match?.season === season
-                        )?.length) -
-                (a?.matchesSuccess?.filter((match) => match?.season === season)
-                    ?.length *
-                    100) /
-                    (a?.matchesSuccess?.filter(
-                        (match) => match?.season === season
-                    )?.length +
-                        a?.matchesFailure?.filter(
-                            (match) => match?.season === season
-                        )?.length || b?.matchesSuccess - a?.matchesSuccess)
-            )
-        })
-        .slice(0, 1)
+    if (isLoading) return <Loading />
+    if (isError) return toast.error('Hubo un error al cargar los torneos')
 
     return (
         <>
-            <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
-                <h5 className="mt-3 mx-1">Torneos</h5>
-                <div className=" bg-white rounded mt-2 max-h-3/4 overflow-auto p-1 mb-3">
-                    <StandingSection data={data} icon={trophytour} />
-                    {users?.length > 0 ? (
-                        <BookieSection
-                            data={data}
-                            bookies={winner}
-                            icon={trophytour}
-                            season={season}
-                        />
+            <main className="container mx-auto min-h-screen p-1 md:w-11/12    2xl:w-3/4">
+                <h1 className=" flex items-center  gap-1 my-2 mx-1 text-lg font-semibold text-gray-800">
+                    <img src={trophytour} alt="trofeo" className="h-7 w-7" />
+                    Torneos
+                </h1>
+                <div className=" grid grid-cols-1 sm:grid-cols-5 sm:gap-1 md:grid-cols-10  2xl:grid-cols-9 2xl:gap-2">
+                    {tournaments?.length > 0 ? (
+                        tournaments?.map((tournament) => (
+                            <div
+                                key={tournament?._id}
+                                className=" w-full col-span-1 sm:col-span-5 md:col-span-5  2xl:col-span-3 bg-white justify-center mx-auto h-max shadow-lg  shadow-slate-300 p-1 rounded my-1"
+                            >
+                                <StandingSection
+                                    season={tournament?.season}
+                                    icon={trophytour}
+                                />
+
+                                <BookieSection
+                                    season={tournament?.season}
+                                    icon={medal}
+                                />
+                            </div>
+                        ))
                     ) : (
                         <Alert className="mt-2 text-center" color={'warning'}>
-                            Calculando al ganador...
+                            No hay torneos...
                         </Alert>
                     )}
                 </div>
