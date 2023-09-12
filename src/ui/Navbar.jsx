@@ -46,10 +46,10 @@ function NavBar() {
                         >
                             <img
                                 alt="mibookie"
-                                className="mr-1 h-8 w-8 sm:mt-1.5 sm:h-9 sm:w-9"
+                                className="mr-1 h-9 w-9 sm:mt-1.5 sm:h-9 sm:w-9"
                                 src={logo}
                             />
-                            <span className="self-center mt-1 text-lg whitespace-nowrap sm:mt-2.5 font-semibol">
+                            <span className="self-center mt-1 text-xl whitespace-nowrap sm:mt-2.5 font-semibol">
                                 Mi Bookie
                             </span>
                         </Link>
