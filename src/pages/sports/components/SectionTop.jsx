@@ -13,7 +13,7 @@ const SectionTopSport = ({ show, handleClose, sport }) => {
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-gray-800 p-2  flex items-center">
+                <Modal.Header className="bg-gray-900 p-2  flex items-center">
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img

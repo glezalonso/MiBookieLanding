@@ -20,32 +20,7 @@ const BookieSection = ({ season, icon }) => {
 
     if (isError) return toast.error('Hubo un error al cargar los bookies')
 
-    const winner = users
-        ?.sort((a, b) => {
-            return (
-                (b?.matchesSuccess?.filter(
-                    (match) => match?.season === season?._id
-                )?.length *
-                    100) /
-                    (b?.matchesSuccess?.filter(
-                        (match) => match?.season === season?._id
-                    )?.length +
-                        b?.matchesFailure?.filter(
-                            (match) => match?.season === season?._id
-                        )?.length) -
-                (a?.matchesSuccess?.filter(
-                    (match) => match?.season === season?._id
-                )?.length *
-                    100) /
-                    (a?.matchesSuccess?.filter(
-                        (match) => match?.season === season?._id
-                    )?.length +
-                        a?.matchesFailure?.filter(
-                            (match) => match?.season === season?._id
-                        )?.length || b?.matchesSuccess - a?.matchesSuccess)
-            )
-        })
-        .slice(0, season?.status ? 10 : 1)
+    const winner = users.slice(0, season?.status ? 10 : 1)
 
     return (
         <>

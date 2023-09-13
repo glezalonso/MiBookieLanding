@@ -35,7 +35,7 @@ const CardConsensus = ({ match }) => {
         if (!id) return toast.error('Debes iniciar sesión para comentar')
         addVote.mutate({ body: { option, match, userId: id } })
     }
-    const existVote = match?.votes?.find((vote) => vote?.username === id)
+    const existVote = match?.votes?.find((vote) => vote?.username?._id === id)
 
     return (
         <>
@@ -50,8 +50,8 @@ const CardConsensus = ({ match }) => {
                                 <LocalVotes match={match} />
                             </Table.Cell>
                             {match?.date > fullDate &&
-                                !existVote &&
-                                match?.status ? (
+                            !existVote &&
+                            match?.status ? (
                                 <Table.Cell className="p-1 ">
                                     <LocalVote
                                         match={match}
@@ -70,8 +70,8 @@ const CardConsensus = ({ match }) => {
                                     <DrawVotes match={match} />
                                 </Table.Cell>
                                 {match?.date > fullDate &&
-                                    !existVote &&
-                                    match?.status ? (
+                                !existVote &&
+                                match?.status ? (
                                     <Table.Cell className="p-1 ">
                                         <DrawVote
                                             match={match}
@@ -89,8 +89,8 @@ const CardConsensus = ({ match }) => {
                                 <AwayVotes match={match} />
                             </Table.Cell>
                             {match?.date > fullDate &&
-                                !existVote &&
-                                match?.status ? (
+                            !existVote &&
+                            match?.status ? (
                                 <Table.Cell className="p-1 m">
                                     <AwayVote
                                         match={match}
