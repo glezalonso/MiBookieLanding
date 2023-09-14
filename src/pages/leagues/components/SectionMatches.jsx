@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { Alert, Badge, TextInput } from 'flowbite-react'
+import { useGetMatchesByLeague } from '../../../features/matches.features'
 import Loading from '../../../ui/Loading'
-import TableMatche from '../../comuncomponents/TableMatch'
 import SelectFilter from '../../comuncomponents/SelectFilter'
+import CardMatch from '../../comuncomponents/CardMatch'
 
-const SectionMatches = ({ league, query, title }) => {
+const SectionMatches = ({ league, status, title }) => {
     const [filter, setFilter] = useState('')
     const [limit, setLimit] = useState(15)
-    const { data: matches, isLoading, isError } = query(league?._id, limit)
+    const {
+        data: matches,
+        isLoading,
+        isError,
+    } = useGetMatchesByLeague(league?._id, limit, status)
 
     if (isLoading) return <Loading />
 
@@ -47,7 +52,9 @@ const SectionMatches = ({ league, query, title }) => {
                 </div>
 
                 {matchesByFilter?.length > 0 ? (
-                    <TableMatche match={matchesByFilter} />
+                    matchesByFilter.map((match) => (
+                        <CardMatch key={match?._id} match={match} />
+                    ))
                 ) : (
                     <Alert color="warning">No hay partidos para mostrar!</Alert>
                 )}

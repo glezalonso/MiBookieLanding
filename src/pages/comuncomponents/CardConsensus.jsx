@@ -32,7 +32,7 @@ const CardConsensus = ({ match }) => {
     const ID_SOCCER = '648f71dea4ba8860dfe3830f'
 
     const handleVote = (option, match) => {
-        if (!id) return toast.error('Debes iniciar sesión para comentar')
+        if (!id) return toast.error('Debes iniciar sesión para votar')
         addVote.mutate({ body: { option, match, userId: id } })
     }
     const existVote = match?.votes?.find((vote) => vote?.username?._id === id)

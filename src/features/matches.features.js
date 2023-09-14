@@ -10,8 +10,7 @@ import {
     getMatches,
     addComment,
     removeComment,
-    getMatchesOpenByLeague,
-    getMatchesClosedByLeague,
+    getMatchesByLeague,
     getMatchesByRound,
     getMatchesOpen,
     getMatchesByTeam,
@@ -114,21 +113,14 @@ export const useGetMatchesByTeam = (team, limit, status) => {
     })
     return { data, isLoading, isError }
 }
-export const useGetMatchesOpenByLeague = (league, limit) => {
+export const useGetMatchesByLeague = (league, limit, status) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', league, limit],
-        queryFn: () => getMatchesOpenByLeague(league, limit),
+        queryKey: ['matches', league, limit, status],
+        queryFn: () => getMatchesByLeague(league, limit, status),
     })
     return { data, isLoading, isError }
 }
 
-export const useGetMatchesClosedByLeague = (league, limit) => {
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ['matches', league, limit],
-        queryFn: () => getMatchesClosedByLeague(league, limit),
-    })
-    return { data, isLoading, isError }
-}
 
 export const useGetMatchesByRound = (round) => {
     const { data, isLoading, isError } = useQuery({

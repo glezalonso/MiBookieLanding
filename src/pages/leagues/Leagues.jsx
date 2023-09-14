@@ -1,8 +1,4 @@
 import React, { useState } from 'react'
-import {
-    useGetMatchesOpenByLeague,
-    useGetMatchesClosedByLeague,
-} from '../../features/matches.features'
 import { useParams } from 'react-router-dom'
 import { useGetLeague } from '../../features/leagues.features'
 import { toast } from 'react-hot-toast'
@@ -84,14 +80,14 @@ const Leagues = () => {
                         <SectionMatches
                             title={'Próximos'}
                             league={league}
-                            query={useGetMatchesOpenByLeague}
+                            status={true}
                         />
                     ) : null}
                     {key === 'ultimos' ? (
                         <SectionMatches
                             title={'Últimos'}
                             league={league}
-                            query={useGetMatchesClosedByLeague}
+                            status={false}
                         />
                     ) : null}
                 </section>

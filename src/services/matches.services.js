@@ -34,19 +34,14 @@ export const getMatchesByTeam = async (team, limit, status) => {
     return data
 }
 
-export const getMatchesOpenByLeague = async (league, limit) => {
+export const getMatchesByLeague = async (league, limit, status) => {
     const { data } = await axios.get(
-        `/api/matches/openleague/${league}/${limit}`
+        `/api/matches/league/${league}/${limit}/${status}`
     )
     return data
 }
 
-export const getMatchesClosedByLeague = async (league, limit) => {
-    const { data } = await axios.get(
-        `/api/matches/closedleague/${league}/${limit}`
-    )
-    return data
-}
+
 
 export const getMatchesByRound = async (round) => {
     const { data } = await axios.get(`/api/matches/round/${round}`)
