@@ -7,7 +7,7 @@ const CardNew = ({ content }) => {
     const [seeMore, setSeeMore] = useState(false)
     return (
         <>
-            <section className="bg-white rounded p-1 my-3 lg:hover:shadow-2xl lg:hover:shadow-black lg:hover:scale-105 lg:hover:m-2">
+            <section className="bg-white rounded p-1 my-3 lg:hover:shadow-xl  ">
                 <Table hoverable className="table-auto mt-1 text-sm">
                     <Table.Body>
                         <Table.Row>
@@ -25,21 +25,22 @@ const CardNew = ({ content }) => {
                                 <h5 className="font-bold text-gray-800 mb-1 text-base ">
                                     {content?.title}
                                 </h5>
-                                <p className="text-gray-600 break-words whitespace-pre-line">
-                                    {seeMore
-                                        ? content?.content
-                                        : content?.content?.slice(0, 150)}
-
-                                    {content?.content?.length > 150 ? (
-                                        <Link
-                                            className=" text-blue-500 mx-1 : hover:underline"
-                                            onClick={() => setSeeMore(!seeMore)}
-                                        >
-                                            {seeMore ? ` Ver menos` : `Ver más`}
-                                        </Link>
-                                    ) : null}
+                                <p
+                                    className={`${
+                                        seeMore
+                                            ? 'h-full'
+                                            : 'h-20 overflow-hidden'
+                                    }   text-gray-600 break-words whitespace-pre-line`}
+                                >
+                                    {content?.content}
                                 </p>
-                                <div className="flex mt-2.5 justify-end items-center text-gray-800">
+                                <div className="flex mt-2.5 justify-end items-center  text-gray-800">
+                                    <Link
+                                        className=" text-blue-500 mx-1 hover:underline mr-2 border-2 border-blue-500 rounded-lg px-2 py-1"
+                                        onClick={() => setSeeMore(!seeMore)}
+                                    >
+                                        {seeMore ? ` Ver menos` : `Ver todo`}
+                                    </Link>
                                     <Clock className="my-1 mx-1" />
                                     {content?.date
                                         ?.split('T', 3)
