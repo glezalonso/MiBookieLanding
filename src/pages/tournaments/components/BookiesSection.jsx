@@ -3,12 +3,12 @@ import { Spinner, Table } from 'flowbite-react'
 import { useGetTournamentWinner } from '../../../features/users.features'
 import { toast } from 'react-hot-toast'
 
-const BookieSection = ({ season, icon }) => {
+const BookieSection = ({ season, icon, minimun }) => {
     const {
         data: users,
         isLoading,
         isError,
-    } = useGetTournamentWinner(season?._id)
+    } = useGetTournamentWinner(season?._id, minimun)
     let i = 0
 
     if (isLoading)

@@ -13,7 +13,7 @@ const Tournaments = () => {
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los torneos')
-
+    console.log(tournaments)
     return (
         <>
             <main className="container mx-auto min-h-screen p-1 md:w-11/12    2xl:w-3/4">
@@ -36,6 +36,7 @@ const Tournaments = () => {
                                 <BookieSection
                                     season={tournament?.season}
                                     icon={medal}
+                                    minimun={tournament?.minimum}
                                 />
                             </div>
                         ))

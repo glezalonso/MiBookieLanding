@@ -194,10 +194,10 @@ export const useGetTopMonthSport = (date, sport) => {
     return { data, isLoading, isError }
 }
 
-export const useGetTournamentWinner= (season) => {
+export const useGetTournamentWinner= (season, minimun) => {
     const { data, isLoading, isError } = useQuery({
-        queryKey: ['tournament', season],
-        queryFn: () => getTournamentWinner(season),
+        queryKey: ['tournament', season, minimun],
+        queryFn: () => getTournamentWinner(season, minimun),
     })
     return { data, isLoading, isError }
 }
