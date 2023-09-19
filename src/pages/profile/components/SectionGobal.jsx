@@ -1,13 +1,13 @@
 import React from 'react'
 import { Table } from 'flowbite-react'
-import { BarChartFill } from 'react-bootstrap-icons'
+import statistics from '../../../icons/statistics.svg'
 
 const SectionGlobal = ({ user }) => {
     return (
         <>
             <div className="flex mx-2 justify-between border-b-2">
                 <div className="flex mt-1">
-                    <BarChartFill color="dark" size={'20px'} />
+                    <img src={statistics} className="h-5 w-5" />
                     <span className="mx-1">Estadísticas Totales</span>
                 </div>
                 <div className="flex justify-end ">

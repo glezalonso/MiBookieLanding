@@ -1,6 +1,6 @@
 import React from 'react'
 import { Modal } from 'flowbite-react'
-import medalwhite from '../../../icons/medalwhite.svg'
+import medal from '../../../icons/medal.svg'
 import TopMonthSport from './TopMonthSport'
 
 const SectionTopSport = ({ show, handleClose, sport }) => {
@@ -17,7 +17,7 @@ const SectionTopSport = ({ show, handleClose, sport }) => {
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img
-                                src={medalwhite}
+                                src={medal}
                                 alt="medal"
                                 className="mx-2 h-6 w-6"
                             />

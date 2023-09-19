@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Modal, Button } from 'flowbite-react'
 import ButtonPill from '../../comuncomponents/ButtonPill'
-import medalwhite from '../../../icons/medalwhite.svg'
+import medal from '../../../icons/medal.svg'
 import TopMonth from '../../comuncomponents/TopMonth'
 import TopGlobal from '../../comuncomponents/TopGlobal'
 import global from '../../../icons/global.svg'
@@ -23,7 +23,7 @@ const SectionTop = ({ show, handleClose }) => {
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img
-                                src={medalwhite}
+                                src={medal}
                                 alt="medal"
                                 className="mx-2 h-6 w-6"
                             />

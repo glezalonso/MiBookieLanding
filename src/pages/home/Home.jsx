@@ -8,7 +8,7 @@ import SectionMatches from './components/SectionMatches'
 import SectionLeagues from './components/SectionLeagues'
 import SectionTop from './components/SectionTop'
 import calendar from '../../icons/calendar.svg'
-import medalwhite from '../../icons/medalwhite.svg'
+import medal from '../../icons/medal.svg'
 import SectionFollows from './components/SectionFollows'
 
 const Home = () => {
@@ -58,7 +58,7 @@ const Home = () => {
                             {isLogged ? (
                                 <>
                                     <ButtonPill
-                                        img={medalwhite}
+                                        img={medal}
                                         onClick={() => handleShow()}
                                     >
                                         Top

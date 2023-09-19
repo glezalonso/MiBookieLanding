@@ -8,8 +8,8 @@ import { useAuthStore } from '../../store/authorization'
 import ButtonPill from '../comuncomponents/ButtonPill'
 import Loading from '../../ui/Loading'
 import calendar from '../../icons/calendar.svg'
-import leagues from '../../icons/leagues.svg'
-import medalwhite from '../../icons/medalwhite.svg'
+import trophytour from '../../icons/trophytour.svg'
+import medal from '../../icons/medal.svg'
 
 // Section
 import SectionLeaguesBySport from './components/SectionLeaguesBySport'
@@ -71,7 +71,7 @@ const Sports = () => {
                         <>
                             <ButtonPill
                                 active={false}
-                                img={medalwhite}
+                                img={medal}
                                 onClick={() => handleShow()}
                             >
                                 Top
@@ -80,7 +80,7 @@ const Sports = () => {
                     ) : null}
                     <ButtonPill
                         active={false}
-                        img={leagues}
+                        img={trophytour}
                         onClick={() => setKey('ligas')}
                     >
                         Ligas

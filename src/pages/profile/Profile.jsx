@@ -14,7 +14,7 @@ import followers from '../../icons/followers.svg'
 import Loading from '../../ui/Loading'
 import field from '../../icons/filed.svg'
 import SectionMatches from './components/SectionMatches'
-import Tournaments from './components/Tournaments'
+import Tournaments from './components/SectionTournaments'
 
 const Profile = () => {
     const { id } = useParams()
