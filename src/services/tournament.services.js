@@ -1,7 +1,7 @@
 import axios from '../libs/axios'
 
 export const getTournaments = async (status) => {
-    const { data } = await axios.get(`/api/tournamentsstatus/${status}`)
+    const { data } = await axios.get(`/api/tournaments/tournamentsstatus/${status}`)
     return data
 }
 
