@@ -18,7 +18,13 @@ const Tournaments = ({ user }) => {
                                 Torneo
                             </Table.HeadCell>
                             <Table.HeadCell className="px-1 text-center">
-                                Edicion
+                                Votos
+                            </Table.HeadCell>
+                            <Table.HeadCell className="px-1 text-center">
+                                Aciertos
+                            </Table.HeadCell>
+                            <Table.HeadCell className="px-1 text-center">
+                                Porcentaje
                             </Table.HeadCell>
                         </Table.Head>
                         <Table.Body>
