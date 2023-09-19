@@ -12,7 +12,7 @@ const SectionMonth = ({ user, icon }) => {
             <div className="flex mx-2 justify-between border-b-2">
                 <div className="flex mt-1">
                     <img src={statistics} className="h-5 w-5" />
-                    <span className="mx-1">Estadística menusal</span>
+                    <span className="mx-1">Estadística mensual</span>
                 </div>
                 <div className="flex justify-end ">
                     {user?.matchesSuccess?.filter(

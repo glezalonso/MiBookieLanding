@@ -43,7 +43,7 @@ const Sports = () => {
         <>
             <main className="container mx-auto min-h-screen p-1 lg:w-3/5">
                 <div
-                    className="flex gap-1 mt-2.5 justify-center mx-auto "
+                    className="flex gap-1 my-3 justify-center mx-auto "
                     role="group"
                 >
                     <ButtonPill

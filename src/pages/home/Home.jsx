@@ -31,7 +31,7 @@ const Home = () => {
                 <div className="sm:grid sm:grid-cols-4 sm:gap-5">
                     <div className="sm:col-span-3 sm:ml-1  ">
                         <div
-                            className="flex gap-1 justify-center  mt-2.5  mx-auto sm:gap-2 "
+                            className="flex gap-1 justify-center  my-3  mx-auto sm:gap-2 "
                             role="group"
                         >
                             <ButtonPill
