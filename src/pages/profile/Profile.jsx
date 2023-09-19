@@ -14,6 +14,7 @@ import followers from '../../icons/followers.svg'
 import Loading from '../../ui/Loading'
 import field from '../../icons/filed.svg'
 import SectionMatches from './components/SectionMatches'
+import Tournaments from './components/Tournaments'
 
 const Profile = () => {
     const { id } = useParams()
@@ -35,6 +36,7 @@ const Profile = () => {
                     <div className=" col-span-5  sm:col-span-2">
                         <CardProfile user={user} />
                         <SectionRating user={user} />
+                        <Tournaments user={user} />
                     </div>
                     <div className="w-full col-span-5 justify-center mx-auto sm:col-span-3 ">
                         {id === userId || exist?.length > 0 ? (

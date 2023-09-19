@@ -9,7 +9,7 @@ import { toast } from 'react-hot-toast'
 import medal from '../../icons/medal.svg'
 
 const Tournaments = () => {
-    const { data: tournaments, isLoading, isError } = useGetTournaments()
+    const { data: tournaments, isLoading, isError } = useGetTournaments(false)
 
     if (isLoading) return <Loading />
     if (isError) return toast.error('Hubo un error al cargar los torneos')
