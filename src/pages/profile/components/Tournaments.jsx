@@ -35,7 +35,7 @@ const Tournaments = ({ user }) => {
                     </Table>
                 </section>
             ) : (
-                <Alert color={'warning'}></Alert>
+                <Alert color={'warning'}> No tienes torneos ganados aún</Alert>
             )}
         </>
     )

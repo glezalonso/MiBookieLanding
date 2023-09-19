@@ -38,7 +38,7 @@ const Profile = () => {
                         <SectionRating user={user} />
                         <Tournaments user={user} />
                     </div>
-                    <div className="w-full col-span-5 justify-center mx-auto sm:col-span-3 ">
+                    <div className=" my-5 w-full col-span-5 justify-center mx-auto sm:col-span-3 ">
                         {id === userId || exist?.length > 0 ? (
                             <>
                                 <div
