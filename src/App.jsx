@@ -25,7 +25,7 @@ import NavBar from './ui/Navbar'
 import SectionFoter from './ui/SectionFooter'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
-import SectionBanner from './ui/SectionBanner'
+// import SectionBanner from './ui/SectionBanner'
 import Tournament from './pages/tournaments/Tournament'
 
 const App = () => {
@@ -71,7 +71,7 @@ const App = () => {
                     <Route path="*" element={<h1>Página no encontrada</h1>} />
                 </Routes>
                 <SectionFoter />
-                <SectionBanner />
+                {/* <SectionBanner /> */}
             </BrowserRouter>
         </>
     )
