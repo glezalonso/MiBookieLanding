@@ -12,9 +12,25 @@ const SectionFooter = () => {
         <>
             <Footer
                 container
-                className="w-full  flex flex-wrap border-t-2 space-y-2  rounded-none mt-3 p-2"
+                className="w-full  flex flex-wrap border-t-2 space-y-4  rounded-none mt-3 p-2"
             >
-                <div className="w-full flex justify-between items-center lg:w-3/4 mx-auto">
+                <div className="w-full flex flex-wrap justify-center items-center gap-6 lg:w-3/4 mx-auto">
+                    <p className="flex justify-center w-full text-gray-600 font-bold font-sans text-lg">
+                        ¡Entra, regístrate y participa!
+                    </p>
+                    {leagues?.map((league) => (
+                        <img
+                            onClick={() =>
+                                navigate(`../leagues/${league?._id}`)
+                            }
+                            key={league?._id}
+                            src={league?.poster}
+                            alt={league?.league}
+                            className="w-7 h-7 hover:scale-110"
+                        />
+                    ))}
+                </div>
+                <div className="w-full flex justify-between my-3 items-center lg:w-3/4 mx-auto">
                     <div className="flex items-center ml-1">
                         <Footer.Brand
                             src={logo}
@@ -45,22 +61,6 @@ const SectionFooter = () => {
                             Contácto
                         </Link>
                     </div>
-                </div>
-                <div className="w-full flex flex-wrap justify-center items-center gap-6 lg:w-3/4 mx-auto">
-                    <p className="flex justify-center w-full text-gray-600 font-bold font-sans text-lg">
-                        ¡Entra, regístrate y participa!
-                    </p>
-                    {leagues?.map((league) => (
-                        <img
-                            onClick={() =>
-                                navigate(`../leagues/${league?._id}`)
-                            }
-                            key={league?._id}
-                            src={league?.poster}
-                            alt={league?.league}
-                            className="w-7 h-7 hover:scale-110"
-                        />
-                    ))}
                 </div>
             </Footer>
         </>
