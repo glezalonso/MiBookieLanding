@@ -14,7 +14,7 @@ const SectionFooter = () => {
                 container
                 className="w-full  flex flex-wrap border-t-2 space-y-4  rounded-none mt-3 p-2"
             >
-                <div className="w-full flex flex-wrap justify-center items-center gap-6 lg:w-3/4 mx-auto">
+                <div className="w-full flex flex-wrap justify-center items-center gap-6 lg:w-5/6 mx-auto">
                     <p className="flex justify-center w-full text-gray-600 font-bold font-sans text-lg">
                         ¡Entra, regístrate y participa!
                     </p>
@@ -30,7 +30,7 @@ const SectionFooter = () => {
                         />
                     ))}
                 </div>
-                <div className="w-full flex justify-between my-3 items-center lg:w-3/4 mx-auto">
+                <div className="w-full flex justify-between my-3 items-center lg:w-5/6 mx-auto">
                     <div className="flex items-center ml-1">
                         <Footer.Brand
                             src={logo}

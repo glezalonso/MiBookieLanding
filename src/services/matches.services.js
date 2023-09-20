@@ -16,32 +16,19 @@ export const addComment = ({ id, body }) =>
 export const removeComment = ({ id, body }) =>
     axios.put(`/api/matches/removeComment/${id}`, body)
 
-export const getMatchesToday = async ({ pageParam = 1, date }) => {
-    const { data } = await axios.get(`/api/matches/today/${pageParam}/${date}`)
-    return data
-}
 
-export const getMatchesTodaySport = async (sport, date) => {
-    const { data } = await axios.get(
-        `/api/matches/todaybysport/${sport}/${date}`
-    )
-    return data
-}
 export const getMatchesByTeam = async (team, limit, status) => {
     const { data } = await axios.get(
         `/api/matches/team/${team}/${limit}/${status}`
     )
     return data
 }
-
 export const getMatchesByLeague = async (league, limit, status) => {
     const { data } = await axios.get(
         `/api/matches/league/${league}/${limit}/${status}`
     )
     return data
 }
-
-
 
 export const getMatchesByRound = async (round) => {
     const { data } = await axios.get(`/api/matches/round/${round}`)

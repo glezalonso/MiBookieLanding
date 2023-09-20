@@ -8,7 +8,6 @@ import matchIcon from '../../../icons/match.svg'
 import { useInView } from 'react-intersection-observer'
 
 const SectionMatches = ({ date }) => {
-    const sports = 'all'
     const { ref, inView } = useInView()
 
     const {
@@ -18,7 +17,7 @@ const SectionMatches = ({ date }) => {
         hasNextPage,
         isFetchingNextPage,
         fetchNextPage,
-    } = useGetMatchesToday(date, sports)
+    } = useGetMatchesToday(date)
 
     useEffect(() => {
         if (inView && hasNextPage) {

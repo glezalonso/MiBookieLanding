@@ -16,7 +16,6 @@ import {
     getMatchesByTeam,
     getNextMatchesBySport,
     pickEm,
-    getMatchesTodaySport,
     getHeadToHead,
 } from '../services/matches.services'
 import { toast } from 'react-hot-toast'
@@ -64,7 +63,7 @@ export const useRemoveComment = (id) => {
     return mutationRemove
 }
 
-export const useGetMatchesToday = (date, sport) => {
+export const useGetMatchesToday = (date) => {
     const {
         data,
         isError,
@@ -73,10 +72,10 @@ export const useGetMatchesToday = (date, sport) => {
         isFetchingNextPage,
         fetchNextPage,
     } = useInfiniteQuery(
-        ['matchToday', sport, date],
+        ['matchToday', date],
         async ({ pageParam = 1 }) => {
             const { data } = await axios.get(
-                `/api/matches/today/${pageParam}/${date}/${sport}`
+                `/api/matches/today/${pageParam}/${date}`
             )
             return data
         },
@@ -98,13 +97,40 @@ export const useGetMatchesToday = (date, sport) => {
     }
 }
 
-export const useGetMatchesTodaySport = (sport, date) => {
-    const { data, isLoading, isError } = useQuery({
-        queryKey: ['matchestoday', sport, date],
-        queryFn: () => getMatchesTodaySport(sport, date),
-    })
-    return { data, isLoading, isError }
+export const useGetMatchesTodaySport = (date, sport) => {
+    const {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    } = useInfiniteQuery(
+        ['matchTodayS', sport, date],
+        async ({ pageParam = 1 }) => {
+            const { data } = await axios.get(
+                `/api/matches/todaysport/${pageParam}/${date}/${sport}`
+            )
+            return data
+        },
+
+        {
+            getNextPageParam: (lastPage) => {
+                if (lastPage.page === lastPage.totalPages) return false
+                return lastPage.page + 1
+            },
+        }
+    )
+    return {
+        data,
+        isError,
+        isLoading,
+        hasNextPage,
+        isFetchingNextPage,
+        fetchNextPage,
+    }
 }
+
 
 export const useGetMatchesByTeam = (team, limit, status) => {
     const { data, isLoading, isError } = useQuery({

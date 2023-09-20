@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Alert, Badge, Spinner } from 'flowbite-react'
 import { useInView } from 'react-intersection-observer'
-import { useGetMatchesToday } from '../../../features/matches.features'
+import { useGetMatchesTodaySport } from '../../../features/matches.features'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import CardMatch from '../../comuncomponents/CardMatch'
@@ -16,7 +16,7 @@ const SectionTodayMatches = ({ sport, date }) => {
         hasNextPage,
         isFetchingNextPage,
         fetchNextPage,
-    } = useGetMatchesToday(date, sport?._id)
+    } = useGetMatchesTodaySport(date, sport?._id)
 
     useEffect(() => {
         if (inView && hasNextPage) {
