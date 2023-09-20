@@ -2,7 +2,7 @@ import React from 'react'
 import { useGetMiniTournamentWinner } from '../../../features/users.features'
 import { Table } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
-import medal from '../../../icons/medal.svg'
+
 import Loading from '../../../ui/Loading'
 
 const SectionMini = ({ round }) => {
@@ -54,13 +54,6 @@ const SectionMini = ({ round }) => {
                                     {++i}
                                 </Table.Cell>
                                 <Table.Cell className="p-1 flex justify-center ">
-                                    {i === 1 ? (
-                                        <img
-                                            src={medal}
-                                            className="w-4 h-4 mr-0.5"
-                                        />
-                                    ) : null}
-
                                     {users?.username}
                                 </Table.Cell>
                                 <Table.Cell className="p-1 text-center ">
