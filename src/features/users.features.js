@@ -15,7 +15,8 @@ import {
     sendMessage,
     getTopMonth,
     getTopMonthSport,
-    getTournamentWinner
+    getTournamentWinner,
+    getMiniTournamentWinner
 } from '../services/users.services'
 import toast from 'react-hot-toast'
 import { useAuthStore } from '../store/authorization'
@@ -234,4 +235,12 @@ export const useGetBookies = () => {
         isFetchingNextPage,
         fetchNextPage,
     }
+}
+
+export const useGetMiniTournamentWinner= (round, minimun) => {
+    const { data, isLoading, isError } = useQuery({
+        queryKey: ['minitournament', round, minimun],
+        queryFn: () => getMiniTournamentWinner(round, minimun),
+    })
+    return { data, isLoading, isError }
 }

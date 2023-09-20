@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useGetRoundsByhSeason } from '../../../features/rounds.features'
+import { useGetRoundsBySeason } from '../../../features/rounds.features'
 import { toast } from 'react-hot-toast'
 import Loading from '../../../ui/Loading'
 import { Table, Alert, TextInput } from 'flowbite-react'
@@ -11,7 +11,7 @@ const SectionRounds = ({ season }) => {
         data: rounds,
         isLoading,
         isError,
-    } = useGetRoundsByhSeason(season?._id)
+    } = useGetRoundsBySeason(season?._id)
     const navigate = useNavigate()
 
     if (isLoading) return <Loading />

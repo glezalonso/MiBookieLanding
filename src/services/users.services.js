@@ -56,3 +56,8 @@ export const getTournamentWinner = async (season, minimun) => {
     const { data } = await axios.get(`/api/bookies/tournament/${season}/${minimun}`)
     return data
 }
+
+export const getMiniTournamentWinner = async (round, minimun) => {
+    const { data } = await axios.get(`/api/bookies/minitournament/${round}/${minimun}`)
+    return data
+}

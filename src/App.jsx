@@ -26,6 +26,7 @@ import SectionFoter from './ui/SectionFooter'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 import SectionBanner from './ui/SectionBanner'
+import Tournament from './pages/tournaments/Tournament'
 
 const App = () => {
     const token = useAuthStore((state) => state.auth)
@@ -47,6 +48,10 @@ const App = () => {
                         <Route path="/profile/:id" element={<Profile />} />
                         <Route path="/bookies" element={<Bookies />} />
                         <Route path="/tournaments" element={<Tournaments />} />
+                        <Route
+                            path="/tournaments/:id"
+                            element={<Tournament />}
+                        />
                     </Route>
                     <Route path="/news" element={<News />} />
                     <Route path="/about" element={<About />} />
@@ -65,8 +70,8 @@ const App = () => {
                     <Route path="/matches/:id" element={<Matches />} />
                     <Route path="*" element={<h1>Página no encontrada</h1>} />
                 </Routes>
-                <SectionBanner />
                 <SectionFoter />
+                <SectionBanner />
             </BrowserRouter>
         </>
     )

@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import SectionTournaments from './components/SectionTournaments'
 import trophytour from '../../icons/trophytour.svg'
 import ButtonPill from '../comuncomponents/ButtonPill'
 
 const Tournaments = () => {
     const [key, setKey] = useState('open')
+    const SEASON_NFL = '649368824dfcfb3be10b483f'
+    const navigate = useNavigate()
 
     return (
         <>
@@ -30,6 +33,13 @@ const Tournaments = () => {
                         onClick={() => setKey('close')}
                     >
                         Cerrados
+                    </ButtonPill>
+                    <ButtonPill
+                        active={key === 'close'}
+                        img={trophytour}
+                        onClick={() => navigate(`../tournaments/${SEASON_NFL}`)}
+                    >
+                        Mini torneos
                     </ButtonPill>
                 </div>
                 <div className=" grid grid-cols-1 sm:grid-cols-5 sm:gap-1 md:grid-cols-10  2xl:grid-cols-9 2xl:gap-2">

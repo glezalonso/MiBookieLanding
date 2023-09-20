@@ -2,6 +2,7 @@ import React from 'react'
 import { Spinner, Table } from 'flowbite-react'
 import { useGetTournamentWinner } from '../../../features/users.features'
 import { toast } from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 
 const BookieSection = ({ season, icon, minimun }) => {
     const {

@@ -14,3 +14,8 @@ export const getRoundsBySeason = async (season) => {
     const { data } = await axios.get(`/api/rounds/season/${season}`)
     return data
 }
+
+export const getRoundsTour = async (season) => {
+    const { data } = await axios.get(`/api/rounds/tournament/${season}`)
+    return data
+}
