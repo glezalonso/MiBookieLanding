@@ -19,13 +19,13 @@ import ResetPassword from './pages/home/components/ResetPassword'
 import Bookies from './pages/bookies/Bookies'
 import News from './pages/news/News'
 import Tournaments from './pages/tournaments/Tournaments'
-
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
 import NavBar from './ui/Navbar'
 import SectionFoter from './ui/SectionFooter'
 import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
+import SectionBanner from './ui/SectionBanner'
 
 const App = () => {
     const token = useAuthStore((state) => state.auth)
@@ -65,6 +65,7 @@ const App = () => {
                     <Route path="/matches/:id" element={<Matches />} />
                     <Route path="*" element={<h1>Página no encontrada</h1>} />
                 </Routes>
+                <SectionBanner />
                 <SectionFoter />
             </BrowserRouter>
         </>

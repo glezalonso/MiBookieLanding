@@ -10,7 +10,6 @@ import SectionTop from './components/SectionTop'
 import calendar from '../../icons/calendar.svg'
 import medal from '../../icons/medal.svg'
 import SectionFollows from './components/SectionFollows'
-import banner from '../../assets/banner.jpg'
 
 const Home = () => {
     const { isLogged } = useAuthStore((state) => state)
@@ -83,11 +82,6 @@ const Home = () => {
                         </section>
                     </div>
                     <div className="hidden sm:block sm:space-y-3 sm:col-span-1 sm:mt-2 sm:mx-2">
-                        <img
-                            src={banner}
-                            alt="banner"
-                            className="w-full h-60  rounded-md"
-                        />
                         <SectionLeagues />
                         {isLogged ? <SectionFollows /> : null}
                     </div>
