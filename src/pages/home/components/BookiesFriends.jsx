@@ -11,12 +11,12 @@ const BookiesFirends = ({ show, handleClose, user }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-4/5 my-auto bg-transparent flex-row p-3 "
+                className="w-full h-4/5 mt-32 bg-gray-100 flex-row p-3  sm:mt-0"
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-gray-900 p-2 flex-row items-center ">
+                <Modal.Header className="bg-zinc-950 p-2 flex-row items-center ">
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1  ">
                             <img
@@ -61,7 +61,7 @@ const BookiesFirends = ({ show, handleClose, user }) => {
                         </Table>
                     </div>
                 </Modal.Body>
-                <Modal.Footer className="bg-gray-900 text-white p-3 justify-end">
+                <Modal.Footer className="bg-zinc-950 text-white p-3 justify-end">
                     <div className="d-flex flex-row justify-content-end ">
                         <div className="text-end">
                             Quieres buscar otro bookie?

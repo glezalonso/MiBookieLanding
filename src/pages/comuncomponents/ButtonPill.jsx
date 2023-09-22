@@ -6,8 +6,8 @@ const ButtonPill = ({ active, img, onClick, children }) => {
             <button
                 className={`${
                     active
-                        ? 'bg-gray-900 text-gray-300 '
-                        : 'text-gray-950 bg-white hover:bg-gray-900 hover:text-gray-300 '
+                        ? 'bg-zinc-800 text-gray-300 '
+                        : 'text-zinc-950 bg-white hover:bg-gray-900 hover:text-gray-300 '
                 } flex items-center rounded-2xl text-sm px-3 py-1.5`}
                 onClick={onClick}
             >

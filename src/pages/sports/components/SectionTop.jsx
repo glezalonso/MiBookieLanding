@@ -8,12 +8,12 @@ const SectionTopSport = ({ show, handleClose, sport }) => {
         <>
             <Modal
                 show={show}
-                className="w-full h-4/5 my-auto bg-transparent flex-row p-3 "
+                className="w-full h-4/5 mt-32 bg-gray-100 flex-row p-3  sm:mt-0"
                 popup
                 dismissible
                 onClose={() => handleClose()}
             >
-                <Modal.Header className="bg-gray-900 p-2  flex items-center">
+                <Modal.Header className="bg-zinc-950 p-2  flex items-center">
                     <div className="flex justify-start m-1 items-center">
                         <div className="my-1">
                             <img

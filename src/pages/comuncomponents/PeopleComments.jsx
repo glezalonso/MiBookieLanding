@@ -18,17 +18,17 @@ const PeopleComments = ({ comment }) => {
                 className="flex  p-1 justify-start mt-1 overflow-auto"
                 key={comment?._id}
             >
-                <div className="p-1  text-xs bg-gray-800 w-2/4 rounded-md  text-end">
+                <div className="p-1  text-xs bg-zinc-700 w-2/4 rounded-md  text-end">
                     <div className="flex justify-between gap-1 text-white font-bold text-xs">
                         <div
                             onClick={() =>
                                 handleNavigate(comment?.username?._id)
                             }
-                            className="ml-1 hover:cursor-pointer hover:scale-x-110"
+                            className="ml-1 hover:cursor-pointer hover:scale-x-110 hover:underline"
                         >
-                            <span>{comment?.username?.username}</span>
+                            {comment?.username?.username}
                         </div>
-                        <div className="flex ml-1 text-xs text-gray-500">
+                        <div className="flex ml-1 text-xs text-gray-200">
                             {comment?.hour}
                         </div>
                     </div>
