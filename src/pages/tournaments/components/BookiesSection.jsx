@@ -3,6 +3,7 @@ import { Spinner, Table } from 'flowbite-react'
 import { useGetTournamentWinner } from '../../../features/users.features'
 import { toast } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import { PersonCircle } from 'react-bootstrap-icons'
 
 const BookieSection = ({ season, icon, minimun }) => {
     const {
@@ -70,12 +71,11 @@ const BookieSection = ({ season, icon, minimun }) => {
                                 <Table.Cell className="p-1 text-center ">
                                     {++i}
                                 </Table.Cell>
-                                <Table.Cell className="p-1 flex justify-center ">
-                                    {season?.status ? null : (
-                                        <img
-                                            src={icon}
-                                            className="w-4 h-4 mr-0.5"
-                                        />
+                                <Table.Cell className="p-1 flex justify-start items-center mx-auto  gap-1 ">
+                                    {season?.status ? (
+                                        <PersonCircle className='"w-4 h-4' />
+                                    ) : (
+                                        <img src={icon} className="w-4 h-4" />
                                     )}
                                     {users?.username}
                                 </Table.Cell>

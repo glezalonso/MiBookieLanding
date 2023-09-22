@@ -4,6 +4,7 @@ import { Table } from 'flowbite-react'
 import { toast } from 'react-hot-toast'
 
 import Loading from '../../../ui/Loading'
+import { PersonCircle } from 'react-bootstrap-icons'
 
 const SectionMini = ({ round }) => {
     let i = 0
@@ -20,8 +21,8 @@ const SectionMini = ({ round }) => {
 
     return (
         <>
-            <section className=" bg-white rounded p-1 my-1 shadow-2xl col-span-8 sm:col-span-4  ">
-                <h1 className=" flex items-center border-b-2 p-2 gap-1 my-2 mx-1 text-lg font-bold text-gray-800">
+            <section className=" bg-white rounded-3xl p-1 my-1 shadow-xl border col-span-8 sm:col-span-4  ">
+                <h1 className=" flex items-center border-b-2 p-2 gap-1 my-1 mx-1 text-lg font-bold text-gray-800">
                     <img
                         src={round?.league?.poster}
                         alt="trofeo"
@@ -29,7 +30,7 @@ const SectionMini = ({ round }) => {
                     />
                     {round?.league?.league}-{round?.round}
                 </h1>
-                <Table hoverable className="table-auto text-xs my-1">
+                <Table hoverable className="table-auto text-xs my-2">
                     <Table.Head>
                         <Table.HeadCell className="p-1 text-center">
                             #
@@ -53,7 +54,8 @@ const SectionMini = ({ round }) => {
                                 <Table.Cell className="p-1 text-center ">
                                     {++i}
                                 </Table.Cell>
-                                <Table.Cell className="p-1 flex justify-center ">
+                                <Table.Cell className="p-1 flex justify-start gap-1 ">
+                                    <PersonCircle className="h-4 w-4" />{' '}
                                     {users?.username}
                                 </Table.Cell>
                                 <Table.Cell className="p-1 text-center ">

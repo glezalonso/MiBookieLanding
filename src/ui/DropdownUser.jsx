@@ -4,9 +4,9 @@ import { Dropdown, Avatar } from 'flowbite-react'
 import { useGetBookie } from '../features/users.features'
 import BookiesFirends from '../pages/home/components/BookiesFriends'
 import avatar from '../icons/avatar.svg'
-import bookieswhite from '../icons/bookieswhite.svg'
 import { PersonCircle } from 'react-bootstrap-icons'
-import leagues from '../icons/leagues.svg'
+import bookies from '../icons/bookies.svg'
+import trophytour from '../icons/trophytour.svg'
 
 const DropdownUser = ({ username, id, handleLogOut }) => {
     const { data: user } = useGetBookie(id)
@@ -34,7 +34,7 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                         className="flex gap-1 text-sm text-gray-600 hover:underline hover:text-cyan-500"
                         to={`../profile/${id}`}
                     >
-                        <PersonCircle className="h-4 w-4" /> {username}
+                        <PersonCircle className="h-5 w-5" /> {username}
                     </Link>
                 </Dropdown.Item>
                 <Dropdown.Item className="p-1 mb-1 mx-auto flex ">
@@ -43,9 +43,9 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                         to={`../tournaments`}
                     >
                         <img
-                            src={leagues}
+                            src={trophytour}
                             alt="Bookies icon"
-                            className="h-4 w-4"
+                            className="h-5 w-5"
                         />
                         Torneos
                     </Link>
@@ -56,9 +56,9 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                         onClick={() => handleShow()}
                     >
                         <img
-                            src={bookieswhite}
+                            src={bookies}
                             alt="Bookies icon"
-                            className="h-4 w-4"
+                            className="h-5 w-5"
                         />
                         Bookies
                     </Link>

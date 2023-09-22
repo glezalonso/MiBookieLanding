@@ -66,7 +66,7 @@ function NavBar() {
                             <img
                                 src={home}
                                 alt="home"
-                                className="w-5 h-5 mx-auto "
+                                className="w-6 h-6 mx-auto "
                             />
                             Inicio
                         </Link>
@@ -101,7 +101,7 @@ function NavBar() {
                             <img
                                 src={newspaper}
                                 alt="newspaper"
-                                className="w-5 h-5 mx-auto "
+                                className="w-6 h-6 mx-auto "
                             />
                             Noticias
                         </Link>
