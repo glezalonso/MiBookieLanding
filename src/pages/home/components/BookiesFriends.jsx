@@ -32,7 +32,7 @@ const BookiesFirends = ({ show, handleClose, user }) => {
                         </div>
                     </div>
                 </Modal.Header>
-                <Modal.Body className="max-h-screen overflow-auto p-1">
+                <Modal.Body className="max-h-96 overflow-auto p-1">
                     <div>
                         <Table hoverable className="table-auto my-1 text-sm">
                             <Table.Body>

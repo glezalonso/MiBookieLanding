@@ -54,7 +54,7 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="w-full flex justify-evenly gap-1 items-center p-1 order-1 mx-auto mt-3 mb-1 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
+                    <div className="w-full flex justify-evenly gap-1 items-center px-1 order-1 mx-auto mt-3 mb-1 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
                         <Link
                             to={'/'}
                             className={`${
