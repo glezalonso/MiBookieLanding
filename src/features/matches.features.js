@@ -56,7 +56,8 @@ export const useRemoveComment = (id) => {
         mutationFn: removeComment,
         onSuccess: () => {
             toast.success('Comentario eliminado')
-            queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
+             queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
+            queryClient.invalidateQueries({ queryKey: ['match'] })
             queryClient.invalidateQueries({ queryKey: ['matchToday'] })
         },
     })
@@ -178,8 +179,9 @@ export const useAddPickEm = () => {
         mutationFn: pickEm,
         onSuccess: () => {
             toast.success('Voto agregado')
-            queryClient.invalidateQueries({ queryKey: ['matchToday'] })
+            queryClient.invalidateQueries({ queryKey: ['matchestoday'] })
             queryClient.invalidateQueries({ queryKey: ['match'] })
+            queryClient.invalidateQueries({ queryKey: ['matchToday'] })
         },
         onError: () => toast.error('Ya se ha colocado su voto'),
     })

@@ -20,8 +20,8 @@ const SectionMini = ({ round }) => {
 
     return (
         <>
-            <section className=" bg-white rounded p-1 my-3 shadow-lg col-span-8 sm:col-span-4  ">
-                <h1 className=" flex items-center  gap-1 my-2 mx-1 text-lg font-bold text-gray-800">
+            <section className=" bg-white rounded p-1 my-1 shadow-2xl col-span-8 sm:col-span-4  ">
+                <h1 className=" flex items-center border-b-2 p-2 gap-1 my-2 mx-1 text-lg font-bold text-gray-800">
                     <img
                         src={round?.league?.poster}
                         alt="trofeo"

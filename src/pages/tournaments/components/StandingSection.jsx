@@ -20,8 +20,8 @@ const StandingSection = ({ season, icon }) => {
         <>
             <Table>
                 <Table.Body>
-                    <Table.Row className="flex justify-between ">
-                        <Table.Cell className="p-1 flex items-center mr-auto gap-1">
+                    <Table.Row className="flex justify-between border-b-2 p-1 ">
+                        <Table.Cell className="p-1 flex items-center mr-auto gap-1 ">
                             <img
                                 src={data?.league?.poster}
                                 className="w-10 h-10"

@@ -20,7 +20,7 @@ const Tournament = () => {
                     <img src={trophytour} alt="trofeo" className="h-7 w-7" />
                     Mini Torneos
                 </h1>
-                <section className="grid grid-cols-8 gap-2 ">
+                <section className="grid grid-cols-8 gap-2">
                     {round?.map((match) => (
                         <SectionMini key={match?._id} round={match} />
                     ))}
