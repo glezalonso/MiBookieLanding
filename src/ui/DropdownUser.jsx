@@ -6,7 +6,6 @@ import BookiesFirends from '../pages/home/components/BookiesFriends'
 import avatar from '../icons/avatar.svg'
 import { PersonCircle } from 'react-bootstrap-icons'
 import bookies from '../icons/bookies.svg'
-import trophytour from '../icons/trophytour.svg'
 
 const DropdownUser = ({ username, id, handleLogOut }) => {
     const { data: user } = useGetBookie(id)
@@ -37,19 +36,7 @@ const DropdownUser = ({ username, id, handleLogOut }) => {
                         <PersonCircle className="h-5 w-5" /> {username}
                     </Link>
                 </Dropdown.Item>
-                <Dropdown.Item className="p-1 mb-1 mx-auto flex ">
-                    <Link
-                        className="flex gap-1 text-sm text-gray-600 hover:underline hover:text-cyan-500"
-                        to={`../tournaments`}
-                    >
-                        <img
-                            src={trophytour}
-                            alt="Bookies icon"
-                            className="h-5 w-5"
-                        />
-                        Torneos
-                    </Link>
-                </Dropdown.Item>
+
                 <Dropdown.Item className="p-1 mb-1  mx-auto flex">
                     <Link
                         className="flex gap-1 text-sm text-gray-600 hover:underline hover:text-cyan-500"

@@ -7,8 +7,9 @@ import Login from '../pages/home/components/Login'
 import Register from '../pages/home/components/Register'
 import logo from '../assets/mibookie.png'
 import DropdownUser from './DropdownUser'
-import newspaper from '../icons/newspaper.svg'
+import trophytour from '../icons/trophytour.svg'
 import home from '../icons/home.svg'
+import newspaper from '../icons/newspaper.svg'
 
 function NavBar() {
     const { username, id } = useAuthStore((state) => state.profile)
@@ -90,21 +91,39 @@ function NavBar() {
                                 {sport?.sport?.slice(0, 9)}
                             </Link>
                         ))}
-                        <Link
-                            to={'../news'}
-                            className={`${
-                                pathname === '/news'
-                                    ? 'text-white  scale-110'
-                                    : ' text-gray-400'
-                            } text-xs items-center lg:flex  lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
-                        >
-                            <img
-                                src={newspaper}
-                                alt="newspaper"
-                                className="w-6 h-6 mx-auto "
-                            />
-                            Noticias
-                        </Link>
+                        {username ? (
+                            <Link
+                                to={'../tournaments'}
+                                className={`${
+                                    pathname === '/tournaments'
+                                        ? 'text-white  scale-110'
+                                        : ' text-gray-400'
+                                } text-xs items-center lg:flex  lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
+                            >
+                                <img
+                                    src={trophytour}
+                                    alt="Bookies icon"
+                                    className="w-6 h-6 mx-auto "
+                                />
+                                Torneos
+                            </Link>
+                        ) : (
+                            <Link
+                                to={`../news`}
+                                className={`${
+                                    pathname === '/news'
+                                        ? 'text-white  scale-110'
+                                        : ' text-gray-400'
+                                } text-xs items-center lg:flex  lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
+                            >
+                                <img
+                                    src={newspaper}
+                                    alt="Bookies icon"
+                                    className="w-6 h-6 mx-auto "
+                                />
+                                Noticias
+                            </Link>
+                        )}
                     </div>
 
                     <div className="flex p-1 text-white ml-auto sm:ml-auto lg:mx-auto  sm:order-3 ">
