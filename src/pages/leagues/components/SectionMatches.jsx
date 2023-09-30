@@ -48,7 +48,7 @@ const SectionMatches = ({ league, status, title }) => {
                         onChange={(e) => setFilter(e.target.value)}
                     />
 
-                    <SelectFilter setLimit={setLimit} />
+                    <SelectFilter title={title} setLimit={setLimit} />
                 </div>
 
                 {matchesByFilter?.length > 0 ? (
