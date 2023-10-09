@@ -58,7 +58,7 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="w-full flex justify-between gap-2.5 overflow-scroll  items-center order-1 mt-3 mb-2 sm:mt-3 sm:overflow-hidden sm:w-max sm:gap-2 lg:gap-2.5 ">
+                    <div className="w-full flex justify-between gap-2.5 overflow-x-scroll overflow-y-hidden sm:overflow-hidden  items-center order-1 mt-3 mb-1.5 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
                         <Link
                             to={'/'}
                             className={`${
