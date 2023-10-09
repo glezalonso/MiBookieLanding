@@ -10,6 +10,9 @@ import DropdownUser from './DropdownUser'
 import trophytour from '../icons/trophytour.svg'
 import home from '../icons/home.svg'
 import newspaper from '../icons/newspaper.svg'
+import chat from '../icons/chat.svg'
+import seemore from '../icons/seemore.svg'
+import { Dropdown, Avatar } from 'flowbite-react'
 
 function NavBar() {
     const { username, id } = useAuthStore((state) => state.profile)
@@ -55,7 +58,7 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="w-full flex justify-evenly gap-1 items-center px-1 order-1 mx-auto mt-3 mb-1 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
+                    <div className="w-full flex justify-between gap-2.5 overflow-scroll  items-center order-1 mt-3 mb-2 sm:mt-3 sm:overflow-hidden sm:w-max sm:gap-2 lg:gap-2.5 ">
                         <Link
                             to={'/'}
                             className={`${
@@ -91,6 +94,22 @@ function NavBar() {
                                 {sport?.sport?.slice(0, 9)}
                             </Link>
                         ))}
+                        <Link
+                            to={'/forum'}
+                            className={`${
+                                pathname === '/forum'
+                                    ? 'text-white scale-110'
+                                    : ' text-gray-400'
+                            } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
+                        >
+                            <img
+                                src={chat}
+                                alt="chat"
+                                className="w-6 h-6 mx-auto "
+                            />
+                            Foro
+                        </Link>
+
                         {username ? (
                             <Link
                                 to={'../tournaments'}
@@ -98,7 +117,7 @@ function NavBar() {
                                     pathname === '/tournaments'
                                         ? 'text-white  scale-110'
                                         : ' text-gray-400'
-                                } text-xs items-center lg:flex  lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
+                                } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
                             >
                                 <img
                                     src={trophytour}
@@ -107,25 +126,24 @@ function NavBar() {
                                 />
                                 Torneos
                             </Link>
-                        ) : (
-                            <Link
-                                to={`../news`}
-                                className={`${
-                                    pathname === '/news'
-                                        ? 'text-white  scale-110'
-                                        : ' text-gray-400'
-                                } text-xs items-center lg:flex  lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
-                            >
-                                <img
-                                    src={newspaper}
-                                    alt="Bookies icon"
-                                    className="w-6 h-6 mx-auto "
-                                />
-                                Noticias
-                            </Link>
-                        )}
-                    </div>
+                        ) : null}
 
+                        <Link
+                            to={`../news`}
+                            className={`${
+                                pathname === '/news'
+                                    ? 'text-white  scale-110'
+                                    : ' text-gray-400'
+                            } text-xs items-center lg:flex lg:gap-1 lg:text-sm  hover:text-white hover:scale-110`}
+                        >
+                            <img
+                                src={newspaper}
+                                alt="Bookies icon"
+                                className="w-6 h-6 mx-auto "
+                            />
+                            Noticias
+                        </Link>
+                    </div>
                     <div className="flex p-1 text-white ml-auto sm:ml-auto lg:mx-auto  sm:order-3 ">
                         {username ? (
                             <DropdownUser
