@@ -27,6 +27,7 @@ import About from './pages/about/About'
 import Contact from './pages/contact/Contact'
 // import SectionBanner from './ui/SectionBanner'
 import Tournament from './pages/tournaments/Tournament'
+import Forum from './pages/forum/Forum'
 
 const App = () => {
     const token = useAuthStore((state) => state.auth)
@@ -53,6 +54,7 @@ const App = () => {
                             element={<Tournament />}
                         />
                     </Route>
+                    <Route path="/forum" element={<Forum />} />
                     <Route path="/news" element={<News />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />

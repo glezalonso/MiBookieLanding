@@ -1,3 +1,4 @@
+import { comment } from 'postcss'
 import { toast } from 'react-hot-toast'
 
 export const validateRegister = (values) => {
@@ -47,4 +48,10 @@ export const validateResetPassword = (values) => {
         return toast.error('La contraseña no debe contener espacios')
     if (values.password !== values.confirmPassword)
         toast.error('Las contraseñas deben de ser iguales')
+}
+
+
+export const validatePost = (values) => {
+     if (values.message.length < 1)
+            return toast.error('El mensaje debe tener contenido')
 }
