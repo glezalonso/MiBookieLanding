@@ -127,12 +127,14 @@ const Forum = () => {
                                         ?.split('T', 2)
                                         .join(' ')
                                         .slice(0, 16)}
-                                    <XCircleFill
-                                        color="red"
-                                        onClick={() =>
-                                            handleDelete(message?._id)
-                                        }
-                                    />{' '}
+                                    {message?.user?._id === userId && (
+                                        <XCircleFill
+                                            color="red"
+                                            onClick={() =>
+                                                handleDelete(message?._id)
+                                            }
+                                        />
+                                    )}{' '}
                                 </span>
                             </div>
                             <p className="break-words border-b-2 p-2 text-sm my-3">
