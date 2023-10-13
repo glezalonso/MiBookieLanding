@@ -15,6 +15,7 @@ import getHour from '../../utils/getHour'
 import People from './components/People'
 import Personal from './components/Personal'
 import { validatePost } from '../../helpers/validations'
+import { toast } from 'react-hot-toast'
 
 const Forum = () => {
     const [file, setFile] = useState()
@@ -66,7 +67,7 @@ const Forum = () => {
         addComment.mutate({ id, body: { comment, hour, username: userId } })
         setComment('')
     }
-    console.log()
+
     return (
         <main className="container mx-auto min-h-screen p-1 lg:w-4/6">
             <div className="max-w-full mx-auto bg-white my-1 p-5 rounded-lg lg:w-3/4 shadow-xl">
