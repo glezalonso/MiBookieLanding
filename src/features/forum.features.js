@@ -24,7 +24,7 @@ import { toast} from 'react-hot-toast'
         mutationFn:createMessage,
         onSuccess: () => {
             toast.success('Mensaje creado')
-            queryClient.invalidateQueries({ queryKey: ['forums'] })
+             queryClient.invalidateQueries({ queryKey:['forums'] })
         },
     })
     return mutationCreate
@@ -36,7 +36,7 @@ import { toast} from 'react-hot-toast'
         mutationFn:updateMessage,
         onSuccess: () => {
             toast.success('Mensaje actualizado')
-            queryClient.invalidateQueries({ queryKey: ['forums'] })
+            queryClient.invalidateQueries({ queryKey:['forums'] })
         },
     })
     return mutationUpdate
@@ -48,7 +48,7 @@ import { toast} from 'react-hot-toast'
         mutationFn: deleteMessage,
         onSuccess: () => {
             toast.success('Mensaje Eliminado')
-            queryClient.invalidateQueries({ queryKey:['forums'] })
+          queryClient.invalidateQueries({ queryKey:['forums'] })
         },
     })
     return mutationDelete
@@ -61,6 +61,7 @@ export const useAddcomment = () => {
         onSuccess: () => {
             toast.success('Comentario Agregado!')
             queryClient.invalidateQueries({ queryKey:['forums'] })
+           
         },
     })
     return mutationAdd
