@@ -33,7 +33,7 @@ const Home = () => {
                     <div className="sm:col-span-3 sm:ml-1  ">
                         {/* Section menu tap */}
                         <div
-                            className="flex gap-1 justify-center my-3 mx-auto sm:gap-2 "
+                            className="flex gap-0.5 justify-center my-3 mx-auto sm:gap-2 "
                             role="group"
                         >
                             <ButtonPill
