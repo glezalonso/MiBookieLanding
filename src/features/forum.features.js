@@ -25,6 +25,7 @@ import { toast} from 'react-hot-toast'
         onSuccess: () => {
             toast.success('Mensaje creado')
              queryClient.invalidateQueries({ queryKey:['forums'] })
+            queryClient.invalidateQueries({ queryKey:['forum'] })
         },
     })
     return mutationCreate

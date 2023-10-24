@@ -58,7 +58,7 @@ function NavBar() {
                             </span>
                         </Link>
                     </div>
-                    <div className="w-full flex justify-between gap-2.5 overflow-x-scroll overflow-y-hidden sm:overflow-hidden  items-center order-1 mt-4 pb-2.5 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
+                    <div className="w-full flex justify-between gap-2.5 items-center order-1 mt-4 pb-2.5 sm:mt-3  sm:w-max sm:gap-2 lg:gap-2.5 ">
                         <Link
                             to={'/'}
                             className={`${
@@ -94,7 +94,7 @@ function NavBar() {
                                 {sport?.sport?.slice(0, 9)}
                             </Link>
                         ))}
-                        <Link
+                        {/* <Link
                             to={'/forum'}
                             className={`${
                                 pathname === '/forum'
@@ -108,7 +108,7 @@ function NavBar() {
                                 className="w-6 h-6 mx-auto "
                             />
                             Foro
-                        </Link>
+                        </Link> */}
 
                         {username ? (
                             <Link
@@ -127,7 +127,7 @@ function NavBar() {
                                 Torneos
                             </Link>
                         ) : null}
-
+                        {/* 
                         <Link
                             to={`../news`}
                             className={`${
@@ -142,7 +142,7 @@ function NavBar() {
                                 className="w-6 h-6 mx-auto "
                             />
                             Noticias
-                        </Link>
+                        </Link> */}
                     </div>
                     <div className="flex p-1 text-white ml-auto sm:ml-auto lg:mx-auto  sm:order-3 ">
                         {username ? (

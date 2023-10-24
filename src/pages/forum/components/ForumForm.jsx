@@ -38,7 +38,7 @@ const ForumForm = () => {
 
     return (
         <>
-            <section className=" flex justify-center items-center mb-1">
+            <section className=" flex justify-center items-center mb-10">
                 <form
                     ref={ref}
                     className="w-full  text-sm space-y-2"
@@ -53,19 +53,18 @@ const ForumForm = () => {
                         placeholder="Escribe tu mensaje"
                         className="w-full rounded-md text-gray-600 text-sm"
                     />
+                    <div className="w-full flex justify-between mt-2  ">
+                        <input
+                            className="rounded-md p-0 w-2/4 text-xs ml-2"
+                            type="file"
+                            name="image"
+                            id="image"
+                            onChange={onUpload}
+                        />
 
-                    <input
-                        className="rounded-md p-0 text-xs self-end"
-                        type="file"
-                        name="image"
-                        id="image"
-                        onChange={onUpload}
-                    />
-
-                    <div className="w-full flex justify-end">
                         <Button
                             size="xs"
-                            className="mt-2"
+                            className="mr-2"
                             color="warning"
                             type="submit"
                         >

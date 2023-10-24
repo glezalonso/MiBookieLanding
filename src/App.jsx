@@ -17,7 +17,7 @@ import GenerateCode from './pages/home/components/GenerateCode'
 import VerifyCode from './pages/home/components/VerifyCode'
 import ResetPassword from './pages/home/components/ResetPassword'
 import Bookies from './pages/bookies/Bookies'
-import News from './pages/news/News'
+// import News from './pages/news/News'
 import Tournaments from './pages/tournaments/Tournaments'
 import { useAuthStore } from './store/authorization'
 import decode from 'jwt-decode'
@@ -55,7 +55,7 @@ const App = () => {
                         />
                     </Route>
                     <Route path="/forum" element={<Forum />} />
-                    <Route path="/news" element={<News />} />
+                    {/* <Route path="/news" element={<News />} /> */}
                     <Route path="/about" element={<About />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/generate" element={<GenerateCode />} />

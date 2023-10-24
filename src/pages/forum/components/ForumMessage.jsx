@@ -59,16 +59,16 @@ const ForumMessage = ({ message }) => {
                                                 handleDelete(message?._id)
                                             }
                                         />
-                                    )}{' '}
+                                    )}
                                 </span>
                             </div>
                             <p className="break-words border-b-2 p-2 text-sm my-3">
                                 {message.message}
                             </p>
-                            {message?.images?.length > 0 && (
+                            {message?.images?.secure_url?.length > 0 && (
                                 <div className="flex items-center justify-center p-3">
                                     <img
-                                        src={message?.images}
+                                        src={message?.images?.secure_url}
                                         alt="images"
                                         className="rounded-t-lg w-auto "
                                     />
