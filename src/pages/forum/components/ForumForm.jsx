@@ -4,6 +4,7 @@ import { useFormik } from 'formik'
 import { validatePost } from '../../../helpers/validations'
 import { useCreateMessage } from '../../../features/forum.features'
 import { Button } from 'flowbite-react'
+import toast from 'react-hot-toast'
 
 const ForumForm = () => {
     const [file, setFile] = useState()
@@ -21,6 +22,8 @@ const ForumForm = () => {
         validateOnBlur: false,
         validateOnChange: false,
         onSubmit: (values) => {
+            if (!userId)
+                return toast.error('Debes iniciar sesión para comentar')
             values = Object.assign(values, {
                 user: userId,
                 image: file,
