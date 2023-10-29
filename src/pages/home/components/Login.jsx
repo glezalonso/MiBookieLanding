@@ -70,14 +70,14 @@ const Login = ({ show, handleClose, handleRegister }) => {
                         </div>
                     </form>
 
-                    <div className="flex justify-between mt-3 gap-1 text-sm font-medium">
+                    {/* <div className="flex justify-between mt-3 gap-1 text-sm font-medium">
                         <div className=" justify-start">
-                            {/* <Link
+                            <Link
                                 to={'../generate'}
                                 className="text-cyan-950 underline   hover:text-cyan-700"
                             >
                                 Olvidaste tu contraseña?
-                            </Link> */}
+                            </Link>
                         </div>
 
                         <div>
@@ -89,7 +89,7 @@ const Login = ({ show, handleClose, handleRegister }) => {
                                 Crea un cuenta
                             </Link>
                         </div>
-                    </div>
+                    </div> */}
                 </Modal.Body>
             </Modal>
         </>
