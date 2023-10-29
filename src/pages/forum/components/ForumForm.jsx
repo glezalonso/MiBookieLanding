@@ -58,7 +58,7 @@ const ForumForm = () => {
                     />
                     <div className="w-full flex justify-between mt-2  ">
                         <input
-                            className="rounded-md p-0 w-2/4 text-xs ml-2"
+                            className="rounded-md p-0 w-2/4 text-xs ml-3"
                             type="file"
                             name="image"
                             id="image"

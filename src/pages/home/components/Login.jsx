@@ -72,12 +72,12 @@ const Login = ({ show, handleClose, handleRegister }) => {
 
                     <div className="flex justify-between mt-3 gap-1 text-sm font-medium">
                         <div className=" justify-start">
-                            <Link
+                            {/* <Link
                                 to={'../generate'}
                                 className="text-cyan-950 underline   hover:text-cyan-700"
                             >
                                 Olvidaste tu contraseña?
-                            </Link>
+                            </Link> */}
                         </div>
 
                         <div>
