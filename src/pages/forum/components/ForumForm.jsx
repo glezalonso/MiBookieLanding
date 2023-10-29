@@ -22,16 +22,16 @@ const ForumForm = () => {
         validateOnBlur: false,
         validateOnChange: false,
         onSubmit: (values) => {
-            if (!userId)
-                return toast.error('Debes iniciar sesión para comentar')
-            values = Object.assign(values, {
-                user: userId,
-                image: file,
-                date,
-            })
-            create.mutate(values)
-            formik.resetForm()
-            ref.current.reset()
+            // if (!userId)
+            //     return toast.error('Debes iniciar sesión para comentar')
+            // values = Object.assign(values, {
+            //     user: userId,
+            //     image: file,
+            //     date,
+            // })
+            // create.mutate(values)
+            // formik.resetForm()
+            // ref.current.reset()
         },
     })
 
